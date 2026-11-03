@@ -1,0 +1,22 @@
+# Never commit game files or anything derived from them
+*.xex
+*.iso
+*.god
+*.xcp
+*.big
+*.arena
+/game/
+/dump/
+/extracted/
+/private/
+
+# Build output
+/build/
+/out/
+*.o
+*.obj
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
