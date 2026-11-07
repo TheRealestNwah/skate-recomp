@@ -4,8 +4,8 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 
 ## M0 — Toolchain setup
 
-- [ ] One script installs everything needed on Windows: LLVM/Clang, CMake, Ninja, Visual Studio Build Tools (Windows SDK) and an XISO extractor.
-- [ ] A local, uncommitted config file points the build at the user's own disc image and an extraction folder outside the repo.
+- [x] One script installs everything needed on Windows: LLVM/Clang, CMake, Ninja, Visual Studio Build Tools (Windows SDK) and an XISO extractor.
+- [x] A local, uncommitted config file points the build at the user's own disc image and an extraction folder outside the repo.
 
 ## M1 — Dump inspection ([#3](https://github.com/TheRealestNwah/skate-recomp/issues/3))
 
