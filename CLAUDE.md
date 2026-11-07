@@ -9,12 +9,15 @@ Research and tooling toward a native PC port of **skate.** (Xbox 360, 2007) via 
 
 ## Status
 
-Windows toolchain setup is available. The Port build and tests are tracked in M3.
+Windows toolchain setup and disc inspection are available. The Port build is tracked in M3.
 
 ## Layout
 
 - `docs/research/` — numbered research notes (`01-initial-survey.md`, ...). Claims cite sources; reasoning is marked **[Inference]**.
 - `scripts/setup.ps1` — installs the Windows toolchain.
+- `scripts/extract-disc.ps1` — extracts a locally configured disc outside the checkout.
+- `scripts/build-tools.ps1` — builds the headless XEX inspector against the pinned SDK.
+- `tools/` — XEX inspection, disc inventory and parser tests.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
 - `.github/workflows/ci.yml` — CI checks Markdown, PowerShell syntax and the local config template, plus a guard that fails if game files are tracked.
 - `.markdownlint.json` — lint config (line length, inline HTML and first-line-heading rules off).
@@ -46,10 +49,25 @@ The setup script verifies the Visual Studio components and runs `extract-xiso -v
 
 The extractor's license is saved alongside its executable. This product includes software developed by in <in@fishtank.com>.
 
-## Lint
+## Local disc inspection
+
+From the repository root, after filling in `local.json`:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\extract-disc.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-tools.ps1
+$config = Get-Content -Raw local.json | ConvertFrom-Json
+.\build\research-tools\inspect_xex.exe (Join-Path $config.skate.extracted 'default.xex')
+python -B tools/inspect_disc.py --output build/skate-disc.json
+```
+
+The build script installs [upstream ReXGlue SDK 0.10.1](https://github.com/rexglue/rexglue-sdk/releases/tag/v0.10.1) and preserves its BSD license with the installed SDK. The headless inspector saves its report and decoded image in `.inspection/` next to the extracted XEX. Keep that directory local.
+
+## Lint and tests
 
 ```bash
 npx markdownlint-cli2 "**/*.md"
+python -B -m unittest discover -s tools -p 'test_*.py'
 ```
 
 ## Game files (most important rule)
