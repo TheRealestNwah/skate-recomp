@@ -22,6 +22,10 @@ longjmp_address = 0x82E48B60
 0x8302FE80 = { end = 0x8302FFD8 }
 0x83035380 = { end = 0x830354D8 }
 
+# Leaf entries reached indirectly through the startup initializer table.
+0x83030F28 = { end = 0x83030FE4 }
+0x83034680 = { end = 0x8303473C }
+
 # The leaf at 0x82BC20B8 checks r5 <= 5 and dispatches through six absolute
 # case pointers in .text. Keep the table out of the instruction stream.
 [[switch_tables]]
