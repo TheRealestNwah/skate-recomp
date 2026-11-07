@@ -63,6 +63,8 @@ python -B tools/inspect_disc.py --output build/skate-disc.json
 
 The build script installs [upstream ReXGlue SDK 0.10.1](https://github.com/rexglue/rexglue-sdk/releases/tag/v0.10.1) and preserves its BSD license with the installed SDK. The headless inspector saves its report and decoded image in `.inspection/` next to the extracted XEX. Keep that directory local.
 
+For Skate 3, pass `-Title skate3` to the extraction script, point `inspect_xex.exe` at `(Join-Path $config.skate3.extracted 'default.xex')` and run the inventory with `--title skate3 --output build/skate3-disc.json`.
+
 ## Lint and tests
 
 ```bash
