@@ -15,8 +15,8 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 
 ## M2 — Engine diff against Skate 3 ([#4](https://github.com/TheRealestNwah/skate-recomp/issues/4))
 
-- [ ] Compare imports, strings and middleware signatures between the skate. and Skate 3 XEXs.
-- [ ] Write up what carries over (engine, archive formats, video codec, audio).
+- [x] Compare imports, strings and middleware signatures between the skate. and Skate 3 XEXs.
+- [x] Write up what carries over (engine, archive formats, video codec, audio) in [the engine comparison](docs/research/03-engine-diff.md).
 
 ## M3 — Title screen boot ([#5](https://github.com/TheRealestNwah/skate-recomp/issues/5))
 

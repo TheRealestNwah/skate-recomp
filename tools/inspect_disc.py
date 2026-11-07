@@ -44,8 +44,21 @@ def inspect_xex(path):
 def inspect_big(path):
     size = path.stat().st_size
     with path.open("rb") as archive:
-        header = archive.read(16)
+        header = archive.read(32)
         magic = header[:4]
+        if magic == b"EB\x00\x03":
+            count, alignment, index_variant, _, directory_end = struct.unpack_from(">IHBBI", header, 4)
+            declared_size = struct.unpack_from(">I", header, 28)[0]
+            if declared_size != size or not 32 <= directory_end <= size:
+                raise ValueError(f"Invalid EB v3 header size: {path}")
+            return {
+                "magic": "EB v3",
+                "size": size,
+                "entries": count,
+                "directory_end": directory_end,
+                "alignment": alignment,
+                "index_variant": index_variant,
+            }
         if magic not in (b"BIG4", b"BIGF"):
             raise ValueError(f"Unrecognized BIG archive: {path}")
         declared_size = struct.unpack_from("<I", header, 4)[0]
@@ -54,6 +67,7 @@ def inspect_big(path):
             raise ValueError(f"Invalid BIG header size: {path}")
         if count > (directory_end - 16) // 9:
             raise ValueError(f"Invalid BIG directory count: {path}")
+        archive.seek(16)
         directory = archive.read(directory_end - 16)
 
     entries = []
