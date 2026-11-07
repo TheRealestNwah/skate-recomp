@@ -9,6 +9,7 @@
 /dump/
 /extracted/
 /private/
+/local.json
 
 # Build output
 /build/

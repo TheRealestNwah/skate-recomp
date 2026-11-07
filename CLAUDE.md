@@ -9,13 +9,42 @@ Research and tooling toward a native PC port of **skate.** (Xbox 360, 2007) via 
 
 ## Status
 
-Docs only so far: no code, build or tests yet. When code lands, add build/test/lint commands here and extend CI to build and test the repo's own code.
+Windows toolchain setup is available. The Port build and tests are tracked in M3.
 
 ## Layout
 
 - `docs/research/` — numbered research notes (`01-initial-survey.md`, ...). Claims cite sources; reasoning is marked **[Inference]**.
-- `.github/workflows/ci.yml` — CI: markdownlint on all `*.md`, plus a guard that fails if game files are tracked.
+- `scripts/setup.ps1` — installs the Windows toolchain.
+- `local.json.example` — template for paths to your own disc images and extraction folders.
+- `.github/workflows/ci.yml` — CI checks Markdown, PowerShell syntax and the local config template, plus a guard that fails if game files are tracked.
 - `.markdownlint.json` — lint config (line length, inline HTML and first-line-heading rules off).
+
+## Windows setup
+
+Run from the repository root on x64 Windows 11 with WinGet, Git and Python 3.13 available. The installers may request administrator approval.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+```
+
+The script installs LLVM/Clang, CMake and Ninja via WinGet. It uses an existing Visual Studio 2022 or later instance with the C++ toolset and Windows SDK 26100 when available, and otherwise sets up Visual Studio 2022 Build Tools. It also installs the [pinned XboxDev extract-xiso release](https://github.com/XboxDev/extract-xiso/releases/tag/build-202609111233) under the ignored `build/tools/` directory and checks its SHA-256 before unpacking.
+
+Edit the generated `local.json` with absolute paths. Set `skate.iso` to your disc image and `skate.extracted` to an extraction folder next to it, outside the checkout. The `skate3` paths are for comparison research only.
+
+Open a new terminal after installing. The LLVM installer may leave its bin directory off PATH. Add it for the current PowerShell session if needed, then verify the tools.
+
+```powershell
+if (-not (Get-Command clang++ -ErrorAction SilentlyContinue)) {
+    $env:Path = "$env:ProgramFiles\LLVM\bin;$env:Path"
+}
+clang++ --version
+cmake --version
+ninja --version
+```
+
+The setup script verifies the Visual Studio components and runs `extract-xiso -v`.
+
+The extractor's license is saved alongside its executable. This product includes software developed by in <in@fishtank.com>.
 
 ## Lint
 

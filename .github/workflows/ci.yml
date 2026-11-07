@@ -20,3 +20,18 @@ jobs:
             echo "Game binaries/assets must not be committed." >&2
             exit 1
           fi
+
+  tooling:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check PowerShell syntax and local config template
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Get-ChildItem scripts -Filter '*.ps1' -Recurse | ForEach-Object {
+            $parseErrors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$parseErrors)
+            if ($parseErrors) { throw ($parseErrors | Out-String) }
+          }
+          Get-Content -Raw local.json.example | ConvertFrom-Json | Out-Null
