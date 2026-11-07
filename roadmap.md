@@ -23,7 +23,7 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 - [ ] ReXGlue codegen over the skate. XEX: function boundaries, jump tables, setjmp and save/restore helpers.
 - [ ] Stub missing kernel and XAM imports.
 - [ ] The Port reaches the title screen on Xenia's GPU backend, from a clean checkout.
-- [ ] CI builds the repo's own code; nothing that needs Game files runs in CI.
+- [x] CI builds the Host and research tools without Game files.
 
 ## M4 — Playable and stable
 

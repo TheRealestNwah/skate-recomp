@@ -1,0 +1,34 @@
+# ReXGlue analysis hints for the original skate. USA disc, media ID 7D3C6C51.
+
+# The guest routines save and restore the same jmp_buf layout, including
+# nonvolatile FPRs/GPRs, SP, CR and the saved return address.
+setjmp_address = 0x82E50F20
+longjmp_address = 0x82E48B60
+
+# The upstream scanner identifies the GPR helpers at 0x82E4E1A0/0x82E4E1F0
+# and the FPR helpers at 0x82E50BA0/0x82E50BEC in this image.
+
+[functions]
+# Leaf entry and this-adjusting thunks in gaps between .pdata ranges.
+0x824103D8 = { end = 0x82410444 }
+0x82426668 = { end = 0x824266C4 }
+0x82BC20B8 = { end = 0x82BC2218 }
+0x82E18798 = { size = 0x8 }
+0x82E1BBD0 = { size = 0x8 }
+
+# Four leaf initializers with branches to an earlier block in the same body.
+0x83024D40 = { end = 0x83024E98 }
+0x8302D4E0 = { end = 0x8302D638 }
+0x8302FE80 = { end = 0x8302FFD8 }
+0x83035380 = { end = 0x830354D8 }
+
+# The leaf at 0x82BC20B8 checks r5 <= 5 and dispatches through six absolute
+# case pointers in .text. Keep the table out of the instruction stream.
+[[switch_tables]]
+address = 0x82BC20D4
+register = 5
+labels = [0x82BC2108, 0x82BC2128, 0x82BC2164, 0x82BC21A0, 0x82BC21DC, 0x82BC20F0]
+
+[[invalid_instructions]]
+data = 0x82BC20D8
+size = 0x18

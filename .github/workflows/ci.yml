@@ -8,7 +8,12 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    needs: tooling
+    if: ${{ always() }}
     steps:
+      - name: Require the Windows tooling and host build
+        if: ${{ needs.tooling.result != 'success' }}
+        run: exit 1
       - uses: actions/checkout@v4
       - name: Markdown lint
         uses: DavidAnson/markdownlint-cli2-action@v16
@@ -16,7 +21,7 @@ jobs:
           globs: "**/*.md"
       - name: Guard against committed game files
         run: |
-          if git ls-files | grep -Ei '\.(xex|iso|god|xcp|big|arena)$'; then
+          if git ls-files | grep -Ei '(^|/)(\.inspection|extracted|generated|build)/|(^|/)local\.json$|\.(xex|xexp|iso|god|xcp|big|arena|vp6|rx2|psg)$'; then
             echo "Game binaries/assets must not be committed." >&2
             exit 1
           fi
@@ -40,3 +45,6 @@ jobs:
           python-version: "3.13"
       - name: Test the BIG directory and EB header parsers with synthetic archives
         run: python -B -m unittest discover -s tools -p 'test_*.py'
+      - name: Build host code and research tools without Game files
+        shell: powershell
+        run: .\scripts\build-port.ps1 -HostOnly
