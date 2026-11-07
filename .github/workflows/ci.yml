@@ -35,3 +35,8 @@ jobs:
             if ($parseErrors) { throw ($parseErrors | Out-String) }
           }
           Get-Content -Raw local.json.example | ConvertFrom-Json | Out-Null
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Test the BIG directory parser with synthetic archives
+        run: python -B -m unittest discover -s tools -p 'test_*.py'

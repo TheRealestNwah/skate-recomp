@@ -9,9 +9,9 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 
 ## M1 — Dump inspection ([#3](https://github.com/TheRealestNwah/skate-recomp/issues/3))
 
-- [ ] Extract `default.xex` and the disc file tree from the user's ISO.
-- [ ] Record the media ID, XEX format (compression, encryption), imports, sections, and an archive inventory in `docs/research/`.
-- [ ] Decide whether a title update is needed.
+- [x] Extract `default.xex` and the disc file tree from the user's ISO.
+- [x] Record the media ID, XEX format (compression, encryption), imports, sections, and an archive inventory in [the dump inspection](docs/research/02-dump-inspection.md).
+- [x] Decide whether a title update is needed. Begin with the disc build.
 
 ## M2 — Engine diff against Skate 3 ([#4](https://github.com/TheRealestNwah/skate-recomp/issues/4))
 
