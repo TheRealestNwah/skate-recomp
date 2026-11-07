@@ -9,7 +9,7 @@ Research and tooling toward a native PC port of **skate.** (Xbox 360, 2007) via 
 
 ## Status
 
-Windows toolchain setup and disc inspection are available. The Port build is tracked in M3.
+Windows toolchain setup, disc inspection and the game-free Host build are available. Guest codegen and title-screen boot are tracked in M3.
 
 ## Layout
 
@@ -17,6 +17,10 @@ Windows toolchain setup and disc inspection are available. The Port build is tra
 - `scripts/setup.ps1` — installs the Windows toolchain.
 - `scripts/extract-disc.ps1` — extracts a locally configured disc outside the checkout.
 - `scripts/build-tools.ps1` — builds the headless XEX inspector against the pinned SDK.
+- `scripts/build-port.ps1` — builds the Host and, with the disc configured, the Port.
+- `scripts/run-port.ps1` — starts the Port and captures a local boot log.
+- `src/` — Host app and boot import audit.
+- `config/skate.toml` — ReXGlue analysis hints for the supported disc image.
 - `tools/` — XEX inspection, disc inventory and parser tests.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
 - `.github/workflows/ci.yml` — CI checks Markdown, PowerShell syntax and the local config template, plus a guard that fails if game files are tracked.
@@ -65,10 +69,29 @@ The build script installs [upstream ReXGlue SDK 0.10.1](https://github.com/rexgl
 
 For Skate 3, pass `-Title skate3` to the extraction script, point `inspect_xex.exe` at `(Join-Path $config.skate3.extracted 'default.xex')` and run the inventory with `--title skate3 --output build/skate3-disc.json`.
 
+## Port build and boot
+
+After Windows setup, fill in the skate. paths in `local.json`. From the repository root, run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
+```
+
+The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass can spend more than 15 minutes in the SDK's gap-fill phase. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
+
+The Port uses the SDK's Xenos D3D12 backend. It saves the boot import audit and runtime warnings in `build/boot/boot-*.log`. Keep logs and screenshots local.
+
+To compile the Host and inspection tools without a disc:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1 -HostOnly
+```
+
 ## Lint and tests
 
 ```bash
-npx markdownlint-cli2 "**/*.md"
+npx markdownlint-cli2 "**/*.md" "#build/**"
 python -B -m unittest discover -s tools -p 'test_*.py'
 ```
 

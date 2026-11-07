@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.25)
+project(skate_recomp LANGUAGES CXX)
+
+if(NOT WIN32 OR NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    message(FATAL_ERROR "Build the Port with LLVM Clang on Windows.")
+endif()
+
+find_package(rexglue 0.10.1 EXACT CONFIG REQUIRED)
+add_subdirectory(tools)
+
+add_library(skate_host OBJECT src/skate_app.cpp src/kernel_audit.cpp)
+target_compile_features(skate_host PRIVATE cxx_std_23)
+target_link_libraries(skate_host PRIVATE rex::runtime)
+rexglue_apply_target_settings(skate_host)
+
+set(SKATE_GENERATED_DIR "" CACHE PATH "Directory containing locally recompiled skate. code")
+if(SKATE_GENERATED_DIR)
+    include("${SKATE_GENERATED_DIR}/sources.cmake")
+    add_library(skate_guest OBJECT ${GENERATED_SOURCES})
+    target_compile_features(skate_guest PRIVATE cxx_std_23)
+    target_include_directories(skate_guest PRIVATE "${SKATE_GENERATED_DIR}")
+    target_link_libraries(skate_guest PRIVATE rex::runtime)
+    target_compile_options(skate_guest PRIVATE -fasync-exceptions -O1)
+    target_precompile_headers(skate_guest PRIVATE "${SKATE_GENERATED_DIR}/skateport_pch.h")
+    rexglue_apply_target_settings(skate_guest)
+
+    add_executable(skateport WIN32 src/recompiled_guest.cpp)
+    target_compile_features(skateport PRIVATE cxx_std_23)
+    target_include_directories(skateport PRIVATE "${SKATE_GENERATED_DIR}")
+    target_link_libraries(skateport PRIVATE skate_host skate_guest rex::runtime)
+    rexglue_configure_target(skateport GPU_PLUGINS xenos)
+endif()
