@@ -28,7 +28,23 @@ $portArguments = @(
     '--log_flush_interval', '1'
 )
 if ($Keyboard) {
-    $portArguments += '--mnk_mode=true'
+    $portArguments += @(
+        '--mnk_mode=true',
+        '--keybind_a=Semicolon,Space,W,Shift+W',
+        '--keybind_x=L,S,Shift+S',
+        '--keybind_lstick_left=A,Shift+A',
+        '--keybind_lstick_right=D,Shift+D',
+        '--keybind_lstick_up=T',
+        '--keybind_lstick_down=G',
+        '--keybind_dpad_up=Up',
+        '--keybind_dpad_down=Down',
+        '--keybind_dpad_left=Left',
+        '--keybind_dpad_right=Right',
+        '--keybind_rstick_up=Shift+Up',
+        '--keybind_rstick_down=Shift+Down',
+        '--keybind_rstick_left=Shift+Left',
+        '--keybind_rstick_right=Shift+Right'
+    )
 }
 Write-Host "Boot log is $log."
 $process = Start-Process -FilePath $port -WorkingDirectory (Split-Path -Parent $port) `
