@@ -2,6 +2,7 @@
 param(
     [switch]$Wait,
     [switch]$Keyboard,
+    [switch]$FrameTiming,
     [ValidateSet('rov', 'rtv')]
     [string]$RenderTargetPath = 'rov'
 )
@@ -30,6 +31,9 @@ $portArguments = @(
     '--log_level', 'debug',
     '--log_flush_interval', '1'
 )
+if ($FrameTiming) {
+    $portArguments += '--skate_frame_timing=true'
+}
 if ($Keyboard) {
     $portArguments += @(
         '--mnk_mode=true',

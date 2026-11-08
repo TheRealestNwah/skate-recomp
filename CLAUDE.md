@@ -84,6 +84,8 @@ The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Pres
 
 The launcher selects the D3D12 rasterizer-ordered view (ROV) path for VP6 movie playback. The SDK falls back to RTV on GPUs without ROV support. Use `-RenderTargetPath rtv` to select RTV explicitly. Movies appeared black on that path during testing on the Radeon RX 9070 XT. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
 
+Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTiming` to log the rate, mean interval and longest gap over each roughly five-second window. These numbers measure calls at the Guest's `VdSwap` site. Host present counters can include repeated displays of a Guest frame. For renderer comparisons, use the same camera and window size at the Community Center spawn marker and sample after loading settles. [Performance issue](https://github.com/TheRealestNwah/skate-recomp/issues/45)
+
 Pass `-Keyboard` to `run-port.ps1` to enable the keyboard preset. W pushes with the right foot, S pushes with the left foot, and A and D steer. T and G provide left-stick up and down. Enter maps to START, Space maps to A for menu selection, and Backspace maps to B for braking and backing out of menus. The arrow keys control the D-pad. Hold Shift with an arrow key to move the right stick for Flick-It.
 
 To compile the Host and inspection tools without a disc:
