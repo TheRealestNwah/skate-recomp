@@ -1,5 +1,8 @@
 [CmdletBinding()]
-param([switch]$Wait)
+param(
+    [switch]$Wait,
+    [switch]$Keyboard
+)
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -24,6 +27,9 @@ $portArguments = @(
     '--log_level', 'debug',
     '--log_flush_interval', '1'
 )
+if ($Keyboard) {
+    $portArguments += '--mnk_mode=true'
+}
 Write-Host "Boot log is $log."
 $process = Start-Process -FilePath $port -WorkingDirectory (Split-Path -Parent $port) `
     -ArgumentList $portArguments -PassThru -Wait:$Wait
