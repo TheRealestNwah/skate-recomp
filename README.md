@@ -1,23 +1,60 @@
-# skate-recomp
+# skate. Recompilation
 
-Research and tooling toward a native PC port of **skate.** (EA Black Box, 2007) via static recompilation of the Xbox 360 executable, with possible decompilation work later.
+A work-in-progress native Windows port of **skate.** (Xbox 360, 2007) by EA Black Box.
 
-> **No game code or assets are distributed here.** Anyone using this project must supply their own legally dumped copy of the Xbox 360 game. Never commit XEX files, disc images, extracted assets, or anything derived from them.
+The build uses [ReXGlue](https://github.com/rexglue/rexglue-sdk) to translate the original Xbox 360 executable ahead of time into C++. The resulting Port runs on Windows with ReXGlue's runtime and Xenos D3D12 backend.
 
 ## Status
 
-Early research, working toward the first milestone: booting to the title screen. See [`roadmap.md`](roadmap.md) for the path to 1.0 and [`docs/research/`](docs/research/) for findings.
+The original USA disc **boots to the title screen** from a clean Windows checkout. Current work targets the profile and skater menus, then Free Skate in San Vanelona.
+
+| Milestone | Status |
+| --- | --- |
+| M0 · Windows toolchain | Complete |
+| M1 · Disc and executable inspection | Complete |
+| M2 · Engine comparison with Skate 3 | Complete |
+| M3 · Native title-screen boot | Complete |
+| M4 · Playable and stable | In progress |
+
+## You need your own copy of the game
+
+Use your own Xbox 360 disc dump. The build currently supports the original USA disc with media ID `7D3C6C51`. Store the ISO and its extraction folder outside the checkout, next to each other. Keep disc images, executable files, assets, and Generated code local.
+
+## Setup (Windows)
+
+On x64 Windows 11 with WinGet, Git, and Python 3.13, run the setup script from the repository root.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+```
+
+Set `skate.iso` and `skate.extracted` in the generated `local.json` to the absolute paths of your ISO and extraction folder. Then build and launch the Port.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
+```
+
+The build extracts the disc if needed and generates the guest code locally. The first build can take several minutes. See [CLAUDE.md](CLAUDE.md) for toolchain details, boot logs, and the CI checks.
+
+## Roadmap
+
+See the [roadmap](roadmap.md) for the path from title-screen boot to a playable career, a native renderer, and PC options. The [research notes](docs/research/) document the disc inspection and engine comparison.
 
 ## Layout
 
-- `docs/research/` — findings on the toolchain, the game, and the plan
-- `roadmap.md` — milestones from first boot to 1.0
-- `GLOSSARY.md` — the project's vocabulary
-- `.github/workflows/` — CI (markdown lint and a game-file guard for now; build/tests once code lands)
+| Path | Purpose |
+| --- | --- |
+| [`config/`](config/) | ReXGlue analysis hints for the original USA disc |
+| [`src/`](src/) | Windows Host app and boot import audit |
+| [`scripts/`](scripts/) | Toolchain setup, disc extraction, build, and launch |
+| [`tools/`](tools/) | Disc and executable inspection tools and tests |
+| [`docs/research/`](docs/research/) | Findings about the game and toolchain |
+| [`GLOSSARY.md`](GLOSSARY.md) | Project terminology |
 
 ## AI disclosure
 
-This project is built with AI coding assistants: [Claude Code](https://claude.com/claude-code) (Anthropic) and [Codex](https://openai.com/codex/) (OpenAI). They write the code, tools and documentation. The maintainer ([@TheRealestNwah](https://github.com/TheRealestNwah)) decides what it should do, tests it, and makes the release decisions. Commits written with an AI assistant carry a `Co-Authored-By` trailer, so the git history shows which changes were AI-written.
+This project is developed with [Claude Code](https://claude.com/claude-code) and [OpenAI Codex](https://openai.com/codex/). These assistants contribute code, tools, and documentation. The maintainer ([@TheRealestNwah](https://github.com/TheRealestNwah)) sets the direction, tests the project, and makes release decisions.
 
 ## Support
 
