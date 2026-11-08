@@ -9,7 +9,7 @@ Research and tooling toward a native PC port of **skate.** (Xbox 360, 2007) via 
 
 ## Status
 
-The original skate. USA disc boots to the title screen from a clean Windows checkout using stock ReXGlue SDK 0.10.1. CI builds the Host and research tools without Game files.
+The original skate. USA disc boots to the title screen from a clean Windows checkout using stock ReXGlue SDK 0.10.1. M4 playtesting has verified fresh profile creation, skater selection, and a Free Skate session. CI builds the Host and research tools without Game files.
 
 ## Layout
 

@@ -6,7 +6,7 @@ The build uses [ReXGlue](https://github.com/rexglue/rexglue-sdk) to translate th
 
 ## Status
 
-The original USA disc **boots to the title screen** from a clean Windows checkout. Current work targets the profile and skater menus, then Free Skate in San Vanelona.
+The original USA disc **boots to the title screen** from a clean Windows checkout. M4 playtesting has reached **Free Skate in San Vanelona** after creating a fresh profile. Gameplay stability and career progression are still in progress.
 
 | Milestone | Status |
 | --- | --- |
