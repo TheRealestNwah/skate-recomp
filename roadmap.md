@@ -20,8 +20,8 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 
 ## M3 — Title screen boot ([#5](https://github.com/TheRealestNwah/skate-recomp/issues/5))
 
-- [ ] ReXGlue codegen over the skate. XEX: function boundaries, jump tables, setjmp and save/restore helpers.
-- [ ] Stub missing kernel and XAM imports.
+- [x] ReXGlue codegen over the skate. XEX: function boundaries, jump tables, setjmp and save/restore helpers.
+- [x] Resolve kernel and XAM imports and audit the upstream SDK stubs and fixed fallbacks.
 - [ ] The Port reaches the title screen on Xenia's GPU backend, from a clean checkout.
 - [x] CI builds the Host and research tools without Game files.
 

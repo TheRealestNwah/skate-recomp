@@ -78,7 +78,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
 ```
 
-The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass can spend more than 15 minutes in the SDK's gap-fill phase. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
+The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass took about eight minutes on the Ryzen 7 5800X with the current hints. Gap-fill can take several minutes without console output. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
 
 The Port uses the SDK's Xenos D3D12 backend. It saves the boot import audit and runtime warnings in `build/boot/boot-*.log`. The audit checks all 350 imports from the disc and identifies SDK stubs, fixed fallbacks and unresolved entries by library and ordinal. The same log records stub calls made during startup. Keep logs and screenshots local.
 
