@@ -38,6 +38,9 @@ longjmp_address = 0x82E48B60
 0x82423A88 = { end = 0x82423A9C }
 0x8242CCC8 = { end = 0x8242CD3C }
 
+# The video callback initializer stores this single-instruction return.
+0x8242B3E0 = { size = 0x4 }
+
 # Tail dispatch methods in the vtables loaded with the motion graph.
 0x824AFC00 = { end = 0x824AFC20 }
 0x824AFC20 = { end = 0x824AFC44 }
