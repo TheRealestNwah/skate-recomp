@@ -73,6 +73,11 @@ longjmp_address = 0x82E48B60
 0x827F4F70 = { end = 0x827F4F7C }
 0x827F8B98 = { end = 0x827F8BA4 }
 
+# Single-instruction return methods in the city object vtables.
+0x825024A8 = { size = 0x4 }
+0x8252CCC8 = { size = 0x4 }
+0x8252FE10 = { size = 0x4 }
+
 # RenderWare resource fixup callbacks have their own registered entry points
 # immediately after a forwarding thunk. Each extent ends at its reachable return.
 0x82BE77E0 = { end = 0x82BE78E8 }
