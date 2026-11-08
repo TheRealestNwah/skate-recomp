@@ -69,6 +69,7 @@ longjmp_address = 0x82E48B60
 0x82512DF8 = { size = 0x8 }
 
 # Leaf reset methods referenced by the city object vtables.
+0x827DCD58 = { end = 0x827DCD74 }
 0x827F4F70 = { end = 0x827F4F7C }
 0x827F8B98 = { end = 0x827F8BA4 }
 
