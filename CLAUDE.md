@@ -9,7 +9,7 @@ Research and tooling toward a native PC port of **skate.** (Xbox 360, 2007) via 
 
 ## Status
 
-Windows toolchain setup, disc inspection and the game-free Host build are available. Guest codegen and title-screen boot are tracked in M3.
+The original skate. USA disc boots to the title screen from a clean Windows checkout using stock ReXGlue SDK 0.10.1. CI builds the Host and research tools without Game files.
 
 ## Layout
 
@@ -78,9 +78,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
 ```
 
-The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass can spend more than 15 minutes in the SDK's gap-fill phase. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
+The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass took about eight minutes on the Ryzen 7 5800X with the current hints. Gap-fill can take several minutes without console output. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
 
-The Port uses the SDK's Xenos D3D12 backend. It saves the boot import audit and runtime warnings in `build/boot/boot-*.log`. Keep logs and screenshots local.
+The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Press START to continue**. The launch script prints the path to the local boot log under `build/boot/`. The verified run identified 63 SDK stubs and 33 fixed fallbacks across 350 imports, with zero unresolved imports. The log lists the gaps by library and ordinal and records stub calls made during startup. Keep logs and screenshots local.
 
 To compile the Host and inspection tools without a disc:
 
