@@ -129,3 +129,9 @@ labels = [0x82BC2108, 0x82BC2128, 0x82BC2164, 0x82BC21A0, 0x82BC21DC, 0x82BC20F0
 [[invalid_instructions]]
 data = 0x82BC20D8
 size = 0x18
+
+# Observe the guest swap submission immediately after the call to VdSwap.
+[[midasm_hook]]
+address = 0x82CCC0E4
+name = "SkateRecordGuestSwap"
+after_instruction = true
