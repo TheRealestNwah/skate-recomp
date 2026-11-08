@@ -68,7 +68,8 @@ longjmp_address = 0x82E48B60
 0x82512DF0 = { size = 0x8 }
 0x82512DF8 = { size = 0x8 }
 
-# Leaf reset method referenced by the city object vtable at 0x82180D80.
+# Leaf reset methods referenced by the city object vtables.
+0x827F4F70 = { end = 0x827F4F7C }
 0x827F8B98 = { end = 0x827F8BA4 }
 
 # RenderWare resource fixup callbacks have their own registered entry points

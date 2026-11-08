@@ -27,7 +27,7 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 
 ## M4 — Playable and stable
 
-- [ ] Menus, skater select, and free skate in San Vanelona.
+- [x] Menus, skater select, and free skate in San Vanelona.
 - [ ] Career playable start to finish.
 - [ ] XMA audio and its threading, streaming memory lifetimes, 120 Hz input for flick-it.
 - [ ] Photo and Skate Reel features (render-target resolve/readback).
