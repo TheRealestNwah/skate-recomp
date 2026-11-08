@@ -82,6 +82,8 @@ The build extracts the disc when `default.xex` is missing, verifies the original
 
 The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Press START to continue**. The launch script prints the path to the local boot log under `build/boot/`. The verified run identified 63 SDK stubs and 33 fixed fallbacks across 350 imports, with zero unresolved imports. The log lists the gaps by library and ordinal and records stub calls made during startup. Keep logs and screenshots local.
 
+For front-end testing without a gamepad, pass `-Keyboard` to `run-port.ps1` to enable the SDK's keyboard controller emulation. Enter maps to START, Space maps to A, and Backspace maps to B.
+
 To compile the Host and inspection tools without a disc:
 
 ```powershell

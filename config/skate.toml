@@ -23,6 +23,13 @@ longjmp_address = 0x82E48B60
 0x822FEFF8 = { end = 0x822FF004 }
 0x822FF998 = { end = 0x822FF9A4 }
 
+# Front-end vtables near the profile creation callback at 0x82169004.
+0x82354FE0 = { end = 0x82354FF4 }
+0x823550D0 = { end = 0x823550D4 }
+0x8235DC68 = { end = 0x8235DC7C }
+0x8235DDA0 = { end = 0x8235DDDC }
+0x823601E0 = { end = 0x823601E4 }
+
 # Leaf entry and this-adjusting thunks in gaps between .pdata ranges.
 0x824103D8 = { end = 0x82410444 }
 0x82426668 = { end = 0x824266C4 }
@@ -49,6 +56,20 @@ longjmp_address = 0x82E48B60
 # Two front-end adjustment thunks in the table at 0x8218F140.
 0x82BA73E0 = { size = 0x8 }
 0x82BA73E8 = { size = 0x8 }
+
+# Vtables used during Downtown loading point into this adjustment thunk block.
+0x82512CC8 = { size = 0x8 }
+0x82512D00 = { size = 0x8 }
+0x82512D10 = { size = 0x8 }
+0x82512D38 = { size = 0x8 }
+0x82512D48 = { size = 0x8 }
+0x82512D58 = { size = 0x8 }
+0x82512D88 = { size = 0x8 }
+0x82512DF0 = { size = 0x8 }
+0x82512DF8 = { size = 0x8 }
+
+# Leaf reset method referenced by the city object vtable at 0x82180D80.
+0x827F8B98 = { end = 0x827F8BA4 }
 
 # RenderWare resource fixup callbacks have their own registered entry points
 # immediately after a forwarding thunk. Each extent ends at its reachable return.
