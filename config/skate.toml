@@ -9,12 +9,73 @@ longjmp_address = 0x82E48B60
 # and the FPR helpers at 0x82E50BA0/0x82E50BEC in this image.
 
 [functions]
+# Front-end vtables point to these leaf bodies immediately after tail calls.
+0x8229C6D8 = { end = 0x8229C6FC }
+0x822BF1E0 = { end = 0x822BF4A4 }
+0x822C8400 = { end = 0x822C8410 }
+0x822DD6E8 = { end = 0x822DD6F4 }
+0x822E3D88 = { end = 0x822E3D94 }
+0x822E58C8 = { end = 0x822E58D4 }
+0x822EE608 = { end = 0x822EE614 }
+0x822EFC98 = { end = 0x822EFCA4 }
+0x822F8990 = { end = 0x822F899C }
+0x822F9518 = { end = 0x822F9524 }
+0x822FEFF8 = { end = 0x822FF004 }
+0x822FF998 = { end = 0x822FF9A4 }
+
 # Leaf entry and this-adjusting thunks in gaps between .pdata ranges.
 0x824103D8 = { end = 0x82410444 }
 0x82426668 = { end = 0x824266C4 }
+0x825EED88 = { end = 0x825EEDC4 }
+0x825EEEA8 = { end = 0x825EEEE4 }
 0x82BC20B8 = { end = 0x82BC2218 }
 0x82E18798 = { size = 0x8 }
 0x82E1BBD0 = { size = 0x8 }
+
+# Leaf methods referenced by the vtables around the video startup dispatch.
+0x82423550 = { end = 0x82423558 }
+0x82423580 = { end = 0x82423588 }
+0x82423A88 = { end = 0x82423A9C }
+0x8242CCC8 = { end = 0x8242CD3C }
+
+# Tail dispatch methods in the vtables loaded with the motion graph.
+0x824AFC00 = { end = 0x824AFC20 }
+0x824AFC20 = { end = 0x824AFC44 }
+0x82786F88 = { end = 0x82786F90 }
+
+# Two front-end adjustment thunks in the table at 0x8218F140.
+0x82BA73E0 = { size = 0x8 }
+0x82BA73E8 = { size = 0x8 }
+
+# RenderWare resource fixup callbacks have their own registered entry points
+# immediately after a forwarding thunk. Each extent ends at its reachable return.
+0x82BE77E0 = { end = 0x82BE78E8 }
+0x82BE7B00 = { end = 0x82BE7BB0 }
+0x82BE8798 = { end = 0x82BE88A0 }
+0x82BE8B00 = { end = 0x82BE8B98 }
+0x82BE8E88 = { end = 0x82BE8F78 }
+0x82BE9AD8 = { end = 0x82BE9BCC }
+0x82BE9E68 = { end = 0x82BE9F00 }
+0x82BEA270 = { end = 0x82BEA44C }
+0x82BEA778 = { end = 0x82BEA8B0 }
+0x82BEAB38 = { end = 0x82BEAC28 }
+0x82BEB068 = { end = 0x82BEB14C }
+0x82BEB578 = { end = 0x82BEB628 }
+0x82BEBCD0 = { end = 0x82BEBDD8 }
+0x82BEC008 = { end = 0x82BEC054 }
+0x82BEC790 = { end = 0x82BEC82C }
+
+# Three leaf callbacks from the eight-entry table at 0x83089688.
+0x82987278 = { end = 0x829872B0 }
+0x829872B0 = { end = 0x829872E8 }
+0x829872E8 = { end = 0x82987320 }
+
+# The adjacent callback table and the address-taken leaf used by audio setup.
+0x82984148 = { end = 0x829841B8 }
+0x829725A0 = { end = 0x829725AC }
+
+# Startup stores this callback address in the global at 0x8311F0B8.
+0x828D89A0 = { end = 0x828D89C8 }
 
 # Four leaf initializers with branches to an earlier block in the same body.
 0x83024D40 = { end = 0x83024E98 }
