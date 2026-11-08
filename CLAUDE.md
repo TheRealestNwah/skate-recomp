@@ -82,6 +82,8 @@ The build extracts the disc when `default.xex` is missing, verifies the original
 
 The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Press START to continue**. The launch script prints the path to the local boot log under `build/boot/`. The verified run identified 63 SDK stubs and 33 fixed fallbacks across 350 imports, with zero unresolved imports. The log lists the gaps by library and ordinal and records stub calls made during startup. Keep logs and screenshots local.
 
+The launcher selects the D3D12 rasterizer-ordered view (ROV) path for VP6 movie playback. The SDK falls back to RTV on GPUs without ROV support. Use `-RenderTargetPath rtv` to select RTV explicitly. Movies appeared black on that path during testing on the Radeon RX 9070 XT. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
+
 Pass `-Keyboard` to `run-port.ps1` to enable the keyboard preset. W pushes with the right foot, S pushes with the left foot, and A and D steer. T and G provide left-stick up and down. Enter maps to START, Space maps to A for menu selection, and Backspace maps to B for braking and backing out of menus. The arrow keys control the D-pad. Hold Shift with an arrow key to move the right stick for Flick-It.
 
 To compile the Host and inspection tools without a disc:

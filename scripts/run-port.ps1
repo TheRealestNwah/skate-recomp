@@ -1,7 +1,9 @@
 [CmdletBinding()]
 param(
     [switch]$Wait,
-    [switch]$Keyboard
+    [switch]$Keyboard,
+    [ValidateSet('rov', 'rtv')]
+    [string]$RenderTargetPath = 'rov'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -23,6 +25,7 @@ $portArguments = @(
     '--user_data_root', "`"$boot\user`"",
     '--update_data_root', "`"$boot\updates`"",
     '--cache_root', "`"$boot\cache`"",
+    "--render_target_path_d3d12=$RenderTargetPath",
     '--log_file', "`"$log`"",
     '--log_level', 'debug',
     '--log_flush_interval', '1'
