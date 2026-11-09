@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+    <img src="docs/assets/logo-light.svg" alt="skate. recomp" width="460">
+  </picture>
+</p>
+
 # skate-recomp
 
 Research and tooling toward a native PC port of **skate.** (EA Black Box, 2007) via static recompilation of the Xbox 360 executable, with possible decompilation work later.
