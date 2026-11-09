@@ -1,0 +1,10 @@
+{
+  "skate": {
+    "iso": "D:/path/to/skate/Skate. (USA).iso",
+    "extracted": "D:/path/to/skate/extracted"
+  },
+  "skate3": {
+    "iso": "D:/path/to/Skate 3.iso",
+    "extracted": "D:/path/to/Skate 3 extracted"
+  }
+}
