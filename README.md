@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.png">
+    <img src="docs/assets/logo-light.png" alt="skate. recomp" width="520">
+  </picture>
+</p>
+
 # skate. Recompilation
 
 A work-in-progress native Windows port of **skate.** (Xbox 360, 2007) by EA Black Box.
