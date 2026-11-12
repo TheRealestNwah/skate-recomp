@@ -84,6 +84,8 @@ Pass `-FastCodegen` to build a local code generator from the pinned SDK source w
 
 The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Press START to continue**. The launch script prints the path to the local boot log under `build/boot/`. The verified run identified 63 SDK stubs and 33 fixed fallbacks across 350 imports, with zero unresolved imports. The log lists the gaps by library and ordinal and records stub calls made during startup. Keep logs and screenshots local.
 
+Normal launches log at info level. Pass `-DebugLog` to include SDK debug output when investigating a bug. `-FrameTiming` records Guest swap measurements at either log level.
+
 The launcher selects the D3D12 rasterizer-ordered view (ROV) path for VP6 movie playback. The SDK falls back to RTV on GPUs without ROV support. Use `-RenderTargetPath rtv` for faster Free Skate on the tested Radeon RX 9070 XT. The startup movies displayed black frames in RTV. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
 
 Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTiming` to log the rate, mean interval and longest gap over each roughly five-second window. These numbers measure calls at the Guest's `VdSwap` site. Host present counters can include repeated displays of a Guest frame. For renderer comparisons, use the same camera and window size at the Community Center spawn marker and sample after loading settles. [Performance issue](https://github.com/TheRealestNwah/skate-recomp/issues/45)
