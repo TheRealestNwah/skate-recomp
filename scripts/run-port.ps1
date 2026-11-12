@@ -4,7 +4,8 @@ param(
     [switch]$Keyboard,
     [switch]$FrameTiming,
     [ValidateSet('rov', 'rtv')]
-    [string]$RenderTargetPath = 'rov'
+    [string]$RenderTargetPath = 'rov',
+    [switch]$DebugLog
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,6 +22,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $game 'default.xex'))) {
 
 $boot = (New-Item -ItemType Directory -Path (Join-Path $repoRoot 'build/boot') -Force).FullName
 $log = Join-Path $boot ('boot-' + (Get-Date -Format 'yyyyMMdd-HHmmss-fff') + '.log')
+$logLevel = if ($DebugLog) { 'debug' } else { 'info' }
 $portArguments = @(
     '--game_data_root', "`"$game`"",
     '--user_data_root', "`"$boot\user`"",
@@ -28,7 +30,7 @@ $portArguments = @(
     '--cache_root', "`"$boot\cache`"",
     "--render_target_path_d3d12=$RenderTargetPath",
     '--log_file', "`"$log`"",
-    '--log_level', 'debug',
+    '--log_level', $logLevel,
     '--log_flush_interval', '1'
 )
 if ($FrameTiming) {
