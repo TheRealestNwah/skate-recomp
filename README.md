@@ -42,7 +42,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
 ```
 
-The build extracts the disc if needed and generates the guest code locally. The first build can take several minutes. See [CLAUDE.md](CLAUDE.md) for toolchain details, boot logs, and the CI checks.
+The build extracts the disc if needed and generates the guest code locally. Add `-FastCodegen` to `build-port.ps1` to use the optimized code generator. Its first run fetches and builds the tool. See [CLAUDE.md](CLAUDE.md) for build timings and toolchain details.
+
+Add `-RenderTargetPath rtv` to `run-port.ps1` for higher Free Skate frame rates on the tested Radeon RX 9070 XT. The startup movies display black frames with this setting on that GPU. [Renderer measurements](docs/research/04-renderer-performance.md)
 
 ## Roadmap
 
