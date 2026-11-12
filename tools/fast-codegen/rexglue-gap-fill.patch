@@ -1,0 +1,140 @@
+diff --git a/include/rex/codegen/function_graph.h b/include/rex/codegen/function_graph.h
+index c64271b..0191758 100644
+--- a/include/rex/codegen/function_graph.h
++++ b/include/rex/codegen/function_graph.h
+@@ -59,6 +59,10 @@ class FunctionGraph {
+   FunctionNode* addFunction(uint32_t base, uint32_t size, FunctionAuthority authority,
+                             bool hasXrefs = false);
+
++  void resolvePendingAgainst(FunctionNode& pending, FunctionNode& added) {
++    pending.tryResolveAgainst(&added);
++  }
++
+   // Add a named function to the graph (convenience overload)
+   FunctionNode* addFunction(uint32_t base, uint32_t size, FunctionAuthority authority,
+                             std::string_view name, bool hasXrefs = false);
+diff --git a/src/codegen/function_graph.cpp b/src/codegen/function_graph.cpp
+index fc918bb..d473ea4 100644
+--- a/src/codegen/function_graph.cpp
++++ b/src/codegen/function_graph.cpp
+@@ -763,7 +763,11 @@ FunctionNode* FunctionGraph::addFunction(uint32_t base, uint32_t size, FunctionA
+   functionHasXrefs_[base] = hasXrefs;
+
+   // Notify all PENDING functions
+-  notifyFunctionAdded(nodePtr);
++  // Gap-fill registers many candidates at once. Its caller resolves only the
++  // pending nodes which actually reference each new entry point.
++  if (authority != FunctionAuthority::GAP_FILL) {
++    notifyFunctionAdded(nodePtr);
++  }
+
+   return nodePtr;
+ }
+diff --git a/src/codegen/phase_gapfill.cpp b/src/codegen/phase_gapfill.cpp
+index f3da777..44ccc0b 100644
+--- a/src/codegen/phase_gapfill.cpp
++++ b/src/codegen/phase_gapfill.cpp
+@@ -11,6 +11,8 @@
+
+ #include "ppc/instruction.h"
+
++#include <algorithm>
++#include <unordered_map>
+ #include <unordered_set>
+
+ #include <rex/codegen/phases.h>
+@@ -128,8 +130,14 @@ void gapFillCodeRegions(CodegenContext& ctx) {
+
+   // Build set of known callables for tail call detection
+   std::unordered_set<uint32_t> knownCallables;
++  std::unordered_map<uint32_t, std::vector<FunctionNode*>> pendingByTarget;
+   for (const auto& [addr, node] : graph.functions()) {
+     knownCallables.insert(addr);
++    if (node->isPending()) {
++      for (const auto& jump : node->unresolvedJumps()) {
++        pendingByTarget[jump.target].push_back(node.get());
++      }
++    }
+   }
+
+   size_t gapsFound = 0;
+@@ -154,7 +162,12 @@ void gapFillCodeRegions(CodegenContext& ctx) {
+         continue;
+
+       uint32_t segmentSize = segment.size();
+-      graph.addFunction(segment.start, segmentSize, FunctionAuthority::GAP_FILL, false);
++      auto* added = graph.addFunction(segment.start, segmentSize, FunctionAuthority::GAP_FILL, false);
++      if (auto waiting = pendingByTarget.find(segment.start); waiting != pendingByTarget.end()) {
++        for (auto* node : waiting->second) {
++          graph.resolvePendingAgainst(*node, *added);
++        }
++      }
+
+       REXCODEGEN_TRACE("GapFill: registered sub_{:08X} (0x{:08X}-0x{:08X}, {} bytes)",
+                        segment.start, segment.start, segment.end, segmentSize);
+@@ -178,31 +191,33 @@ void gapFillCodeRegions(CodegenContext& ctx) {
+
+ void cleanupAbsorbedGapFills(CodegenContext& ctx) {
+   auto& graph = ctx.graph;
+-  std::vector<uint32_t> toRemove;
++  std::vector<uint32_t> gapStarts;
+
+   for (const auto& [addr, node] : graph.functions()) {
+-    if (node->authority() != FunctionAuthority::GAP_FILL)
+-      continue;
+-
+-    for (const auto& [otherAddr, otherNode] : graph.functions()) {
+-      if (otherAddr == addr)
+-        continue;
+-      if (!otherNode->containsAddress(addr))
+-        continue;
+-
+-      // This GAP_FILL is inside another function's blocks
+-      if (otherNode->authority() != FunctionAuthority::GAP_FILL) {
+-        // Absorbed by higher authority - remove
+-        toRemove.push_back(addr);
+-        break;
+-      } else if (otherAddr < addr) {
+-        // Both GAP_FILL, other has lower address - it survives
+-        toRemove.push_back(addr);
+-        break;
++    if (node->authority() == FunctionAuthority::GAP_FILL) {
++      gapStarts.push_back(addr);
++    }
++  }
++  std::ranges::sort(gapStarts);
++  std::unordered_set<uint32_t> absorbed;
++  for (const auto& [addr, node] : graph.functions()) {
++    // Only starts within the node's bounds can satisfy containsAddress.
++    // For two gap-fill nodes, the lower-address node takes precedence.
++    auto candidate = std::upper_bound(gapStarts.begin(), gapStarts.end(), addr);
++    const uint32_t end = addr + node->size();
++    for (; candidate != gapStarts.end() && *candidate < end; ++candidate) {
++      if (node->containsAddress(*candidate)) {
++        absorbed.insert(*candidate);
+       }
+     }
+   }
+
++  std::vector<uint32_t> toRemove;
++  for (const auto& [addr, node] : graph.functions()) {
++    if (absorbed.contains(addr)) {
++      toRemove.push_back(addr);
++    }
++  }
+   for (uint32_t addr : toRemove) {
+     graph.removeFunction(addr);
+   }
+@@ -219,10 +234,12 @@ namespace phases {
+ VoidResult GapFill(CodegenContext& ctx, ProgressReporter* reporter) {
+   (void)reporter;
+   gapFillCodeRegions(ctx);
++  REXCODEGEN_INFO("GapFill registered candidates; discovering their blocks");
+
+   // Discover blocks for gap-filled functions
+   auto known = buildKnownFunctions(ctx.graph, /*excludeGapFill=*/true);
+   size_t discovered = discoverPendingFunctions(ctx, known);
++  REXCODEGEN_INFO("GapFill discovered {} functions; checking overlap", discovered);
+   REXCODEGEN_TRACE("Analyze: discovered blocks for {} gap-filled functions", discovered);
+
+   cleanupAbsorbedGapFills(ctx);
