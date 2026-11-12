@@ -84,9 +84,11 @@ The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Pres
 
 Normal launches log at info level. Pass `-DebugLog` to include SDK debug output when investigating a bug. `-FrameTiming` records Guest swap measurements at either log level.
 
-The launcher selects the D3D12 rasterizer-ordered view (ROV) path for VP6 movie playback. The SDK falls back to RTV on GPUs without ROV support. Use `-RenderTargetPath rtv` to select RTV explicitly. Movies appeared black on that path during testing on the Radeon RX 9070 XT. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
+The launcher selects the D3D12 rasterizer-ordered view (ROV) path for VP6 movie playback. The SDK falls back to RTV on GPUs without ROV support. Use `-RenderTargetPath rtv` for faster Free Skate on the tested Radeon RX 9070 XT. The startup movies displayed black frames in RTV. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
 
 Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTiming` to log the rate, mean interval and longest gap over each roughly five-second window. These numbers measure calls at the Guest's `VdSwap` site. Host present counters can include repeated displays of a Guest frame. For renderer comparisons, use the same camera and window size at the Community Center spawn marker and sample after loading settles. [Performance issue](https://github.com/TheRealestNwah/skate-recomp/issues/45)
+
+At that marker in a 1280×720 window, ROV averaged 44.3 Guest swaps/s and 98.0% 3D-engine use. RTV averaged 58.2 Guest swaps/s and 26.8% 3D-engine use. The test used the same build, skater, location, and Free Skate settings. [Renderer measurements](docs/research/04-renderer-performance.md)
 
 Pass `-Keyboard` to `run-port.ps1` to enable the keyboard preset. W pushes with the right foot, S pushes with the left foot, and A and D steer. T and G provide left-stick up and down. Enter maps to START, Space maps to A for menu selection, and Backspace maps to B for braking and backing out of menus. The arrow keys control the D-pad. Hold Shift with an arrow key to move the right stick for Flick-It.
 
