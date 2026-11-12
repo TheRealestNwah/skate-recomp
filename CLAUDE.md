@@ -78,7 +78,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
 ```
 
-The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The first codegen pass took about eight minutes on the Ryzen 7 5800X with the current hints. Gap-fill can take several minutes without console output. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
+The build extracts the disc when `default.xex` is missing, verifies the original USA XEX for media ID `7D3C6C51`, and writes Generated code under `build/recomp/`. The stock SDK can spend several minutes in GapFill without console output. [Gap-fill investigation](https://github.com/TheRealestNwah/skate-recomp/issues/13)
+
+Pass `-FastCodegen` to build a local code generator from the pinned SDK source with a GapFill optimization. The first run fetches and compiles that tool. It writes Generated code under `build/recomp-fast/` and builds the Port using the stock SDK runtime. On the Ryzen 7 5800X, the stock generator took 25 minutes for a fresh pass. Two optimized passes with the same XEX and hints took 39 and 104 seconds. Those times cover code generation. All 498 generated C++, header and CMake files matched byte for byte.
 
 The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Press START to continue**. The launch script prints the path to the local boot log under `build/boot/`. The verified run identified 63 SDK stubs and 33 fixed fallbacks across 350 imports, with zero unresolved imports. The log lists the gaps by library and ordinal and records stub calls made during startup. Keep logs and screenshots local.
 

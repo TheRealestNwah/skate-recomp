@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [switch]$HostOnly,
-    [ValidateRange(1, 64)][int]$Jobs = 6
+    [ValidateRange(1, 64)][int]$Jobs = 6,
+    [switch]$FastCodegen
 )
 
 $ErrorActionPreference = 'Stop'
@@ -31,7 +32,25 @@ if (-not $HostOnly) {
         throw 'This configuration requires the original skate. USA disc XEX with media ID 7D3C6C51.'
     }
 
+    $codegen = Join-Path $sdk 'bin/rexglue.exe'
     $codegenDirectory = Join-Path $repoRoot 'build/recomp'
+    if ($FastCodegen) {
+        $codegenSource = Join-Path $repoRoot 'tools/fast-codegen'
+        $patchHash = (Get-FileHash -LiteralPath (Join-Path $codegenSource 'rexglue-gap-fill.patch')).Hash
+        $sourceHash = (Get-FileHash -LiteralPath (Join-Path $codegenSource 'CMakeLists.txt')).Hash
+        $codegenBuild = Join-Path $repoRoot "build/tools/fast-codegen-$($sourceHash.Substring(0, 8))-$($patchHash.Substring(0, 8))"
+        & cmake -S $codegenSource -B $codegenBuild -G Ninja -DCMAKE_BUILD_TYPE=Release `
+            -DCMAKE_CXX_COMPILER=clang++ "-DCMAKE_PREFIX_PATH=$sdk"
+        if ($LASTEXITCODE -ne 0) {
+            throw "Fast codegen configuration failed (exit $LASTEXITCODE)."
+        }
+        & cmake --build $codegenBuild --parallel $Jobs --target rexglue
+        if ($LASTEXITCODE -ne 0) {
+            throw "Fast codegen build failed (exit $LASTEXITCODE)."
+        }
+        $codegen = Join-Path $codegenBuild 'bin/rexglue.exe'
+        $codegenDirectory = Join-Path $repoRoot 'build/recomp-fast'
+    }
     New-Item -ItemType Directory -Path $codegenDirectory -Force | Out-Null
     $manifest = Join-Path $codegenDirectory 'skateport_manifest.toml'
     $gamePath = ConvertTo-Json -InputObject ($gameRoot.Replace('\', '/')) -Compress
@@ -49,7 +68,7 @@ out_directory_path = "default"
 includes = [$hints]
 "@
     [IO.File]::WriteAllText($manifest, $manifestContents)
-    & (Join-Path $sdk 'bin/rexglue.exe') --log-file (Join-Path $codegenDirectory 'codegen.log') codegen $manifest
+    & $codegen --log-file (Join-Path $codegenDirectory 'codegen.log') codegen $manifest
     if ($LASTEXITCODE -ne 0) {
         throw "ReXGlue codegen failed (exit $LASTEXITCODE)."
     }
