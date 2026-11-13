@@ -44,7 +44,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1
 
 The build extracts the disc if needed and generates the guest code locally. Add `-FastCodegen` to `build-port.ps1` to use the optimized code generator. Its first run fetches and builds the tool. See [CLAUDE.md](CLAUDE.md) for build timings and toolchain details.
 
-Add `-RenderTargetPath rtv` to `run-port.ps1` for higher Free Skate frame rates on the tested Radeon RX 9070 XT. The startup movies display black frames with this setting on that GPU. [Renderer measurements](docs/research/04-renderer-performance.md)
+The launcher defaults to D3D12 RTV with the SDK's draw extent estimation enabled for VP6 movie playback. Pass `-RenderTargetPath rov` to select the rasterizer-ordered view path. [Renderer measurements](docs/research/04-renderer-performance.md)
 
 ## Roadmap
 
