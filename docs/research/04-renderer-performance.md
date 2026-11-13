@@ -9,4 +9,10 @@ An unattended comparison on November 12, 2026 used ReXGlue SDK 0.10.1, a Ryzen 7
 
 Guest swap rates are weighted by elapsed time across complete timing windows in each sample, covering 20.0 seconds for ROV and 25.1 seconds for RTV. They count submissions at the Guest's `VdSwap` site. GPU percentages are the mean of 25 one-second Windows 3D-engine samples filtered to the Port process. Sampling started after 37 seconds of loading and streaming. This comparison covers one run per renderer and one stationary scene. [Original GPU load report](https://github.com/TheRealestNwah/skate-recomp/issues/45)
 
-Separate captures from the Guest output showed the EA HD bumper and intro on ROV. RTV produced completely black frames during those clips and showed the title screen afterward. Disabling direct host resolves or 16-bit gamma render targets individually still produced black movie frames on RTV. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
+## VP6 playback on RTV
+
+With the SDK's default settings, RTV produced black frames during the EA HD bumper and intro. A readback immediately after the movie draw contained visible video. The subsequent resolve selected a depth target at EDRAM tile 720 as the owner of the 720 color tiles starting at tile 0. An unclipped depth-only draw with an 8192-pixel scissor had claimed all 2,048 tiles through address wraparound.
+
+Setting `execute_unclipped_draw_vs_on_cpu=true` lets the SDK estimate the draw's extent from its vertices. The EA HD bumper and intro displayed on RTV with this option enabled. The launcher now enables it for RTV. The explicit ROV option retains the original settings. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
+
+On November 13, the updated RTV configuration averaged 59.9 Guest swaps/s across 45.1 seconds of complete timing windows at the same Community Center spawn. The longest interval was 54.31 ms. This run did not collect GPU counters.

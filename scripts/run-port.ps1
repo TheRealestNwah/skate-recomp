@@ -4,7 +4,7 @@ param(
     [switch]$Keyboard,
     [switch]$FrameTiming,
     [ValidateSet('rov', 'rtv')]
-    [string]$RenderTargetPath = 'rov',
+    [string]$RenderTargetPath = 'rtv',
     [switch]$DebugLog
 )
 
@@ -33,6 +33,11 @@ $portArguments = @(
     '--log_level', $logLevel,
     '--log_flush_interval', '1'
 )
+if ($RenderTargetPath -eq 'rtv') {
+    # Estimate the bounds of unclipped clears so the depth target cannot claim
+    # the movie's color tiles during an RTV resolve.
+    $portArguments += '--execute_unclipped_draw_vs_on_cpu=true'
+}
 if ($FrameTiming) {
     $portArguments += '--skate_frame_timing=true'
 }
