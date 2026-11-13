@@ -16,3 +16,12 @@ With the SDK's default settings, RTV produced black frames during the EA HD bump
 Setting `execute_unclipped_draw_vs_on_cpu=true` lets the SDK estimate the draw's extent from its vertices. The EA HD bumper and intro displayed on RTV with this option enabled. The launcher now enables it for RTV. The explicit ROV option retains the original settings. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
 
 On November 13, the updated RTV configuration averaged 59.9 Guest swaps/s across 45.1 seconds of complete timing windows at the same Community Center spawn. The longest interval was 54.31 ms. This run did not collect GPU counters.
+
+A second stationary run averaged 60.0 Guest swaps/s and 34.5% 3D-engine use, with a longest interval of 20.78 ms. In a separate comparison, the scripted controller pushed eight times from the spawn before sampling. The skater coasted during the measurement. Local captures showed the same starting camera and a similar stopping position on both paths.
+
+| D3D12 render target path | Guest swaps/s | Longest Guest swap interval | Mean 3D-engine use |
+| --- | ---: | ---: | ---: |
+| ROV | 45.0 | 66.45 ms | 97.6% |
+| RTV with draw extent estimation | 59.9 | 50.44 ms | 38.2% |
+
+The title-screen attract movie also displayed moving video on RTV with draw extent estimation. One run repeated the same displayed frame from the 55-second sample through the 95-second sample while Guest swaps continued near 60/s. An RTV repeat and an ROV control both showed distinct frames through 95 seconds. The cause of the intermittent stall and movie audio remain unverified. [Attract movie stall](https://github.com/TheRealestNwah/skate-recomp/issues/53)
