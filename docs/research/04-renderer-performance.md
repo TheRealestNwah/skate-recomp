@@ -25,3 +25,9 @@ A second stationary run averaged 60.0 Guest swaps/s and 34.5% 3D-engine use, wit
 | RTV with draw extent estimation | 59.9 | 50.44 ms | 38.2% |
 
 The title-screen attract movie also displayed moving video on RTV with draw extent estimation. One run repeated the same displayed frame from the 55-second sample through the 95-second sample while Guest swaps continued near 60/s. An RTV repeat and an ROV control both showed distinct frames through 95 seconds. The cause of the intermittent stall and movie audio remain unverified. [Attract movie stall](https://github.com/TheRealestNwah/skate-recomp/issues/53)
+
+## Higher guest refresh rates
+
+With RTV and draw extent estimation, the same scripted pushes and coast averaged 84.9 Guest swaps/s at a requested guest refresh rate of 90 Hz, with 54.1% mean 3D-engine use. At a requested 120 Hz, the run averaged 73.7 Guest swaps/s with 47.2% mean 3D-engine use. The 120 Hz run approached its target in menus.
+
+A repeat test captured the skater at roughly 450 ms intervals after the same eight pushes. At both 60 and 90 Hz the skater crossed the road and hit the curb within the same capture interval. The 90 Hz run averaged 89.5 Guest swaps/s and the 60 Hz run averaged 60.0. This checks the timing of one short Free Skate sequence. Career, Flick-It timing and movie audio still need verification at higher refresh rates.
