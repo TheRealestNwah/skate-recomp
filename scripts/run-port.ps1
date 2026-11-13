@@ -5,7 +5,8 @@ param(
     [switch]$FrameTiming,
     [ValidateSet('rov', 'rtv')]
     [string]$RenderTargetPath = 'rtv',
-    [switch]$DebugLog
+    [switch]$DebugLog,
+    [switch]$Experimental90Hz
 )
 
 $ErrorActionPreference = 'Stop'
@@ -37,6 +38,9 @@ if ($RenderTargetPath -eq 'rtv') {
     # Estimate the bounds of unclipped clears so the depth target cannot claim
     # the movie's color tiles during an RTV resolve.
     $portArguments += '--execute_unclipped_draw_vs_on_cpu=true'
+}
+if ($Experimental90Hz) {
+    $portArguments += '--video_mode_refresh_rate=90'
 }
 if ($FrameTiming) {
     $portArguments += '--skate_frame_timing=true'
