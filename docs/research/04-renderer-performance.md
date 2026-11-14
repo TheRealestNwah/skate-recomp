@@ -46,3 +46,18 @@ The same test sequence also ran with higher guest refresh rates. CPU time covers
 | 90 Hz | On | 39.14 s | 89.9 | 22.23 ms |
 | 120 Hz | Off | 52.45 s | 78.0 | 19.95 ms |
 | 120 Hz | On | 41.00 s | 94.3 | 18.76 ms |
+
+### Guest wait tuning
+
+Two muted Free Skate comparisons on November 14 tested shorter timer requests against the current 75 µs backoff. Each run followed the same eight pushes and coast at Community Center. The second comparison also recorded the p99 upper bound for each complete five-second timing window. CPU time covers the 25-second sample, and the p99 column shows the range across the four complete windows in the second run.
+
+| Timer request | Polls before waiting | Guest refresh | Guest swaps/s, both runs | Process CPU time, both runs | p99 upper bounds, second run | Longest gaps, both runs |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 75 µs | 256 | 60 Hz | 59.9, 60.0 | 33.50 s, 31.16 s | 19 ms | 49.99 ms, 32.76 ms |
+| 40 µs | 512 | 60 Hz | 60.0, 60.0 | 34.33 s, 32.00 s | 19 ms | 20.49 ms, 19.53 ms |
+| 25 µs | 1,024 | 60 Hz | 60.0, 60.0 | 32.78 s, 31.17 s | 19 ms | 19.46 ms, 18.93 ms |
+| 75 µs | 256 | 90 Hz | 89.4, 90.0 | 44.39 s, 39.94 s | 13 ms | 24.43 ms, 13.52 ms |
+| 40 µs | 512 | 90 Hz | 85.4, 90.0 | 42.27 s, 39.08 s | 13–14 ms | 24.89 ms, 13.66 ms |
+| 25 µs | 1,024 | 90 Hz | 89.7, 89.9 | 40.86 s, 40.64 s | 13–14 ms | 21.72 ms, 21.80 ms |
+
+Both shorter waits had smaller worst gaps in the 60 Hz samples. The 90 Hz results varied by run, and the 75 µs setting had the lowest p99 bounds in the second comparison. The Port retains the current backoff parameters while testing other sources of CPU load.
