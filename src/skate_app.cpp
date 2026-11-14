@@ -1,8 +1,10 @@
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <cstdint>
 #include <memory>
 #include <mutex>
+#include <string>
 
 #include <Windows.h>
 #include <rex/cvar.h>
@@ -28,9 +30,16 @@ public:
             return;
         }
 
-        longest_gap_ = std::max(longest_gap_, now - last_swap_);
+        const auto gap = now - last_swap_;
+        longest_gap_ = std::max(longest_gap_, gap);
         last_swap_ = now;
         ++intervals_;
+        const bool log_timing = REXCVAR_GET(skate_frame_timing);
+        if (log_timing) {
+            const auto milliseconds = std::chrono::ceil<std::chrono::milliseconds>(gap).count();
+            ++interval_buckets_[std::min(static_cast<size_t>(milliseconds), kOverflowBucket)];
+            ++timed_intervals_;
+        }
         const auto elapsed = now - window_start_;
         if (elapsed < std::chrono::seconds(5)) {
             return;
@@ -39,16 +48,25 @@ public:
         const double mean_ms = Milliseconds(elapsed).count() / intervals_;
         const double max_ms = Milliseconds(longest_gap_).count();
         const auto intervals = intervals_;
+        const auto timed_intervals = timed_intervals_;
+        const auto p95_ms = log_timing ? PercentileUpperBound(95) : 0;
+        const auto p99_ms = log_timing ? PercentileUpperBound(99) : 0;
         const rex::ui::FrameStats stats{mean_ms, 1000.0 / mean_ms, submissions_};
         stats_ = stats;
         window_start_ = now;
         longest_gap_ = {};
         intervals_ = 0;
+        interval_buckets_.fill(0);
+        timed_intervals_ = 0;
         lock.unlock();
 
-        if (REXCVAR_GET(skate_frame_timing)) {
+        if (log_timing) {
             REXLOG_INFO("Guest swaps: {:.1f}/s, mean {:.2f} ms, longest gap {:.2f} ms ({} intervals)",
                         stats.fps, stats.frame_time_ms, max_ms, intervals);
+            if (timed_intervals) {
+                REXLOG_INFO("Guest swap percentiles: p95 {}, p99 {} ({} timed intervals)",
+                            FormatPercentile(p95_ms), FormatPercentile(p99_ms), timed_intervals);
+            }
         }
     }
 
@@ -60,6 +78,26 @@ public:
 private:
     using Clock = std::chrono::steady_clock;
     using Milliseconds = std::chrono::duration<double, std::milli>;
+    static constexpr size_t kOverflowBucket = 101;
+
+    size_t PercentileUpperBound(uint64_t percentile) const {
+        if (!timed_intervals_) {
+            return 0;
+        }
+        const auto rank = (timed_intervals_ * percentile + 99) / 100;
+        uint64_t cumulative = 0;
+        for (size_t bucket = 0; bucket < interval_buckets_.size(); ++bucket) {
+            cumulative += interval_buckets_[bucket];
+            if (cumulative >= rank) {
+                return bucket;
+            }
+        }
+        return kOverflowBucket;
+    }
+
+    static std::string FormatPercentile(size_t bucket) {
+        return bucket == kOverflowBucket ? ">100 ms" : fmt::format("≤{} ms", bucket);
+    }
 
     std::mutex mutex_;
     Clock::time_point window_start_{};
@@ -67,6 +105,8 @@ private:
     Clock::duration longest_gap_{};
     uint64_t submissions_ = 0;
     uint64_t intervals_ = 0;
+    std::array<uint64_t, kOverflowBucket + 1> interval_buckets_{};
+    uint64_t timed_intervals_ = 0;
     rex::ui::FrameStats stats_{};
 };
 
