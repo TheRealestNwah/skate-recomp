@@ -76,3 +76,9 @@ Windows thread CPU times showed that `GPU Commands` was the busiest thread in th
 | 90 Hz | 0 | 36.75 s | 12.61 s | 90.0 | 13–14 ms | 13.95 ms |
 
 The worker still used 8.70 seconds at 60 Hz and 12.61 seconds at 90 Hz with the spin limit set to zero. CPU use shifted by less than one second on that thread in every comparison. The shipping build uses the stock SDK plugin.
+
+### GPU command worker profile
+
+An instruction-pointer sample of the `GPU Commands` thread at 90 Hz captured 4,000 locations, of which 1,461 mapped into the ReXGlue GPU plugin. These samples include time when the thread was blocked, so the counts cannot be interpreted as CPU time. The most frequent locations inside the plugin were the base register writer (182 samples), its D3D12 override (118), D3D12 draw binding updates (116), and sequential register packet decoding (87).
+
+The same Free Skate route tested `d3d12_submit_on_primary_buffer_end=false` with the stock SDK plugin. The Guest swap rate stayed at 60.0/s and 90.0/s at the respective refresh rates. Process CPU time rose from 30.05 to 31.17 seconds at 60 Hz and from 39.05 to 39.42 seconds at 90 Hz. These are single comparisons with a 25-second sample per configuration. The launcher keeps the SDK submission setting.
