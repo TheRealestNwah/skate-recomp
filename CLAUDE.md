@@ -90,6 +90,8 @@ The launcher defaults to D3D12 RTV and enables the SDK's vertex shader extent es
 
 Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTiming` to log the rate, mean interval and longest gap over each roughly five-second window. These numbers measure calls at the Guest's `VdSwap` site. Host present counters can include repeated displays of a Guest frame. For renderer comparisons, use the same camera and window size at the Community Center spawn marker and sample after loading settles. [Performance issue](https://github.com/TheRealestNwah/skate-recomp/issues/45)
 
+`-FrameTiming` also reports p95 and p99 Guest swap intervals, rounded up to the next whole millisecond. A percentile above 100 ms is reported as `>100 ms`.
+
 At that marker in a 1280×720 window, ROV averaged 44.3 Guest swaps/s and 98.0% 3D-engine use. RTV averaged 58.2 Guest swaps/s and 26.8% 3D-engine use. The test used the same build, skater, location, and Free Skate settings. [Renderer measurements](docs/research/04-renderer-performance.md)
 
 Pass `-Experimental90Hz` to request a 90 Hz guest video mode. The default guest refresh rate is 60 Hz. With RTV, the 90 Hz test averaged 84.9 to 89.5 Guest swaps/s at Community Center. Simulation and input timing still need broader testing. [Higher refresh measurements](docs/research/04-renderer-performance.md#higher-guest-refresh-rates)
