@@ -94,6 +94,8 @@ At that marker in a 1280×720 window, ROV averaged 44.3 Guest swaps/s and 98.0% 
 
 Pass `-Experimental90Hz` to request a 90 Hz guest video mode. The default guest refresh rate is 60 Hz. With RTV, the 90 Hz test averaged 84.9 to 89.5 Guest swaps/s at Community Center. Simulation and input timing still need broader testing. [Higher refresh measurements](docs/research/04-renderer-performance.md#higher-guest-refresh-rates)
 
+Pass `-ExperimentalGpuWaitBackoff` to reduce CPU use during sustained Guest graphics command buffer polling. This setting is off by default. [CPU measurements](docs/research/04-renderer-performance.md#guest-graphics-wait)
+
 Pass `-Keyboard` to `run-port.ps1` to enable the keyboard preset. W pushes with the right foot, S pushes with the left foot, and A and D steer. T and G provide left-stick up and down. Enter maps to START, Space maps to A for menu selection, and Backspace maps to B for braking and backing out of menus. The arrow keys control the D-pad. Hold Shift with an arrow key to move the right stick for Flick-It.
 
 To compile the Host and inspection tools without a disc:

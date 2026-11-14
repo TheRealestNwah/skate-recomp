@@ -31,3 +31,9 @@ The title-screen attract movie also displayed moving video on RTV with draw exte
 With RTV and draw extent estimation, the same scripted pushes and coast averaged 84.9 Guest swaps/s at a requested guest refresh rate of 90 Hz, with 54.1% mean 3D-engine use. At a requested 120 Hz, the run averaged 73.7 Guest swaps/s with 47.2% mean 3D-engine use. The 120 Hz run approached its target in menus.
 
 A repeat test captured the skater at roughly 450 ms intervals after the same eight pushes. At both 60 and 90 Hz the skater crossed the road and hit the curb within the same capture interval. The 90 Hz run averaged 89.5 Guest swaps/s and the 60 Hz run averaged 60.0. This checks the timing of one short Free Skate sequence. Career, Flick-It timing and movie audio still need verification at higher refresh rates.
+
+## Guest graphics wait
+
+In a local sample of the Guest swap thread at 120 Hz, 1,890 of 4,000 instruction pointers were in the graphics polling routine at `0x82CB4AA0`. The Guest uses Xenon's `db16cyc` delay instructions in this routine. ReXGlue emits no host delay for them. The Port can briefly wait on a high-resolution Windows timer after repeated polls, then issue the next Guest poll normally.
+
+In a 25-second Free Skate comparison with the same executable at 60 Hz, the setting reduced process CPU time from 49.41 to 30.33 seconds. Guest swap rate was 60.0/s with the setting off and 59.9/s with it on. The longest Guest swap interval in the sample was 21.46 ms with it off and 49.34 ms with it on. The launcher keeps this setting opt-in.
