@@ -37,3 +37,12 @@ A repeat test captured the skater at roughly 450 ms intervals after the same eig
 In a local sample of the Guest swap thread at 120 Hz, 1,890 of 4,000 instruction pointers were in the graphics polling routine at `0x82CB4AA0`. The Guest uses Xenon's `db16cyc` delay instructions in this routine. ReXGlue emits no host delay for them. The Port can briefly wait on a high-resolution Windows timer after repeated polls, then issue the next Guest poll normally.
 
 In a 25-second Free Skate comparison with the same executable at 60 Hz, the setting reduced process CPU time from 49.41 to 30.33 seconds. Guest swap rate was 60.0/s with the setting off and 59.9/s with it on. The longest Guest swap interval in the sample was 21.46 ms with it off and 49.34 ms with it on. The launcher keeps this setting opt-in.
+
+The same test sequence also ran with higher guest refresh rates. CPU time covers the full 25-second sampling window and Guest swap rates cover the complete timing windows within it.
+
+| Guest refresh request | Backoff | Process CPU time | Guest swaps/s | Longest swap interval |
+| --- | --- | ---: | ---: | ---: |
+| 90 Hz | Off | 54.64 s | 88.0 | 25.24 ms |
+| 90 Hz | On | 39.14 s | 89.9 | 22.23 ms |
+| 120 Hz | Off | 52.45 s | 78.0 | 19.95 ms |
+| 120 Hz | On | 41.00 s | 94.3 | 18.76 ms |
