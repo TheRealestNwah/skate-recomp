@@ -135,3 +135,8 @@ size = 0x18
 address = 0x82CCC0E4
 name = "SkateRecordGuestSwap"
 after_instruction = true
+
+# Back off sustained polling in the guest graphics command buffer wait.
+[[midasm_hook]]
+address = 0x82CB4ABC
+name = "SkateBackOffGraphicsWait"

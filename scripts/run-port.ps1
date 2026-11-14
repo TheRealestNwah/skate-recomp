@@ -6,7 +6,8 @@ param(
     [ValidateSet('rov', 'rtv')]
     [string]$RenderTargetPath = 'rtv',
     [switch]$DebugLog,
-    [switch]$Experimental90Hz
+    [switch]$Experimental90Hz,
+    [switch]$ExperimentalGpuWaitBackoff
 )
 
 $ErrorActionPreference = 'Stop'
@@ -41,6 +42,9 @@ if ($RenderTargetPath -eq 'rtv') {
 }
 if ($Experimental90Hz) {
     $portArguments += '--video_mode_refresh_rate=90'
+}
+if ($ExperimentalGpuWaitBackoff) {
+    $portArguments += '--skate_gpu_wait_backoff=true'
 }
 if ($FrameTiming) {
     $portArguments += '--skate_frame_timing=true'

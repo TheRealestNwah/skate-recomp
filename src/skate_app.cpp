@@ -4,6 +4,7 @@
 #include <memory>
 #include <mutex>
 
+#include <Windows.h>
 #include <rex/cvar.h>
 #include <rex/logging.h>
 #include <rex/rex_app.h>
@@ -13,6 +14,7 @@
 rex::PPCImageInfo SkateGuestImage();
 
 REXCVAR_DEFINE_BOOL(skate_frame_timing, false, "Skate", "Log guest swap timing every five seconds");
+REXCVAR_DEFINE_BOOL(skate_gpu_wait_backoff, false, "Skate", "Back off sustained guest graphics polling");
 
 namespace {
 
@@ -70,6 +72,44 @@ private:
 
 GuestSwapTiming guest_swap_timing;
 
+class GraphicsWaitBackoff {
+public:
+    void Poll() {
+        using namespace std::chrono_literals;
+        const auto now = std::chrono::steady_clock::now();
+        if (now - previous_poll_ > 500us) {
+            polls_ = 0;
+        }
+        previous_poll_ = now;
+        if (++polls_ < 256) {
+            return;
+        }
+        polls_ = 0;
+
+        // The Guest checks for available space again after the timer expires.
+        static thread_local Timer timer;
+        LARGE_INTEGER due{};
+        due.QuadPart = -750; // Relative 75 microseconds in 100-nanosecond units.
+        if (timer.handle && SetWaitableTimer(timer.handle, &due, 0, nullptr, nullptr, FALSE)) {
+            WaitForSingleObject(timer.handle, 1);
+        }
+    }
+
+private:
+    struct Timer {
+        HANDLE handle = CreateWaitableTimerExW(nullptr, nullptr, CREATE_WAITABLE_TIMER_HIGH_RESOLUTION,
+                                               TIMER_MODIFY_STATE | SYNCHRONIZE);
+        ~Timer() {
+            if (handle) {
+                CloseHandle(handle);
+            }
+        }
+    };
+
+    std::chrono::steady_clock::time_point previous_poll_{};
+    unsigned polls_ = 0;
+};
+
 class SkateApp final : public rex::ReXApp {
 public:
     explicit SkateApp(rex::ui::WindowedAppContext& context)
@@ -96,6 +136,13 @@ std::unique_ptr<rex::ui::WindowedApp> CreateSkateApp(rex::ui::WindowedAppContext
 
 void SkateRecordGuestSwap() {
     guest_swap_timing.Record();
+}
+
+void SkateBackOffGraphicsWait() {
+    if (REXCVAR_GET(skate_gpu_wait_backoff)) {
+        static thread_local GraphicsWaitBackoff backoff;
+        backoff.Poll();
+    }
 }
 
 REX_DEFINE_APP(skateport, CreateSkateApp)
