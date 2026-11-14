@@ -61,3 +61,18 @@ Two muted Free Skate comparisons on November 14 tested shorter timer requests ag
 | 25 µs | 1,024 | 90 Hz | 89.7, 89.9 | 40.86 s, 40.64 s | 13–14 ms | 21.72 ms, 21.80 ms |
 
 Both shorter waits had smaller worst gaps in the 60 Hz samples. The 90 Hz results varied by run, and the 75 µs setting had the lowest p99 bounds in the second comparison. The Port retains the current backoff parameters while testing other sources of CPU load.
+
+### GPU command worker spin limit
+
+Windows thread CPU times showed that `GPU Commands` was the busiest thread in the repeat samples. A local ReXGlue GPU plugin build varied the iteration limit before its worker waits for another command submission. Each run used the same cached pipeline descriptions, muted audio, the 75 µs Guest backoff, and the same Community Center route. CPU times cover 25 seconds. Each configuration ran once at each refresh rate.
+
+| Guest refresh | Worker spin limit | Process CPU time | GPU Commands CPU time | Guest swaps/s | p99 upper bounds | Longest gap |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 60 Hz | 500 (SDK default) | 30.05 s | 8.44 s | 60.0 | 19 ms | 25.88 ms |
+| 60 Hz | 32 | 30.81 s | 8.92 s | 60.0 | 19–20 ms | 19.76 ms |
+| 60 Hz | 0 | 29.77 s | 8.70 s | 60.0 | 19 ms | 18.88 ms |
+| 90 Hz | 500 (SDK default) | 37.89 s | 13.19 s | 90.0 | 13–14 ms | 13.57 ms |
+| 90 Hz | 32 | 36.27 s | 12.73 s | 90.0 | 13 ms | 13.81 ms |
+| 90 Hz | 0 | 36.75 s | 12.61 s | 90.0 | 13–14 ms | 13.95 ms |
+
+The worker still used 8.70 seconds at 60 Hz and 12.61 seconds at 90 Hz with the spin limit set to zero. CPU use shifted by less than one second on that thread in every comparison. The shipping build uses the stock SDK plugin.
