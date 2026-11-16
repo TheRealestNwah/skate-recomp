@@ -86,7 +86,7 @@ The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Pres
 
 Normal launches log at info level. Pass `-DebugLog` to include SDK debug output when investigating a bug. `-FrameTiming` records Guest swap measurements at either log level.
 
-Pass `-DirectSound` to select SDL's DirectSound backend for one launch. In the Windows audio check, this restored captured menu and Free Skate audio on a headset whose default stereo path dropped near silence. [Audio comparison](docs/research/08-xma-audio.md) · [Stereo output issue](https://github.com/TheRealestNwah/skate-recomp/issues/60)
+Pass `-DirectSound` to select SDL's DirectSound backend for one launch. The Windows audio check captured Free Skate audio with both DirectSound and WASAPI. [Audio comparison](docs/research/08-xma-audio.md) · [Intermittent Windows output investigation](https://github.com/TheRealestNwah/skate-recomp/issues/60)
 
 Set `port.muteAudio` to `true` in `local.json` to mute every launch through `run-port.ps1`. The SDK continues to run its audio workers while sending silence to Windows. Set the value to `false` to use normal audio output.
 
