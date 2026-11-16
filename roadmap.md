@@ -30,7 +30,7 @@ From nothing to **1.0**: full career playable start to finish on Windows, with a
 This is the current focus. A [baseline playtest](docs/research/05-m4-baseline.md) checks each open item first. Defects become issues. Work then follows the order below unless the baseline changes it.
 
 - [x] Menus, skater select, and free skate in San Vanelona.
-- [ ] Saves.
+- [x] Saves. A new Career save survived quit and relaunch in the [unattended save check](docs/research/07-saves.md).
 - [ ] XMA audio and its threading, streaming memory lifetimes, 120 Hz input for flick-it.
 - [ ] Career playable start to finish. One unmodified save reaches the credits, tracked in the [Career progress log](docs/research/06-career-progress.md).
 - [ ] Photo and Skate Reel features (render-target resolve/readback).

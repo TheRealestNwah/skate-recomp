@@ -86,6 +86,8 @@ The Port uses the SDK's Xenos D3D12 backend. Wait for the skate. logo and **Pres
 
 Normal launches log at info level. Pass `-DebugLog` to include SDK debug output when investigating a bug. `-FrameTiming` records Guest swap measurements at either log level.
 
+The launcher stores local saves under `build/boot/user/`. Preserve that directory when cleaning build output if you want to keep your saves. [Save layout and verification](docs/research/07-saves.md)
+
 The launcher defaults to D3D12 RTV and enables the SDK's vertex shader extent estimation for unclipped draws. This prevents a depth-only clear from claiming the movie color tiles during resolve. Use `-RenderTargetPath rov` to select the rasterizer-ordered view path. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)
 
 Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTiming` to log the rate, mean interval and longest gap over each roughly five-second window. These numbers measure calls at the Guest's `VdSwap` site. Host present counters can include repeated displays of a Guest frame. For renderer comparisons, use the same camera and window size at the Community Center spawn marker and sample after loading settles. [Performance issue](https://github.com/TheRealestNwah/skate-recomp/issues/45)
