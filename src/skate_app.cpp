@@ -2,11 +2,13 @@
 #include <array>
 #include <chrono>
 #include <cstdint>
+#include <cstdlib>
 #include <memory>
 #include <mutex>
 #include <string>
 
 #include <Windows.h>
+#include <rex/audio/sdl/sdl_audio_system.h>
 #include <rex/cvar.h>
 #include <rex/logging.h>
 #include <rex/rex_app.h>
@@ -19,6 +21,24 @@ REXCVAR_DEFINE_BOOL(skate_frame_timing, false, "Skate", "Log guest swap timing e
 REXCVAR_DEFINE_BOOL(skate_gpu_wait_backoff, false, "Skate", "Back off sustained guest graphics polling");
 
 namespace {
+
+class SkateAudioSystem final : public rex::audio::sdl::SDLAudioSystem {
+public:
+    using SDLAudioSystem::SDLAudioSystem;
+
+    rex::X_STATUS CreateDriver(size_t index, rex::thread::Semaphore* semaphore,
+                               rex::audio::AudioDriver** driver) override {
+        const auto status = SDLAudioSystem::CreateDriver(index, semaphore, driver);
+        if (XFAILED(status)) {
+            // The Guest uses the driver after a failed XAudio registration.
+            REXLOG_ERROR("Could not initialize Port audio. Check the Windows playback device "
+                         "and any SDL_AUDIO_DRIVER override. See the preceding SDL error.");
+            rex::FlushLogging();
+            std::_Exit(EXIT_FAILURE);
+        }
+        return status;
+    }
+};
 
 class GuestSwapTiming {
 public:
@@ -157,6 +177,9 @@ public:
 
 private:
     void OnPreSetup(rex::RuntimeConfig& config) override {
+        config.audio_factory = [](rex::runtime::FunctionDispatcher* dispatcher) {
+            return std::make_unique<SkateAudioSystem>(dispatcher);
+        };
         if (config.gpu_plugin.empty()) {
             config.gpu_plugin = "xenos";
         }

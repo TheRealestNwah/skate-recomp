@@ -19,6 +19,8 @@ The maintainer reported having to reapply Windows Volume Mixer mute on each laun
 
 The normal Port executable also crashed at Guest address `0x0000003C` when a test forced the unavailable SDL `disk` backend. The SDK logged an audio initialization error immediately before the crash. This test establishes a failure to handle backend initialization errors. It did not disconnect or disable the user's endpoint. [Audio startup issue #59](https://github.com/TheRealestNwah/skate-recomp/issues/59)
 
+The Host now stops with exit code 1 and flushes the SDL error and a Port diagnostic if the SDK cannot create the audio driver. Repeating the forced failure produced the two diagnostics and no Guest exception. A muted control run on the default backend opened the endpoint and submitted Guest audio. Both tests used the stock SDK.
+
 ## Flickit input
 
 With the default 60 Hz Guest mode, the test-only controller received about 60 state reads per second in Free Skate at Community Center. It sent full right-stick down, full up and then neutral. The Guest showed an airborne skater and scored a switch ollie. This single sequence checks button and axis delivery at the sampled cadence. It leaves the original console's input cadence, short flicks and a wider trick set to verify. [SDK input export](https://github.com/rexglue/rexglue-sdk/blob/v0.10.1/src/kernel/xam/xam_input.cpp) · [Controller baseline](05-m4-baseline.md)
