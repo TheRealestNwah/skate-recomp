@@ -6,6 +6,7 @@ param(
     [ValidateSet('rov', 'rtv')]
     [string]$RenderTargetPath = 'rtv',
     [switch]$DebugLog,
+    [switch]$DirectSound,
     [switch]$Experimental90Hz,
     [switch]$ExperimentalGpuWaitBackoff
 )
@@ -69,8 +70,18 @@ if ($Keyboard) {
     )
 }
 Write-Host "Boot log is $log."
-$process = Start-Process -FilePath $port -WorkingDirectory (Split-Path -Parent $port) `
-    -ArgumentList $portArguments -PassThru -Wait:$Wait
+$previousAudioDriver = $env:SDL_AUDIO_DRIVER
+try {
+    if ($DirectSound) {
+        $env:SDL_AUDIO_DRIVER = 'directsound'
+    }
+    $process = Start-Process -FilePath $port -WorkingDirectory (Split-Path -Parent $port) `
+        -ArgumentList $portArguments -PassThru -Wait:$Wait
+} finally {
+    if ($DirectSound) {
+        $env:SDL_AUDIO_DRIVER = $previousAudioDriver
+    }
+}
 if ($Wait -and $process.ExitCode -ne 0) {
     throw "The Port exited with code $($process.ExitCode). See $log."
 }

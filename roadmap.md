@@ -31,7 +31,7 @@ This is the current focus. A [baseline playtest](docs/research/05-m4-baseline.md
 
 - [x] Menus, skater select, and free skate in San Vanelona.
 - [x] Saves. A new Career save survived quit and relaunch in the [unattended save check](docs/research/07-saves.md).
-- [ ] XMA audio and its threading, streaming memory lifetimes, 120 Hz input for flick-it.
+- [ ] XMA audio and its threading, streaming memory lifetimes, 120 Hz input for flick-it. See the [Windows audio investigation](docs/research/08-xma-audio.md).
 - [ ] Career playable start to finish. One unmodified save reaches the credits, tracked in the [Career progress log](docs/research/06-career-progress.md).
 - [ ] Photo and Skate Reel features (render-target resolve/readback).
 
