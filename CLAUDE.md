@@ -88,6 +88,8 @@ Normal launches log at info level. Pass `-DebugLog` to include SDK debug output 
 
 Pass `-DirectSound` to select SDL's DirectSound backend for one launch. In the Windows audio check, this restored captured menu and Free Skate audio on a headset whose default stereo path dropped near silence. [Audio comparison](docs/research/08-xma-audio.md) · [Stereo output issue](https://github.com/TheRealestNwah/skate-recomp/issues/60)
 
+Set `port.muteAudio` to `true` in `local.json` to mute every launch through `run-port.ps1`. The SDK continues to run its audio workers while sending silence to Windows. Set the value to `false` to use normal audio output.
+
 The launcher stores local saves under `build/boot/user/`. Preserve that directory when cleaning build output if you want to keep your saves. [Save layout and verification](docs/research/07-saves.md)
 
 The launcher defaults to D3D12 RTV and enables the SDK's vertex shader extent estimation for unclipped draws. This prevents a depth-only clear from claiming the movie color tiles during resolve. Use `-RenderTargetPath rov` to select the rasterizer-ordered view path. [Video playback issue](https://github.com/TheRealestNwah/skate-recomp/issues/38)

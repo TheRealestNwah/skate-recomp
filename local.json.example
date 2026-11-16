@@ -6,5 +6,8 @@
   "skate3": {
     "iso": "D:/path/to/Skate 3.iso",
     "extracted": "D:/path/to/Skate 3 extracted"
+  },
+  "port": {
+    "muteAudio": false
   }
 }
