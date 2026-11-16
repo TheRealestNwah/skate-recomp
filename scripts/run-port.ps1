@@ -36,6 +36,9 @@ $portArguments = @(
     '--log_level', $logLevel,
     '--log_flush_interval', '1'
 )
+if ($config.port.muteAudio -is [bool] -and $config.port.muteAudio) {
+    $portArguments += '--audio_mute=true'
+}
 if ($RenderTargetPath -eq 'rtv') {
     # Estimate the bounds of unclipped clears so the depth target cannot claim
     # the movie's color tiles during an RTV resolve.
