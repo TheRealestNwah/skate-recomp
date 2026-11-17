@@ -6,4 +6,4 @@ Add one row per playtest session. Log blockers as labeled GitHub issues and link
 
 | Date | Build (commit) | Last goal or area reached | Blocker | Notes |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| 2026-11-16 | `262f483` | Flickit tutorial, “Shuvit right” | | Scripted run continued the [save created in the persistence test](07-saves.md). Cleared the two ollie prompts and both directional flick prompts. The directional prompts advanced after shorter stick motions. |
