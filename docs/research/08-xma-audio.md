@@ -31,7 +31,11 @@ A November 16, 2026 trace followed that call back to the input callback at `0x82
 
 A test-only hook at `0x82BBC238` changed the constructor argument from 60 to 120. The interval became 83,333 and the Guest made about 120 calls per second for each of slots 0–3 in the menu and at Community Center. Guest swap submissions stayed near 60 per second. Captures showed the skater jumping and flipping the board in response to scripted stick sequences.
 
-The same 240 ms D-pad Down press moved the main-menu highlight from Continue Career to Xbox Live in the 60 Hz control and to Free Skate in the 120 Hz test. The hook was removed from the normal build. **[Inference]** Some downstream menu behavior depends on how often the worker runs. Trace the menu and gesture consumers before changing the rate so a fix can preserve menu timing. [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
+The same 240 ms D-pad Down press moved the main-menu highlight from Continue Career to Xbox Live in the 60 Hz control and to Free Skate in the 120 Hz test. The hook was removed from the normal build. [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
+
+The input callback at `0x82578AA8` copies controller snapshots into two 30-entry rings. At 120 Hz polling, publishing every other snapshot to the first ring restored the single-item advance on a 240 ms hold in the main menu and pause menu. Applying the same limit to the second ring alone still skipped Xbox Live. The first-ring test reached Community Center and scored ollies and a heelflip from scripted stick motions.
+
+During Free Skate, the second ring received about 120 snapshots per second and its reader at `0x824C1E18` advanced through them at the same rate. The reader advances to the newest entry before applying its controller state at `0x824C1F08`. It applied 240 states over a 4.05-second window, about 59 per second. **[Inference]** Faster polling can make the latest state fresher, but the observed reader still applies one state per game update. A Flickit fix needs to trace how the gesture matcher gets its samples. [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
 
 ## Streaming smoke test
 
