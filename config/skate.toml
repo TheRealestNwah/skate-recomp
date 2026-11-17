@@ -130,6 +130,41 @@ labels = [0x82BC2108, 0x82BC2128, 0x82BC2164, 0x82BC21A0, 0x82BC21DC, 0x82BC20F0
 data = 0x82BC20D8
 size = 0x18
 
+# Set the input worker's rate before the constructor saves its argument.
+[[midasm_hook]]
+address = 0x82BBC238
+name = "SkateSetFlickitRate"
+registers = ["r4"]
+
+# The presentation reader takes the newest snapshot once per frame. Keep
+# its publication rate at 60 Hz and feed every sample to the gesture path.
+[[midasm_hook]]
+address = 0x82578AE8
+name = "SkateSkipPresentationInput"
+registers = ["r31"]
+jump_address_on_true = 0x82578AEC
+
+# The state decoder serves both readers. r12 holds the return address just
+# after mflr, and the caller's r28 identifies the snapshot ring.
+[[midasm_hook]]
+address = 0x82BBCEC0
+name = "SkateSelectInputButtonTiming"
+registers = ["r12", "r28"]
+after_instruction = true
+
+# Keep wall-clock repeat and debounce times on the 120 Hz reader.
+[[midasm_hook]]
+address = 0x82BBCF28
+name = "SkateAdjustInputRepeat"
+registers = ["r3", "r4"]
+after_instruction = true
+
+[[midasm_hook]]
+address = 0x82BBCF4C
+name = "SkateAdjustInputDebounce"
+registers = ["r10", "cr6", "xer"]
+after_instruction = true
+
 # Observe the guest swap submission immediately after the call to VdSwap.
 [[midasm_hook]]
 address = 0x82CCC0E4

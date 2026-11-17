@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <array>
+#include <atomic>
 #include <chrono>
 #include <cstdint>
 #include <cstdlib>
@@ -11,6 +12,7 @@
 #include <rex/audio/sdl/sdl_audio_system.h>
 #include <rex/cvar.h>
 #include <rex/logging.h>
+#include <rex/ppc.h>
 #include <rex/rex_app.h>
 
 #include "kernel_audit.h"
@@ -21,6 +23,14 @@ REXCVAR_DEFINE_BOOL(skate_frame_timing, false, "Skate", "Log guest swap timing e
 REXCVAR_DEFINE_BOOL(skate_gpu_wait_backoff, false, "Skate", "Back off sustained guest graphics polling");
 
 namespace {
+
+constexpr uint32_t kOriginalInputRate = 60;
+constexpr uint32_t kFlickitInputRate = 120;
+constexpr uint32_t kGestureRingOffset = 24;
+constexpr uint32_t kPresentationRingOffset = 28;
+constexpr uint32_t kInputReaderReturnAddress = 0x824C1F0C;
+std::atomic<bool> flickit_at_120_hz{false};
+thread_local bool scale_input_button_timing = false;
 
 class SkateAudioSystem final : public rex::audio::sdl::SDLAudioSystem {
 public:
@@ -196,6 +206,44 @@ std::unique_ptr<rex::ui::WindowedApp> CreateSkateApp(rex::ui::WindowedAppContext
 }
 
 } // namespace
+
+void SkateSetFlickitRate(PPCRegister& rate) {
+    if (rate.u32 == kOriginalInputRate) {
+        rate.u64 = kFlickitInputRate;
+        flickit_at_120_hz.store(true, std::memory_order_relaxed);
+    }
+}
+
+bool SkateSkipPresentationInput(PPCRegister& ring_offset) {
+    if (ring_offset.u32 != kPresentationRingOffset ||
+        !flickit_at_120_hz.load(std::memory_order_relaxed)) {
+        return false;
+    }
+
+    static thread_local bool skip_snapshot = true;
+    skip_snapshot = !skip_snapshot;
+    return skip_snapshot;
+}
+
+void SkateSelectInputButtonTiming(PPCRegister& return_address, PPCRegister& ring_offset) {
+    scale_input_button_timing = return_address.u32 == kInputReaderReturnAddress &&
+                                ring_offset.u32 == kGestureRingOffset &&
+                                flickit_at_120_hz.load(std::memory_order_relaxed);
+}
+
+void SkateAdjustInputRepeat(PPCRegister& initial_delay, PPCRegister& repeat_delay) {
+    if (scale_input_button_timing) {
+        initial_delay.u64 *= 2;
+        repeat_delay.u64 *= 2;
+    }
+}
+
+void SkateAdjustInputDebounce(PPCRegister& samples, PPCCRRegister& comparison,
+                              PPCXERRegister& xer) {
+    if (scale_input_button_timing) {
+        comparison.compare<int32_t>(samples.s32, 6, xer);
+    }
+}
 
 void SkateRecordGuestSwap() {
     guest_swap_timing.Record();

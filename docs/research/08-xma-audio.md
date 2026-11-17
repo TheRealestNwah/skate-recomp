@@ -35,7 +35,13 @@ The same 240 ms D-pad Down press moved the main-menu highlight from Continue Car
 
 The input callback at `0x82578AA8` copies controller snapshots into two 30-entry rings. At 120 Hz polling, publishing every other snapshot to the first ring restored the single-item advance on a 240 ms hold in the main menu and pause menu. Applying the same limit to the second ring alone still skipped Xbox Live. The first-ring test reached Community Center and scored ollies and a heelflip from scripted stick motions.
 
-During Free Skate, the second ring received about 120 snapshots per second and its reader at `0x824C1E18` advanced through them at the same rate. The reader advances to the newest entry before applying its controller state at `0x824C1F08`. It applied 240 states over a 4.05-second window, about 59 per second. **[Inference]** Faster polling can make the latest state fresher, but the observed reader still applies one state per game update. A Flickit fix needs to trace how the gesture matcher gets its samples. [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
+During Free Skate, the second ring received about 120 snapshots per second and its reader at `0x824C1E18` advanced through them at the same rate. The reader advances to the newest entry before applying its controller state at `0x824C1F08`. In one window, the thread that also submits Guest swaps applied 240 states in 4.05 seconds, about 59 per second.
+
+The first ring applies snapshots on a separate thread. The same thread submits stick coordinates to the gesture matcher at `0x824BEE10`. A probe tracked the mode whose coordinates changed with the scripted right stick. At Community Center, the original 60 Hz worker delivered about 60 samples per second to that mode. A prototype with the first ring at 120 Hz and the second at 60 Hz delivered about 120. The prototype scored an ollie, double heelflip and melon grab. The stock control scored ollies and a heelflip with the same sequence.
+
+The button decoder at `0x82BBCEC0` counts samples for debounce and repeat. The Port doubles those counts for the 120 Hz reader, from 3 to 6 for debounce, 24 to 48 for initial repeat and 12 to 24 for subsequent repeats. The input worker still publishes to the presentation reader every other sample. The 240 ms D-pad test advanced one item in the main and pause menus after scaling the counts. [Port hooks](../../config/skate.toml) · [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
+
+The Port build with these hooks reproduced the 120 Hz right-stick samples, menu navigation and the three scored tricks at the default 60 Hz Guest display mode. It used the stock SDK runtime and a scripted controller. The physical controller baseline still needs to cover trick feel and held menu navigation. [Controller baseline](05-m4-baseline.md)
 
 ## Streaming smoke test
 
