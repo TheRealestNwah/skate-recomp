@@ -7,3 +7,5 @@ Add one row per playtest session. Log blockers as labeled GitHub issues and link
 | Date | Build (commit) | Last goal or area reached | Blocker | Notes |
 | --- | --- | --- | --- | --- |
 | 2026-11-16 | `262f483` | Flickit tutorial completion screen | | Scripted run continued the [save created in the persistence test](07-saves.md). Cleared the two ollie prompts, both diagonal flick prompts and both shuvit prompts. The game displayed Continue and Retry. |
+| 2026-11-16 | `5359ccd` | Flickit tutorial completion screen | [#67](https://github.com/TheRealestNwah/skate-recomp/issues/67) | The Port exited when selecting Continue. The log reported an unregistered Guest function at `0x82369D00`. The save payload kept its pre-run hash. |
+| 2026-11-16 | `bab74f9` | Pushing & Timing invitation | | Selected Continue after completing Flickit. The next lesson appeared, and the Port shut down normally. The save payload still matched its pre-run hash. |
