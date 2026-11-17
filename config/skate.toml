@@ -30,6 +30,9 @@ longjmp_address = 0x82E48B60
 0x8235DDA0 = { end = 0x8235DDDC }
 0x823601E0 = { end = 0x823601E4 }
 
+# The Career tutorial completion vtable at 0x82169E50 references this leaf.
+0x82369D00 = { size = 0x14 }
+
 # Leaf entry and this-adjusting thunks in gaps between .pdata ranges.
 0x824103D8 = { end = 0x82410444 }
 0x82426668 = { end = 0x824266C4 }
