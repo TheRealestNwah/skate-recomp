@@ -10,5 +10,5 @@ if (-not $visualStudio) {
     throw 'Run scripts/setup.ps1 to install the C++ toolset and Windows SDK.'
 }
 & (Join-Path $visualStudio 'Common7/Tools/Launch-VsDevShell.ps1') `
-    -Arch amd64 -HostArch amd64 -SkipAutomaticLocation -NoLogo
+    -Arch amd64 -HostArch amd64 -SkipAutomaticLocation
 $env:Path = "$env:ProgramFiles\LLVM\bin;$env:ProgramFiles\CMake\bin;$env:LOCALAPPDATA\Microsoft\WinGet\Links;$env:Path"
