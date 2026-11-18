@@ -9,6 +9,13 @@ longjmp_address = 0x82E48B60
 # and the FPR helpers at 0x82E50BA0/0x82E50BEC in this image.
 
 [functions]
+# Selector method with a nine-entry switch and shared tail blocks.
+0x828B48C0 = { end = 0x828B4B34 }
+# Preserve the previously generated entry points for three of its cases.
+0x828B49E8 = { end = 0x828B4B34, parent = 0x828B48C0 }
+0x828B4A6C = { end = 0x828B4AC4, parent = 0x828B48C0 }
+0x828B4AC4 = { end = 0x828B4B34, parent = 0x828B48C0 }
+
 # Short forwarding and field methods referenced by installed USA vtables.
 0x8223E0E8 = { size = 0x8 }
 0x8230D320 = { size = 0x10 }
@@ -289,6 +296,16 @@ labels = [0x82BC2108, 0x82BC2128, 0x82BC2164, 0x82BC21A0, 0x82BC21DC, 0x82BC20F0
 [[invalid_instructions]]
 data = 0x82BC20D8
 size = 0x18
+
+# The selector method returns for r4 > 8 and dispatches through nine pointers.
+[[switch_tables]]
+address = 0x828B48DC
+register = 4
+labels = [0x828B4904, 0x828B4B30, 0x828B4930, 0x828B4B30, 0x828B4B30, 0x828B49E8, 0x828B4A14, 0x828B4A6C, 0x828B4AC4]
+
+[[invalid_instructions]]
+data = 0x828B48E0
+size = 0x24
 
 # In-place FLOAT16_4 packs at shift 2 must read v0 before modifying it.
 [[midasm_hook]]
