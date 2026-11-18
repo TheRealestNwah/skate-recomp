@@ -10,6 +10,8 @@ longjmp_address = 0x82E48B60
 
 [functions]
 # Front-end vtables point to these leaf bodies immediately after tail calls.
+0x82272C88 = { size = 0x8 }
+0x82272C90 = { size = 0x8 }
 0x8229C6D8 = { end = 0x8229C6FC }
 0x822BF1E0 = { end = 0x822BF4A4 }
 0x822C8400 = { end = 0x822C8410 }
