@@ -35,6 +35,12 @@ longjmp_address = 0x82E48B60
 # The Career tutorial completion vtable at 0x82169E50 references this leaf.
 0x82369D00 = { size = 0x14 }
 
+# Tail dispatch and return methods in the vtable installed at 0x82348030.
+0x823480A0 = { size = 0x10 }
+0x823480B0 = { size = 0x10 }
+0x823480C0 = { size = 0x20 }
+0x823480E0 = { size = 0x4 }
+
 # Leaf entry and this-adjusting thunks in gaps between .pdata ranges.
 0x824103D8 = { end = 0x82410444 }
 0x82426668 = { end = 0x824266C4 }
@@ -176,6 +182,14 @@ longjmp_address = 0x82E48B60
 0x825024A8 = { size = 0x4 }
 0x8252CCC8 = { size = 0x4 }
 0x8252FE10 = { size = 0x4 }
+
+# Return methods in the vtables at 0x8200E15C, 0x8217A298 and 0x821831E8.
+0x825EDE38 = { size = 0x4 }
+0x82845D90 = { size = 0x4 }
+0x82D112E0 = { size = 0x4 }
+
+# Tail call in the vtable installed at 0x82D356A8.
+0x82D6AE68 = { size = 0x4 }
 
 # RenderWare resource fixup callbacks have their own registered entry points
 # immediately after a forwarding thunk. Each extent ends at its reachable return.
