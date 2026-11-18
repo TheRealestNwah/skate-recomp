@@ -11,6 +11,10 @@ longjmp_address = 0x82E48B60
 [functions]
 # Selector method with a nine-entry switch and shared tail blocks.
 0x828B48C0 = { end = 0x828B4B34 }
+# Preserve the previously generated entry points for three of its cases.
+0x828B49E8 = { end = 0x828B4B34, parent = 0x828B48C0 }
+0x828B4A6C = { end = 0x828B4AC4, parent = 0x828B48C0 }
+0x828B4AC4 = { end = 0x828B4B34, parent = 0x828B48C0 }
 
 # Short forwarding and field methods referenced by installed USA vtables.
 0x8223E0E8 = { size = 0x8 }
