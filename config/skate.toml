@@ -143,6 +143,17 @@ longjmp_address = 0x82E48B60
 0x82ACE320 = { size = 0x8 }
 0x82ACE998 = { size = 0x8 }
 
+# Short value and pointer returns and one indirect tail call from installed vtables.
+0x82596270 = { size = 0x8 }
+0x82A70A80 = { size = 0x8 }
+0x82A70A90 = { size = 0x8 }
+0x82AA6810 = { size = 0x8 }
+0x82ABAB10 = { size = 0x18 }
+0x82ABAB28 = { size = 0x8 }
+0x82AD2738 = { size = 0x8 }
+0x82D764B8 = { size = 0x8 }
+0x82FA7898 = { size = 0x8 }
+
 # Leaf methods referenced by the vtables around the video startup dispatch.
 0x82423550 = { end = 0x82423558 }
 0x82423580 = { end = 0x82423588 }
