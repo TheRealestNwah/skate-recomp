@@ -48,7 +48,7 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 - [ ] Once the photo feature is available, take a photo at a recognizable spot. Compare the preview, the saved photo, and the photo after relaunch. Record if any is blank, stale, or corrupted.
 - [ ] Skate a short line, then open the Replay Editor. Play it, save a clip, relaunch, and reopen the saved clip. Check that playback shows the same line.
 
-While playing through the checklist, record the scene and last action if geometry or animation visibly distorts, or if the log reports an unregistered Guest function. Include the function address when the log prints one. [Vector pack fix](https://github.com/TheRealestNwah/skate-recomp/pull/80) · [Guest method fixes](https://github.com/TheRealestNwah/skate-recomp/pull/86)
+While playing through the checklist, record the scene and last action if geometry or animation visibly distorts, or if the log reports an unregistered Guest function. Include the function address when the log prints one. [Vector pack fix](https://github.com/TheRealestNwah/skate-recomp/pull/80) · [Guest method fixes](https://github.com/TheRealestNwah/skate-recomp/pull/86) · [Additional forwarding and field methods](https://github.com/TheRealestNwah/skate-recomp/issues/87)
 
 ## Results
 
