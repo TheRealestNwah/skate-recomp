@@ -26,7 +26,7 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 ### Audio and input
 
 - [ ] Listen for menu music and UI sounds. In Free Skate, check in-game music, push/grind/bail sounds and ambience.
-- [ ] Load Community Center, skate for a few minutes, return to the menu, and load the Library in Downtown. Check if the audio continues after each transition. Record any crackle, dropout, desync, or hang.
+- [ ] Load Community Center, skate for a few minutes, return to the menu, and load the Library in Downtown. Return to the menu and load Community Center again. After each transition, check whether music, ambience, and skate sounds return. For a crackle, dropout, desync, or hang, record the location and whether it began during loading or skating. [XMA streaming trace](08-xma-audio.md#streaming-smoke-test)
 - [ ] If audio goes silent, repeat the same steps with `-DirectSound` on the same playback device and volume settings. Record which launch lost sound. [Audio issue #60](https://github.com/TheRealestNwah/skate-recomp/issues/60)
 - [ ] Try a short D-pad tap and a held D-pad press in the main and pause menus. Check that each tap moves one item and that holding repeats steadily. Try ollies, kickflips and grabs in Free Skate.
 - [ ] On a separate `-Keyboard` launch, check pushing, steering, menu navigation, and Shift+arrow Flickit.
@@ -39,6 +39,7 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 
 ### Career
 
+- [ ] During the opening lessons, choose Continue on the Flickit, Pushing & Timing, and Air & Grabs completion screens. Check that each next invitation opens. [Previous lesson transition failure](https://github.com/TheRealestNwah/skate-recomp/issues/67)
 - [ ] Continue the same test skater each session until the credits. Save before ending a session and confirm the checkpoint on the next launch.
 - [ ] Record the last completed objective and any blocker in the [Career progress log](06-career-progress.md). If a blocker recurs after relaunch, record the shortest sequence that reproduces it.
 
@@ -46,6 +47,8 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 
 - [ ] Once the photo feature is available, take a photo at a recognizable spot. Compare the preview, the saved photo, and the photo after relaunch. Record if any is blank, stale, or corrupted.
 - [ ] Skate a short line, then open the Replay Editor. Play it, save a clip, relaunch, and reopen the saved clip. Check that playback shows the same line.
+
+While playing through the checklist, record the scene and last action if geometry or animation visibly distorts, or if the log reports an unregistered Guest function. Include the function address when the log prints one. [Vector pack fix](https://github.com/TheRealestNwah/skate-recomp/pull/80) · [Guest method fixes](https://github.com/TheRealestNwah/skate-recomp/pull/86)
 
 ## Results
 
