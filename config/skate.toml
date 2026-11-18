@@ -9,6 +9,12 @@ longjmp_address = 0x82E48B60
 # and the FPR helpers at 0x82E50BA0/0x82E50BEC in this image.
 
 [functions]
+# Conditional methods in installed USA vtables, including all tail paths.
+0x8248E458 = { size = 0x74 }
+0x82A829E0 = { size = 0x28 }
+0x82F605B8 = { size = 0x50 }
+0x82F60788 = { size = 0x50 }
+
 # Selector method with a nine-entry switch and shared tail blocks.
 0x828B48C0 = { end = 0x828B4B34 }
 # Preserve the previously generated entry points for three of its cases.
