@@ -22,6 +22,7 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `src/` — Host app and boot import audit.
 - `config/skate.toml` — ReXGlue analysis hints for the supported disc image.
 - `tools/` — XEX inspection, disc inventory and parser tests.
+- `tools/audit_guest_thunks.py` — offline comparison of XEX read-only data and Generated dispatch registrations.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
 - `.github/workflows/ci.yml` — CI checks Markdown, PowerShell syntax and the local config template, plus a guard that fails if game files are tracked.
 - `.markdownlint.json` — lint config (line length, inline HTML and first-line-heading rules off).
@@ -66,6 +67,15 @@ python -B tools/inspect_disc.py --output build/skate-disc.json
 ```
 
 The build script installs [upstream ReXGlue SDK 0.10.1](https://github.com/rexglue/rexglue-sdk/releases/tag/v0.10.1) and preserves its BSD license with the installed SDK. The headless inspector saves its report and decoded image in `.inspection/` next to the extracted XEX. Keep that directory local.
+
+After generating the Port, compare the inspection report and Generated dispatch table from the same disc:
+
+```powershell
+$inspection = Join-Path $config.skate.extracted '.inspection/xex.tsv'
+python -B tools/audit_guest_thunks.py $inspection build/recomp/default/skateport_register.cpp
+```
+
+Use `build/recomp-fast/default/skateport_register.cpp` after a `-FastCodegen` build. The audit lists aligned read-only data pointers to unregistered two-instruction thunks that adjust the object pointer and tail-call a registered method. Confirm that Guest code uses the table before adding a codegen hint.
 
 For Skate 3, pass `-Title skate3` to the extraction script, point `inspect_xex.exe` at `(Join-Path $config.skate3.extracted 'default.xex')` and run the inventory with `--title skate3 --output build/skate3-disc.json`.
 
