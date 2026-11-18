@@ -32,6 +32,23 @@ constexpr uint32_t kInputReaderReturnAddress = 0x824C1F0C;
 std::atomic<bool> flickit_at_120_hz{false};
 thread_local bool scale_input_button_timing = false;
 
+uint16_t PackFloat16(uint32_t bits) {
+    const uint32_t sign = (bits >> 16) & 0x8000;
+    const uint32_t magnitude = bits & 0x7FFFFFFF;
+    // Match the SDK's non-aliasing FLOAT16_4 lowering, including saturation.
+    if (magnitude > 0x477FE000) {
+        return static_cast<uint16_t>(sign | 0x7FFF);
+    }
+    const uint32_t exponent = magnitude >> 23;
+    const uint32_t mantissa = (magnitude >> 13) & 0x3FF;
+    if (exponent > 0x70) {
+        return static_cast<uint16_t>(sign | ((exponent - 0x70) << 10) | mantissa);
+    }
+    const uint32_t shift = 0x71 - exponent;
+    const uint32_t denormal = shift > 31 ? 0 : (0x400 + mantissa) >> shift;
+    return static_cast<uint16_t>(sign | denormal);
+}
+
 class SkateAudioSystem final : public rex::audio::sdl::SDLAudioSystem {
 public:
     using SDLAudioSystem::SDLAudioSystem;
@@ -206,6 +223,14 @@ std::unique_ptr<rex::ui::WindowedApp> CreateSkateApp(rex::ui::WindowedAppContext
 }
 
 } // namespace
+
+void SkatePackFloat16x4InPlace(PPCVRegister& vector) {
+    const PPCVRegister source = vector;
+    // Shift 2 packs into the upper two host words, preserving the lower two.
+    for (size_t lane = 0; lane < 4; ++lane) {
+        vector.u16[4 + lane] = PackFloat16(source.u32[lane]);
+    }
+}
 
 void SkateSetFlickitRate(PPCRegister& rate) {
     if (rate.u32 == kOriginalInputRate) {
