@@ -49,3 +49,5 @@ jobs:
       - name: Build host code and research tools without Game files
         shell: powershell
         run: .\scripts\build-port.ps1 -HostOnly
+      - name: Test Host vector bounds without Game files
+        run: ctest --test-dir build/host --output-on-failure
