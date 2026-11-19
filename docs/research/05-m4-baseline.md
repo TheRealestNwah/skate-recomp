@@ -30,6 +30,7 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 - [ ] If audio goes silent, repeat the same steps with `-DirectSound` on the same playback device and volume settings. Record which launch lost sound. [Audio issue #60](https://github.com/TheRealestNwah/skate-recomp/issues/60)
 - [ ] Try a short D-pad tap and a held D-pad press in the main and pause menus. Check that each tap moves one item and that holding repeats steadily. Try ollies, kickflips and grabs in Free Skate.
 - [ ] On a separate `-Keyboard` launch, check pushing, steering, menu navigation, and Shift+arrow Flickit.
+- [ ] At Community Center and the Library, look at the skater, board, and nearby geometry while turning and jumping. Record any stretched triangles, disappearing surfaces, or distorted animation, including the location and last action. [SHORT2 conversion defect](https://github.com/TheRealestNwah/skate-recomp/issues/96)
 
 ### Saves
 

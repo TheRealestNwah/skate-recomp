@@ -21,6 +21,7 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `scripts/run-port.ps1` — starts the Port and captures a local boot log.
 - `src/` — Host app and boot import audit.
 - `config/skate.toml` — ReXGlue analysis hints for the supported disc image.
+- `config/skate-short2-unpack.toml` — included instruction hooks for SHORT2 unpack sentinel handling.
 - `tools/` — XEX inspection, disc inventory and parser tests.
 - `tools/audit_guest_thunks.py` — offline comparison of XEX read-only data and Generated dispatch registrations.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
@@ -154,4 +155,5 @@ python -B -m unittest discover -s tools -p 'test_*.py'
 ## Gotchas
 
 - ReXGlue is Clang-only.
+- SDK 0.10.1 emits duplicate C++ parameter names when a hook lists the same register twice. The SHORT2 hooks use a one-argument wrapper at those sites. [Hook emission issue](https://github.com/TheRealestNwah/skate-recomp/issues/97)
 - Planned toolchain and the Skate 3 precedent are covered in `docs/research/01-initial-survey.md`.
