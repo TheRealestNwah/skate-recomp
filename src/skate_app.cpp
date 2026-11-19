@@ -308,6 +308,35 @@ void SkateUnpackFloat16x4InPlace(PPCVRegister& vector) {
     SkateUnpackFloat16x4(vector, vector);
 }
 
+void SkateEstimateExp2(PPCVRegister& destination, PPCVRegister& source, PPCFPSCRRegister& fpscr) {
+    fpscr.enableFlushMode();
+    const auto input = simde_mm_load_ps(source.f32);
+    const auto bounded = simde_mm_max_ps(
+        simde_mm_min_ps(input, simde_mm_set1_ps(128.0f)), simde_mm_set1_ps(-127.0f));
+    const auto value = simde_mm_blendv_ps(bounded, input, simde_mm_cmpunord_ps(input, input));
+    const auto integral = simde_mm_round_ps(
+        value, SIMDE_MM_FROUND_TO_NEG_INF | SIMDE_MM_FROUND_NO_EXC);
+    const auto fraction = simde_mm_sub_ps(value, integral);
+    // Retain the SDK's polynomial and operation order within the finite range.
+    constexpr std::array<float, 6> coefficients{
+        1.8775767e-3f, 8.9893397e-3f, 5.5826318e-2f,
+        2.4015361e-1f, 6.9315308e-1f, 1.0f,
+    };
+    auto polynomial = simde_mm_set1_ps(coefficients[0]);
+    for (size_t index = 1; index < coefficients.size(); ++index) {
+        polynomial = simde_mm_add_ps(
+            simde_mm_mul_ps(polynomial, fraction), simde_mm_set1_ps(coefficients[index]));
+    }
+    const auto exponent = simde_mm_slli_epi32(
+        simde_mm_add_epi32(simde_mm_cvttps_epi32(integral), simde_mm_set1_epi32(127)), 23);
+    simde_mm_store_ps(destination.f32,
+                     simde_mm_mul_ps(polynomial, simde_mm_castsi128_ps(exponent)));
+}
+
+void SkateEstimateExp2InPlace(PPCVRegister& vector, PPCFPSCRRegister& fpscr) {
+    SkateEstimateExp2(vector, vector, fpscr);
+}
+
 void SkateSetFlickitRate(PPCRegister& rate) {
     if (rate.u32 == kOriginalInputRate) {
         rate.u64 = kFlickitInputRate;

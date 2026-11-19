@@ -24,6 +24,7 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `config/skate-short2-unpack.toml` — included instruction hooks for SHORT2 unpack sentinel handling.
 - `config/skate-half-unpack.toml` — included instruction hooks for half-float unpacking.
 - `config/skate-half-pack.toml` — included instruction hooks for half-float packing toward zero.
+- `config/skate-vector-exp.toml` — included instruction hooks for bounded vector exponent estimates.
 - `tools/` — XEX inspection, disc inventory and parser tests.
 - `tools/audit_guest_thunks.py` — offline comparison of XEX read-only data and Generated dispatch registrations.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
