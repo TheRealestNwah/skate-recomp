@@ -1,0 +1,6406 @@
+# Conditional guards for verified original skate. USA XEX instructions.
+# https://github.com/TheRealestNwah/skate-recomp/issues/114
+# https://github.com/TheRealestNwah/skate-recomp/issues/115
+# https://github.com/TheRealestNwah/skate-recomp/issues/116
+
+[[midasm_hook]]
+address = 0x821FE9D8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x821FE9DC
+
+[[midasm_hook]]
+address = 0x821FEF08
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x821FEF0C
+
+[[midasm_hook]]
+address = 0x821FF678
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x821FF67C
+
+[[midasm_hook]]
+address = 0x822010A0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x822010A4
+
+[[midasm_hook]]
+address = 0x82205B8C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82205B90
+
+[[midasm_hook]]
+address = 0x82205BC0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82205BC4
+
+[[midasm_hook]]
+address = 0x822061EC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x822061F0
+
+[[midasm_hook]]
+address = 0x82206220
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82206224
+
+[[midasm_hook]]
+address = 0x8220BC9C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220BCA0
+
+[[midasm_hook]]
+address = 0x8220BCD0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220BCD4
+
+[[midasm_hook]]
+address = 0x8220C01C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220C020
+
+[[midasm_hook]]
+address = 0x8220C050
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220C054
+
+[[midasm_hook]]
+address = 0x8220D3E0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220D3E4
+
+[[midasm_hook]]
+address = 0x8220D670
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220D674
+
+[[midasm_hook]]
+address = 0x8220D6A0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8220D6A4
+
+[[midasm_hook]]
+address = 0x822169EC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x822169F0
+
+[[midasm_hook]]
+address = 0x82216A00
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82216A04
+
+[[midasm_hook]]
+address = 0x8221B2CC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8221B2D0
+
+[[midasm_hook]]
+address = 0x8221B300
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8221B304
+
+[[midasm_hook]]
+address = 0x82232230
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82232234
+
+[[midasm_hook]]
+address = 0x822322F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822322F8
+
+[[midasm_hook]]
+address = 0x822367BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822367C0
+
+[[midasm_hook]]
+address = 0x8223BE60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8223BE64
+
+[[midasm_hook]]
+address = 0x8223BEE8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x8223BEEC
+
+[[midasm_hook]]
+address = 0x8223BF18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x8223BF1C
+
+[[midasm_hook]]
+address = 0x8223BF48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x8223BF4C
+
+[[midasm_hook]]
+address = 0x8223BF78
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8223BF7C
+
+[[midasm_hook]]
+address = 0x82242CE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82242CE4
+
+[[midasm_hook]]
+address = 0x82242E24
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82242E28
+
+[[midasm_hook]]
+address = 0x8224D534
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8224D538
+
+[[midasm_hook]]
+address = 0x8224D5BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8224D5C0
+
+[[midasm_hook]]
+address = 0x8224D5C4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8224D5C8
+
+[[midasm_hook]]
+address = 0x8224E120
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8224E124
+
+[[midasm_hook]]
+address = 0x8224E790
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8224E794
+
+[[midasm_hook]]
+address = 0x8224EA6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8224EA70
+
+[[midasm_hook]]
+address = 0x8225ED00
+name = "SkateGuardInt64Conversion"
+registers = ["f11", "f13", "fpscr"]
+jump_address_on_true = 0x8225ED04
+
+[[midasm_hook]]
+address = 0x8225ED44
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x8225ED48
+
+[[midasm_hook]]
+address = 0x8225EEA8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x8225EEAC
+
+[[midasm_hook]]
+address = 0x8225EF6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8225EF70
+
+[[midasm_hook]]
+address = 0x8225EF74
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x8225EF78
+
+[[midasm_hook]]
+address = 0x8225F040
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8225F044
+
+[[midasm_hook]]
+address = 0x822AE404
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822AE408
+
+[[midasm_hook]]
+address = 0x822AE410
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822AE414
+
+[[midasm_hook]]
+address = 0x822AE41C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822AE420
+
+[[midasm_hook]]
+address = 0x822B0F7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822B0F80
+
+[[midasm_hook]]
+address = 0x822B13F0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822B13F4
+
+[[midasm_hook]]
+address = 0x822B1914
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822B1918
+
+[[midasm_hook]]
+address = 0x822B1B64
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x822B1B68
+
+[[midasm_hook]]
+address = 0x822B1BB4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822B1BB8
+
+[[midasm_hook]]
+address = 0x822B1C44
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x822B1C48
+
+[[midasm_hook]]
+address = 0x822D09D0
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822D09D4
+
+[[midasm_hook]]
+address = 0x822D0A10
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822D0A14
+
+[[midasm_hook]]
+address = 0x822D0A50
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822D0A54
+
+[[midasm_hook]]
+address = 0x822D2448
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x822D244C
+
+[[midasm_hook]]
+address = 0x822DD77C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822DD780
+
+[[midasm_hook]]
+address = 0x822DD7D0
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822DD7D4
+
+[[midasm_hook]]
+address = 0x822E3DF4
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E3DF8
+
+[[midasm_hook]]
+address = 0x822E3E48
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E3E4C
+
+[[midasm_hook]]
+address = 0x822E59E4
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E59E8
+
+[[midasm_hook]]
+address = 0x822E5A38
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E5A3C
+
+[[midasm_hook]]
+address = 0x822E8D94
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E8D98
+
+[[midasm_hook]]
+address = 0x822E8DE8
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822E8DEC
+
+[[midasm_hook]]
+address = 0x822EE73C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822EE740
+
+[[midasm_hook]]
+address = 0x822EE790
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822EE794
+
+[[midasm_hook]]
+address = 0x822EFD3C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822EFD40
+
+[[midasm_hook]]
+address = 0x822EFD90
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822EFD94
+
+[[midasm_hook]]
+address = 0x822FDA54
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822FDA58
+
+[[midasm_hook]]
+address = 0x822FDAA8
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822FDAAC
+
+[[midasm_hook]]
+address = 0x822FFA20
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822FFA24
+
+[[midasm_hook]]
+address = 0x822FFA60
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x822FFA64
+
+[[midasm_hook]]
+address = 0x823BCEC4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x823BCEC8
+
+[[midasm_hook]]
+address = 0x823F1B08
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x823F1B0C
+
+[[midasm_hook]]
+address = 0x8240E004
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8240E008
+
+[[midasm_hook]]
+address = 0x8240E024
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8240E028
+
+[[midasm_hook]]
+address = 0x8240E4C4
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f9", "fpscr"]
+jump_address_on_true = 0x8240E4C8
+
+[[midasm_hook]]
+address = 0x8240E4CC
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f8", "fpscr"]
+jump_address_on_true = 0x8240E4D0
+
+[[midasm_hook]]
+address = 0x8246B8A8
+name = "SkateGuardWordShift"
+registers = ["r11", "r27", "r29", "xer"]
+jump_address_on_true = 0x8246B8AC
+
+[[midasm_hook]]
+address = 0x8248EA18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8248EA1C
+
+[[midasm_hook]]
+address = 0x824D19A8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x824D19AC
+
+[[midasm_hook]]
+address = 0x824D1A14
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x824D1A18
+
+[[midasm_hook]]
+address = 0x824D1AE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x824D1AE4
+
+[[midasm_hook]]
+address = 0x824D1B10
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x824D1B14
+
+[[midasm_hook]]
+address = 0x824D1B48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x824D1B4C
+
+[[midasm_hook]]
+address = 0x824DC8D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x824DC8D8
+
+[[midasm_hook]]
+address = 0x82504E7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82504E80
+
+[[midasm_hook]]
+address = 0x8251E8F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8251E8F8
+
+[[midasm_hook]]
+address = 0x8251EAFC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8251EB00
+
+[[midasm_hook]]
+address = 0x8251EFA8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8251EFAC
+
+[[midasm_hook]]
+address = 0x8253059C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x825305A0
+
+[[midasm_hook]]
+address = 0x82532A48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82532A4C
+
+[[midasm_hook]]
+address = 0x8253C800
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8253C804
+
+[[midasm_hook]]
+address = 0x8253D464
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8253D468
+
+[[midasm_hook]]
+address = 0x825409F8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x825409FC
+
+[[midasm_hook]]
+address = 0x825507BC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x825507C0
+
+[[midasm_hook]]
+address = 0x82552350
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82552354
+
+[[midasm_hook]]
+address = 0x825570D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x825570D8
+
+[[midasm_hook]]
+address = 0x8255D174
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8255D178
+
+[[midasm_hook]]
+address = 0x8255D61C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8255D620
+
+[[midasm_hook]]
+address = 0x8255D630
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8255D634
+
+[[midasm_hook]]
+address = 0x8257DA38
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8257DA3C
+
+[[midasm_hook]]
+address = 0x825F7204
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x825F7208
+
+[[midasm_hook]]
+address = 0x825F7FC8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x825F7FCC
+
+[[midasm_hook]]
+address = 0x825F81B4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x825F81B8
+
+[[midasm_hook]]
+address = 0x826AFBA8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x826AFBAC
+
+[[midasm_hook]]
+address = 0x826B41A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x826B41A4
+
+[[midasm_hook]]
+address = 0x826F49FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x826F4A00
+
+[[midasm_hook]]
+address = 0x826F4A18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x826F4A1C
+
+[[midasm_hook]]
+address = 0x826F4A28
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x826F4A2C
+
+[[midasm_hook]]
+address = 0x826F9FC0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x826F9FC4
+
+[[midasm_hook]]
+address = 0x82705868
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8270586C
+
+[[midasm_hook]]
+address = 0x82705F48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82705F4C
+
+[[midasm_hook]]
+address = 0x82705F50
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82705F54
+
+[[midasm_hook]]
+address = 0x82734D00
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82734D04
+
+[[midasm_hook]]
+address = 0x827461F8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827461FC
+
+[[midasm_hook]]
+address = 0x827462B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827462B4
+
+[[midasm_hook]]
+address = 0x8274AA70
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f10", "fpscr"]
+jump_address_on_true = 0x8274AA74
+
+[[midasm_hook]]
+address = 0x8274AA78
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f9", "fpscr"]
+jump_address_on_true = 0x8274AA7C
+
+[[midasm_hook]]
+address = 0x8274AA7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8274AA80
+
+[[midasm_hook]]
+address = 0x8274AB34
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f10", "fpscr"]
+jump_address_on_true = 0x8274AB38
+
+[[midasm_hook]]
+address = 0x8274AB3C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f9", "fpscr"]
+jump_address_on_true = 0x8274AB40
+
+[[midasm_hook]]
+address = 0x8274AB40
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8274AB44
+
+[[midasm_hook]]
+address = 0x8274ABF8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f10", "fpscr"]
+jump_address_on_true = 0x8274ABFC
+
+[[midasm_hook]]
+address = 0x8274AC00
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f9", "fpscr"]
+jump_address_on_true = 0x8274AC04
+
+[[midasm_hook]]
+address = 0x8274AC04
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8274AC08
+
+[[midasm_hook]]
+address = 0x8274B40C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8274B410
+
+[[midasm_hook]]
+address = 0x8274B5B8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8274B5BC
+
+[[midasm_hook]]
+address = 0x82754C98
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82754C9C
+
+[[midasm_hook]]
+address = 0x82754CA0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82754CA4
+
+[[midasm_hook]]
+address = 0x82754CA8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82754CAC
+
+[[midasm_hook]]
+address = 0x8275939C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827593A0
+
+[[midasm_hook]]
+address = 0x82772950
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r7", "xer"]
+jump_address_on_true = 0x82772954
+
+[[midasm_hook]]
+address = 0x82772980
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r7", "xer"]
+jump_address_on_true = 0x82772984
+
+[[midasm_hook]]
+address = 0x82772A00
+name = "SkateGuardDoubleShift"
+registers = ["r9", "r8", "r7", "xer"]
+jump_address_on_true = 0x82772A04
+
+[[midasm_hook]]
+address = 0x82772A50
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82772A54
+
+[[midasm_hook]]
+address = 0x82772A74
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82772A78
+
+[[midasm_hook]]
+address = 0x82772AC4
+name = "SkateGuardDoubleShift"
+registers = ["r9", "r8", "r7", "xer"]
+jump_address_on_true = 0x82772AC8
+
+[[midasm_hook]]
+address = 0x82788650
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82788654
+
+[[midasm_hook]]
+address = 0x8279CFB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8279CFBC
+
+[[midasm_hook]]
+address = 0x8279E880
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8279E884
+
+[[midasm_hook]]
+address = 0x827A3744
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827A3748
+
+[[midasm_hook]]
+address = 0x827CA890
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CA894
+
+[[midasm_hook]]
+address = 0x827CAE18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CAE1C
+
+[[midasm_hook]]
+address = 0x827CB40C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CB410
+
+[[midasm_hook]]
+address = 0x827CB900
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CB904
+
+[[midasm_hook]]
+address = 0x827CBEB4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CBEB8
+
+[[midasm_hook]]
+address = 0x827CC390
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x827CC394
+
+[[midasm_hook]]
+address = 0x827E0C08
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x827E0C0C
+
+[[midasm_hook]]
+address = 0x827E0C30
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x827E0C34
+
+[[midasm_hook]]
+address = 0x827E0C58
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x827E0C5C
+
+[[midasm_hook]]
+address = 0x8285A588
+name = "SkateGuardInt64Conversion"
+registers = ["f12", "f0", "fpscr"]
+jump_address_on_true = 0x8285A58C
+
+[[midasm_hook]]
+address = 0x8285A594
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8285A598
+
+[[midasm_hook]]
+address = 0x82869C80
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82869C84
+
+[[midasm_hook]]
+address = 0x8289AFEC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x8289AFF0
+
+[[midasm_hook]]
+address = 0x828A02AC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x828A02B0
+
+[[midasm_hook]]
+address = 0x828A069C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f1", "fpscr"]
+jump_address_on_true = 0x828A06A0
+
+[[midasm_hook]]
+address = 0x828A06A0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x828A06A4
+
+[[midasm_hook]]
+address = 0x828BA690
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x828BA694
+
+[[midasm_hook]]
+address = 0x828BAE94
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x828BAE98
+
+[[midasm_hook]]
+address = 0x828C51C4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x828C51C8
+
+[[midasm_hook]]
+address = 0x82902294
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x82902298
+
+[[midasm_hook]]
+address = 0x82902338
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x8290233C
+
+[[midasm_hook]]
+address = 0x829023D8
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x829023DC
+
+[[midasm_hook]]
+address = 0x82902478
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x8290247C
+
+[[midasm_hook]]
+address = 0x82902518
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x8290251C
+
+[[midasm_hook]]
+address = 0x829025B8
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x829025BC
+
+[[midasm_hook]]
+address = 0x82902658
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x8290265C
+
+[[midasm_hook]]
+address = 0x829026F8
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x829026FC
+
+[[midasm_hook]]
+address = 0x82902798
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x8290279C
+
+[[midasm_hook]]
+address = 0x82902834
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x82902838
+
+[[midasm_hook]]
+address = 0x82903288
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x8290328C
+
+[[midasm_hook]]
+address = 0x8290332C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x82903330
+
+[[midasm_hook]]
+address = 0x829033C8
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x829033CC
+
+[[midasm_hook]]
+address = 0x82903464
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x82903468
+
+[[midasm_hook]]
+address = 0x82903500
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x82903504
+
+[[midasm_hook]]
+address = 0x8290359C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x829035A0
+
+[[midasm_hook]]
+address = 0x82903638
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x8290363C
+
+[[midasm_hook]]
+address = 0x829036D4
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x829036D8
+
+[[midasm_hook]]
+address = 0x82903770
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x82903774
+
+[[midasm_hook]]
+address = 0x8290380C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r6", "xer"]
+jump_address_on_true = 0x82903810
+
+[[midasm_hook]]
+address = 0x8290577C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82905780
+
+[[midasm_hook]]
+address = 0x82908E9C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82908EA0
+
+[[midasm_hook]]
+address = 0x82908EC0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82908EC4
+
+[[midasm_hook]]
+address = 0x8290C950
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290C954
+
+[[midasm_hook]]
+address = 0x8290C974
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290C978
+
+[[midasm_hook]]
+address = 0x8290EE60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290EE64
+
+[[midasm_hook]]
+address = 0x8290EE74
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290EE78
+
+[[midasm_hook]]
+address = 0x8290EE88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290EE8C
+
+[[midasm_hook]]
+address = 0x8290F198
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290F19C
+
+[[midasm_hook]]
+address = 0x8290F1AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290F1B0
+
+[[midasm_hook]]
+address = 0x8290F21C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8290F220
+
+[[midasm_hook]]
+address = 0x82911384
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82911388
+
+[[midasm_hook]]
+address = 0x82911528
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8291152C
+
+[[midasm_hook]]
+address = 0x82911BE4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82911BE8
+
+[[midasm_hook]]
+address = 0x82911E58
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82911E5C
+
+[[midasm_hook]]
+address = 0x82911F00
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82911F04
+
+[[midasm_hook]]
+address = 0x82912778
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8291277C
+
+[[midasm_hook]]
+address = 0x82912870
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82912874
+
+[[midasm_hook]]
+address = 0x82912CF8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82912CFC
+
+[[midasm_hook]]
+address = 0x8292366C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82923670
+
+[[midasm_hook]]
+address = 0x829239C4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829239C8
+
+[[midasm_hook]]
+address = 0x82925A24
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82925A28
+
+[[midasm_hook]]
+address = 0x82925AE4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82925AE8
+
+[[midasm_hook]]
+address = 0x82929DC0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82929DC4
+
+[[midasm_hook]]
+address = 0x8293867C
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82938680
+
+[[midasm_hook]]
+address = 0x82938860
+name = "SkateGuardWordShift"
+registers = ["r29", "r11", "r23", "xer"]
+jump_address_on_true = 0x82938864
+
+[[midasm_hook]]
+address = 0x8293886C
+name = "SkateGuardWordShift"
+registers = ["r29", "r11", "r23", "xer"]
+jump_address_on_true = 0x82938870
+
+[[midasm_hook]]
+address = 0x82938AB4
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82938AB8
+
+[[midasm_hook]]
+address = 0x82938BCC
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r29", "xer"]
+jump_address_on_true = 0x82938BD0
+
+[[midasm_hook]]
+address = 0x8293A820
+name = "SkateGuardWordShift"
+registers = ["r10", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293A824
+
+[[midasm_hook]]
+address = 0x8293A874
+name = "SkateGuardWordShift"
+registers = ["r11", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293A878
+
+[[midasm_hook]]
+address = 0x8293AADC
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x8293AAE0
+
+[[midasm_hook]]
+address = 0x8293AB70
+name = "SkateGuardWordShift"
+registers = ["r8", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293AB74
+
+[[midasm_hook]]
+address = 0x8293ABFC
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x8293AC00
+
+[[midasm_hook]]
+address = 0x8293AC9C
+name = "SkateGuardWordShift"
+registers = ["r8", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293ACA0
+
+[[midasm_hook]]
+address = 0x8293AD24
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x8293AD28
+
+[[midasm_hook]]
+address = 0x8293D26C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x8293D270
+
+[[midasm_hook]]
+address = 0x8293D300
+name = "SkateGuardWordShift"
+registers = ["r8", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293D304
+
+[[midasm_hook]]
+address = 0x8293D4B4
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x8293D4B8
+
+[[midasm_hook]]
+address = 0x8293D554
+name = "SkateGuardWordShift"
+registers = ["r8", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293D558
+
+[[midasm_hook]]
+address = 0x8293D5DC
+name = "SkateGuardWordShift"
+registers = ["r10", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293D5E0
+
+[[midasm_hook]]
+address = 0x8293D6F8
+name = "SkateGuardWordShift"
+registers = ["r11", "r4", "r5", "xer"]
+jump_address_on_true = 0x8293D6FC
+
+[[midasm_hook]]
+address = 0x8293D874
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r25", "xer"]
+jump_address_on_true = 0x8293D878
+
+[[midasm_hook]]
+address = 0x8293D934
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x8293D938
+
+[[midasm_hook]]
+address = 0x8293D9AC
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x8293D9B0
+
+[[midasm_hook]]
+address = 0x8293DA90
+name = "SkateGuardWordShift"
+registers = ["r10", "r25", "r30", "xer"]
+jump_address_on_true = 0x8293DA94
+
+[[midasm_hook]]
+address = 0x8293DB04
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x8293DB08
+
+[[midasm_hook]]
+address = 0x8294B740
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x8294B744
+
+[[midasm_hook]]
+address = 0x8294B74C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x8294B750
+
+[[midasm_hook]]
+address = 0x8294B758
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x8294B75C
+
+[[midasm_hook]]
+address = 0x8294BC2C
+name = "SkateGuardWordShift"
+registers = ["r3", "r9", "r11", "xer"]
+jump_address_on_true = 0x8294BC30
+
+[[midasm_hook]]
+address = 0x8294BC7C
+name = "SkateGuardWordShift"
+registers = ["r9", "r10", "r11", "xer"]
+jump_address_on_true = 0x8294BC80
+
+[[midasm_hook]]
+address = 0x8294BC90
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x8294BC94
+
+[[midasm_hook]]
+address = 0x8294BD24
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x8294BD28
+
+[[midasm_hook]]
+address = 0x8295A890
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8295A894
+
+[[midasm_hook]]
+address = 0x8295A8B4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8295A8B8
+
+[[midasm_hook]]
+address = 0x8295A8DC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x8295A8E0
+
+[[midasm_hook]]
+address = 0x8295A904
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x8295A908
+
+[[midasm_hook]]
+address = 0x82985810
+name = "SkateGuardWordShiftSource"
+registers = ["r3", "r29", "xer"]
+jump_address_on_true = 0x82985814
+
+[[midasm_hook]]
+address = 0x829AD640
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829AD644
+
+[[midasm_hook]]
+address = 0x829AD660
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829AD664
+
+[[midasm_hook]]
+address = 0x829AD680
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829AD684
+
+[[midasm_hook]]
+address = 0x829AD6A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829AD6A4
+
+[[midasm_hook]]
+address = 0x829B36C0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x829B36C4
+
+[[midasm_hook]]
+address = 0x829B67C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B67C4
+
+[[midasm_hook]]
+address = 0x829B7670
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B7674
+
+[[midasm_hook]]
+address = 0x829B7708
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B770C
+
+[[midasm_hook]]
+address = 0x829B77A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B77A8
+
+[[midasm_hook]]
+address = 0x829B78BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B78C0
+
+[[midasm_hook]]
+address = 0x829B7904
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B7908
+
+[[midasm_hook]]
+address = 0x829B794C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B7950
+
+[[midasm_hook]]
+address = 0x829B7994
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B7998
+
+[[midasm_hook]]
+address = 0x829B8B90
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8B94
+
+[[midasm_hook]]
+address = 0x829B8C18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8C1C
+
+[[midasm_hook]]
+address = 0x829B8CA0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8CA4
+
+[[midasm_hook]]
+address = 0x829B8D3C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8D40
+
+[[midasm_hook]]
+address = 0x829B8D70
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8D74
+
+[[midasm_hook]]
+address = 0x829B8DA4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8DA8
+
+[[midasm_hook]]
+address = 0x829B8DD8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829B8DDC
+
+[[midasm_hook]]
+address = 0x829BE78C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829BE790
+
+[[midasm_hook]]
+address = 0x829BE800
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BE804
+
+[[midasm_hook]]
+address = 0x829BE84C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BE850
+
+[[midasm_hook]]
+address = 0x829BE898
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BE89C
+
+[[midasm_hook]]
+address = 0x829BE8E4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BE8E8
+
+[[midasm_hook]]
+address = 0x829BE930
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BE934
+
+[[midasm_hook]]
+address = 0x829BE97C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x829BE980
+
+[[midasm_hook]]
+address = 0x829BEA0C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BEA10
+
+[[midasm_hook]]
+address = 0x829BEA60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BEA64
+
+[[midasm_hook]]
+address = 0x829BEAB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BEABC
+
+[[midasm_hook]]
+address = 0x829BEB10
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BEB14
+
+[[midasm_hook]]
+address = 0x829BEB64
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829BEB68
+
+[[midasm_hook]]
+address = 0x829BEBBC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x829BEBC0
+
+[[midasm_hook]]
+address = 0x829C7278
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829C727C
+
+[[midasm_hook]]
+address = 0x829C733C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x829C7340
+
+[[midasm_hook]]
+address = 0x829C8EE8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829C8EEC
+
+[[midasm_hook]]
+address = 0x829C8F14
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x829C8F18
+
+[[midasm_hook]]
+address = 0x829C8F20
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x829C8F24
+
+[[midasm_hook]]
+address = 0x829C8F30
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x829C8F34
+
+[[midasm_hook]]
+address = 0x829CDB50
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829CDB54
+
+[[midasm_hook]]
+address = 0x829D6AB0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829D6AB4
+
+[[midasm_hook]]
+address = 0x829DCA88
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x829DCA8C
+
+[[midasm_hook]]
+address = 0x829DCA90
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x829DCA94
+
+[[midasm_hook]]
+address = 0x82A22460
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A22464
+
+[[midasm_hook]]
+address = 0x82A224C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A224C4
+
+[[midasm_hook]]
+address = 0x82A22524
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82A22528
+
+[[midasm_hook]]
+address = 0x82A22590
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A22594
+
+[[midasm_hook]]
+address = 0x82A22660
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A22664
+
+[[midasm_hook]]
+address = 0x82A226CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A226D0
+
+[[midasm_hook]]
+address = 0x82A226E8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82A226EC
+
+[[midasm_hook]]
+address = 0x82A5B8AC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82A5B8B0
+
+[[midasm_hook]]
+address = 0x82ADF500
+name = "SkateGuardWordShift"
+registers = ["r11", "r27", "r9", "xer"]
+jump_address_on_true = 0x82ADF504
+
+[[midasm_hook]]
+address = 0x82ADF6E4
+name = "SkateGuardWordShiftCount"
+registers = ["r9", "r6", "xer"]
+jump_address_on_true = 0x82ADF6E8
+
+[[midasm_hook]]
+address = 0x82ADF8AC
+name = "SkateGuardWordShift"
+registers = ["r11", "r20", "r31", "xer"]
+jump_address_on_true = 0x82ADF8B0
+
+[[midasm_hook]]
+address = 0x82AF6244
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF6248
+
+[[midasm_hook]]
+address = 0x82AF6290
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF6294
+
+[[midasm_hook]]
+address = 0x82AF6364
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF6368
+
+[[midasm_hook]]
+address = 0x82AF64DC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF64E0
+
+[[midasm_hook]]
+address = 0x82AF65A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF65A4
+
+[[midasm_hook]]
+address = 0x82AF6610
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AF6614
+
+[[midasm_hook]]
+address = 0x82AFDAB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AFDABC
+
+[[midasm_hook]]
+address = 0x82AFDC58
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82AFDC5C
+
+[[midasm_hook]]
+address = 0x82B01558
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82B0155C
+
+[[midasm_hook]]
+address = 0x82B017BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B017C0
+
+[[midasm_hook]]
+address = 0x82B04E30
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82B04E34
+
+[[midasm_hook]]
+address = 0x82B05094
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B05098
+
+[[midasm_hook]]
+address = 0x82B092A4
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82B092A8
+
+[[midasm_hook]]
+address = 0x82B092D0
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82B092D4
+
+[[midasm_hook]]
+address = 0x82B09394
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r8", "xer"]
+jump_address_on_true = 0x82B09398
+
+[[midasm_hook]]
+address = 0x82B093DC
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82B093E0
+
+[[midasm_hook]]
+address = 0x82B13214
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r5", "xer"]
+jump_address_on_true = 0x82B13218
+
+[[midasm_hook]]
+address = 0x82B13248
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r6", "xer"]
+jump_address_on_true = 0x82B1324C
+
+[[midasm_hook]]
+address = 0x82B51D1C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B51D20
+
+[[midasm_hook]]
+address = 0x82B51D24
+name = "SkateGuardInt64Conversion"
+registers = ["f11", "f10", "fpscr"]
+jump_address_on_true = 0x82B51D28
+
+[[midasm_hook]]
+address = 0x82B51D2C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B51D30
+
+[[midasm_hook]]
+address = 0x82B51D34
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B51D38
+
+[[midasm_hook]]
+address = 0x82B55584
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B55588
+
+[[midasm_hook]]
+address = 0x82B5559C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B555A0
+
+[[midasm_hook]]
+address = 0x82B555BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B555C0
+
+[[midasm_hook]]
+address = 0x82B555D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B555D8
+
+[[midasm_hook]]
+address = 0x82B55E40
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B55E44
+
+[[midasm_hook]]
+address = 0x82B55EA4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B55EA8
+
+[[midasm_hook]]
+address = 0x82B590E4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B590E8
+
+[[midasm_hook]]
+address = 0x82B590EC
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B590F0
+
+[[midasm_hook]]
+address = 0x82B590F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B590F8
+
+[[midasm_hook]]
+address = 0x82B5AFFC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B5B000
+
+[[midasm_hook]]
+address = 0x82B5FA50
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f27", "fpscr"]
+jump_address_on_true = 0x82B5FA54
+
+[[midasm_hook]]
+address = 0x82B5FA58
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f29", "fpscr"]
+jump_address_on_true = 0x82B5FA5C
+
+[[midasm_hook]]
+address = 0x82B5FA60
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f28", "fpscr"]
+jump_address_on_true = 0x82B5FA64
+
+[[midasm_hook]]
+address = 0x82B5FA78
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B5FA7C
+
+[[midasm_hook]]
+address = 0x82B60AF8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B60AFC
+
+[[midasm_hook]]
+address = 0x82B60B30
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B60B34
+
+[[midasm_hook]]
+address = 0x82B60B38
+name = "SkateGuardInt64Conversion"
+registers = ["f12", "f11", "fpscr"]
+jump_address_on_true = 0x82B60B3C
+
+[[midasm_hook]]
+address = 0x82B60B44
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B60B48
+
+[[midasm_hook]]
+address = 0x82B60EA0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B60EA4
+
+[[midasm_hook]]
+address = 0x82B60F80
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B60F84
+
+[[midasm_hook]]
+address = 0x82B60FBC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B60FC0
+
+[[midasm_hook]]
+address = 0x82B60FC4
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82B60FC8
+
+[[midasm_hook]]
+address = 0x82B6149C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B614A0
+
+[[midasm_hook]]
+address = 0x82B61574
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B61578
+
+[[midasm_hook]]
+address = 0x82B615B8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B615BC
+
+[[midasm_hook]]
+address = 0x82B61624
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B61628
+
+[[midasm_hook]]
+address = 0x82B66068
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B6606C
+
+[[midasm_hook]]
+address = 0x82B660C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B660C4
+
+[[midasm_hook]]
+address = 0x82B66674
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B66678
+
+[[midasm_hook]]
+address = 0x82B6668C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B66690
+
+[[midasm_hook]]
+address = 0x82B666AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B666B0
+
+[[midasm_hook]]
+address = 0x82B666CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B666D0
+
+[[midasm_hook]]
+address = 0x82B66734
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B66738
+
+[[midasm_hook]]
+address = 0x82B66754
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B66758
+
+[[midasm_hook]]
+address = 0x82B6675C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B66760
+
+[[midasm_hook]]
+address = 0x82B6677C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B66780
+
+[[midasm_hook]]
+address = 0x82B66838
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B6683C
+
+[[midasm_hook]]
+address = 0x82B66858
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B6685C
+
+[[midasm_hook]]
+address = 0x82B66870
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B66874
+
+[[midasm_hook]]
+address = 0x82B66888
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B6688C
+
+[[midasm_hook]]
+address = 0x82B686E0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f10", "fpscr"]
+jump_address_on_true = 0x82B686E4
+
+[[midasm_hook]]
+address = 0x82B68700
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82B68704
+
+[[midasm_hook]]
+address = 0x82B68718
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B6871C
+
+[[midasm_hook]]
+address = 0x82B6872C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B68730
+
+[[midasm_hook]]
+address = 0x82B69310
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B69314
+
+[[midasm_hook]]
+address = 0x82B69320
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B69324
+
+[[midasm_hook]]
+address = 0x82B79B04
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f7", "fpscr"]
+jump_address_on_true = 0x82B79B08
+
+[[midasm_hook]]
+address = 0x82B79B10
+name = "SkateGuardInt64Conversion"
+registers = ["f7", "f6", "fpscr"]
+jump_address_on_true = 0x82B79B14
+
+[[midasm_hook]]
+address = 0x82B79B18
+name = "SkateGuardInt64Conversion"
+registers = ["f7", "f5", "fpscr"]
+jump_address_on_true = 0x82B79B1C
+
+[[midasm_hook]]
+address = 0x82B79B60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f7", "fpscr"]
+jump_address_on_true = 0x82B79B64
+
+[[midasm_hook]]
+address = 0x82B79D88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f7", "fpscr"]
+jump_address_on_true = 0x82B79D8C
+
+[[midasm_hook]]
+address = 0x82B79DDC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B79DE0
+
+[[midasm_hook]]
+address = 0x82B79DE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B79DE4
+
+[[midasm_hook]]
+address = 0x82B79E48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f7", "fpscr"]
+jump_address_on_true = 0x82B79E4C
+
+[[midasm_hook]]
+address = 0x82B7A06C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7A070
+
+[[midasm_hook]]
+address = 0x82B7A074
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f3", "fpscr"]
+jump_address_on_true = 0x82B7A078
+
+[[midasm_hook]]
+address = 0x82B7A07C
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f2", "fpscr"]
+jump_address_on_true = 0x82B7A080
+
+[[midasm_hook]]
+address = 0x82B7A108
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7A10C
+
+[[midasm_hook]]
+address = 0x82B7A180
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7A184
+
+[[midasm_hook]]
+address = 0x82B7A188
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f3", "fpscr"]
+jump_address_on_true = 0x82B7A18C
+
+[[midasm_hook]]
+address = 0x82B7A190
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f2", "fpscr"]
+jump_address_on_true = 0x82B7A194
+
+[[midasm_hook]]
+address = 0x82B7A1E0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7A1E4
+
+[[midasm_hook]]
+address = 0x82B7A21C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7A220
+
+[[midasm_hook]]
+address = 0x82B7A224
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f3", "fpscr"]
+jump_address_on_true = 0x82B7A228
+
+[[midasm_hook]]
+address = 0x82B7A22C
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f2", "fpscr"]
+jump_address_on_true = 0x82B7A230
+
+[[midasm_hook]]
+address = 0x82B7A2B8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7A2BC
+
+[[midasm_hook]]
+address = 0x82B7A2FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7A300
+
+[[midasm_hook]]
+address = 0x82B7A304
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f3", "fpscr"]
+jump_address_on_true = 0x82B7A308
+
+[[midasm_hook]]
+address = 0x82B7A30C
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f2", "fpscr"]
+jump_address_on_true = 0x82B7A310
+
+[[midasm_hook]]
+address = 0x82B7A39C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7A3A0
+
+[[midasm_hook]]
+address = 0x82B7A3F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7A3F8
+
+[[midasm_hook]]
+address = 0x82B7A3FC
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f3", "fpscr"]
+jump_address_on_true = 0x82B7A400
+
+[[midasm_hook]]
+address = 0x82B7A404
+name = "SkateGuardInt64Conversion"
+registers = ["f4", "f2", "fpscr"]
+jump_address_on_true = 0x82B7A408
+
+[[midasm_hook]]
+address = 0x82B7A494
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7A498
+
+[[midasm_hook]]
+address = 0x82B7A604
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A608
+
+[[midasm_hook]]
+address = 0x82B7A660
+name = "SkateGuardInt64Conversion"
+registers = ["f6", "f5", "fpscr"]
+jump_address_on_true = 0x82B7A664
+
+[[midasm_hook]]
+address = 0x82B7A670
+name = "SkateGuardInt64Conversion"
+registers = ["f6", "f4", "fpscr"]
+jump_address_on_true = 0x82B7A674
+
+[[midasm_hook]]
+address = 0x82B7A6D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A6D8
+
+[[midasm_hook]]
+address = 0x82B7A7E0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A7E4
+
+[[midasm_hook]]
+address = 0x82B7A848
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A84C
+
+[[midasm_hook]]
+address = 0x82B7A8B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A8B4
+
+[[midasm_hook]]
+address = 0x82B7A920
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A924
+
+[[midasm_hook]]
+address = 0x82B7A9AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7A9B0
+
+[[midasm_hook]]
+address = 0x82B7AB14
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AB18
+
+[[midasm_hook]]
+address = 0x82B7AB6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7AB70
+
+[[midasm_hook]]
+address = 0x82B7AB7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7AB80
+
+[[midasm_hook]]
+address = 0x82B7ABDC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7ABE0
+
+[[midasm_hook]]
+address = 0x82B7AD4C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AD50
+
+[[midasm_hook]]
+address = 0x82B7ADB0
+name = "SkateGuardInt64Conversion"
+registers = ["f6", "f4", "fpscr"]
+jump_address_on_true = 0x82B7ADB4
+
+[[midasm_hook]]
+address = 0x82B7ADB8
+name = "SkateGuardInt64Conversion"
+registers = ["f6", "f5", "fpscr"]
+jump_address_on_true = 0x82B7ADBC
+
+[[midasm_hook]]
+address = 0x82B7AE0C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AE10
+
+[[midasm_hook]]
+address = 0x82B7AF1C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AF20
+
+[[midasm_hook]]
+address = 0x82B7AF88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AF8C
+
+[[midasm_hook]]
+address = 0x82B7AFF4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7AFF8
+
+[[midasm_hook]]
+address = 0x82B7B060
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B064
+
+[[midasm_hook]]
+address = 0x82B7B0CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B0D0
+
+[[midasm_hook]]
+address = 0x82B7B138
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B13C
+
+[[midasm_hook]]
+address = 0x82B7B1A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B1A8
+
+[[midasm_hook]]
+address = 0x82B7B210
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B214
+
+[[midasm_hook]]
+address = 0x82B7B27C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B280
+
+[[midasm_hook]]
+address = 0x82B7B2EC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B2F0
+
+[[midasm_hook]]
+address = 0x82B7B358
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B35C
+
+[[midasm_hook]]
+address = 0x82B7B3CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B3D0
+
+[[midasm_hook]]
+address = 0x82B7B44C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B450
+
+[[midasm_hook]]
+address = 0x82B7B4B8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B4BC
+
+[[midasm_hook]]
+address = 0x82B7B52C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B530
+
+[[midasm_hook]]
+address = 0x82B7B694
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B698
+
+[[midasm_hook]]
+address = 0x82B7B6EC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7B6F0
+
+[[midasm_hook]]
+address = 0x82B7B6FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7B700
+
+[[midasm_hook]]
+address = 0x82B7B750
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7B754
+
+[[midasm_hook]]
+address = 0x82B7B918
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7B91C
+
+[[midasm_hook]]
+address = 0x82B7B920
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7B924
+
+[[midasm_hook]]
+address = 0x82B7B928
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7B92C
+
+[[midasm_hook]]
+address = 0x82B7B984
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7B988
+
+[[midasm_hook]]
+address = 0x82B7B98C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7B990
+
+[[midasm_hook]]
+address = 0x82B7B994
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7B998
+
+[[midasm_hook]]
+address = 0x82B7BA38
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7BA3C
+
+[[midasm_hook]]
+address = 0x82B7BA40
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7BA44
+
+[[midasm_hook]]
+address = 0x82B7BA48
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7BA4C
+
+[[midasm_hook]]
+address = 0x82B7BA94
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7BA98
+
+[[midasm_hook]]
+address = 0x82B7BA9C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7BAA0
+
+[[midasm_hook]]
+address = 0x82B7BAA4
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7BAA8
+
+[[midasm_hook]]
+address = 0x82B7BAF0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7BAF4
+
+[[midasm_hook]]
+address = 0x82B7BAF8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7BAFC
+
+[[midasm_hook]]
+address = 0x82B7BB00
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7BB04
+
+[[midasm_hook]]
+address = 0x82B7BB50
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7BB54
+
+[[midasm_hook]]
+address = 0x82B7BB58
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7BB5C
+
+[[midasm_hook]]
+address = 0x82B7BB60
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7BB64
+
+[[midasm_hook]]
+address = 0x82B7BBD0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B7BBD4
+
+[[midasm_hook]]
+address = 0x82B7BBD8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B7BBDC
+
+[[midasm_hook]]
+address = 0x82B7BBE0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82B7BBE4
+
+[[midasm_hook]]
+address = 0x82B7BD6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7BD70
+
+[[midasm_hook]]
+address = 0x82B7BDB4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f3", "fpscr"]
+jump_address_on_true = 0x82B7BDB8
+
+[[midasm_hook]]
+address = 0x82B7BDC8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7BDCC
+
+[[midasm_hook]]
+address = 0x82B7BED8
+name = "SkateGuardInt64Conversion"
+registers = ["f3", "f2", "fpscr"]
+jump_address_on_true = 0x82B7BEDC
+
+[[midasm_hook]]
+address = 0x82B7BEE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7BEE4
+
+[[midasm_hook]]
+address = 0x82B7BF14
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7BF18
+
+[[midasm_hook]]
+address = 0x82B7BFF8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f3", "fpscr"]
+jump_address_on_true = 0x82B7BFFC
+
+[[midasm_hook]]
+address = 0x82B7C000
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7C004
+
+[[midasm_hook]]
+address = 0x82B7C054
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7C058
+
+[[midasm_hook]]
+address = 0x82B7C10C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7C110
+
+[[midasm_hook]]
+address = 0x82B7C170
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7C174
+
+[[midasm_hook]]
+address = 0x82B7C1A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7C1A4
+
+[[midasm_hook]]
+address = 0x82B7C294
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7C298
+
+[[midasm_hook]]
+address = 0x82B7C2E0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f3", "fpscr"]
+jump_address_on_true = 0x82B7C2E4
+
+[[midasm_hook]]
+address = 0x82B7C2F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7C2F8
+
+[[midasm_hook]]
+address = 0x82B7C3E8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B7C3EC
+
+[[midasm_hook]]
+address = 0x82B7C450
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B7C454
+
+[[midasm_hook]]
+address = 0x82B7C4C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B7C4C4
+
+[[midasm_hook]]
+address = 0x82B7C534
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B7C538
+
+[[midasm_hook]]
+address = 0x82B7C624
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C628
+
+[[midasm_hook]]
+address = 0x82B7C690
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C694
+
+[[midasm_hook]]
+address = 0x82B7C6FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C700
+
+[[midasm_hook]]
+address = 0x82B7C768
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C76C
+
+[[midasm_hook]]
+address = 0x82B7C7D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C7D8
+
+[[midasm_hook]]
+address = 0x82B7C840
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C844
+
+[[midasm_hook]]
+address = 0x82B7C8AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C8B0
+
+[[midasm_hook]]
+address = 0x82B7C918
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C91C
+
+[[midasm_hook]]
+address = 0x82B7C984
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C988
+
+[[midasm_hook]]
+address = 0x82B7C9F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7C9F8
+
+[[midasm_hook]]
+address = 0x82B7CA60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CA64
+
+[[midasm_hook]]
+address = 0x82B7CAD4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CAD8
+
+[[midasm_hook]]
+address = 0x82B7CB54
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CB58
+
+[[midasm_hook]]
+address = 0x82B7CBC0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CBC4
+
+[[midasm_hook]]
+address = 0x82B7CC34
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CC38
+
+[[midasm_hook]]
+address = 0x82B7CCB4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B7CCB8
+
+[[midasm_hook]]
+address = 0x82B7CCBC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B7CCC0
+
+[[midasm_hook]]
+address = 0x82B7CCC4
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82B7CCC8
+
+[[midasm_hook]]
+address = 0x82B7CF04
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CF08
+
+[[midasm_hook]]
+address = 0x82B7CF5C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f5", "fpscr"]
+jump_address_on_true = 0x82B7CF60
+
+[[midasm_hook]]
+address = 0x82B7CF6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f4", "fpscr"]
+jump_address_on_true = 0x82B7CF70
+
+[[midasm_hook]]
+address = 0x82B7CFCC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f6", "fpscr"]
+jump_address_on_true = 0x82B7CFD0
+
+[[midasm_hook]]
+address = 0x82B7D054
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B7D058
+
+[[midasm_hook]]
+address = 0x82B7D05C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B7D060
+
+[[midasm_hook]]
+address = 0x82B7D064
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82B7D068
+
+[[midasm_hook]]
+address = 0x82B82208
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B8220C
+
+[[midasm_hook]]
+address = 0x82B82258
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B8225C
+
+[[midasm_hook]]
+address = 0x82B822A8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B822AC
+
+[[midasm_hook]]
+address = 0x82B822F8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B822FC
+
+[[midasm_hook]]
+address = 0x82B82420
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B82424
+
+[[midasm_hook]]
+address = 0x82B82428
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B8242C
+
+[[midasm_hook]]
+address = 0x82B82430
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82B82434
+
+[[midasm_hook]]
+address = 0x82B824B4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B824B8
+
+[[midasm_hook]]
+address = 0x82B824EC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B824F0
+
+[[midasm_hook]]
+address = 0x82B8251C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B82520
+
+[[midasm_hook]]
+address = 0x82B825F8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B825FC
+
+[[midasm_hook]]
+address = 0x82B82600
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B82604
+
+[[midasm_hook]]
+address = 0x82B82608
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B8260C
+
+[[midasm_hook]]
+address = 0x82B82674
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B82678
+
+[[midasm_hook]]
+address = 0x82B8267C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B82680
+
+[[midasm_hook]]
+address = 0x82B82684
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B82688
+
+[[midasm_hook]]
+address = 0x82B85974
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B85978
+
+[[midasm_hook]]
+address = 0x82B859C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B859C4
+
+[[midasm_hook]]
+address = 0x82B85A0C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B85A10
+
+[[midasm_hook]]
+address = 0x82B85A60
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B85A64
+
+[[midasm_hook]]
+address = 0x82B85ADC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82B85AE0
+
+[[midasm_hook]]
+address = 0x82B8BE54
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B8BE58
+
+[[midasm_hook]]
+address = 0x82B8BE74
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B8BE78
+
+[[midasm_hook]]
+address = 0x82B8BE80
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f13", "fpscr"]
+jump_address_on_true = 0x82B8BE84
+
+[[midasm_hook]]
+address = 0x82B8BE88
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82B8BE8C
+
+[[midasm_hook]]
+address = 0x82B98A88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B98A8C
+
+[[midasm_hook]]
+address = 0x82B98A90
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82B98A94
+
+[[midasm_hook]]
+address = 0x82B98A98
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B98A9C
+
+[[midasm_hook]]
+address = 0x82B9BEE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9BEE4
+
+[[midasm_hook]]
+address = 0x82B9BF88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9BF8C
+
+[[midasm_hook]]
+address = 0x82B9BFEC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82B9BFF0
+
+[[midasm_hook]]
+address = 0x82B9C058
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9C05C
+
+[[midasm_hook]]
+address = 0x82B9C128
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9C12C
+
+[[midasm_hook]]
+address = 0x82B9C19C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9C1A0
+
+[[midasm_hook]]
+address = 0x82B9C1BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82B9C1C0
+
+[[midasm_hook]]
+address = 0x82BA2FDC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BA2FE0
+
+[[midasm_hook]]
+address = 0x82BCB9BC
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f30", "fpscr"]
+jump_address_on_true = 0x82BCB9C0
+
+[[midasm_hook]]
+address = 0x82BCBB28
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x82BCBB2C
+
+[[midasm_hook]]
+address = 0x82BDAA44
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BDAA48
+
+[[midasm_hook]]
+address = 0x82BDB714
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BDB718
+
+[[midasm_hook]]
+address = 0x82BDB79C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BDB7A0
+
+[[midasm_hook]]
+address = 0x82BE10D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BE10D8
+
+[[midasm_hook]]
+address = 0x82BE3824
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82BE3828
+
+[[midasm_hook]]
+address = 0x82BE3830
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82BE3834
+
+[[midasm_hook]]
+address = 0x82BE3834
+name = "SkateGuardInt64Conversion"
+registers = ["f12", "f11", "fpscr"]
+jump_address_on_true = 0x82BE3838
+
+[[midasm_hook]]
+address = 0x82BE3838
+name = "SkateGuardInt64Conversion"
+registers = ["f11", "f10", "fpscr"]
+jump_address_on_true = 0x82BE383C
+
+[[midasm_hook]]
+address = 0x82BE3850
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f10", "fpscr"]
+jump_address_on_true = 0x82BE3854
+
+[[midasm_hook]]
+address = 0x82BE3864
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f9", "fpscr"]
+jump_address_on_true = 0x82BE3868
+
+[[midasm_hook]]
+address = 0x82BE3870
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f8", "fpscr"]
+jump_address_on_true = 0x82BE3874
+
+[[midasm_hook]]
+address = 0x82BE3898
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BE389C
+
+[[midasm_hook]]
+address = 0x82BFB05C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82BFB060
+
+[[midasm_hook]]
+address = 0x82C06908
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0690C
+
+[[midasm_hook]]
+address = 0x82C0698C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06990
+
+[[midasm_hook]]
+address = 0x82C06BA8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06BAC
+
+[[midasm_hook]]
+address = 0x82C06CB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06CBC
+
+[[midasm_hook]]
+address = 0x82C06CF8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06CFC
+
+[[midasm_hook]]
+address = 0x82C06F28
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06F2C
+
+[[midasm_hook]]
+address = 0x82C06F7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C06F80
+
+[[midasm_hook]]
+address = 0x82C071E0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C071E4
+
+[[midasm_hook]]
+address = 0x82C07268
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0726C
+
+[[midasm_hook]]
+address = 0x82C072A8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C072AC
+
+[[midasm_hook]]
+address = 0x82C073B8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C073BC
+
+[[midasm_hook]]
+address = 0x82C07488
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0748C
+
+[[midasm_hook]]
+address = 0x82C07764
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C07768
+
+[[midasm_hook]]
+address = 0x82C0780C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C07810
+
+[[midasm_hook]]
+address = 0x82C078C8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C078CC
+
+[[midasm_hook]]
+address = 0x82C07920
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C07924
+
+[[midasm_hook]]
+address = 0x82C0795C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C07960
+
+[[midasm_hook]]
+address = 0x82C0B290
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0B294
+
+[[midasm_hook]]
+address = 0x82C0BA3C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0BA40
+
+[[midasm_hook]]
+address = 0x82C0BA94
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0BA98
+
+[[midasm_hook]]
+address = 0x82C0BACC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0BAD0
+
+[[midasm_hook]]
+address = 0x82C0BFBC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0BFC0
+
+[[midasm_hook]]
+address = 0x82C0D16C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0D170
+
+[[midasm_hook]]
+address = 0x82C0DDE8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0DDEC
+
+[[midasm_hook]]
+address = 0x82C0FCA0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C0FCA4
+
+[[midasm_hook]]
+address = 0x82C100A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C100A8
+
+[[midasm_hook]]
+address = 0x82C1C638
+name = "SkateGuardWordShiftCount"
+registers = ["r8", "r6", "xer"]
+jump_address_on_true = 0x82C1C63C
+
+[[midasm_hook]]
+address = 0x82C2A84C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r30", "xer"]
+jump_address_on_true = 0x82C2A850
+
+[[midasm_hook]]
+address = 0x82C44ECC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82C44ED0
+
+[[midasm_hook]]
+address = 0x82C44ED4
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82C44ED8
+
+[[midasm_hook]]
+address = 0x82C44EDC
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82C44EE0
+
+[[midasm_hook]]
+address = 0x82C44EE8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C44EEC
+
+[[midasm_hook]]
+address = 0x82C49A04
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82C49A08
+
+[[midasm_hook]]
+address = 0x82C49A30
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82C49A34
+
+[[midasm_hook]]
+address = 0x82C49A88
+name = "SkateGuardDoubleShiftSource"
+registers = ["r8", "r7", "xer"]
+jump_address_on_true = 0x82C49A8C
+
+[[midasm_hook]]
+address = 0x82C49AD0
+name = "SkateGuardDoubleShiftSource"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82C49AD4
+
+[[midasm_hook]]
+address = 0x82C4DBB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82C4DBBC
+
+[[midasm_hook]]
+address = 0x82C4DD18
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C4DD1C
+
+[[midasm_hook]]
+address = 0x82C4DFD0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C4DFD4
+
+[[midasm_hook]]
+address = 0x82C5C4E8
+name = "SkateGuardWordShift"
+registers = ["r11", "r10", "r8", "xer"]
+jump_address_on_true = 0x82C5C4EC
+
+[[midasm_hook]]
+address = 0x82C5C4EC
+name = "SkateGuardWordShift"
+registers = ["r10", "r9", "r8", "xer"]
+jump_address_on_true = 0x82C5C4F0
+
+[[midasm_hook]]
+address = 0x82C5ED14
+name = "SkateGuardWordShift"
+registers = ["r11", "r9", "r7", "xer"]
+jump_address_on_true = 0x82C5ED18
+
+[[midasm_hook]]
+address = 0x82C5ED18
+name = "SkateGuardWordShift"
+registers = ["r9", "r8", "r7", "xer"]
+jump_address_on_true = 0x82C5ED1C
+
+[[midasm_hook]]
+address = 0x82C5F550
+name = "SkateGuardWordShift"
+registers = ["r11", "r10", "r8", "xer"]
+jump_address_on_true = 0x82C5F554
+
+[[midasm_hook]]
+address = 0x82C5F554
+name = "SkateGuardWordShift"
+registers = ["r10", "r9", "r8", "xer"]
+jump_address_on_true = 0x82C5F558
+
+[[midasm_hook]]
+address = 0x82C63DC8
+name = "SkateGuardWordShift"
+registers = ["r10", "r7", "r9", "xer"]
+jump_address_on_true = 0x82C63DCC
+
+[[midasm_hook]]
+address = 0x82C63E7C
+name = "SkateGuardWordShift"
+registers = ["r10", "r7", "r8", "xer"]
+jump_address_on_true = 0x82C63E80
+
+[[midasm_hook]]
+address = 0x82C63F08
+name = "SkateGuardWordShift"
+registers = ["r10", "r7", "r9", "xer"]
+jump_address_on_true = 0x82C63F0C
+
+[[midasm_hook]]
+address = 0x82C63F2C
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r7", "xer"]
+jump_address_on_true = 0x82C63F30
+
+[[midasm_hook]]
+address = 0x82C63F54
+name = "SkateGuardWordShift"
+registers = ["r9", "r7", "r10", "xer"]
+jump_address_on_true = 0x82C63F58
+
+[[midasm_hook]]
+address = 0x82C63F74
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r7", "xer"]
+jump_address_on_true = 0x82C63F78
+
+[[midasm_hook]]
+address = 0x82C63F8C
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r7", "xer"]
+jump_address_on_true = 0x82C63F90
+
+[[midasm_hook]]
+address = 0x82C63FF8
+name = "SkateGuardWordShiftCount"
+registers = ["r8", "r7", "xer"]
+jump_address_on_true = 0x82C63FFC
+
+[[midasm_hook]]
+address = 0x82C64018
+name = "SkateGuardWordShiftCount"
+registers = ["r9", "r7", "xer"]
+jump_address_on_true = 0x82C6401C
+
+[[midasm_hook]]
+address = 0x82C6403C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r7", "xer"]
+jump_address_on_true = 0x82C64040
+
+[[midasm_hook]]
+address = 0x82C670F4
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r7", "xer"]
+jump_address_on_true = 0x82C670F8
+
+[[midasm_hook]]
+address = 0x82C67420
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r28", "xer"]
+jump_address_on_true = 0x82C67424
+
+[[midasm_hook]]
+address = 0x82C6908C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x82C69090
+
+[[midasm_hook]]
+address = 0x82C690B4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C690B8
+
+[[midasm_hook]]
+address = 0x82C6A7D4
+name = "SkateGuardWordShift"
+registers = ["r31", "r9", "r10", "xer"]
+jump_address_on_true = 0x82C6A7D8
+
+[[midasm_hook]]
+address = 0x82C6A7E0
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82C6A7E4
+
+[[midasm_hook]]
+address = 0x82C6A7FC
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r8", "xer"]
+jump_address_on_true = 0x82C6A800
+
+[[midasm_hook]]
+address = 0x82C6A808
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82C6A80C
+
+[[midasm_hook]]
+address = 0x82C6F514
+name = "SkateGuardWordShift"
+registers = ["r11", "r10", "r8", "xer"]
+jump_address_on_true = 0x82C6F518
+
+[[midasm_hook]]
+address = 0x82C6F518
+name = "SkateGuardWordShift"
+registers = ["r10", "r9", "r8", "xer"]
+jump_address_on_true = 0x82C6F51C
+
+[[midasm_hook]]
+address = 0x82C75424
+name = "SkateGuardWordShift"
+registers = ["r10", "r5", "r8", "xer"]
+jump_address_on_true = 0x82C75428
+
+[[midasm_hook]]
+address = 0x82C7567C
+name = "SkateGuardWordShift"
+registers = ["r11", "r9", "r7", "xer"]
+jump_address_on_true = 0x82C75680
+
+[[midasm_hook]]
+address = 0x82C75680
+name = "SkateGuardWordShift"
+registers = ["r9", "r8", "r7", "xer"]
+jump_address_on_true = 0x82C75684
+
+[[midasm_hook]]
+address = 0x82C75A44
+name = "SkateGuardWordShift"
+registers = ["r11", "r10", "r8", "xer"]
+jump_address_on_true = 0x82C75A48
+
+[[midasm_hook]]
+address = 0x82C75A48
+name = "SkateGuardWordShift"
+registers = ["r10", "r9", "r8", "xer"]
+jump_address_on_true = 0x82C75A4C
+
+[[midasm_hook]]
+address = 0x82C76540
+name = "SkateGuardWordShift"
+registers = ["r11", "r10", "r8", "xer"]
+jump_address_on_true = 0x82C76544
+
+[[midasm_hook]]
+address = 0x82C76544
+name = "SkateGuardWordShift"
+registers = ["r10", "r9", "r8", "xer"]
+jump_address_on_true = 0x82C76548
+
+[[midasm_hook]]
+address = 0x82C9B170
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C9B174
+
+[[midasm_hook]]
+address = 0x82C9B260
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C9B264
+
+[[midasm_hook]]
+address = 0x82C9B3C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82C9B3C4
+
+[[midasm_hook]]
+address = 0x82CAE800
+name = "SkateGuardWordShiftSource"
+registers = ["r8", "r31", "xer"]
+jump_address_on_true = 0x82CAE804
+
+[[midasm_hook]]
+address = 0x82CAE838
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r31", "xer"]
+jump_address_on_true = 0x82CAE83C
+
+[[midasm_hook]]
+address = 0x82CAE8A8
+name = "SkateGuardWordShift"
+registers = ["r7", "r5", "r10", "xer"]
+jump_address_on_true = 0x82CAE8AC
+
+[[midasm_hook]]
+address = 0x82CAE8C0
+name = "SkateGuardWordShift"
+registers = ["r11", "r9", "r6", "xer"]
+jump_address_on_true = 0x82CAE8C4
+
+[[midasm_hook]]
+address = 0x82CAE938
+name = "SkateGuardWordShift"
+registers = ["r28", "r11", "r10", "xer"]
+jump_address_on_true = 0x82CAE93C
+
+[[midasm_hook]]
+address = 0x82CAE940
+name = "SkateGuardWordShift"
+registers = ["r27", "r9", "r6", "xer"]
+jump_address_on_true = 0x82CAE944
+
+[[midasm_hook]]
+address = 0x82CAEA60
+name = "SkateGuardWordShiftSource"
+registers = ["r6", "r30", "xer"]
+jump_address_on_true = 0x82CAEA64
+
+[[midasm_hook]]
+address = 0x82CAEA98
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r30", "xer"]
+jump_address_on_true = 0x82CAEA9C
+
+[[midasm_hook]]
+address = 0x82CAEADC
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r11", "xer"]
+jump_address_on_true = 0x82CAEAE0
+
+[[midasm_hook]]
+address = 0x82CAEAE4
+name = "SkateGuardWordShift"
+registers = ["r9", "r6", "r8", "xer"]
+jump_address_on_true = 0x82CAEAE8
+
+[[midasm_hook]]
+address = 0x82CAEB18
+name = "SkateGuardWordShift"
+registers = ["r28", "r5", "r11", "xer"]
+jump_address_on_true = 0x82CAEB1C
+
+[[midasm_hook]]
+address = 0x82CAEB2C
+name = "SkateGuardWordShift"
+registers = ["r27", "r9", "r8", "xer"]
+jump_address_on_true = 0x82CAEB30
+
+[[midasm_hook]]
+address = 0x82CAF8E8
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r31", "xer"]
+jump_address_on_true = 0x82CAF8EC
+
+[[midasm_hook]]
+address = 0x82CAF920
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r31", "xer"]
+jump_address_on_true = 0x82CAF924
+
+[[midasm_hook]]
+address = 0x82CAF954
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x82CAF958
+
+[[midasm_hook]]
+address = 0x82CAFA9C
+name = "SkateGuardWordShift"
+registers = ["r27", "r11", "r7", "xer"]
+jump_address_on_true = 0x82CAFAA0
+
+[[midasm_hook]]
+address = 0x82CAFAA4
+name = "SkateGuardWordShift"
+registers = ["r26", "r10", "r8", "xer"]
+jump_address_on_true = 0x82CAFAA8
+
+[[midasm_hook]]
+address = 0x82CAFC0C
+name = "SkateGuardWordShiftSource"
+registers = ["r7", "r31", "xer"]
+jump_address_on_true = 0x82CAFC10
+
+[[midasm_hook]]
+address = 0x82CAFC44
+name = "SkateGuardWordShiftSource"
+registers = ["r7", "r31", "xer"]
+jump_address_on_true = 0x82CAFC48
+
+[[midasm_hook]]
+address = 0x82CAFC78
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r31", "xer"]
+jump_address_on_true = 0x82CAFC7C
+
+[[midasm_hook]]
+address = 0x82CAFCD0
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82CAFCD4
+
+[[midasm_hook]]
+address = 0x82CAFCD8
+name = "SkateGuardWordShift"
+registers = ["r11", "r7", "r8", "xer"]
+jump_address_on_true = 0x82CAFCDC
+
+[[midasm_hook]]
+address = 0x82CB2424
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CB2428
+
+[[midasm_hook]]
+address = 0x82CB248C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CB2490
+
+[[midasm_hook]]
+address = 0x82CB24CC
+name = "SkateGuardDoubleShiftCount"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82CB24D0
+
+[[midasm_hook]]
+address = 0x82CB250C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82CB2510
+
+[[midasm_hook]]
+address = 0x82CB2544
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CB2548
+
+[[midasm_hook]]
+address = 0x82CB521C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CB5220
+
+[[midasm_hook]]
+address = 0x82CB6550
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB6554
+
+[[midasm_hook]]
+address = 0x82CB6570
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB6574
+
+[[midasm_hook]]
+address = 0x82CB6604
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CB6608
+
+[[midasm_hook]]
+address = 0x82CB68D8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB68DC
+
+[[midasm_hook]]
+address = 0x82CB72CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB72D0
+
+[[midasm_hook]]
+address = 0x82CB73E4
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82CB73E8
+
+[[midasm_hook]]
+address = 0x82CB73EC
+name = "SkateGuardInt64Conversion"
+registers = ["f12", "f10", "fpscr"]
+jump_address_on_true = 0x82CB73F0
+
+[[midasm_hook]]
+address = 0x82CB73F0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82CB73F4
+
+[[midasm_hook]]
+address = 0x82CB73F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB73F8
+
+[[midasm_hook]]
+address = 0x82CB7488
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB748C
+
+[[midasm_hook]]
+address = 0x82CB8D38
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB8D3C
+
+[[midasm_hook]]
+address = 0x82CB8DE0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB8DE4
+
+[[midasm_hook]]
+address = 0x82CB93A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB93A4
+
+[[midasm_hook]]
+address = 0x82CB93B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB93B4
+
+[[midasm_hook]]
+address = 0x82CB93C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB93C4
+
+[[midasm_hook]]
+address = 0x82CB93CC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CB93D0
+
+[[midasm_hook]]
+address = 0x82CBB58C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CBB590
+
+[[midasm_hook]]
+address = 0x82CBB5B8
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CBB5BC
+
+[[midasm_hook]]
+address = 0x82CBDA24
+name = "SkateGuardDoubleShiftCount"
+registers = ["r7", "r5", "xer"]
+jump_address_on_true = 0x82CBDA28
+
+[[midasm_hook]]
+address = 0x82CC4CB4
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CC4CB8
+
+[[midasm_hook]]
+address = 0x82CC603C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CC6040
+
+[[midasm_hook]]
+address = 0x82CC6064
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CC6068
+
+[[midasm_hook]]
+address = 0x82CC611C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CC6120
+
+[[midasm_hook]]
+address = 0x82CC6164
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CC6168
+
+[[midasm_hook]]
+address = 0x82CC61AC
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CC61B0
+
+[[midasm_hook]]
+address = 0x82CC6860
+name = "SkateGuardWordShift"
+registers = ["r7", "r31", "r29", "xer"]
+jump_address_on_true = 0x82CC6864
+
+[[midasm_hook]]
+address = 0x82CC6898
+name = "SkateGuardWordShift"
+registers = ["r7", "r22", "r24", "xer"]
+jump_address_on_true = 0x82CC689C
+
+[[midasm_hook]]
+address = 0x82CC68A8
+name = "SkateGuardWordShift"
+registers = ["r7", "r30", "r29", "xer"]
+jump_address_on_true = 0x82CC68AC
+
+[[midasm_hook]]
+address = 0x82CC68C0
+name = "SkateGuardWordShift"
+registers = ["r11", "r23", "r24", "xer"]
+jump_address_on_true = 0x82CC68C4
+
+[[midasm_hook]]
+address = 0x82CC7734
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CC7738
+
+[[midasm_hook]]
+address = 0x82CC775C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CC7760
+
+[[midasm_hook]]
+address = 0x82CC7AB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82CC7ABC
+
+[[midasm_hook]]
+address = 0x82CC7AFC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82CC7B00
+
+[[midasm_hook]]
+address = 0x82CC7B10
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CC7B14
+
+[[midasm_hook]]
+address = 0x82CC7E50
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CC7E54
+
+[[midasm_hook]]
+address = 0x82CC97B0
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r31", "xer"]
+jump_address_on_true = 0x82CC97B4
+
+[[midasm_hook]]
+address = 0x82CCC9D4
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CCC9D8
+
+[[midasm_hook]]
+address = 0x82CCCA00
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CCCA04
+
+[[midasm_hook]]
+address = 0x82CCCB18
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82CCCB1C
+
+[[midasm_hook]]
+address = 0x82CCCB50
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82CCCB54
+
+[[midasm_hook]]
+address = 0x82CCCB88
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CCCB8C
+
+[[midasm_hook]]
+address = 0x82CCF9CC
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CCF9D0
+
+[[midasm_hook]]
+address = 0x82CCF9F4
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CCF9F8
+
+[[midasm_hook]]
+address = 0x82CD595C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CD5960
+
+[[midasm_hook]]
+address = 0x82CD5FCC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CD5FD0
+
+[[midasm_hook]]
+address = 0x82CD780C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CD7810
+
+[[midasm_hook]]
+address = 0x82CD790C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CD7910
+
+[[midasm_hook]]
+address = 0x82CDB284
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CDB288
+
+[[midasm_hook]]
+address = 0x82CDF45C
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r6", "xer"]
+jump_address_on_true = 0x82CDF460
+
+[[midasm_hook]]
+address = 0x82CDF498
+name = "SkateGuardWordShiftCount"
+registers = ["r9", "r6", "xer"]
+jump_address_on_true = 0x82CDF49C
+
+[[midasm_hook]]
+address = 0x82CDF548
+name = "SkateGuardWordShift"
+registers = ["r27", "r6", "r10", "xer"]
+jump_address_on_true = 0x82CDF54C
+
+[[midasm_hook]]
+address = 0x82CDF5B8
+name = "SkateGuardWordShiftCount"
+registers = ["r9", "r6", "xer"]
+jump_address_on_true = 0x82CDF5BC
+
+[[midasm_hook]]
+address = 0x82CE0064
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CE0068
+
+[[midasm_hook]]
+address = 0x82CE0420
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82CE0424
+
+[[midasm_hook]]
+address = 0x82CE044C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CE0450
+
+[[midasm_hook]]
+address = 0x82CE05FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f10", "fpscr"]
+jump_address_on_true = 0x82CE0600
+
+[[midasm_hook]]
+address = 0x82CE0668
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82CE066C
+
+[[midasm_hook]]
+address = 0x82CE0678
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CE067C
+
+[[midasm_hook]]
+address = 0x82CE06D0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82CE06D4
+
+[[midasm_hook]]
+address = 0x82CE0C14
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CE0C18
+
+[[midasm_hook]]
+address = 0x82CE1BF4
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82CE1BF8
+
+[[midasm_hook]]
+address = 0x82CE1C1C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82CE1C20
+
+[[midasm_hook]]
+address = 0x82D0A00C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82D0A010
+
+[[midasm_hook]]
+address = 0x82D0A014
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82D0A018
+
+[[midasm_hook]]
+address = 0x82D0A01C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0A020
+
+[[midasm_hook]]
+address = 0x82D0B4C8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0B4CC
+
+[[midasm_hook]]
+address = 0x82D0B4F8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0B4FC
+
+[[midasm_hook]]
+address = 0x82D0B57C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0B580
+
+[[midasm_hook]]
+address = 0x82D0BB54
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0BB58
+
+[[midasm_hook]]
+address = 0x82D0BB88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0BB8C
+
+[[midasm_hook]]
+address = 0x82D0BC0C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0BC10
+
+[[midasm_hook]]
+address = 0x82D0F420
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D0F424
+
+[[midasm_hook]]
+address = 0x82D20A80
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82D20A84
+
+[[midasm_hook]]
+address = 0x82D20C14
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82D20C18
+
+[[midasm_hook]]
+address = 0x82D26EC0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D26EC4
+
+[[midasm_hook]]
+address = 0x82D27844
+name = "SkateGuardDoubleShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27848
+
+[[midasm_hook]]
+address = 0x82D27870
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27874
+
+[[midasm_hook]]
+address = 0x82D27AB0
+name = "SkateGuardDoubleShiftSource"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82D27AB4
+
+[[midasm_hook]]
+address = 0x82D27B10
+name = "SkateGuardDoubleShiftSource"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82D27B14
+
+[[midasm_hook]]
+address = 0x82D27B48
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27B4C
+
+[[midasm_hook]]
+address = 0x82D27B78
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27B7C
+
+[[midasm_hook]]
+address = 0x82D27BB4
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27BB8
+
+[[midasm_hook]]
+address = 0x82D27C54
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D27C58
+
+[[midasm_hook]]
+address = 0x82D28600
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28604
+
+[[midasm_hook]]
+address = 0x82D28694
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28698
+
+[[midasm_hook]]
+address = 0x82D2871C
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28720
+
+[[midasm_hook]]
+address = 0x82D28770
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28774
+
+[[midasm_hook]]
+address = 0x82D289D0
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D289D4
+
+[[midasm_hook]]
+address = 0x82D28A64
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28A68
+
+[[midasm_hook]]
+address = 0x82D28AEC
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28AF0
+
+[[midasm_hook]]
+address = 0x82D28B40
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82D28B44
+
+[[midasm_hook]]
+address = 0x82D36080
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D36084
+
+[[midasm_hook]]
+address = 0x82D45E10
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f30", "fpscr"]
+jump_address_on_true = 0x82D45E14
+
+[[midasm_hook]]
+address = 0x82D45E4C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x82D45E50
+
+[[midasm_hook]]
+address = 0x82D52114
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82D52118
+
+[[midasm_hook]]
+address = 0x82D52134
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82D52138
+
+[[midasm_hook]]
+address = 0x82D521E8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D521EC
+
+[[midasm_hook]]
+address = 0x82D52204
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D52208
+
+[[midasm_hook]]
+address = 0x82D54C58
+name = "SkateGuardWordShiftSource"
+registers = ["r8", "r10", "xer"]
+jump_address_on_true = 0x82D54C5C
+
+[[midasm_hook]]
+address = 0x82D54C60
+name = "SkateGuardWordShiftSource"
+registers = ["r7", "r10", "xer"]
+jump_address_on_true = 0x82D54C64
+
+[[midasm_hook]]
+address = 0x82D55FF4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D55FF8
+
+[[midasm_hook]]
+address = 0x82D5617C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D56180
+
+[[midasm_hook]]
+address = 0x82D56194
+name = "SkateGuardWordShift"
+registers = ["r10", "r26", "r29", "xer"]
+jump_address_on_true = 0x82D56198
+
+[[midasm_hook]]
+address = 0x82D561E0
+name = "SkateGuardWordShift"
+registers = ["r11", "r26", "r29", "xer"]
+jump_address_on_true = 0x82D561E4
+
+[[midasm_hook]]
+address = 0x82D56298
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D5629C
+
+[[midasm_hook]]
+address = 0x82D87848
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82D8784C
+
+[[midasm_hook]]
+address = 0x82DAC1B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82DAC1B4
+
+[[midasm_hook]]
+address = 0x82DAC2C0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82DAC2C4
+
+[[midasm_hook]]
+address = 0x82DAC334
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82DAC338
+
+[[midasm_hook]]
+address = 0x82DDFD08
+name = "SkateGuardWordShift"
+registers = ["r6", "r31", "r5", "xer"]
+jump_address_on_true = 0x82DDFD0C
+
+[[midasm_hook]]
+address = 0x82DDFD90
+name = "SkateGuardWordShift"
+registers = ["r6", "r31", "r5", "xer"]
+jump_address_on_true = 0x82DDFD94
+
+[[midasm_hook]]
+address = 0x82DDFE18
+name = "SkateGuardWordShift"
+registers = ["r6", "r31", "r5", "xer"]
+jump_address_on_true = 0x82DDFE1C
+
+[[midasm_hook]]
+address = 0x82DDFFAC
+name = "SkateGuardWordShiftCount"
+registers = ["r4", "r31", "xer"]
+jump_address_on_true = 0x82DDFFB0
+
+[[midasm_hook]]
+address = 0x82DE007C
+name = "SkateGuardWordShiftCount"
+registers = ["r4", "r31", "xer"]
+jump_address_on_true = 0x82DE0080
+
+[[midasm_hook]]
+address = 0x82DE0144
+name = "SkateGuardWordShiftCount"
+registers = ["r4", "r31", "xer"]
+jump_address_on_true = 0x82DE0148
+
+[[midasm_hook]]
+address = 0x82DE5848
+name = "SkateGuardWordShift"
+registers = ["r10", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE584C
+
+[[midasm_hook]]
+address = 0x82DE5898
+name = "SkateGuardWordShift"
+registers = ["r11", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE589C
+
+[[midasm_hook]]
+address = 0x82DE5B40
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x82DE5B44
+
+[[midasm_hook]]
+address = 0x82DE5BCC
+name = "SkateGuardWordShift"
+registers = ["r9", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE5BD0
+
+[[midasm_hook]]
+address = 0x82DE5C5C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x82DE5C60
+
+[[midasm_hook]]
+address = 0x82DE5CF0
+name = "SkateGuardWordShift"
+registers = ["r9", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE5CF4
+
+[[midasm_hook]]
+address = 0x82DE5D78
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x82DE5D7C
+
+[[midasm_hook]]
+address = 0x82DE6288
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x82DE628C
+
+[[midasm_hook]]
+address = 0x82DE6314
+name = "SkateGuardWordShift"
+registers = ["r9", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE6318
+
+[[midasm_hook]]
+address = 0x82DE64B8
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r4", "xer"]
+jump_address_on_true = 0x82DE64BC
+
+[[midasm_hook]]
+address = 0x82DE654C
+name = "SkateGuardWordShift"
+registers = ["r9", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE6550
+
+[[midasm_hook]]
+address = 0x82DE65D8
+name = "SkateGuardWordShift"
+registers = ["r10", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE65DC
+
+[[midasm_hook]]
+address = 0x82DE66D8
+name = "SkateGuardWordShift"
+registers = ["r11", "r4", "r5", "xer"]
+jump_address_on_true = 0x82DE66DC
+
+[[midasm_hook]]
+address = 0x82DE6840
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r25", "xer"]
+jump_address_on_true = 0x82DE6844
+
+[[midasm_hook]]
+address = 0x82DE68FC
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x82DE6900
+
+[[midasm_hook]]
+address = 0x82DE6970
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x82DE6974
+
+[[midasm_hook]]
+address = 0x82DE6A50
+name = "SkateGuardWordShift"
+registers = ["r10", "r25", "r30", "xer"]
+jump_address_on_true = 0x82DE6A54
+
+[[midasm_hook]]
+address = 0x82DE6AC0
+name = "SkateGuardWordShift"
+registers = ["r11", "r25", "r30", "xer"]
+jump_address_on_true = 0x82DE6AC4
+
+[[midasm_hook]]
+address = 0x82DEBA90
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82DEBA94
+
+[[midasm_hook]]
+address = 0x82DEBC9C
+name = "SkateGuardWordShift"
+registers = ["r29", "r11", "r23", "xer"]
+jump_address_on_true = 0x82DEBCA0
+
+[[midasm_hook]]
+address = 0x82DEBCA8
+name = "SkateGuardWordShift"
+registers = ["r29", "r11", "r23", "xer"]
+jump_address_on_true = 0x82DEBCAC
+
+[[midasm_hook]]
+address = 0x82DEBF14
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82DEBF18
+
+[[midasm_hook]]
+address = 0x82DEC02C
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r29", "xer"]
+jump_address_on_true = 0x82DEC030
+
+[[midasm_hook]]
+address = 0x82DF83F0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82DF83F4
+
+[[midasm_hook]]
+address = 0x82E06684
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E06688
+
+[[midasm_hook]]
+address = 0x82E07A80
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E07A84
+
+[[midasm_hook]]
+address = 0x82E13610
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E13614
+
+[[midasm_hook]]
+address = 0x82E13828
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1382C
+
+[[midasm_hook]]
+address = 0x82E13D38
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E13D3C
+
+[[midasm_hook]]
+address = 0x82E14114
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14118
+
+[[midasm_hook]]
+address = 0x82E142B4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E142B8
+
+[[midasm_hook]]
+address = 0x82E142EC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E142F0
+
+[[midasm_hook]]
+address = 0x82E14354
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14358
+
+[[midasm_hook]]
+address = 0x82E143A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E143A8
+
+[[midasm_hook]]
+address = 0x82E14404
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14408
+
+[[midasm_hook]]
+address = 0x82E1444C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14450
+
+[[midasm_hook]]
+address = 0x82E14474
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14478
+
+[[midasm_hook]]
+address = 0x82E144AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E144B0
+
+[[midasm_hook]]
+address = 0x82E144F4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E144F8
+
+[[midasm_hook]]
+address = 0x82E1451C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14520
+
+[[midasm_hook]]
+address = 0x82E14558
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1455C
+
+[[midasm_hook]]
+address = 0x82E14594
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14598
+
+[[midasm_hook]]
+address = 0x82E145D8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E145DC
+
+[[midasm_hook]]
+address = 0x82E145FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14600
+
+[[midasm_hook]]
+address = 0x82E1463C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14640
+
+[[midasm_hook]]
+address = 0x82E14674
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14678
+
+[[midasm_hook]]
+address = 0x82E146AC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E146B0
+
+[[midasm_hook]]
+address = 0x82E146E4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E146E8
+
+[[midasm_hook]]
+address = 0x82E14728
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1472C
+
+[[midasm_hook]]
+address = 0x82E1474C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14750
+
+[[midasm_hook]]
+address = 0x82E149D0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82E149D4
+
+[[midasm_hook]]
+address = 0x82E14E64
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14E68
+
+[[midasm_hook]]
+address = 0x82E14F40
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14F44
+
+[[midasm_hook]]
+address = 0x82E14F7C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14F80
+
+[[midasm_hook]]
+address = 0x82E14FB8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14FBC
+
+[[midasm_hook]]
+address = 0x82E14FEC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E14FF0
+
+[[midasm_hook]]
+address = 0x82E1500C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15010
+
+[[midasm_hook]]
+address = 0x82E15044
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15048
+
+[[midasm_hook]]
+address = 0x82E15078
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1507C
+
+[[midasm_hook]]
+address = 0x82E150B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E150B4
+
+[[midasm_hook]]
+address = 0x82E150DC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E150E0
+
+[[midasm_hook]]
+address = 0x82E15124
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15128
+
+[[midasm_hook]]
+address = 0x82E15170
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15174
+
+[[midasm_hook]]
+address = 0x82E1519C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E151A0
+
+[[midasm_hook]]
+address = 0x82E151F0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E151F4
+
+[[midasm_hook]]
+address = 0x82E1521C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15220
+
+[[midasm_hook]]
+address = 0x82E15260
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15264
+
+[[midasm_hook]]
+address = 0x82E1528C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15290
+
+[[midasm_hook]]
+address = 0x82E152DC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E152E0
+
+[[midasm_hook]]
+address = 0x82E1531C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15320
+
+[[midasm_hook]]
+address = 0x82E1534C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15350
+
+[[midasm_hook]]
+address = 0x82E15378
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1537C
+
+[[midasm_hook]]
+address = 0x82E153C8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E153CC
+
+[[midasm_hook]]
+address = 0x82E15408
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1540C
+
+[[midasm_hook]]
+address = 0x82E15438
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1543C
+
+[[midasm_hook]]
+address = 0x82E15464
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15468
+
+[[midasm_hook]]
+address = 0x82E15490
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15494
+
+[[midasm_hook]]
+address = 0x82E154BC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E154C0
+
+[[midasm_hook]]
+address = 0x82E154E8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E154EC
+
+[[midasm_hook]]
+address = 0x82E15528
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1552C
+
+[[midasm_hook]]
+address = 0x82E15558
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1555C
+
+[[midasm_hook]]
+address = 0x82E15584
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15588
+
+[[midasm_hook]]
+address = 0x82E155B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E155B4
+
+[[midasm_hook]]
+address = 0x82E155DC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E155E0
+
+[[midasm_hook]]
+address = 0x82E15608
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1560C
+
+[[midasm_hook]]
+address = 0x82E15648
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1564C
+
+[[midasm_hook]]
+address = 0x82E15678
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1567C
+
+[[midasm_hook]]
+address = 0x82E156A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E156A8
+
+[[midasm_hook]]
+address = 0x82E156D0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E156D4
+
+[[midasm_hook]]
+address = 0x82E156FC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15700
+
+[[midasm_hook]]
+address = 0x82E15750
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15754
+
+[[midasm_hook]]
+address = 0x82E1578C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E15790
+
+[[midasm_hook]]
+address = 0x82E168B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E168B4
+
+[[midasm_hook]]
+address = 0x82E16ADC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E16AE0
+
+[[midasm_hook]]
+address = 0x82E16B34
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E16B38
+
+[[midasm_hook]]
+address = 0x82E16B50
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E16B54
+
+[[midasm_hook]]
+address = 0x82E18308
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1830C
+
+[[midasm_hook]]
+address = 0x82E18A4C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E18A50
+
+[[midasm_hook]]
+address = 0x82E18B90
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E18B94
+
+[[midasm_hook]]
+address = 0x82E19198
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1919C
+
+[[midasm_hook]]
+address = 0x82E1BE38
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1BE3C
+
+[[midasm_hook]]
+address = 0x82E1BF3C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1BF40
+
+[[midasm_hook]]
+address = 0x82E1CB94
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E1CB98
+
+[[midasm_hook]]
+address = 0x82E220A4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E220A8
+
+[[midasm_hook]]
+address = 0x82E220A8
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E220AC
+
+[[midasm_hook]]
+address = 0x82E22340
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E22344
+
+[[midasm_hook]]
+address = 0x82E22344
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E22348
+
+[[midasm_hook]]
+address = 0x82E22638
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2263C
+
+[[midasm_hook]]
+address = 0x82E2263C
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E22640
+
+[[midasm_hook]]
+address = 0x82E22A0C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E22A10
+
+[[midasm_hook]]
+address = 0x82E22A10
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E22A14
+
+[[midasm_hook]]
+address = 0x82E2946C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E29470
+
+[[midasm_hook]]
+address = 0x82E29470
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E29474
+
+[[midasm_hook]]
+address = 0x82E29698
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2969C
+
+[[midasm_hook]]
+address = 0x82E2969C
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E296A0
+
+[[midasm_hook]]
+address = 0x82E29904
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E29908
+
+[[midasm_hook]]
+address = 0x82E29908
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2990C
+
+[[midasm_hook]]
+address = 0x82E29BEC
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E29BF0
+
+[[midasm_hook]]
+address = 0x82E29BF0
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E29BF4
+
+[[midasm_hook]]
+address = 0x82E29F58
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E29F5C
+
+[[midasm_hook]]
+address = 0x82E29F5C
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E29F60
+
+[[midasm_hook]]
+address = 0x82E2A2B0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2A2B4
+
+[[midasm_hook]]
+address = 0x82E2A2B4
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2A2B8
+
+[[midasm_hook]]
+address = 0x82E2A6E8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2A6EC
+
+[[midasm_hook]]
+address = 0x82E2A6EC
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2A6F0
+
+[[midasm_hook]]
+address = 0x82E2AD00
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2AD04
+
+[[midasm_hook]]
+address = 0x82E2AD04
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2AD08
+
+[[midasm_hook]]
+address = 0x82E2B574
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2B578
+
+[[midasm_hook]]
+address = 0x82E2B578
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2B57C
+
+[[midasm_hook]]
+address = 0x82E2B834
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2B838
+
+[[midasm_hook]]
+address = 0x82E2B838
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2B83C
+
+[[midasm_hook]]
+address = 0x82E2BB44
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2BB48
+
+[[midasm_hook]]
+address = 0x82E2BB48
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2BB4C
+
+[[midasm_hook]]
+address = 0x82E2BF48
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E2BF4C
+
+[[midasm_hook]]
+address = 0x82E2BF4C
+name = "SkateGuardInt64Conversion"
+registers = ["f10", "f0", "fpscr"]
+jump_address_on_true = 0x82E2BF50
+
+[[midasm_hook]]
+address = 0x82E2C458
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2C45C
+
+[[midasm_hook]]
+address = 0x82E2C460
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2C464
+
+[[midasm_hook]]
+address = 0x82E2C7E8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2C7EC
+
+[[midasm_hook]]
+address = 0x82E2C7F0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2C7F4
+
+[[midasm_hook]]
+address = 0x82E2CAE0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2CAE4
+
+[[midasm_hook]]
+address = 0x82E2CAE8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2CAEC
+
+[[midasm_hook]]
+address = 0x82E2CE50
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2CE54
+
+[[midasm_hook]]
+address = 0x82E2CE58
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2CE5C
+
+[[midasm_hook]]
+address = 0x82E2D2E0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2D2E4
+
+[[midasm_hook]]
+address = 0x82E2D2E8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2D2EC
+
+[[midasm_hook]]
+address = 0x82E2D8C0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2D8C4
+
+[[midasm_hook]]
+address = 0x82E2D8C8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2D8CC
+
+[[midasm_hook]]
+address = 0x82E2DC88
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2DC8C
+
+[[midasm_hook]]
+address = 0x82E2DC90
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2DC94
+
+[[midasm_hook]]
+address = 0x82E2DFB8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2DFBC
+
+[[midasm_hook]]
+address = 0x82E2DFC0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2DFC4
+
+[[midasm_hook]]
+address = 0x82E2E398
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2E39C
+
+[[midasm_hook]]
+address = 0x82E2E3A0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2E3A4
+
+[[midasm_hook]]
+address = 0x82E2E8F0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82E2E8F4
+
+[[midasm_hook]]
+address = 0x82E2E8F8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E2E8FC
+
+[[midasm_hook]]
+address = 0x82E2EFF0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E2EFF4
+
+[[midasm_hook]]
+address = 0x82E2EFF8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f10", "fpscr"]
+jump_address_on_true = 0x82E2EFFC
+
+[[midasm_hook]]
+address = 0x82E2F3BC
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E2F3C0
+
+[[midasm_hook]]
+address = 0x82E2F3C4
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E2F3C8
+
+[[midasm_hook]]
+address = 0x82E2F704
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E2F708
+
+[[midasm_hook]]
+address = 0x82E2F70C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f10", "fpscr"]
+jump_address_on_true = 0x82E2F710
+
+[[midasm_hook]]
+address = 0x82E2FB34
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E2FB38
+
+[[midasm_hook]]
+address = 0x82E2FB3C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f10", "fpscr"]
+jump_address_on_true = 0x82E2FB40
+
+[[midasm_hook]]
+address = 0x82E30104
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E30108
+
+[[midasm_hook]]
+address = 0x82E3010C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f10", "fpscr"]
+jump_address_on_true = 0x82E30110
+
+[[midasm_hook]]
+address = 0x82E308C8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E308CC
+
+[[midasm_hook]]
+address = 0x82E308D0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E308D4
+
+[[midasm_hook]]
+address = 0x82E30CA8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E30CAC
+
+[[midasm_hook]]
+address = 0x82E30CB0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E30CB4
+
+[[midasm_hook]]
+address = 0x82E30FF0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E30FF4
+
+[[midasm_hook]]
+address = 0x82E30FF8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E30FFC
+
+[[midasm_hook]]
+address = 0x82E31408
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f12", "fpscr"]
+jump_address_on_true = 0x82E3140C
+
+[[midasm_hook]]
+address = 0x82E31410
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E31414
+
+[[midasm_hook]]
+address = 0x82E319C0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f12", "fpscr"]
+jump_address_on_true = 0x82E319C4
+
+[[midasm_hook]]
+address = 0x82E319C8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f11", "fpscr"]
+jump_address_on_true = 0x82E319CC
+
+[[midasm_hook]]
+address = 0x82E42BE0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82E42BE4
+
+[[midasm_hook]]
+address = 0x82E42E6C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E42E70
+
+[[midasm_hook]]
+address = 0x82E42E88
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f10", "fpscr"]
+jump_address_on_true = 0x82E42E8C
+
+[[midasm_hook]]
+address = 0x82E42F40
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E42F44
+
+[[midasm_hook]]
+address = 0x82E42F4C
+name = "SkateGuardInt64Conversion"
+registers = ["f8", "f0", "fpscr"]
+jump_address_on_true = 0x82E42F50
+
+[[midasm_hook]]
+address = 0x82E4300C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E43010
+
+[[midasm_hook]]
+address = 0x82E4301C
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f7", "fpscr"]
+jump_address_on_true = 0x82E43020
+
+[[midasm_hook]]
+address = 0x82E43610
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82E43614
+
+[[midasm_hook]]
+address = 0x82E44C28
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82E44C2C
+
+[[midasm_hook]]
+address = 0x82E44C44
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82E44C48
+
+[[midasm_hook]]
+address = 0x82E44C80
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E44C84
+
+[[midasm_hook]]
+address = 0x82E45158
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f11", "fpscr"]
+jump_address_on_true = 0x82E4515C
+
+[[midasm_hook]]
+address = 0x82E45170
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f10", "fpscr"]
+jump_address_on_true = 0x82E45174
+
+[[midasm_hook]]
+address = 0x82E45188
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f12", "fpscr"]
+jump_address_on_true = 0x82E4518C
+
+[[midasm_hook]]
+address = 0x82E451A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x82E451A4
+
+[[midasm_hook]]
+address = 0x82E457A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E457A4
+
+[[midasm_hook]]
+address = 0x82E45A74
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E45A78
+
+[[midasm_hook]]
+address = 0x82E7490C
+name = "SkateGuardInt64Conversion"
+registers = ["f12", "f1", "fpscr"]
+jump_address_on_true = 0x82E74910
+
+[[midasm_hook]]
+address = 0x82E74990
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E74994
+
+[[midasm_hook]]
+address = 0x82E7E198
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82E7E19C
+
+[[midasm_hook]]
+address = 0x82E8DC60
+name = "SkateGuardWordShiftRecord"
+registers = ["r30", "r11", "r10", "xer", "cr0"]
+jump_address_on_true = 0x82E8DC64
+
+[[midasm_hook]]
+address = 0x82E8DD10
+name = "SkateGuardWordShiftCountRecord"
+registers = ["r11", "r10", "xer", "cr0"]
+jump_address_on_true = 0x82E8DD14
+
+[[midasm_hook]]
+address = 0x82E8E014
+name = "SkateGuardWordShiftSourceRecord"
+registers = ["r11", "r10", "xer", "cr0"]
+jump_address_on_true = 0x82E8E018
+
+[[midasm_hook]]
+address = 0x82EC0D54
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82EC0D58
+
+[[midasm_hook]]
+address = 0x82F03C88
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F03C8C
+
+[[midasm_hook]]
+address = 0x82F040D0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F040D4
+
+[[midasm_hook]]
+address = 0x82F06564
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82F06568
+
+[[midasm_hook]]
+address = 0x82F06744
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x82F06748
+
+[[midasm_hook]]
+address = 0x82F1500C
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F15010
+
+[[midasm_hook]]
+address = 0x82F15E78
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x82F15E7C
+
+[[midasm_hook]]
+address = 0x82F1D40C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x82F1D410
+
+[[midasm_hook]]
+address = 0x82F1D468
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f11", "fpscr"]
+jump_address_on_true = 0x82F1D46C
+
+[[midasm_hook]]
+address = 0x82F1D6E0
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F1D6E4
+
+[[midasm_hook]]
+address = 0x82F248F8
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82F248FC
+
+[[midasm_hook]]
+address = 0x82F3486C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F34870
+
+[[midasm_hook]]
+address = 0x82F36EF0
+name = "SkateGuardInt64Conversion"
+registers = ["f13", "f0", "fpscr"]
+jump_address_on_true = 0x82F36EF4
+
+[[midasm_hook]]
+address = 0x82F3864C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F38650
+
+[[midasm_hook]]
+address = 0x82F46010
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F46014
+
+[[midasm_hook]]
+address = 0x82F501A0
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82F501A4
+
+[[midasm_hook]]
+address = 0x82F501A8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F501AC
+
+[[midasm_hook]]
+address = 0x82F5024C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F50250
+
+[[midasm_hook]]
+address = 0x82F50920
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F50924
+
+[[midasm_hook]]
+address = 0x82F50AF4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F50AF8
+
+[[midasm_hook]]
+address = 0x82F63790
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F63794
+
+[[midasm_hook]]
+address = 0x82F6B030
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6B034
+
+[[midasm_hook]]
+address = 0x82F6B1F4
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F6B1F8
+
+[[midasm_hook]]
+address = 0x82F6CDF4
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82F6CDF8
+
+[[midasm_hook]]
+address = 0x82F6F13C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F140
+
+[[midasm_hook]]
+address = 0x82F6F278
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F27C
+
+[[midasm_hook]]
+address = 0x82F6F348
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F34C
+
+[[midasm_hook]]
+address = 0x82F6F42C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F430
+
+[[midasm_hook]]
+address = 0x82F6F474
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F478
+
+[[midasm_hook]]
+address = 0x82F6F4A4
+name = "SkateGuardWordShiftSource"
+registers = ["r4", "r3", "xer"]
+jump_address_on_true = 0x82F6F4A8
+
+[[midasm_hook]]
+address = 0x82F6F55C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F560
+
+[[midasm_hook]]
+address = 0x82F6F564
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f13", "fpscr"]
+jump_address_on_true = 0x82F6F568
+
+[[midasm_hook]]
+address = 0x82F6F6D4
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F6F6D8
+
+[[midasm_hook]]
+address = 0x82F73048
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82F7304C
+
+[[midasm_hook]]
+address = 0x82F730D8
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f31", "fpscr"]
+jump_address_on_true = 0x82F730DC
+
+[[midasm_hook]]
+address = 0x82FAF11C
+name = "SkateGuardWordShift"
+registers = ["r4", "r6", "r7", "xer"]
+jump_address_on_true = 0x82FAF120
+
+[[midasm_hook]]
+address = 0x82FAF2CC
+name = "SkateGuardWordShift"
+registers = ["r27", "r5", "r10", "xer"]
+jump_address_on_true = 0x82FAF2D0
+
+[[midasm_hook]]
+address = 0x82FAF368
+name = "SkateGuardWordShift"
+registers = ["r8", "r5", "r10", "xer"]
+jump_address_on_true = 0x82FAF36C
+
+[[midasm_hook]]
+address = 0x82FAF838
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FAF83C
+
+[[midasm_hook]]
+address = 0x82FAF87C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FAF880
+
+[[midasm_hook]]
+address = 0x82FAFA70
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FAFA74
+
+[[midasm_hook]]
+address = 0x82FAFAB4
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FAFAB8
+
+[[midasm_hook]]
+address = 0x82FAFCA8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82FAFCAC
+
+[[midasm_hook]]
+address = 0x82FAFD00
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82FAFD04
+
+[[midasm_hook]]
+address = 0x82FAFD8C
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82FAFD90
+
+[[midasm_hook]]
+address = 0x82FAFDF4
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FAFDF8
+
+[[midasm_hook]]
+address = 0x82FAFE44
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FAFE48
+
+[[midasm_hook]]
+address = 0x82FAFEA8
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FAFEAC
+
+[[midasm_hook]]
+address = 0x82FAFECC
+name = "SkateGuardDoubleShiftSource"
+registers = ["r11", "r8", "xer"]
+jump_address_on_true = 0x82FAFED0
+
+[[midasm_hook]]
+address = 0x82FB0A5C
+name = "SkateGuardWordShift"
+registers = ["r3", "r10", "r11", "xer"]
+jump_address_on_true = 0x82FB0A60
+
+[[midasm_hook]]
+address = 0x82FB0A7C
+name = "SkateGuardWordShiftRecord"
+registers = ["r3", "r10", "r11", "xer", "cr0"]
+jump_address_on_true = 0x82FB0A80
+
+[[midasm_hook]]
+address = 0x82FB0AB0
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FB0AB4
+
+[[midasm_hook]]
+address = 0x82FB0AD8
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FB0ADC
+
+[[midasm_hook]]
+address = 0x82FB0B10
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FB0B14
+
+[[midasm_hook]]
+address = 0x82FB0F3C
+name = "SkateGuardWordShiftCountRecord"
+registers = ["r11", "r10", "xer", "cr0"]
+jump_address_on_true = 0x82FB0F40
+
+[[midasm_hook]]
+address = 0x82FB0F64
+name = "SkateGuardWordShiftCountRecord"
+registers = ["r10", "r9", "xer", "cr0"]
+jump_address_on_true = 0x82FB0F68
+
+[[midasm_hook]]
+address = 0x82FB0F9C
+name = "SkateGuardWordShiftCountRecord"
+registers = ["r11", "r10", "xer", "cr0"]
+jump_address_on_true = 0x82FB0FA0
+
+[[midasm_hook]]
+address = 0x82FB1274
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r8", "xer"]
+jump_address_on_true = 0x82FB1278
+
+[[midasm_hook]]
+address = 0x82FB1954
+name = "SkateGuardWordShiftSource"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FB1958
+
+[[midasm_hook]]
+address = 0x82FB1E1C
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r8", "xer"]
+jump_address_on_true = 0x82FB1E20
+
+[[midasm_hook]]
+address = 0x82FB1E78
+name = "SkateGuardWordShift"
+registers = ["r3", "r11", "r10", "xer"]
+jump_address_on_true = 0x82FB1E7C
+
+[[midasm_hook]]
+address = 0x82FB1E94
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FB1E98
+
+[[midasm_hook]]
+address = 0x82FB1EA8
+name = "SkateGuardWordShift"
+registers = ["r3", "r11", "r8", "xer"]
+jump_address_on_true = 0x82FB1EAC
+
+[[midasm_hook]]
+address = 0x82FB1F74
+name = "SkateGuardDoubleShiftSource"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FB1F78
+
+[[midasm_hook]]
+address = 0x82FB2024
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FB2028
+
+[[midasm_hook]]
+address = 0x82FB2068
+name = "SkateGuardDoubleShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FB206C
+
+[[midasm_hook]]
+address = 0x82FB208C
+name = "SkateGuardDoubleShiftSource"
+registers = ["r11", "r8", "xer"]
+jump_address_on_true = 0x82FB2090
+
+[[midasm_hook]]
+address = 0x82FB20E4
+name = "SkateGuardDoubleShift"
+registers = ["r9", "r8", "r7", "xer"]
+jump_address_on_true = 0x82FB20E8
+
+[[midasm_hook]]
+address = 0x82FB20FC
+name = "SkateGuardDoubleShiftSource"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FB2100
+
+[[midasm_hook]]
+address = 0x82FB2550
+name = "SkateGuardWordShift"
+registers = ["r8", "r9", "r11", "xer"]
+jump_address_on_true = 0x82FB2554
+
+[[midasm_hook]]
+address = 0x82FB2790
+name = "SkateGuardWordShift"
+registers = ["r10", "r11", "r8", "xer"]
+jump_address_on_true = 0x82FB2794
+
+[[midasm_hook]]
+address = 0x82FC29DC
+name = "SkateGuardWordShift"
+registers = ["r11", "r26", "r28", "xer"]
+jump_address_on_true = 0x82FC29E0
+
+[[midasm_hook]]
+address = 0x82FC2AE4
+name = "SkateGuardWordShift"
+registers = ["r11", "r26", "r28", "xer"]
+jump_address_on_true = 0x82FC2AE8
+
+[[midasm_hook]]
+address = 0x82FCEC00
+name = "SkateGuardWordShiftCount"
+registers = ["r8", "r3", "xer"]
+jump_address_on_true = 0x82FCEC04
+
+[[midasm_hook]]
+address = 0x82FCEE38
+name = "SkateGuardWordShift"
+registers = ["r9", "r11", "r8", "xer"]
+jump_address_on_true = 0x82FCEE3C
+
+[[midasm_hook]]
+address = 0x82FCEF80
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FCEF84
+
+[[midasm_hook]]
+address = 0x82FD0548
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FD054C
+
+[[midasm_hook]]
+address = 0x82FD0848
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FD084C
+
+[[midasm_hook]]
+address = 0x82FD0914
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FD0918
+
+[[midasm_hook]]
+address = 0x82FD0AE4
+name = "SkateGuardDoubleShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FD0AE8
+
+[[midasm_hook]]
+address = 0x82FE0564
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82FE0568
+
+[[midasm_hook]]
+address = 0x82FE0644
+name = "SkateGuardInt64Conversion"
+registers = ["f0", "f1", "fpscr"]
+jump_address_on_true = 0x82FE0648
+
+[[midasm_hook]]
+address = 0x82FE1A88
+name = "SkateGuardWordShift"
+registers = ["r3", "r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1A8C
+
+[[midasm_hook]]
+address = 0x82FE1AB4
+name = "SkateGuardWordShiftSource"
+registers = ["r3", "r11", "xer"]
+jump_address_on_true = 0x82FE1AB8
+
+[[midasm_hook]]
+address = 0x82FE1B48
+name = "SkateGuardWordShift"
+registers = ["r10", "r11", "r9", "xer"]
+jump_address_on_true = 0x82FE1B4C
+
+[[midasm_hook]]
+address = 0x82FE1B80
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FE1B84
+
+[[midasm_hook]]
+address = 0x82FE1C0C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1C10
+
+[[midasm_hook]]
+address = 0x82FE1C44
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1C48
+
+[[midasm_hook]]
+address = 0x82FE1CBC
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1CC0
+
+[[midasm_hook]]
+address = 0x82FE1CF4
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1CF8
+
+[[midasm_hook]]
+address = 0x82FE1D6C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1D70
+
+[[midasm_hook]]
+address = 0x82FE1DA4
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1DA8
+
+[[midasm_hook]]
+address = 0x82FE1E1C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1E20
+
+[[midasm_hook]]
+address = 0x82FE1E54
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1E58
+
+[[midasm_hook]]
+address = 0x82FE1ECC
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1ED0
+
+[[midasm_hook]]
+address = 0x82FE1F04
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE1F08
+
+[[midasm_hook]]
+address = 0x82FE1F7C
+name = "SkateGuardWordShift"
+registers = ["r9", "r10", "r7", "xer"]
+jump_address_on_true = 0x82FE1F80
+
+[[midasm_hook]]
+address = 0x82FE1FB4
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE1FB8
+
+[[midasm_hook]]
+address = 0x82FE2054
+name = "SkateGuardWordShiftSource"
+registers = ["r9", "r8", "xer"]
+jump_address_on_true = 0x82FE2058
+
+[[midasm_hook]]
+address = 0x82FE208C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE2090
+
+[[midasm_hook]]
+address = 0x82FE2104
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE2108
+
+[[midasm_hook]]
+address = 0x82FE213C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r11", "xer"]
+jump_address_on_true = 0x82FE2140
+
+[[midasm_hook]]
+address = 0x82FE23DC
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r9", "xer"]
+jump_address_on_true = 0x82FE23E0
+
+[[midasm_hook]]
+address = 0x82FE250C
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE2510
+
+[[midasm_hook]]
+address = 0x82FE255C
+name = "SkateGuardWordShiftSource"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE2560
+
+[[midasm_hook]]
+address = 0x82FE27C8
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FE27CC
+
+[[midasm_hook]]
+address = 0x82FE2A10
+name = "SkateGuardWordShiftCount"
+registers = ["r11", "r10", "xer"]
+jump_address_on_true = 0x82FE2A14
+
+[[midasm_hook]]
+address = 0x82FE7188
+name = "SkateGuardWordShiftCount"
+registers = ["r10", "r9", "xer"]
+jump_address_on_true = 0x82FE718C
+
+[[midasm_hook]]
+address = 0x82FEB654
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82FEB658
+
+[[midasm_hook]]
+address = 0x82FEC6A8
+name = "SkateGuardWordShift"
+registers = ["r9", "r31", "r8", "xer"]
+jump_address_on_true = 0x82FEC6AC
+
+[[midasm_hook]]
+address = 0x82FEEED8
+name = "SkateGuardInt64ConversionInPlace"
+registers = ["f0", "fpscr"]
+jump_address_on_true = 0x82FEEEDC

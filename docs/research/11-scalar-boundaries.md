@@ -1,0 +1,29 @@
+# Scalar conversion and arithmetic shift boundaries
+
+## Reproduced defects
+
+An offline executable compiled an actual Generated `fctidz` body from the current Port against stock ReXGlue SDK 0.10.1. Input `43E0000000000000` (exactly positive `2^63`) produced `8000000000000000` instead of the saturated positive maximum `7FFFFFFFFFFFFFFF`. The SDK emits the same upper-bound predicate for `fctid` and `fctidz`. **[Inference]** Converting `LLONG_MAX` to double rounds it to `2^63`, so the strict greater-than check misses equality and reaches the overflowing SSE conversion. [SDK floating-point emitter](https://github.com/rexglue/rexglue-sdk/blob/v0.10.1/src/codegen/builders/floating_point.cpp) · [IBM conversion specification](https://www.ibm.com/docs/ssw_aix_71/assembler/assembler_pdf.pdf) · [Port issue #114](https://github.com/TheRealestNwah/skate-recomp/issues/114)
+
+Another offline executable compiled actual Generated arithmetic shift bodies. `sraw` with source word `80000000` and count 32 returned `FFFFFFFFFFFFFFFF` with carry clear. `srad` with source `8000000000000000` and count 64 returned the same value with carry clear. Both should set carry. Counts of 32–63 for `sraw` and 64–127 for `srad` produce sign bits and copy the source sign into carry. The SDK clamps those counts to 31 or 63 before computing carry. **[Inference]** This discards the distinction between shifting out all bits and retaining the sign bit. [SDK shift emitter](https://github.com/rexglue/rexglue-sdk/blob/v0.10.1/src/codegen/builders/logical.cpp) · [IBM word-shift specification](https://www.ibm.com/docs/en/aix/7.2.0?topic=set-sraw-sra-shift-right-algebraic-word-instruction) · [IBM doubleword-shift specification](https://www.ibm.com/docs/en/aix/7.1.0?topic=set-srad-shift-right-algebraic-double-word-instruction) · [Word issue #115](https://github.com/TheRealestNwah/skate-recomp/issues/115) · [Doubleword issue #116](https://github.com/TheRealestNwah/skate-recomp/issues/116)
+
+These cases are also listed in the upstream report for SDK 0.10.1. That report is closed; this audit tested the pinned release's emitted code directly. No game or Xbox hardware was run for these checks. [Upstream report #566](https://github.com/rexglue/rexglue-sdk/issues/566)
+
+## Conditional Host guards
+
+The conversion guard handles only the exact positive `2^63` bit pattern. It writes the positive signed 64-bit maximum and selects scalar flush mode. All other inputs return false without changing registers or floating-point mode, allowing the existing SDK instruction to run. [Host guards](../../src/scalar_guards.cpp)
+
+The shift guards handle only effective counts at or above the operand width. They write the sign-filled result, copy the sign to carry, and preserve the other XER flags. Record-form word shifts also update CR0 from the result and XER summary-overflow flag. Smaller effective counts return false with the operands, carry, and CR0 unchanged, allowing the SDK instruction to run. Wrappers preserve source/count aliases without duplicate hook parameters. Stock SDK 0.10.1 remains unchanged. [Host guards](../../src/scalar_guards.cpp) · [SDK hook parameter defect](https://github.com/TheRealestNwah/skate-recomp/issues/97)
+
+All 1,067 hook sites matched the original USA XEX instruction words and operands: 12 `fctid`, 742 `fctidz`, 232 `sraw` (seven record forms), and 81 `srad`. Each conditional hook jumps to the following instruction only when it returns true. The original SDK instruction remains the false-path fallback. [Hook metadata](../../config/skate-scalar-guards.toml) · [USA XEX identification](02-dump-inspection.md)
+
+## Offline verification
+
+The permanent CTest target passed 958,816 guard cases. Conversion checks cover both register layouts, neighboring boundary values, positive/negative infinity, quiet/signaling NaNs, signed zeros, fractions, subnormals, all rounding modes, and both initial flush modes. Shift checks cover all nine adapters, counts 0–255 with and without high bits set, 13 source patterns, source/count aliases, both initial carry states, XER summary-overflow and overflow flags, and CR0 preservation/update. [Synthetic test](../../tools/test_scalar_guards.cpp)
+
+The Host-only build and all four CTest targets passed. The tests exercise guard decisions and register state; they do not establish complete scalar instruction or FPSCR exception emulation. Probe sources, executables, original-body reproductions, and compiler output stay in ignored `build/m4-technical/`. [CTest configuration](../../CMakeLists.txt) · [CI workflow](../../.github/workflows/ci.yml)
+
+Four local mutations disabled the conversion correction, cleared word carry, cleared doubleword carry, or replaced record updates with zero. The permanent test rejected all four with exit code 1. These mutated copies remain under ignored `build/m4-technical/`. [Synthetic test](../../tools/test_scalar_guards.cpp)
+
+The full local Port build passed with the existing `-FastCodegen` option and stock runtime. An emission check verified every conditional hook at its exact instruction address, its next-instruction true branch, and its retained native false path, including the original record update where applicable. All 1,838 configured hooks have unique addresses, and all 115,508 dispatch entries remain registered. Markdown lint passed for the changed guidance and notes. [Build entry point](../../scripts/build-port.ps1) · [Hook includes](../../config/skate.toml)
+
+**[Inference]** Incorrect conversion results or carry flags could affect Guest arithmetic or later branches, but no specific gameplay symptom or controller reproduction was established offline. The existing visual, input, and Career checks remain the human verification path. The [controller plan](05-m4-baseline.md) links this audit; its results and the Career log remain unchanged.
