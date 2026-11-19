@@ -1,0 +1,152 @@
+# Vector exponent estimate sites verified against the original skate. USA XEX.
+# https://github.com/TheRealestNwah/skate-recomp/issues/103
+
+[[midasm_hook]]
+address = 0x828B1228
+name = "SkateEstimateExp2InPlace"
+registers = ["v8", "fpscr"]
+jump_address = 0x828B122C
+
+[[midasm_hook]]
+address = 0x828DD858
+name = "SkateEstimateExp2"
+registers = ["v1", "v30", "fpscr"]
+jump_address = 0x828DD85C
+
+[[midasm_hook]]
+address = 0x828DD8D4
+name = "SkateEstimateExp2InPlace"
+registers = ["v1", "fpscr"]
+jump_address = 0x828DD8D8
+
+[[midasm_hook]]
+address = 0x828DD9D4
+name = "SkateEstimateExp2InPlace"
+registers = ["v5", "fpscr"]
+jump_address = 0x828DD9D8
+
+[[midasm_hook]]
+address = 0x828DDAC8
+name = "SkateEstimateExp2InPlace"
+registers = ["v2", "fpscr"]
+jump_address = 0x828DDACC
+
+[[midasm_hook]]
+address = 0x828DDB5C
+name = "SkateEstimateExp2"
+registers = ["v31", "v29", "fpscr"]
+jump_address = 0x828DDB60
+
+[[midasm_hook]]
+address = 0x828DDC54
+name = "SkateEstimateExp2InPlace"
+registers = ["v5", "fpscr"]
+jump_address = 0x828DDC58
+
+[[midasm_hook]]
+address = 0x828DDD1C
+name = "SkateEstimateExp2InPlace"
+registers = ["v2", "fpscr"]
+jump_address = 0x828DDD20
+
+[[midasm_hook]]
+address = 0x828DDD88
+name = "SkateEstimateExp2"
+registers = ["v6", "v30", "fpscr"]
+jump_address = 0x828DDD8C
+
+[[midasm_hook]]
+address = 0x828DE924
+name = "SkateEstimateExp2"
+registers = ["v1", "v30", "fpscr"]
+jump_address = 0x828DE928
+
+[[midasm_hook]]
+address = 0x828DE994
+name = "SkateEstimateExp2InPlace"
+registers = ["v2", "fpscr"]
+jump_address = 0x828DE998
+
+[[midasm_hook]]
+address = 0x828DEA94
+name = "SkateEstimateExp2InPlace"
+registers = ["v2", "fpscr"]
+jump_address = 0x828DEA98
+
+[[midasm_hook]]
+address = 0x828DEB90
+name = "SkateEstimateExp2InPlace"
+registers = ["v31", "fpscr"]
+jump_address = 0x828DEB94
+
+[[midasm_hook]]
+address = 0x828DEC18
+name = "SkateEstimateExp2InPlace"
+registers = ["v30", "fpscr"]
+jump_address = 0x828DEC1C
+
+[[midasm_hook]]
+address = 0x828DECE8
+name = "SkateEstimateExp2InPlace"
+registers = ["v27", "fpscr"]
+jump_address = 0x828DECEC
+
+[[midasm_hook]]
+address = 0x828DED60
+name = "SkateEstimateExp2"
+registers = ["v23", "v27", "fpscr"]
+jump_address = 0x828DED64
+
+[[midasm_hook]]
+address = 0x828DEE2C
+name = "SkateEstimateExp2InPlace"
+registers = ["v23", "fpscr"]
+jump_address = 0x828DEE30
+
+[[midasm_hook]]
+address = 0x82CDEBA4
+name = "SkateEstimateExp2"
+registers = ["v9", "v11", "fpscr"]
+jump_address = 0x82CDEBA8
+
+[[midasm_hook]]
+address = 0x82CDECE8
+name = "SkateEstimateExp2"
+registers = ["v3", "v11", "fpscr"]
+jump_address = 0x82CDECEC
+
+[[midasm_hook]]
+address = 0x82CDF088
+name = "SkateEstimateExp2"
+registers = ["v2", "v12", "fpscr"]
+jump_address = 0x82CDF08C
+
+[[midasm_hook]]
+address = 0x82E1AC6C
+name = "SkateEstimateExp2InPlace"
+registers = ["v0", "fpscr"]
+jump_address = 0x82E1AC70
+
+[[midasm_hook]]
+address = 0x82FEA49C
+name = "SkateEstimateExp2InPlace"
+registers = ["v0", "fpscr"]
+jump_address = 0x82FEA4A0
+
+[[midasm_hook]]
+address = 0x82FEA4A0
+name = "SkateEstimateExp2InPlace"
+registers = ["v13", "fpscr"]
+jump_address = 0x82FEA4A4
+
+[[midasm_hook]]
+address = 0x82FEAB50
+name = "SkateEstimateExp2InPlace"
+registers = ["v0", "fpscr"]
+jump_address = 0x82FEAB54
+
+[[midasm_hook]]
+address = 0x82FECB10
+name = "SkateEstimateExp2InPlace"
+registers = ["v0", "fpscr"]
+jump_address = 0x82FECB14
