@@ -21,12 +21,14 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `scripts/run-port.ps1` — starts the Port and captures a local boot log.
 - `src/` — Host app and boot import audit.
 - `src/vector_bounds.cpp` — Host bounds comparison hooks shared with the synthetic C++ regression test.
+- `src/vector_minmax.cpp` — Host vector min/max hooks shared with the synthetic C++ regression test.
 - `config/skate.toml` — ReXGlue analysis hints for the supported disc image.
 - `config/skate-short2-unpack.toml` — included instruction hooks for SHORT2 unpack sentinel handling.
 - `config/skate-half-unpack.toml` — included instruction hooks for half-float unpacking.
 - `config/skate-half-pack.toml` — included instruction hooks for half-float packing toward zero.
 - `config/skate-vector-exp.toml` — included instruction hooks for bounded vector exponent estimates.
 - `config/skate-vector-bounds.toml` — included instruction hooks for vector bounds masks and CR6 results.
+- `config/skate-vector-minmax.toml` — included instruction hooks for vector min/max NaNs and signed zeros.
 - `tools/` — XEX inspection, disc inventory and parser tests.
 - `tools/audit_guest_thunks.py` — offline comparison of XEX read-only data and Generated dispatch registrations.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
@@ -132,7 +134,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1 -Ho
 
 CI builds the Host and inspection tools on `windows-2022`, whose LLVM 20 and Visual Studio 2022 headers are compatible. The `windows-latest` Visual Studio 2026 image paired LLVM 20 with headers requiring Clang 22 and failed the Host build. [CI toolchain issue](https://github.com/TheRealestNwah/skate-recomp/issues/90) · [Runner inventory](https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md)
 
-The Host build also compiles a synthetic vector bounds test. CI runs it through CTest without Game files. Run it locally after a `-HostOnly` build:
+The Host build also compiles synthetic vector bounds and min/max tests. CI runs them through CTest without Game files. Run them locally after a `-HostOnly` build:
 
 ```powershell
 ctest --test-dir build/host --output-on-failure

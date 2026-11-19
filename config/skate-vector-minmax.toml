@@ -1,0 +1,2325 @@
+# Vector min/max sites verified against the original skate. USA XEX.
+# https://github.com/TheRealestNwah/skate-recomp/issues/110
+# https://github.com/TheRealestNwah/skate-recomp/issues/111
+
+[[midasm_hook]]
+address = 0x82240BE4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82240BE8
+
+[[midasm_hook]]
+address = 0x82240BE8
+name = "SkateVectorMinRight"
+registers = ["v0", "v11", "fpscr"]
+jump_address = 0x82240BEC
+
+[[midasm_hook]]
+address = 0x8224B518
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8224B51C
+
+[[midasm_hook]]
+address = 0x8224B520
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8224B524
+
+[[midasm_hook]]
+address = 0x8224B538
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8224B53C
+
+[[midasm_hook]]
+address = 0x8224C4E8
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8224C4EC
+
+[[midasm_hook]]
+address = 0x8227D89C
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8227D8A0
+
+[[midasm_hook]]
+address = 0x8227D8A0
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x8227D8A4
+
+[[midasm_hook]]
+address = 0x8227FBF4
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8227FBF8
+
+[[midasm_hook]]
+address = 0x8227FBF8
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x8227FBFC
+
+[[midasm_hook]]
+address = 0x822877EC
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x822877F0
+
+[[midasm_hook]]
+address = 0x822877FC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82287800
+
+[[midasm_hook]]
+address = 0x822979D8
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x822979DC
+
+[[midasm_hook]]
+address = 0x822979F0
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x822979F4
+
+[[midasm_hook]]
+address = 0x822CE358
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x822CE35C
+
+[[midasm_hook]]
+address = 0x822CE364
+name = "SkateVectorMin"
+registers = ["v1", "v13", "v0", "fpscr"]
+jump_address = 0x822CE368
+
+[[midasm_hook]]
+address = 0x822CE618
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x822CE61C
+
+[[midasm_hook]]
+address = 0x822CE624
+name = "SkateVectorMin"
+registers = ["v1", "v13", "v0", "fpscr"]
+jump_address = 0x822CE628
+
+[[midasm_hook]]
+address = 0x82303718
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8230371C
+
+[[midasm_hook]]
+address = 0x8230371C
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82303720
+
+[[midasm_hook]]
+address = 0x8239F478
+name = "SkateVectorMaxRight"
+registers = ["v0", "v126", "fpscr"]
+jump_address = 0x8239F47C
+
+[[midasm_hook]]
+address = 0x8239F47C
+name = "SkateVectorMin"
+registers = ["v1", "v125", "v0", "fpscr"]
+jump_address = 0x8239F480
+
+[[midasm_hook]]
+address = 0x8239F4BC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v126", "fpscr"]
+jump_address = 0x8239F4C0
+
+[[midasm_hook]]
+address = 0x8239F4D4
+name = "SkateVectorMin"
+registers = ["v1", "v125", "v0", "fpscr"]
+jump_address = 0x8239F4D8
+
+[[midasm_hook]]
+address = 0x823B6314
+name = "SkateVectorMinLeft"
+registers = ["v0", "v11", "fpscr"]
+jump_address = 0x823B6318
+
+[[midasm_hook]]
+address = 0x823B6AEC
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x823B6AF0
+
+[[midasm_hook]]
+address = 0x823B6C20
+name = "SkateVectorMinLeft"
+registers = ["v0", "v126", "fpscr"]
+jump_address = 0x823B6C24
+
+[[midasm_hook]]
+address = 0x823B6DA8
+name = "SkateVectorMinLeft"
+registers = ["v0", "v126", "fpscr"]
+jump_address = 0x823B6DAC
+
+[[midasm_hook]]
+address = 0x823BC028
+name = "SkateVectorMinRight"
+registers = ["v0", "v123", "fpscr"]
+jump_address = 0x823BC02C
+
+[[midasm_hook]]
+address = 0x823F5EFC
+name = "SkateVectorMaxRight"
+registers = ["v12", "v9", "fpscr"]
+jump_address = 0x823F5F00
+
+[[midasm_hook]]
+address = 0x823F5F00
+name = "SkateVectorMinRight"
+registers = ["v12", "v8", "fpscr"]
+jump_address = 0x823F5F04
+
+[[midasm_hook]]
+address = 0x823F6058
+name = "SkateVectorMaxRight"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x823F605C
+
+[[midasm_hook]]
+address = 0x823F605C
+name = "SkateVectorMinRight"
+registers = ["v12", "v7", "fpscr"]
+jump_address = 0x823F6060
+
+[[midasm_hook]]
+address = 0x823F607C
+name = "SkateVectorMinRight"
+registers = ["v10", "v0", "fpscr"]
+jump_address = 0x823F6080
+
+[[midasm_hook]]
+address = 0x823F7508
+name = "SkateVectorMinRight"
+registers = ["v127", "v0", "fpscr"]
+jump_address = 0x823F750C
+
+[[midasm_hook]]
+address = 0x823F77D4
+name = "SkateVectorMinRight"
+registers = ["v127", "v0", "fpscr"]
+jump_address = 0x823F77D8
+
+[[midasm_hook]]
+address = 0x824761C0
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824761C4
+
+[[midasm_hook]]
+address = 0x824761C4
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x824761C8
+
+[[midasm_hook]]
+address = 0x824CBB0C
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824CBB10
+
+[[midasm_hook]]
+address = 0x824CBB10
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x824CBB14
+
+[[midasm_hook]]
+address = 0x824CBB18
+name = "SkateVectorMin"
+registers = ["v0", "v1", "v123", "fpscr"]
+jump_address = 0x824CBB1C
+
+[[midasm_hook]]
+address = 0x824CBE90
+name = "SkateVectorMax"
+registers = ["v12", "v5", "v11", "fpscr"]
+jump_address = 0x824CBE94
+
+[[midasm_hook]]
+address = 0x824CBE98
+name = "SkateVectorMin"
+registers = ["v1", "v4", "v12", "fpscr"]
+jump_address = 0x824CBE9C
+
+[[midasm_hook]]
+address = 0x824E032C
+name = "SkateVectorMinRight"
+registers = ["v0", "v123", "fpscr"]
+jump_address = 0x824E0330
+
+[[midasm_hook]]
+address = 0x824E0420
+name = "SkateVectorMinRight"
+registers = ["v0", "v123", "fpscr"]
+jump_address = 0x824E0424
+
+[[midasm_hook]]
+address = 0x824E04EC
+name = "SkateVectorMaxLeft"
+registers = ["v11", "v8", "fpscr"]
+jump_address = 0x824E04F0
+
+[[midasm_hook]]
+address = 0x824E04F0
+name = "SkateVectorMinLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x824E04F4
+
+[[midasm_hook]]
+address = 0x824E0774
+name = "SkateVectorMin"
+registers = ["v13", "v0", "v12", "fpscr"]
+jump_address = 0x824E0778
+
+[[midasm_hook]]
+address = 0x824E0830
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824E0834
+
+[[midasm_hook]]
+address = 0x824E0834
+name = "SkateVectorMinRight"
+registers = ["v0", "v9", "fpscr"]
+jump_address = 0x824E0838
+
+[[midasm_hook]]
+address = 0x824E0D4C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824E0D50
+
+[[midasm_hook]]
+address = 0x824E0D58
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x824E0D5C
+
+[[midasm_hook]]
+address = 0x824F7068
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824F706C
+
+[[midasm_hook]]
+address = 0x824F7070
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x824F7074
+
+[[midasm_hook]]
+address = 0x824FF3F8
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x824FF3FC
+
+[[midasm_hook]]
+address = 0x824FF3FC
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v13", "fpscr"]
+jump_address = 0x824FF400
+
+[[midasm_hook]]
+address = 0x824FF7AC
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x824FF7B0
+
+[[midasm_hook]]
+address = 0x824FF7B0
+name = "SkateVectorMin"
+registers = ["v1", "v13", "v0", "fpscr"]
+jump_address = 0x824FF7B4
+
+[[midasm_hook]]
+address = 0x82501A08
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82501A0C
+
+[[midasm_hook]]
+address = 0x82501A0C
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x82501A10
+
+[[midasm_hook]]
+address = 0x825021B8
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x825021BC
+
+[[midasm_hook]]
+address = 0x825021BC
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x825021C0
+
+[[midasm_hook]]
+address = 0x8250C228
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8250C22C
+
+[[midasm_hook]]
+address = 0x8250C22C
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x8250C230
+
+[[midasm_hook]]
+address = 0x825436B4
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v11", "fpscr"]
+jump_address = 0x825436B8
+
+[[midasm_hook]]
+address = 0x825436BC
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x825436C0
+
+[[midasm_hook]]
+address = 0x82559DD8
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82559DDC
+
+[[midasm_hook]]
+address = 0x82559DDC
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x82559DE0
+
+[[midasm_hook]]
+address = 0x825F907C
+name = "SkateVectorMinRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x825F9080
+
+[[midasm_hook]]
+address = 0x825F9084
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x825F9088
+
+[[midasm_hook]]
+address = 0x825F9094
+name = "SkateVectorMinRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x825F9098
+
+[[midasm_hook]]
+address = 0x825F909C
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x825F90A0
+
+[[midasm_hook]]
+address = 0x825F90B0
+name = "SkateVectorMinRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x825F90B4
+
+[[midasm_hook]]
+address = 0x825F90B4
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x825F90B8
+
+[[midasm_hook]]
+address = 0x825F90C8
+name = "SkateVectorMinRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x825F90CC
+
+[[midasm_hook]]
+address = 0x825F90D0
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x825F90D4
+
+[[midasm_hook]]
+address = 0x8261C258
+name = "SkateVectorMinLeft"
+registers = ["v1", "v2", "fpscr"]
+jump_address = 0x8261C25C
+
+[[midasm_hook]]
+address = 0x8261C260
+name = "SkateVectorMaxLeft"
+registers = ["v1", "v2", "fpscr"]
+jump_address = 0x8261C264
+
+[[midasm_hook]]
+address = 0x8261D0A8
+name = "SkateVectorMax"
+registers = ["v11", "v122", "v121", "fpscr"]
+jump_address = 0x8261D0AC
+
+[[midasm_hook]]
+address = 0x8261D0C0
+name = "SkateVectorMax"
+registers = ["v12", "v11", "v124", "fpscr"]
+jump_address = 0x8261D0C4
+
+[[midasm_hook]]
+address = 0x8261D0C4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8261D0C8
+
+[[midasm_hook]]
+address = 0x8261E680
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8261E684
+
+[[midasm_hook]]
+address = 0x8261E684
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8261E688
+
+[[midasm_hook]]
+address = 0x8261F260
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8261F264
+
+[[midasm_hook]]
+address = 0x8261F3DC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8261F3E0
+
+[[midasm_hook]]
+address = 0x826216E4
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x826216E8
+
+[[midasm_hook]]
+address = 0x826216F0
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x826216F4
+
+[[midasm_hook]]
+address = 0x82624114
+name = "SkateVectorMin"
+registers = ["v8", "v127", "v13", "fpscr"]
+jump_address = 0x82624118
+
+[[midasm_hook]]
+address = 0x82624118
+name = "SkateVectorMax"
+registers = ["v12", "v127", "v13", "fpscr"]
+jump_address = 0x8262411C
+
+[[midasm_hook]]
+address = 0x82624120
+name = "SkateVectorMin"
+registers = ["v13", "v8", "v0", "fpscr"]
+jump_address = 0x82624124
+
+[[midasm_hook]]
+address = 0x82624124
+name = "SkateVectorMaxRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82624128
+
+[[midasm_hook]]
+address = 0x826251D8
+name = "SkateVectorMaxLeft"
+registers = ["v11", "v8", "fpscr"]
+jump_address = 0x826251DC
+
+[[midasm_hook]]
+address = 0x826251DC
+name = "SkateVectorMinRight"
+registers = ["v11", "v10", "fpscr"]
+jump_address = 0x826251E0
+
+[[midasm_hook]]
+address = 0x82626690
+name = "SkateVectorMinLeft"
+registers = ["v13", "v0", "fpscr"]
+jump_address = 0x82626694
+
+[[midasm_hook]]
+address = 0x8262669C
+name = "SkateVectorMaxLeft"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x826266A0
+
+[[midasm_hook]]
+address = 0x82626EC0
+name = "SkateVectorMax"
+registers = ["v8", "v5", "v6", "fpscr"]
+jump_address = 0x82626EC4
+
+[[midasm_hook]]
+address = 0x82626EC4
+name = "SkateVectorMinLeft"
+registers = ["v9", "v8", "fpscr"]
+jump_address = 0x82626EC8
+
+[[midasm_hook]]
+address = 0x82627018
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x8262701C
+
+[[midasm_hook]]
+address = 0x8262701C
+name = "SkateVectorMin"
+registers = ["v11", "v8", "v13", "fpscr"]
+jump_address = 0x82627020
+
+[[midasm_hook]]
+address = 0x826300F4
+name = "SkateVectorMinLeft"
+registers = ["v127", "v0", "fpscr"]
+jump_address = 0x826300F8
+
+[[midasm_hook]]
+address = 0x8263049C
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x826304A0
+
+[[midasm_hook]]
+address = 0x826304A4
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x826304A8
+
+[[midasm_hook]]
+address = 0x82632C28
+name = "SkateVectorMax"
+registers = ["v8", "v10", "v11", "fpscr"]
+jump_address = 0x82632C2C
+
+[[midasm_hook]]
+address = 0x82632C30
+name = "SkateVectorMinRight"
+registers = ["v11", "v10", "fpscr"]
+jump_address = 0x82632C34
+
+[[midasm_hook]]
+address = 0x82632C40
+name = "SkateVectorMax"
+registers = ["v10", "v13", "v8", "fpscr"]
+jump_address = 0x82632C44
+
+[[midasm_hook]]
+address = 0x82632C44
+name = "SkateVectorMinRight"
+registers = ["v11", "v13", "fpscr"]
+jump_address = 0x82632C48
+
+[[midasm_hook]]
+address = 0x82632DC0
+name = "SkateVectorMaxRight"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82632DC4
+
+[[midasm_hook]]
+address = 0x82632DC8
+name = "SkateVectorMinRight"
+registers = ["v12", "v13", "fpscr"]
+jump_address = 0x82632DCC
+
+[[midasm_hook]]
+address = 0x82632E2C
+name = "SkateVectorMaxLeft"
+registers = ["v5", "v3", "fpscr"]
+jump_address = 0x82632E30
+
+[[midasm_hook]]
+address = 0x82632E34
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v5", "fpscr"]
+jump_address = 0x82632E38
+
+[[midasm_hook]]
+address = 0x82632E4C
+name = "SkateVectorMinLeft"
+registers = ["v12", "v13", "fpscr"]
+jump_address = 0x82632E50
+
+[[midasm_hook]]
+address = 0x82632E5C
+name = "SkateVectorMaxLeft"
+registers = ["v11", "v10", "fpscr"]
+jump_address = 0x82632E60
+
+[[midasm_hook]]
+address = 0x82632E7C
+name = "SkateVectorMinLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x82632E80
+
+[[midasm_hook]]
+address = 0x82632E9C
+name = "SkateVectorMinLeft"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82632EA0
+
+[[midasm_hook]]
+address = 0x82632EA0
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82632EA4
+
+[[midasm_hook]]
+address = 0x82632F10
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82632F14
+
+[[midasm_hook]]
+address = 0x82632F20
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82632F24
+
+[[midasm_hook]]
+address = 0x82633C08
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82633C0C
+
+[[midasm_hook]]
+address = 0x82633C10
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x82633C14
+
+[[midasm_hook]]
+address = 0x82634320
+name = "SkateVectorMin"
+registers = ["v10", "v12", "v13", "fpscr"]
+jump_address = 0x82634324
+
+[[midasm_hook]]
+address = 0x82634328
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x8263432C
+
+[[midasm_hook]]
+address = 0x8263433C
+name = "SkateVectorMin"
+registers = ["v12", "v0", "v10", "fpscr"]
+jump_address = 0x82634340
+
+[[midasm_hook]]
+address = 0x82634340
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82634344
+
+[[midasm_hook]]
+address = 0x826347D0
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x826347D4
+
+[[midasm_hook]]
+address = 0x8263E034
+name = "SkateVectorMin"
+registers = ["v12", "v0", "v13", "fpscr"]
+jump_address = 0x8263E038
+
+[[midasm_hook]]
+address = 0x8263E038
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8263E03C
+
+[[midasm_hook]]
+address = 0x82640320
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82640324
+
+[[midasm_hook]]
+address = 0x82640328
+name = "SkateVectorMinLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x8264032C
+
+[[midasm_hook]]
+address = 0x82642608
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8264260C
+
+[[midasm_hook]]
+address = 0x8264260C
+name = "SkateVectorMin"
+registers = ["v1", "v11", "v0", "fpscr"]
+jump_address = 0x82642610
+
+[[midasm_hook]]
+address = 0x82642664
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82642668
+
+[[midasm_hook]]
+address = 0x82642668
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x8264266C
+
+[[midasm_hook]]
+address = 0x8265A9C4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8265A9C8
+
+[[midasm_hook]]
+address = 0x8265A9C8
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x8265A9CC
+
+[[midasm_hook]]
+address = 0x8265BB20
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x8265BB24
+
+[[midasm_hook]]
+address = 0x8265BB28
+name = "SkateVectorMin"
+registers = ["v1", "v11", "v13", "fpscr"]
+jump_address = 0x8265BB2C
+
+[[midasm_hook]]
+address = 0x8265BDE4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x8265BDE8
+
+[[midasm_hook]]
+address = 0x8265BDE8
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x8265BDEC
+
+[[midasm_hook]]
+address = 0x8265C704
+name = "SkateVectorMaxRight"
+registers = ["v8", "v12", "fpscr"]
+jump_address = 0x8265C708
+
+[[midasm_hook]]
+address = 0x8265C710
+name = "SkateVectorMinRight"
+registers = ["v8", "v11", "fpscr"]
+jump_address = 0x8265C714
+
+[[midasm_hook]]
+address = 0x8265C754
+name = "SkateVectorMaxRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8265C758
+
+[[midasm_hook]]
+address = 0x8265C758
+name = "SkateVectorMinRight"
+registers = ["v0", "v11", "fpscr"]
+jump_address = 0x8265C75C
+
+[[midasm_hook]]
+address = 0x8265E438
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x8265E43C
+
+[[midasm_hook]]
+address = 0x8265E5A0
+name = "SkateVectorMinLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x8265E5A4
+
+[[midasm_hook]]
+address = 0x8267102C
+name = "SkateVectorMinRight"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82671030
+
+[[midasm_hook]]
+address = 0x82671030
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82671034
+
+[[midasm_hook]]
+address = 0x82678E04
+name = "SkateVectorMinRight"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82678E08
+
+[[midasm_hook]]
+address = 0x8268671C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v8", "fpscr"]
+jump_address = 0x82686720
+
+[[midasm_hook]]
+address = 0x82686720
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v11", "fpscr"]
+jump_address = 0x82686724
+
+[[midasm_hook]]
+address = 0x82686B4C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v7", "fpscr"]
+jump_address = 0x82686B50
+
+[[midasm_hook]]
+address = 0x82686B50
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v10", "fpscr"]
+jump_address = 0x82686B54
+
+[[midasm_hook]]
+address = 0x82686B94
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82686B98
+
+[[midasm_hook]]
+address = 0x82686B98
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82686B9C
+
+[[midasm_hook]]
+address = 0x82693190
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82693194
+
+[[midasm_hook]]
+address = 0x82696860
+name = "SkateVectorMinLeft"
+registers = ["v0", "v10", "fpscr"]
+jump_address = 0x82696864
+
+[[midasm_hook]]
+address = 0x82696864
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82696868
+
+[[midasm_hook]]
+address = 0x82696868
+name = "SkateVectorMinRight"
+registers = ["v127", "v0", "fpscr"]
+jump_address = 0x8269686C
+
+[[midasm_hook]]
+address = 0x8269896C
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82698970
+
+[[midasm_hook]]
+address = 0x82698970
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82698974
+
+[[midasm_hook]]
+address = 0x826A12F4
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x826A12F8
+
+[[midasm_hook]]
+address = 0x826A12F8
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x826A12FC
+
+[[midasm_hook]]
+address = 0x826A12FC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v8", "fpscr"]
+jump_address = 0x826A1300
+
+[[midasm_hook]]
+address = 0x826A1300
+name = "SkateVectorMin"
+registers = ["v1", "v7", "v0", "fpscr"]
+jump_address = 0x826A1304
+
+[[midasm_hook]]
+address = 0x826A23FC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x826A2400
+
+[[midasm_hook]]
+address = 0x826A2400
+name = "SkateVectorMin"
+registers = ["v1", "v12", "v0", "fpscr"]
+jump_address = 0x826A2404
+
+[[midasm_hook]]
+address = 0x826A39F0
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x826A39F4
+
+[[midasm_hook]]
+address = 0x826A39F4
+name = "SkateVectorMax"
+registers = ["v127", "v10", "v0", "fpscr"]
+jump_address = 0x826A39F8
+
+[[midasm_hook]]
+address = 0x826F49C4
+name = "SkateVectorMax"
+registers = ["v12", "v125", "v10", "fpscr"]
+jump_address = 0x826F49C8
+
+[[midasm_hook]]
+address = 0x826F49DC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v125", "fpscr"]
+jump_address = 0x826F49E0
+
+[[midasm_hook]]
+address = 0x826F49E0
+name = "SkateVectorMaxRight"
+registers = ["v13", "v125", "fpscr"]
+jump_address = 0x826F49E4
+
+[[midasm_hook]]
+address = 0x826F49E4
+name = "SkateVectorMinRight"
+registers = ["v0", "v123", "fpscr"]
+jump_address = 0x826F49E8
+
+[[midasm_hook]]
+address = 0x826F49EC
+name = "SkateVectorMin"
+registers = ["v0", "v116", "v13", "fpscr"]
+jump_address = 0x826F49F0
+
+[[midasm_hook]]
+address = 0x826F49F4
+name = "SkateVectorMin"
+registers = ["v13", "v123", "v12", "fpscr"]
+jump_address = 0x826F49F8
+
+[[midasm_hook]]
+address = 0x827071CC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v126", "fpscr"]
+jump_address = 0x827071D0
+
+[[midasm_hook]]
+address = 0x827071D0
+name = "SkateVectorMinRight"
+registers = ["v0", "v127", "fpscr"]
+jump_address = 0x827071D4
+
+[[midasm_hook]]
+address = 0x827072CC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v125", "fpscr"]
+jump_address = 0x827072D0
+
+[[midasm_hook]]
+address = 0x827072D4
+name = "SkateVectorMinRight"
+registers = ["v0", "v121", "fpscr"]
+jump_address = 0x827072D8
+
+[[midasm_hook]]
+address = 0x827072F4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v119", "fpscr"]
+jump_address = 0x827072F8
+
+[[midasm_hook]]
+address = 0x827072FC
+name = "SkateVectorMinRight"
+registers = ["v0", "v122", "fpscr"]
+jump_address = 0x82707300
+
+[[midasm_hook]]
+address = 0x82707344
+name = "SkateVectorMinRight"
+registers = ["v0", "v11", "fpscr"]
+jump_address = 0x82707348
+
+[[midasm_hook]]
+address = 0x8271193C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v8", "fpscr"]
+jump_address = 0x82711940
+
+[[midasm_hook]]
+address = 0x82711940
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v11", "fpscr"]
+jump_address = 0x82711944
+
+[[midasm_hook]]
+address = 0x82777CFC
+name = "SkateVectorMax"
+registers = ["v12", "v0", "v13", "fpscr"]
+jump_address = 0x82777D00
+
+[[midasm_hook]]
+address = 0x82B1725C
+name = "SkateVectorMaxLeft"
+registers = ["v11", "v10", "fpscr"]
+jump_address = 0x82B17260
+
+[[midasm_hook]]
+address = 0x82B17288
+name = "SkateVectorMax"
+registers = ["v12", "v11", "v8", "fpscr"]
+jump_address = 0x82B1728C
+
+[[midasm_hook]]
+address = 0x82B172B0
+name = "SkateVectorMax"
+registers = ["v10", "v0", "v12", "fpscr"]
+jump_address = 0x82B172B4
+
+[[midasm_hook]]
+address = 0x82B173B4
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B173B8
+
+[[midasm_hook]]
+address = 0x82B18414
+name = "SkateVectorMin"
+registers = ["v12", "v0", "v13", "fpscr"]
+jump_address = 0x82B18418
+
+[[midasm_hook]]
+address = 0x82B18418
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B1841C
+
+[[midasm_hook]]
+address = 0x82B19588
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B1958C
+
+[[midasm_hook]]
+address = 0x82B19598
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B1959C
+
+[[midasm_hook]]
+address = 0x82B1DF50
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B1DF54
+
+[[midasm_hook]]
+address = 0x82B1DF5C
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B1DF60
+
+[[midasm_hook]]
+address = 0x82B219A8
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B219AC
+
+[[midasm_hook]]
+address = 0x82B219B0
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B219B4
+
+[[midasm_hook]]
+address = 0x82B219C8
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B219CC
+
+[[midasm_hook]]
+address = 0x82B219D0
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B219D4
+
+[[midasm_hook]]
+address = 0x82B21F8C
+name = "SkateVectorMin"
+registers = ["v11", "v13", "v12", "fpscr"]
+jump_address = 0x82B21F90
+
+[[midasm_hook]]
+address = 0x82B21F94
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B21F98
+
+[[midasm_hook]]
+address = 0x82B21FA0
+name = "SkateVectorMin"
+registers = ["v12", "v0", "v11", "fpscr"]
+jump_address = 0x82B21FA4
+
+[[midasm_hook]]
+address = 0x82B21FA4
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B21FA8
+
+[[midasm_hook]]
+address = 0x82B21FF0
+name = "SkateVectorMin"
+registers = ["v10", "v12", "v13", "fpscr"]
+jump_address = 0x82B21FF4
+
+[[midasm_hook]]
+address = 0x82B21FF8
+name = "SkateVectorMaxLeft"
+registers = ["v12", "v13", "fpscr"]
+jump_address = 0x82B21FFC
+
+[[midasm_hook]]
+address = 0x82B22000
+name = "SkateVectorMin"
+registers = ["v13", "v0", "v10", "fpscr"]
+jump_address = 0x82B22004
+
+[[midasm_hook]]
+address = 0x82B22004
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B22008
+
+[[midasm_hook]]
+address = 0x82B22630
+name = "SkateVectorMin"
+registers = ["v11", "v13", "v12", "fpscr"]
+jump_address = 0x82B22634
+
+[[midasm_hook]]
+address = 0x82B22634
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B22638
+
+[[midasm_hook]]
+address = 0x82B22638
+name = "SkateVectorMin"
+registers = ["v12", "v11", "v0", "fpscr"]
+jump_address = 0x82B2263C
+
+[[midasm_hook]]
+address = 0x82B2263C
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B22640
+
+[[midasm_hook]]
+address = 0x82B22698
+name = "SkateVectorMin"
+registers = ["v11", "v13", "v12", "fpscr"]
+jump_address = 0x82B2269C
+
+[[midasm_hook]]
+address = 0x82B2269C
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B226A0
+
+[[midasm_hook]]
+address = 0x82B226A0
+name = "SkateVectorMin"
+registers = ["v12", "v11", "v0", "fpscr"]
+jump_address = 0x82B226A4
+
+[[midasm_hook]]
+address = 0x82B226A4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B226A8
+
+[[midasm_hook]]
+address = 0x82B24BF0
+name = "SkateVectorMin"
+registers = ["v10", "v13", "v0", "fpscr"]
+jump_address = 0x82B24BF4
+
+[[midasm_hook]]
+address = 0x82B24BF4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B24BF8
+
+[[midasm_hook]]
+address = 0x82B24C04
+name = "SkateVectorMin"
+registers = ["v9", "v11", "v12", "fpscr"]
+jump_address = 0x82B24C08
+
+[[midasm_hook]]
+address = 0x82B24C08
+name = "SkateVectorMax"
+registers = ["v13", "v11", "v12", "fpscr"]
+jump_address = 0x82B24C0C
+
+[[midasm_hook]]
+address = 0x82B24C0C
+name = "SkateVectorMin"
+registers = ["v12", "v9", "v10", "fpscr"]
+jump_address = 0x82B24C10
+
+[[midasm_hook]]
+address = 0x82B24C10
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B24C14
+
+[[midasm_hook]]
+address = 0x82B24C40
+name = "SkateVectorMin"
+registers = ["v11", "v13", "v0", "fpscr"]
+jump_address = 0x82B24C44
+
+[[midasm_hook]]
+address = 0x82B24C44
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B24C48
+
+[[midasm_hook]]
+address = 0x82B24C48
+name = "SkateVectorMin"
+registers = ["v13", "v11", "v12", "fpscr"]
+jump_address = 0x82B24C4C
+
+[[midasm_hook]]
+address = 0x82B24C4C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B24C50
+
+[[midasm_hook]]
+address = 0x82B24EAC
+name = "SkateVectorMin"
+registers = ["v13", "v9", "v10", "fpscr"]
+jump_address = 0x82B24EB0
+
+[[midasm_hook]]
+address = 0x82B24EB0
+name = "SkateVectorMax"
+registers = ["v12", "v9", "v10", "fpscr"]
+jump_address = 0x82B24EB4
+
+[[midasm_hook]]
+address = 0x82B24EB8
+name = "SkateVectorMinLeft"
+registers = ["v13", "v8", "fpscr"]
+jump_address = 0x82B24EBC
+
+[[midasm_hook]]
+address = 0x82B24EBC
+name = "SkateVectorMaxLeft"
+registers = ["v12", "v8", "fpscr"]
+jump_address = 0x82B24EC0
+
+[[midasm_hook]]
+address = 0x82B2528C
+name = "SkateVectorMin"
+registers = ["v13", "v9", "v10", "fpscr"]
+jump_address = 0x82B25290
+
+[[midasm_hook]]
+address = 0x82B25290
+name = "SkateVectorMax"
+registers = ["v5", "v9", "v10", "fpscr"]
+jump_address = 0x82B25294
+
+[[midasm_hook]]
+address = 0x82B252A0
+name = "SkateVectorMin"
+registers = ["v12", "v7", "v8", "fpscr"]
+jump_address = 0x82B252A4
+
+[[midasm_hook]]
+address = 0x82B252A4
+name = "SkateVectorMax"
+registers = ["v4", "v7", "v8", "fpscr"]
+jump_address = 0x82B252A8
+
+[[midasm_hook]]
+address = 0x82B252A8
+name = "SkateVectorMinRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B252AC
+
+[[midasm_hook]]
+address = 0x82B252AC
+name = "SkateVectorMax"
+registers = ["v12", "v4", "v5", "fpscr"]
+jump_address = 0x82B252B0
+
+[[midasm_hook]]
+address = 0x82B2C05C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B2C060
+
+[[midasm_hook]]
+address = 0x82B2F130
+name = "SkateVectorMin"
+registers = ["v11", "v12", "v13", "fpscr"]
+jump_address = 0x82B2F134
+
+[[midasm_hook]]
+address = 0x82B2F138
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82B2F13C
+
+[[midasm_hook]]
+address = 0x82B2F15C
+name = "SkateVectorMin"
+registers = ["v12", "v0", "v11", "fpscr"]
+jump_address = 0x82B2F160
+
+[[midasm_hook]]
+address = 0x82B2F160
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B2F164
+
+[[midasm_hook]]
+address = 0x82B300A8
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B300AC
+
+[[midasm_hook]]
+address = 0x82B300C0
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B300C4
+
+[[midasm_hook]]
+address = 0x82B3147C
+name = "SkateVectorMin"
+registers = ["v30", "v12", "v11", "fpscr"]
+jump_address = 0x82B31480
+
+[[midasm_hook]]
+address = 0x82B31480
+name = "SkateVectorMaxLeft"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82B31484
+
+[[midasm_hook]]
+address = 0x82B31484
+name = "SkateVectorMin"
+registers = ["v11", "v10", "v30", "fpscr"]
+jump_address = 0x82B31488
+
+[[midasm_hook]]
+address = 0x82B3148C
+name = "SkateVectorMaxLeft"
+registers = ["v10", "v12", "fpscr"]
+jump_address = 0x82B31490
+
+[[midasm_hook]]
+address = 0x82B315E4
+name = "SkateVectorMin"
+registers = ["v10", "v12", "v11", "fpscr"]
+jump_address = 0x82B315E8
+
+[[midasm_hook]]
+address = 0x82B315E8
+name = "SkateVectorMaxLeft"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82B315EC
+
+[[midasm_hook]]
+address = 0x82B315F8
+name = "SkateVectorMinRight"
+registers = ["v10", "v13", "fpscr"]
+jump_address = 0x82B315FC
+
+[[midasm_hook]]
+address = 0x82B315FC
+name = "SkateVectorMaxRight"
+registers = ["v12", "v13", "fpscr"]
+jump_address = 0x82B31600
+
+[[midasm_hook]]
+address = 0x82B31F88
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B31F8C
+
+[[midasm_hook]]
+address = 0x82B3A8B4
+name = "SkateVectorMinLeft"
+registers = ["v9", "v13", "fpscr"]
+jump_address = 0x82B3A8B8
+
+[[midasm_hook]]
+address = 0x82B3A8B8
+name = "SkateVectorMaxLeft"
+registers = ["v10", "v13", "fpscr"]
+jump_address = 0x82B3A8BC
+
+[[midasm_hook]]
+address = 0x82B3A8BC
+name = "SkateVectorMaxLeft"
+registers = ["v8", "v13", "fpscr"]
+jump_address = 0x82B3A8C0
+
+[[midasm_hook]]
+address = 0x82B3A8C0
+name = "SkateVectorMinLeft"
+registers = ["v5", "v13", "fpscr"]
+jump_address = 0x82B3A8C4
+
+[[midasm_hook]]
+address = 0x82B3AB1C
+name = "SkateVectorMinLeft"
+registers = ["v8", "v2", "fpscr"]
+jump_address = 0x82B3AB20
+
+[[midasm_hook]]
+address = 0x82B3AB20
+name = "SkateVectorMinLeft"
+registers = ["v5", "v31", "fpscr"]
+jump_address = 0x82B3AB24
+
+[[midasm_hook]]
+address = 0x82B3AB24
+name = "SkateVectorMaxLeft"
+registers = ["v8", "v29", "fpscr"]
+jump_address = 0x82B3AB28
+
+[[midasm_hook]]
+address = 0x82B3AB28
+name = "SkateVectorMaxLeft"
+registers = ["v5", "v28", "fpscr"]
+jump_address = 0x82B3AB2C
+
+[[midasm_hook]]
+address = 0x82B3AE44
+name = "SkateVectorMinLeft"
+registers = ["v9", "v2", "fpscr"]
+jump_address = 0x82B3AE48
+
+[[midasm_hook]]
+address = 0x82B3AE48
+name = "SkateVectorMinLeft"
+registers = ["v8", "v1", "fpscr"]
+jump_address = 0x82B3AE4C
+
+[[midasm_hook]]
+address = 0x82B3AE4C
+name = "SkateVectorMaxLeft"
+registers = ["v9", "v30", "fpscr"]
+jump_address = 0x82B3AE50
+
+[[midasm_hook]]
+address = 0x82B3AE50
+name = "SkateVectorMaxLeft"
+registers = ["v8", "v29", "fpscr"]
+jump_address = 0x82B3AE54
+
+[[midasm_hook]]
+address = 0x82B3B660
+name = "SkateVectorMax"
+registers = ["v1", "v28", "v31", "fpscr"]
+jump_address = 0x82B3B664
+
+[[midasm_hook]]
+address = 0x82B3B664
+name = "SkateVectorMinLeft"
+registers = ["v29", "v2", "fpscr"]
+jump_address = 0x82B3B668
+
+[[midasm_hook]]
+address = 0x82B3B670
+name = "SkateVectorMin"
+registers = ["v49", "v2", "v1", "fpscr"]
+jump_address = 0x82B3B674
+
+[[midasm_hook]]
+address = 0x82B3B674
+name = "SkateVectorMax"
+registers = ["v50", "v31", "v29", "fpscr"]
+jump_address = 0x82B3B678
+
+[[midasm_hook]]
+address = 0x82B3C098
+name = "SkateVectorMin"
+registers = ["v28", "v61", "v22", "fpscr"]
+jump_address = 0x82B3C09C
+
+[[midasm_hook]]
+address = 0x82B3C0A0
+name = "SkateVectorMax"
+registers = ["v27", "v60", "v23", "fpscr"]
+jump_address = 0x82B3C0A4
+
+[[midasm_hook]]
+address = 0x82B3C0E0
+name = "SkateVectorMaxRight"
+registers = ["v28", "v23", "fpscr"]
+jump_address = 0x82B3C0E4
+
+[[midasm_hook]]
+address = 0x82B3C0E8
+name = "SkateVectorMinRight"
+registers = ["v27", "v22", "fpscr"]
+jump_address = 0x82B3C0EC
+
+[[midasm_hook]]
+address = 0x82B3C32C
+name = "SkateVectorMinLeft"
+registers = ["v10", "v0", "fpscr"]
+jump_address = 0x82B3C330
+
+[[midasm_hook]]
+address = 0x82B3C330
+name = "SkateVectorMaxLeft"
+registers = ["v11", "v0", "fpscr"]
+jump_address = 0x82B3C334
+
+[[midasm_hook]]
+address = 0x82B3C334
+name = "SkateVectorMaxLeft"
+registers = ["v9", "v0", "fpscr"]
+jump_address = 0x82B3C338
+
+[[midasm_hook]]
+address = 0x82B3C338
+name = "SkateVectorMinLeft"
+registers = ["v8", "v0", "fpscr"]
+jump_address = 0x82B3C33C
+
+[[midasm_hook]]
+address = 0x82B435C4
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B435C8
+
+[[midasm_hook]]
+address = 0x82B435F4
+name = "SkateVectorMin"
+registers = ["v12", "v10", "v9", "fpscr"]
+jump_address = 0x82B435F8
+
+[[midasm_hook]]
+address = 0x82B435F8
+name = "SkateVectorMinLeft"
+registers = ["v12", "v11", "fpscr"]
+jump_address = 0x82B435FC
+
+[[midasm_hook]]
+address = 0x82B436B4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B436B8
+
+[[midasm_hook]]
+address = 0x82B436B8
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B436BC
+
+[[midasm_hook]]
+address = 0x82B43720
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B43724
+
+[[midasm_hook]]
+address = 0x82B43728
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B4372C
+
+[[midasm_hook]]
+address = 0x82B45B30
+name = "SkateVectorMinLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B45B34
+
+[[midasm_hook]]
+address = 0x82B45B34
+name = "SkateVectorMaxLeft"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x82B45B38
+
+[[midasm_hook]]
+address = 0x82B5C83C
+name = "SkateVectorMin"
+registers = ["v22", "v30", "v31", "fpscr"]
+jump_address = 0x82B5C840
+
+[[midasm_hook]]
+address = 0x82B5C850
+name = "SkateVectorMin"
+registers = ["v23", "v1", "v2", "fpscr"]
+jump_address = 0x82B5C854
+
+[[midasm_hook]]
+address = 0x82B5C854
+name = "SkateVectorMax"
+registers = ["v19", "v1", "v2", "fpscr"]
+jump_address = 0x82B5C858
+
+[[midasm_hook]]
+address = 0x82B5C868
+name = "SkateVectorMin"
+registers = ["v24", "v3", "v4", "fpscr"]
+jump_address = 0x82B5C86C
+
+[[midasm_hook]]
+address = 0x82B5C86C
+name = "SkateVectorMax"
+registers = ["v20", "v3", "v4", "fpscr"]
+jump_address = 0x82B5C870
+
+[[midasm_hook]]
+address = 0x82B5C884
+name = "SkateVectorMin"
+registers = ["v25", "v5", "v6", "fpscr"]
+jump_address = 0x82B5C888
+
+[[midasm_hook]]
+address = 0x82B5C888
+name = "SkateVectorMax"
+registers = ["v21", "v5", "v6", "fpscr"]
+jump_address = 0x82B5C88C
+
+[[midasm_hook]]
+address = 0x82B5C8A0
+name = "SkateVectorMin"
+registers = ["v26", "v7", "v8", "fpscr"]
+jump_address = 0x82B5C8A4
+
+[[midasm_hook]]
+address = 0x82B5C8B4
+name = "SkateVectorMin"
+registers = ["v27", "v9", "v10", "fpscr"]
+jump_address = 0x82B5C8B8
+
+[[midasm_hook]]
+address = 0x82B5C8C8
+name = "SkateVectorMin"
+registers = ["v28", "v11", "v12", "fpscr"]
+jump_address = 0x82B5C8CC
+
+[[midasm_hook]]
+address = 0x82B5C8CC
+name = "SkateVectorMaxRight"
+registers = ["v21", "v20", "fpscr"]
+jump_address = 0x82B5C8D0
+
+[[midasm_hook]]
+address = 0x82B5C8D8
+name = "SkateVectorMin"
+registers = ["v29", "v0", "v13", "fpscr"]
+jump_address = 0x82B5C8DC
+
+[[midasm_hook]]
+address = 0x82B5C8E4
+name = "SkateVectorMinRight"
+registers = ["v29", "v28", "fpscr"]
+jump_address = 0x82B5C8E8
+
+[[midasm_hook]]
+address = 0x82B5C8E8
+name = "SkateVectorMin"
+registers = ["v28", "v26", "v27", "fpscr"]
+jump_address = 0x82B5C8EC
+
+[[midasm_hook]]
+address = 0x82B5C8EC
+name = "SkateVectorMin"
+registers = ["v26", "v22", "v23", "fpscr"]
+jump_address = 0x82B5C8F0
+
+[[midasm_hook]]
+address = 0x82B5C8F0
+name = "SkateVectorMin"
+registers = ["v27", "v24", "v25", "fpscr"]
+jump_address = 0x82B5C8F4
+
+[[midasm_hook]]
+address = 0x82B5C8F8
+name = "SkateVectorMax"
+registers = ["v24", "v11", "v12", "fpscr"]
+jump_address = 0x82B5C8FC
+
+[[midasm_hook]]
+address = 0x82B5C8FC
+name = "SkateVectorMax"
+registers = ["v22", "v7", "v8", "fpscr"]
+jump_address = 0x82B5C900
+
+[[midasm_hook]]
+address = 0x82B5C900
+name = "SkateVectorMax"
+registers = ["v23", "v9", "v10", "fpscr"]
+jump_address = 0x82B5C904
+
+[[midasm_hook]]
+address = 0x82B5C904
+name = "SkateVectorMinRight"
+registers = ["v29", "v28", "fpscr"]
+jump_address = 0x82B5C908
+
+[[midasm_hook]]
+address = 0x82B5C908
+name = "SkateVectorMin"
+registers = ["v28", "v26", "v27", "fpscr"]
+jump_address = 0x82B5C90C
+
+[[midasm_hook]]
+address = 0x82B5C910
+name = "SkateVectorMax"
+registers = ["v27", "v0", "v13", "fpscr"]
+jump_address = 0x82B5C914
+
+[[midasm_hook]]
+address = 0x82B5C914
+name = "SkateVectorMaxRight"
+registers = ["v23", "v22", "fpscr"]
+jump_address = 0x82B5C918
+
+[[midasm_hook]]
+address = 0x82B5C91C
+name = "SkateVectorMinLeft"
+registers = ["v28", "v29", "fpscr"]
+jump_address = 0x82B5C920
+
+[[midasm_hook]]
+address = 0x82B5C924
+name = "SkateVectorMaxRight"
+registers = ["v27", "v24", "fpscr"]
+jump_address = 0x82B5C928
+
+[[midasm_hook]]
+address = 0x82B5C928
+name = "SkateVectorMax"
+registers = ["v24", "v30", "v31", "fpscr"]
+jump_address = 0x82B5C92C
+
+[[midasm_hook]]
+address = 0x82B5C938
+name = "SkateVectorMaxRight"
+registers = ["v27", "v23", "fpscr"]
+jump_address = 0x82B5C93C
+
+[[midasm_hook]]
+address = 0x82B5C93C
+name = "SkateVectorMaxLeft"
+registers = ["v24", "v19", "fpscr"]
+jump_address = 0x82B5C940
+
+[[midasm_hook]]
+address = 0x82B5C950
+name = "SkateVectorMaxLeft"
+registers = ["v24", "v21", "fpscr"]
+jump_address = 0x82B5C954
+
+[[midasm_hook]]
+address = 0x82B5C958
+name = "SkateVectorMaxRight"
+registers = ["v27", "v24", "fpscr"]
+jump_address = 0x82B5C95C
+
+[[midasm_hook]]
+address = 0x82B5CB9C
+name = "SkateVectorMaxRight"
+registers = ["v5", "v1", "fpscr"]
+jump_address = 0x82B5CBA0
+
+[[midasm_hook]]
+address = 0x82B5CBA0
+name = "SkateVectorMax"
+registers = ["v8", "v13", "v4", "fpscr"]
+jump_address = 0x82B5CBA4
+
+[[midasm_hook]]
+address = 0x82B5CBB0
+name = "SkateVectorMax"
+registers = ["v7", "v0", "v3", "fpscr"]
+jump_address = 0x82B5CBB4
+
+[[midasm_hook]]
+address = 0x82B5CD08
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B5CD0C
+
+[[midasm_hook]]
+address = 0x82B5CEC0
+name = "SkateVectorMin"
+registers = ["v9", "v7", "v13", "fpscr"]
+jump_address = 0x82B5CEC4
+
+[[midasm_hook]]
+address = 0x82B5CED0
+name = "SkateVectorMax"
+registers = ["v6", "v7", "v12", "fpscr"]
+jump_address = 0x82B5CED4
+
+[[midasm_hook]]
+address = 0x82B5CF70
+name = "SkateVectorMaxRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x82B5CF74
+
+[[midasm_hook]]
+address = 0x82B5CF78
+name = "SkateVectorMax"
+registers = ["v5", "v10", "v0", "fpscr"]
+jump_address = 0x82B5CF7C
+
+[[midasm_hook]]
+address = 0x82B5D1CC
+name = "SkateVectorMinRight"
+registers = ["v0", "v9", "fpscr"]
+jump_address = 0x82B5D1D0
+
+[[midasm_hook]]
+address = 0x82B5D1D0
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82B5D1D4
+
+[[midasm_hook]]
+address = 0x82B5D44C
+name = "SkateVectorMinLeft"
+registers = ["v7", "v13", "fpscr"]
+jump_address = 0x82B5D450
+
+[[midasm_hook]]
+address = 0x82B5D450
+name = "SkateVectorMinLeft"
+registers = ["v6", "v13", "fpscr"]
+jump_address = 0x82B5D454
+
+[[midasm_hook]]
+address = 0x82B5D454
+name = "SkateVectorMinLeft"
+registers = ["v4", "v13", "fpscr"]
+jump_address = 0x82B5D458
+
+[[midasm_hook]]
+address = 0x82B5D458
+name = "SkateVectorMinLeft"
+registers = ["v5", "v13", "fpscr"]
+jump_address = 0x82B5D45C
+
+[[midasm_hook]]
+address = 0x82B5D45C
+name = "SkateVectorMaxLeft"
+registers = ["v7", "v0", "fpscr"]
+jump_address = 0x82B5D460
+
+[[midasm_hook]]
+address = 0x82B5D460
+name = "SkateVectorMaxLeft"
+registers = ["v6", "v0", "fpscr"]
+jump_address = 0x82B5D464
+
+[[midasm_hook]]
+address = 0x82B5D464
+name = "SkateVectorMax"
+registers = ["v13", "v5", "v0", "fpscr"]
+jump_address = 0x82B5D468
+
+[[midasm_hook]]
+address = 0x82B5D468
+name = "SkateVectorMax"
+registers = ["v5", "v4", "v0", "fpscr"]
+jump_address = 0x82B5D46C
+
+[[midasm_hook]]
+address = 0x82B5D520
+name = "SkateVectorMin"
+registers = ["v4", "v27", "v13", "fpscr"]
+jump_address = 0x82B5D524
+
+[[midasm_hook]]
+address = 0x82B5D528
+name = "SkateVectorMin"
+registers = ["v28", "v6", "v13", "fpscr"]
+jump_address = 0x82B5D52C
+
+[[midasm_hook]]
+address = 0x82B5D52C
+name = "SkateVectorMin"
+registers = ["v27", "v5", "v13", "fpscr"]
+jump_address = 0x82B5D530
+
+[[midasm_hook]]
+address = 0x82B5D530
+name = "SkateVectorMax"
+registers = ["v6", "v4", "v0", "fpscr"]
+jump_address = 0x82B5D534
+
+[[midasm_hook]]
+address = 0x82B5D534
+name = "SkateVectorMax"
+registers = ["v5", "v28", "v0", "fpscr"]
+jump_address = 0x82B5D538
+
+[[midasm_hook]]
+address = 0x82B5D538
+name = "SkateVectorMax"
+registers = ["v4", "v27", "v0", "fpscr"]
+jump_address = 0x82B5D53C
+
+[[midasm_hook]]
+address = 0x82B5D574
+name = "SkateVectorMinRight"
+registers = ["v13", "v11", "fpscr"]
+jump_address = 0x82B5D578
+
+[[midasm_hook]]
+address = 0x82B5D578
+name = "SkateVectorMaxRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B5D57C
+
+[[midasm_hook]]
+address = 0x82B60B80
+name = "SkateVectorMax"
+registers = ["v10", "v13", "v0", "fpscr"]
+jump_address = 0x82B60B84
+
+[[midasm_hook]]
+address = 0x82B60B88
+name = "SkateVectorMinRight"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82B60B8C
+
+[[midasm_hook]]
+address = 0x82B60B9C
+name = "SkateVectorMax"
+registers = ["v13", "v10", "v12", "fpscr"]
+jump_address = 0x82B60BA0
+
+[[midasm_hook]]
+address = 0x82B60BA0
+name = "SkateVectorMinRight"
+registers = ["v12", "v0", "fpscr"]
+jump_address = 0x82B60BA4
+
+[[midasm_hook]]
+address = 0x82B60BA4
+name = "SkateVectorMax"
+registers = ["v0", "v13", "v11", "fpscr"]
+jump_address = 0x82B60BA8
+
+[[midasm_hook]]
+address = 0x82B60BA8
+name = "SkateVectorMin"
+registers = ["v13", "v12", "v11", "fpscr"]
+jump_address = 0x82B60BAC
+
+[[midasm_hook]]
+address = 0x82B69970
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v7", "fpscr"]
+jump_address = 0x82B69974
+
+[[midasm_hook]]
+address = 0x82B69974
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v12", "fpscr"]
+jump_address = 0x82B69978
+
+[[midasm_hook]]
+address = 0x82BB6CFC
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82BB6D00
+
+[[midasm_hook]]
+address = 0x82BB6D00
+name = "SkateVectorMinRight"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82BB6D04
+
+[[midasm_hook]]
+address = 0x82BB6DCC
+name = "SkateVectorMaxRight"
+registers = ["v13", "v7", "fpscr"]
+jump_address = 0x82BB6DD0
+
+[[midasm_hook]]
+address = 0x82BB6DD0
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v13", "fpscr"]
+jump_address = 0x82BB6DD4
+
+[[midasm_hook]]
+address = 0x82BB6E9C
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v7", "fpscr"]
+jump_address = 0x82BB6EA0
+
+[[midasm_hook]]
+address = 0x82BB6EA0
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v10", "fpscr"]
+jump_address = 0x82BB6EA4
+
+[[midasm_hook]]
+address = 0x82BC4F08
+name = "SkateVectorMaxRight"
+registers = ["v0", "v120", "fpscr"]
+jump_address = 0x82BC4F0C
+
+[[midasm_hook]]
+address = 0x82BC4F0C
+name = "SkateVectorMin"
+registers = ["v1", "v116", "v0", "fpscr"]
+jump_address = 0x82BC4F10
+
+[[midasm_hook]]
+address = 0x82BC4FF4
+name = "SkateVectorMaxRight"
+registers = ["v0", "v120", "fpscr"]
+jump_address = 0x82BC4FF8
+
+[[midasm_hook]]
+address = 0x82BC4FF8
+name = "SkateVectorMin"
+registers = ["v1", "v116", "v0", "fpscr"]
+jump_address = 0x82BC4FFC
+
+[[midasm_hook]]
+address = 0x82BC50AC
+name = "SkateVectorMaxRight"
+registers = ["v0", "v120", "fpscr"]
+jump_address = 0x82BC50B0
+
+[[midasm_hook]]
+address = 0x82BC50B0
+name = "SkateVectorMin"
+registers = ["v1", "v116", "v0", "fpscr"]
+jump_address = 0x82BC50B4
+
+[[midasm_hook]]
+address = 0x82BC55CC
+name = "SkateVectorMaxRight"
+registers = ["v13", "v7", "fpscr"]
+jump_address = 0x82BC55D0
+
+[[midasm_hook]]
+address = 0x82BC55D0
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v13", "fpscr"]
+jump_address = 0x82BC55D4
+
+[[midasm_hook]]
+address = 0x82BC56DC
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v7", "fpscr"]
+jump_address = 0x82BC56E0
+
+[[midasm_hook]]
+address = 0x82BC56E0
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v10", "fpscr"]
+jump_address = 0x82BC56E4
+
+[[midasm_hook]]
+address = 0x82BC5804
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v7", "fpscr"]
+jump_address = 0x82BC5808
+
+[[midasm_hook]]
+address = 0x82BC5808
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v10", "fpscr"]
+jump_address = 0x82BC580C
+
+[[midasm_hook]]
+address = 0x82CC7890
+name = "SkateVectorMax"
+registers = ["v0", "v2", "v1", "fpscr"]
+jump_address = 0x82CC7894
+
+[[midasm_hook]]
+address = 0x82CC7894
+name = "SkateVectorMin"
+registers = ["v1", "v3", "v0", "fpscr"]
+jump_address = 0x82CC7898
+
+[[midasm_hook]]
+address = 0x82CC7C7C
+name = "SkateVectorMaxRight"
+registers = ["v13", "v12", "fpscr"]
+jump_address = 0x82CC7C80
+
+[[midasm_hook]]
+address = 0x82CC7C80
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82CC7C84
+
+[[midasm_hook]]
+address = 0x82CC7D40
+name = "SkateVectorMaxRight"
+registers = ["v11", "v10", "fpscr"]
+jump_address = 0x82CC7D44
+
+[[midasm_hook]]
+address = 0x82CC7D44
+name = "SkateVectorMinRight"
+registers = ["v11", "v9", "fpscr"]
+jump_address = 0x82CC7D48
+
+[[midasm_hook]]
+address = 0x82CF1754
+name = "SkateVectorMaxRight"
+registers = ["v13", "v9", "fpscr"]
+jump_address = 0x82CF1758
+
+[[midasm_hook]]
+address = 0x82CF1758
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v13", "fpscr"]
+jump_address = 0x82CF175C
+
+[[midasm_hook]]
+address = 0x82CF3310
+name = "SkateVectorMaxRight"
+registers = ["v13", "v9", "fpscr"]
+jump_address = 0x82CF3314
+
+[[midasm_hook]]
+address = 0x82CF3314
+name = "SkateVectorMinLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82CF3318
+
+[[midasm_hook]]
+address = 0x82E7E9B4
+name = "SkateVectorMax"
+registers = ["v13", "v0", "v1", "fpscr"]
+jump_address = 0x82E7E9B8
+
+[[midasm_hook]]
+address = 0x82E7E9C0
+name = "SkateVectorMin"
+registers = ["v1", "v0", "v13", "fpscr"]
+jump_address = 0x82E7E9C4
+
+[[midasm_hook]]
+address = 0x82E7E9E8
+name = "SkateVectorMinLeft"
+registers = ["v1", "v2", "fpscr"]
+jump_address = 0x82E7E9EC
+
+[[midasm_hook]]
+address = 0x82E7E9F0
+name = "SkateVectorMaxLeft"
+registers = ["v1", "v2", "fpscr"]
+jump_address = 0x82E7E9F4
+
+[[midasm_hook]]
+address = 0x82E7EC20
+name = "SkateVectorMax"
+registers = ["v1", "v0", "v124", "fpscr"]
+jump_address = 0x82E7EC24
+
+[[midasm_hook]]
+address = 0x82E7F160
+name = "SkateVectorMinLeft"
+registers = ["v0", "v8", "fpscr"]
+jump_address = 0x82E7F164
+
+[[midasm_hook]]
+address = 0x82E7F2A0
+name = "SkateVectorMaxRight"
+registers = ["v11", "v0", "fpscr"]
+jump_address = 0x82E7F2A4
+
+[[midasm_hook]]
+address = 0x82E7F2A4
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82E7F2A8
+
+[[midasm_hook]]
+address = 0x82E7F2AC
+name = "SkateVectorMin"
+registers = ["v12", "v6", "v11", "fpscr"]
+jump_address = 0x82E7F2B0
+
+[[midasm_hook]]
+address = 0x82E7F2B0
+name = "SkateVectorMinRight"
+registers = ["v0", "v5", "fpscr"]
+jump_address = 0x82E7F2B4
+
+[[midasm_hook]]
+address = 0x82E7F634
+name = "SkateVectorMax"
+registers = ["v0", "v5", "v1", "fpscr"]
+jump_address = 0x82E7F638
+
+[[midasm_hook]]
+address = 0x82E7F658
+name = "SkateVectorMinRight"
+registers = ["v0", "v6", "fpscr"]
+jump_address = 0x82E7F65C
+
+[[midasm_hook]]
+address = 0x82E80C44
+name = "SkateVectorMaxLeft"
+registers = ["v0", "v13", "fpscr"]
+jump_address = 0x82E80C48
