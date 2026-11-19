@@ -25,6 +25,7 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `config/skate-half-unpack.toml` — included instruction hooks for half-float unpacking.
 - `config/skate-half-pack.toml` — included instruction hooks for half-float packing toward zero.
 - `config/skate-vector-exp.toml` — included instruction hooks for bounded vector exponent estimates.
+- `config/skate-vector-bounds.toml` — included instruction hooks for vector bounds masks and CR6 results.
 - `tools/` — XEX inspection, disc inventory and parser tests.
 - `tools/audit_guest_thunks.py` — offline comparison of XEX read-only data and Generated dispatch registrations.
 - `local.json.example` — template for paths to your own disc images and extraction folders.
