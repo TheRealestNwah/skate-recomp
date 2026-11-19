@@ -1,5 +1,5 @@
 # ReXGlue analysis hints for the original skate. USA disc, media ID 7D3C6C51.
-includes = ["skate-short2-unpack.toml", "skate-half-unpack.toml", "skate-half-pack.toml", "skate-vector-exp.toml", "skate-vector-bounds.toml", "skate-vector-minmax.toml"]
+includes = ["skate-short2-unpack.toml", "skate-half-unpack.toml", "skate-half-pack.toml", "skate-vector-exp.toml", "skate-vector-bounds.toml", "skate-vector-minmax.toml", "skate-scalar-guards.toml"]
 
 # The guest routines save and restore the same jmp_buf layout, including
 # nonvolatile FPRs/GPRs, SP, CR and the saved return address.
