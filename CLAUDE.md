@@ -20,6 +20,7 @@ The original skate. USA disc boots to the title screen from a clean Windows chec
 - `scripts/build-port.ps1` — builds the Host and, with the disc configured, the Port.
 - `scripts/run-port.ps1` — starts the Port and captures a local boot log.
 - `src/` — Host app and boot import audit.
+- `src/vector_bounds.cpp` — Host bounds comparison hooks shared with the synthetic C++ regression test.
 - `config/skate.toml` — ReXGlue analysis hints for the supported disc image.
 - `config/skate-short2-unpack.toml` — included instruction hooks for SHORT2 unpack sentinel handling.
 - `config/skate-half-unpack.toml` — included instruction hooks for half-float unpacking.
@@ -130,6 +131,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-port.ps1 -Ho
 ## Lint and tests
 
 CI builds the Host and inspection tools on `windows-2022`, whose LLVM 20 and Visual Studio 2022 headers are compatible. The `windows-latest` Visual Studio 2026 image paired LLVM 20 with headers requiring Clang 22 and failed the Host build. [CI toolchain issue](https://github.com/TheRealestNwah/skate-recomp/issues/90) · [Runner inventory](https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md)
+
+The Host build also compiles a synthetic vector bounds test. CI runs it through CTest without Game files. Run it locally after a `-HostOnly` build:
+
+```powershell
+ctest --test-dir build/host --output-on-failure
+```
 
 ```bash
 npx markdownlint-cli2 "**/*.md" "#build/**"
