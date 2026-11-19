@@ -232,6 +232,22 @@ void SkatePackFloat16x4InPlace(PPCVRegister& vector) {
     }
 }
 
+void SkateUnpackShort2(PPCVRegister& destination, PPCVRegister& source) {
+    // SHORT2 uses 3.0f-biased bits, reserving -32768 for quiet NaN.
+    const std::array<int16_t, 2> components{source.s16[1], source.s16[0]};
+    for (size_t lane = 0; lane < components.size(); ++lane) {
+        destination.u32[3 - lane] = components[lane] == -32768
+            ? 0x7FC00000U
+            : static_cast<uint32_t>(0x40400000 + components[lane]);
+    }
+    destination.u32[1] = 0;
+    destination.u32[0] = 0x3F800000U;
+}
+
+void SkateUnpackShort2InPlace(PPCVRegister& vector) {
+    SkateUnpackShort2(vector, vector);
+}
+
 void SkateSetFlickitRate(PPCRegister& rate) {
     if (rate.u32 == kOriginalInputRate) {
         rate.u64 = kFlickitInputRate;

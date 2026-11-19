@@ -1,0 +1,1545 @@
+# SHORT2 unpack sites verified against the original skate. USA XEX.
+# Replace the instruction to preserve the -32768 quiet-NaN sentinel.
+# https://github.com/TheRealestNwah/skate-recomp/issues/96
+
+[[midasm_hook]]
+address = 0x8224B5F4
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x8224B5F8
+
+[[midasm_hook]]
+address = 0x823CB8EC
+name = "SkateUnpackShort2"
+registers = ["v12", "v127"]
+jump_address = 0x823CB8F0
+
+[[midasm_hook]]
+address = 0x823CBC34
+name = "SkateUnpackShort2"
+registers = ["v12", "v127"]
+jump_address = 0x823CBC38
+
+[[midasm_hook]]
+address = 0x823CBFC4
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x823CBFC8
+
+[[midasm_hook]]
+address = 0x823CD9A8
+name = "SkateUnpackShort2"
+registers = ["v13", "v5"]
+jump_address = 0x823CD9AC
+
+[[midasm_hook]]
+address = 0x824F7C48
+name = "SkateUnpackShort2"
+registers = ["v10", "v127"]
+jump_address = 0x824F7C4C
+
+[[midasm_hook]]
+address = 0x825F8DA8
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x825F8DAC
+
+[[midasm_hook]]
+address = 0x825F8E40
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x825F8E44
+
+[[midasm_hook]]
+address = 0x825F8EB8
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x825F8EBC
+
+[[midasm_hook]]
+address = 0x825F8F88
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x825F8F8C
+
+[[midasm_hook]]
+address = 0x825F9008
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x825F900C
+
+[[midasm_hook]]
+address = 0x8261C170
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x8261C174
+
+[[midasm_hook]]
+address = 0x8261C2E0
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x8261C2E4
+
+[[midasm_hook]]
+address = 0x82669924
+name = "SkateUnpackShort2"
+registers = ["v12", "v127"]
+jump_address = 0x82669928
+
+[[midasm_hook]]
+address = 0x828B11CC
+name = "SkateUnpackShort2"
+registers = ["v6", "v0"]
+jump_address = 0x828B11D0
+
+[[midasm_hook]]
+address = 0x828DD84C
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x828DD850
+
+[[midasm_hook]]
+address = 0x828DD874
+name = "SkateUnpackShort2"
+registers = ["v3", "v0"]
+jump_address = 0x828DD878
+
+[[midasm_hook]]
+address = 0x828DD9C0
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x828DD9C4
+
+[[midasm_hook]]
+address = 0x828DDA88
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x828DDA8C
+
+[[midasm_hook]]
+address = 0x828DDB04
+name = "SkateUnpackShort2"
+registers = ["v2", "v0"]
+jump_address = 0x828DDB08
+
+[[midasm_hook]]
+address = 0x828DDC10
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x828DDC14
+
+[[midasm_hook]]
+address = 0x828DDD00
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x828DDD04
+
+[[midasm_hook]]
+address = 0x828DDD50
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x828DDD54
+
+[[midasm_hook]]
+address = 0x828DE910
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x828DE914
+
+[[midasm_hook]]
+address = 0x828DE944
+name = "SkateUnpackShort2"
+registers = ["v1", "v0"]
+jump_address = 0x828DE948
+
+[[midasm_hook]]
+address = 0x828DEA70
+name = "SkateUnpackShort2"
+registers = ["v7", "v0"]
+jump_address = 0x828DEA74
+
+[[midasm_hook]]
+address = 0x828DEB50
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x828DEB54
+
+[[midasm_hook]]
+address = 0x828DEB78
+name = "SkateUnpackShort2"
+registers = ["v27", "v0"]
+jump_address = 0x828DEB7C
+
+[[midasm_hook]]
+address = 0x828DECD4
+name = "SkateUnpackShort2"
+registers = ["v7", "v0"]
+jump_address = 0x828DECD8
+
+[[midasm_hook]]
+address = 0x828DED70
+name = "SkateUnpackShort2"
+registers = ["v27", "v0"]
+jump_address = 0x828DED74
+
+[[midasm_hook]]
+address = 0x828DEDD0
+name = "SkateUnpackShort2"
+registers = ["v25", "v0"]
+jump_address = 0x828DEDD4
+
+[[midasm_hook]]
+address = 0x82CDEC48
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CDEC4C
+
+[[midasm_hook]]
+address = 0x82CDEFD0
+name = "SkateUnpackShort2"
+registers = ["v12", "v13"]
+jump_address = 0x82CDEFD4
+
+[[midasm_hook]]
+address = 0x82CECE3C
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CECE40
+
+[[midasm_hook]]
+address = 0x82CECE88
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CECE8C
+
+[[midasm_hook]]
+address = 0x82CECEF4
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CECEF8
+
+[[midasm_hook]]
+address = 0x82CECFB0
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CECFB4
+
+[[midasm_hook]]
+address = 0x82CED390
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CED394
+
+[[midasm_hook]]
+address = 0x82CED42C
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CED430
+
+[[midasm_hook]]
+address = 0x82CED6EC
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CED6F0
+
+[[midasm_hook]]
+address = 0x82CEDA7C
+name = "SkateUnpackShort2"
+registers = ["v0", "v5"]
+jump_address = 0x82CEDA80
+
+[[midasm_hook]]
+address = 0x82CEDE90
+name = "SkateUnpackShort2"
+registers = ["v13", "v3"]
+jump_address = 0x82CEDE94
+
+[[midasm_hook]]
+address = 0x82CEDEE4
+name = "SkateUnpackShort2"
+registers = ["v9", "v11"]
+jump_address = 0x82CEDEE8
+
+[[midasm_hook]]
+address = 0x82CEDF24
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CEDF28
+
+[[midasm_hook]]
+address = 0x82CEE3D8
+name = "SkateUnpackShort2"
+registers = ["v0", "v3"]
+jump_address = 0x82CEE3DC
+
+[[midasm_hook]]
+address = 0x82CEE4EC
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEE4F0
+
+[[midasm_hook]]
+address = 0x82CEE538
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEE53C
+
+[[midasm_hook]]
+address = 0x82CEE5C8
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEE5CC
+
+[[midasm_hook]]
+address = 0x82CEE614
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEE618
+
+[[midasm_hook]]
+address = 0x82CEE658
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CEE65C
+
+[[midasm_hook]]
+address = 0x82CEE718
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CEE71C
+
+[[midasm_hook]]
+address = 0x82CEE89C
+name = "SkateUnpackShort2"
+registers = ["v12", "v6"]
+jump_address = 0x82CEE8A0
+
+[[midasm_hook]]
+address = 0x82CEE930
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEE934
+
+[[midasm_hook]]
+address = 0x82CEEBBC
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEEBC0
+
+[[midasm_hook]]
+address = 0x82CEEC44
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CEEC48
+
+[[midasm_hook]]
+address = 0x82CEEEA0
+name = "SkateUnpackShort2"
+registers = ["v0", "v11"]
+jump_address = 0x82CEEEA4
+
+[[midasm_hook]]
+address = 0x82CEF0A4
+name = "SkateUnpackShort2"
+registers = ["v9", "v11"]
+jump_address = 0x82CEF0A8
+
+[[midasm_hook]]
+address = 0x82CEF100
+name = "SkateUnpackShort2"
+registers = ["v11", "v7"]
+jump_address = 0x82CEF104
+
+[[midasm_hook]]
+address = 0x82CEF258
+name = "SkateUnpackShort2"
+registers = ["v5", "v7"]
+jump_address = 0x82CEF25C
+
+[[midasm_hook]]
+address = 0x82CEF314
+name = "SkateUnpackShort2"
+registers = ["v10", "v0"]
+jump_address = 0x82CEF318
+
+[[midasm_hook]]
+address = 0x82CEF34C
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82CEF350
+
+[[midasm_hook]]
+address = 0x82CEF484
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CEF488
+
+[[midasm_hook]]
+address = 0x82CEF598
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82CEF59C
+
+[[midasm_hook]]
+address = 0x82CEF730
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CEF734
+
+[[midasm_hook]]
+address = 0x82CEF780
+name = "SkateUnpackShort2"
+registers = ["v31", "v0"]
+jump_address = 0x82CEF784
+
+[[midasm_hook]]
+address = 0x82CEF8B0
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CEF8B4
+
+[[midasm_hook]]
+address = 0x82CEFABC
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CEFAC0
+
+[[midasm_hook]]
+address = 0x82CEFBB8
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CEFBBC
+
+[[midasm_hook]]
+address = 0x82CEFC64
+name = "SkateUnpackShort2"
+registers = ["v1", "v0"]
+jump_address = 0x82CEFC68
+
+[[midasm_hook]]
+address = 0x82CEFD30
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CEFD34
+
+[[midasm_hook]]
+address = 0x82CEFF24
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CEFF28
+
+[[midasm_hook]]
+address = 0x82CEFFE8
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CEFFEC
+
+[[midasm_hook]]
+address = 0x82CF0024
+name = "SkateUnpackShort2"
+registers = ["v3", "v0"]
+jump_address = 0x82CF0028
+
+[[midasm_hook]]
+address = 0x82CF0148
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CF014C
+
+[[midasm_hook]]
+address = 0x82CF02A8
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF02AC
+
+[[midasm_hook]]
+address = 0x82CF0410
+name = "SkateUnpackShort2"
+registers = ["v6", "v13"]
+jump_address = 0x82CF0414
+
+[[midasm_hook]]
+address = 0x82CF0450
+name = "SkateUnpackShort2"
+registers = ["v8", "v13"]
+jump_address = 0x82CF0454
+
+[[midasm_hook]]
+address = 0x82CF0634
+name = "SkateUnpackShort2"
+registers = ["v50", "v13"]
+jump_address = 0x82CF0638
+
+[[midasm_hook]]
+address = 0x82CF0820
+name = "SkateUnpackShort2"
+registers = ["v50", "v13"]
+jump_address = 0x82CF0824
+
+[[midasm_hook]]
+address = 0x82CF0A5C
+name = "SkateUnpackShort2"
+registers = ["v50", "v13"]
+jump_address = 0x82CF0A60
+
+[[midasm_hook]]
+address = 0x82CF0B44
+name = "SkateUnpackShort2"
+registers = ["v18", "v13"]
+jump_address = 0x82CF0B48
+
+[[midasm_hook]]
+address = 0x82CF0C94
+name = "SkateUnpackShort2"
+registers = ["v7", "v13"]
+jump_address = 0x82CF0C98
+
+[[midasm_hook]]
+address = 0x82CF0E5C
+name = "SkateUnpackShort2"
+registers = ["v23", "v13"]
+jump_address = 0x82CF0E60
+
+[[midasm_hook]]
+address = 0x82CF0EA8
+name = "SkateUnpackShort2"
+registers = ["v8", "v13"]
+jump_address = 0x82CF0EAC
+
+[[midasm_hook]]
+address = 0x82CF0FC0
+name = "SkateUnpackShort2"
+registers = ["v7", "v13"]
+jump_address = 0x82CF0FC4
+
+[[midasm_hook]]
+address = 0x82CF10D4
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF10D8
+
+[[midasm_hook]]
+address = 0x82CF1104
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82CF1108
+
+[[midasm_hook]]
+address = 0x82CF14A8
+name = "SkateUnpackShort2"
+registers = ["v10", "v12"]
+jump_address = 0x82CF14AC
+
+[[midasm_hook]]
+address = 0x82CF16A8
+name = "SkateUnpackShort2"
+registers = ["v0", "v9"]
+jump_address = 0x82CF16AC
+
+[[midasm_hook]]
+address = 0x82CF1BF0
+name = "SkateUnpackShort2"
+registers = ["v13", "v9"]
+jump_address = 0x82CF1BF4
+
+[[midasm_hook]]
+address = 0x82CF1CFC
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CF1D00
+
+[[midasm_hook]]
+address = 0x82CF233C
+name = "SkateUnpackShort2"
+registers = ["v13", "v9"]
+jump_address = 0x82CF2340
+
+[[midasm_hook]]
+address = 0x82CF2454
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CF2458
+
+[[midasm_hook]]
+address = 0x82CF275C
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF2760
+
+[[midasm_hook]]
+address = 0x82CF27A8
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF27AC
+
+[[midasm_hook]]
+address = 0x82CF27F4
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CF27F8
+
+[[midasm_hook]]
+address = 0x82CF2998
+name = "SkateUnpackShort2"
+registers = ["v0", "v1"]
+jump_address = 0x82CF299C
+
+[[midasm_hook]]
+address = 0x82CF2AEC
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF2AF0
+
+[[midasm_hook]]
+address = 0x82CF2B38
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF2B3C
+
+[[midasm_hook]]
+address = 0x82CF2B84
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CF2B88
+
+[[midasm_hook]]
+address = 0x82CF2F04
+name = "SkateUnpackShort2"
+registers = ["v13", "v3"]
+jump_address = 0x82CF2F08
+
+[[midasm_hook]]
+address = 0x82CF2F60
+name = "SkateUnpackShort2"
+registers = ["v9", "v11"]
+jump_address = 0x82CF2F64
+
+[[midasm_hook]]
+address = 0x82CF2FA8
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CF2FAC
+
+[[midasm_hook]]
+address = 0x82CF3190
+name = "SkateUnpackShort2"
+registers = ["v10", "v9"]
+jump_address = 0x82CF3194
+
+[[midasm_hook]]
+address = 0x82CF324C
+name = "SkateUnpackShort2"
+registers = ["v6", "v9"]
+jump_address = 0x82CF3250
+
+[[midasm_hook]]
+address = 0x82CF3828
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CF382C
+
+[[midasm_hook]]
+address = 0x82CF394C
+name = "SkateUnpackShort2"
+registers = ["v6", "v8"]
+jump_address = 0x82CF3950
+
+[[midasm_hook]]
+address = 0x82CF3D2C
+name = "SkateUnpackShort2"
+registers = ["v13", "v8"]
+jump_address = 0x82CF3D30
+
+[[midasm_hook]]
+address = 0x82CF3DAC
+name = "SkateUnpackShort2"
+registers = ["v13", "v8"]
+jump_address = 0x82CF3DB0
+
+[[midasm_hook]]
+address = 0x82CF3FA4
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82CF3FA8
+
+[[midasm_hook]]
+address = 0x82CF415C
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82CF4160
+
+[[midasm_hook]]
+address = 0x82CF4370
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CF4374
+
+[[midasm_hook]]
+address = 0x82CF4430
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF4434
+
+[[midasm_hook]]
+address = 0x82CF4438
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF443C
+
+[[midasm_hook]]
+address = 0x82CF4554
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CF4558
+
+[[midasm_hook]]
+address = 0x82CF4560
+name = "SkateUnpackShort2"
+registers = ["v21", "v0"]
+jump_address = 0x82CF4564
+
+[[midasm_hook]]
+address = 0x82CF46E4
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CF46E8
+
+[[midasm_hook]]
+address = 0x82CF4AE4
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CF4AE8
+
+[[midasm_hook]]
+address = 0x82CF4B18
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF4B1C
+
+[[midasm_hook]]
+address = 0x82CF4BA8
+name = "SkateUnpackShort2"
+registers = ["v3", "v0"]
+jump_address = 0x82CF4BAC
+
+[[midasm_hook]]
+address = 0x82CF4BB8
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF4BBC
+
+[[midasm_hook]]
+address = 0x82CF4FBC
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF4FC0
+
+[[midasm_hook]]
+address = 0x82CF4FF4
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF4FF8
+
+[[midasm_hook]]
+address = 0x82CF5110
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF5114
+
+[[midasm_hook]]
+address = 0x82CF52F0
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF52F4
+
+[[midasm_hook]]
+address = 0x82CF52FC
+name = "SkateUnpackShort2"
+registers = ["v1", "v0"]
+jump_address = 0x82CF5300
+
+[[midasm_hook]]
+address = 0x82CF54E4
+name = "SkateUnpackShort2"
+registers = ["v10", "v6"]
+jump_address = 0x82CF54E8
+
+[[midasm_hook]]
+address = 0x82CF55CC
+name = "SkateUnpackShort2"
+registers = ["v10", "v6"]
+jump_address = 0x82CF55D0
+
+[[midasm_hook]]
+address = 0x82CF57A0
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF57A4
+
+[[midasm_hook]]
+address = 0x82CF5A28
+name = "SkateUnpackShort2"
+registers = ["v10", "v0"]
+jump_address = 0x82CF5A2C
+
+[[midasm_hook]]
+address = 0x82CF5A3C
+name = "SkateUnpackShort2"
+registers = ["v26", "v0"]
+jump_address = 0x82CF5A40
+
+[[midasm_hook]]
+address = 0x82CF5B88
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CF5B8C
+
+[[midasm_hook]]
+address = 0x82CF5CF0
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF5CF4
+
+[[midasm_hook]]
+address = 0x82CF5E58
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CF5E5C
+
+[[midasm_hook]]
+address = 0x82CF5EF8
+name = "SkateUnpackShort2"
+registers = ["v28", "v0"]
+jump_address = 0x82CF5EFC
+
+[[midasm_hook]]
+address = 0x82CF5F8C
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF5F90
+
+[[midasm_hook]]
+address = 0x82CF61FC
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF6200
+
+[[midasm_hook]]
+address = 0x82CF6348
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF634C
+
+[[midasm_hook]]
+address = 0x82CF6418
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CF641C
+
+[[midasm_hook]]
+address = 0x82CF64D4
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF64D8
+
+[[midasm_hook]]
+address = 0x82CF669C
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF66A0
+
+[[midasm_hook]]
+address = 0x82CF676C
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF6770
+
+[[midasm_hook]]
+address = 0x82CF67E0
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CF67E4
+
+[[midasm_hook]]
+address = 0x82CF68E4
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF68E8
+
+[[midasm_hook]]
+address = 0x82CF6A28
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF6A2C
+
+[[midasm_hook]]
+address = 0x82CF6B54
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CF6B58
+
+[[midasm_hook]]
+address = 0x82CF6BF0
+name = "SkateUnpackShort2"
+registers = ["v30", "v0"]
+jump_address = 0x82CF6BF4
+
+[[midasm_hook]]
+address = 0x82CF6CB8
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF6CBC
+
+[[midasm_hook]]
+address = 0x82CF6EF8
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF6EFC
+
+[[midasm_hook]]
+address = 0x82CF7018
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF701C
+
+[[midasm_hook]]
+address = 0x82CF7084
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CF7088
+
+[[midasm_hook]]
+address = 0x82CF7194
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF7198
+
+[[midasm_hook]]
+address = 0x82CF735C
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CF7360
+
+[[midasm_hook]]
+address = 0x82CF743C
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF7440
+
+[[midasm_hook]]
+address = 0x82CF74F0
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82CF74F4
+
+[[midasm_hook]]
+address = 0x82CF75BC
+name = "SkateUnpackShort2"
+registers = ["v6", "v0"]
+jump_address = 0x82CF75C0
+
+[[midasm_hook]]
+address = 0x82CF7700
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CF7704
+
+[[midasm_hook]]
+address = 0x82CF785C
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82CF7860
+
+[[midasm_hook]]
+address = 0x82CF7B40
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CF7B44
+
+[[midasm_hook]]
+address = 0x82CF80E8
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CF80EC
+
+[[midasm_hook]]
+address = 0x82CF8134
+name = "SkateUnpackShort2"
+registers = ["v11", "v12"]
+jump_address = 0x82CF8138
+
+[[midasm_hook]]
+address = 0x82CF8180
+name = "SkateUnpackShort2InPlace"
+registers = ["v11"]
+jump_address = 0x82CF8184
+
+[[midasm_hook]]
+address = 0x82CF8400
+name = "SkateUnpackShort2"
+registers = ["v12", "v10"]
+jump_address = 0x82CF8404
+
+[[midasm_hook]]
+address = 0x82CF8560
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF8564
+
+[[midasm_hook]]
+address = 0x82CF85AC
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF85B0
+
+[[midasm_hook]]
+address = 0x82CF85F8
+name = "SkateUnpackShort2InPlace"
+registers = ["v11"]
+jump_address = 0x82CF85FC
+
+[[midasm_hook]]
+address = 0x82CF86E0
+name = "SkateUnpackShort2"
+registers = ["v2", "v8"]
+jump_address = 0x82CF86E4
+
+[[midasm_hook]]
+address = 0x82CF8A30
+name = "SkateUnpackShort2"
+registers = ["v13", "v8"]
+jump_address = 0x82CF8A34
+
+[[midasm_hook]]
+address = 0x82CF8AB4
+name = "SkateUnpackShort2"
+registers = ["v13", "v8"]
+jump_address = 0x82CF8AB8
+
+[[midasm_hook]]
+address = 0x82CF97DC
+name = "SkateUnpackShort2"
+registers = ["v10", "v3"]
+jump_address = 0x82CF97E0
+
+[[midasm_hook]]
+address = 0x82CF9954
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CF9958
+
+[[midasm_hook]]
+address = 0x82CF9A0C
+name = "SkateUnpackShort2"
+registers = ["v12", "v13"]
+jump_address = 0x82CF9A10
+
+[[midasm_hook]]
+address = 0x82CF9AD8
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CF9ADC
+
+[[midasm_hook]]
+address = 0x82CF9D08
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CF9D0C
+
+[[midasm_hook]]
+address = 0x82CF9F38
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CF9F3C
+
+[[midasm_hook]]
+address = 0x82CFA338
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CFA33C
+
+[[midasm_hook]]
+address = 0x82CFA464
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CFA468
+
+[[midasm_hook]]
+address = 0x82CFA5C8
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFA5CC
+
+[[midasm_hook]]
+address = 0x82CFA64C
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFA650
+
+[[midasm_hook]]
+address = 0x82CFA690
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFA694
+
+[[midasm_hook]]
+address = 0x82CFA6B4
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CFA6B8
+
+[[midasm_hook]]
+address = 0x82CFA764
+name = "SkateUnpackShort2"
+registers = ["v1", "v0"]
+jump_address = 0x82CFA768
+
+[[midasm_hook]]
+address = 0x82CFA77C
+name = "SkateUnpackShort2"
+registers = ["v3", "v0"]
+jump_address = 0x82CFA780
+
+[[midasm_hook]]
+address = 0x82CFABD4
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CFABD8
+
+[[midasm_hook]]
+address = 0x82CFABDC
+name = "SkateUnpackShort2"
+registers = ["v12", "v0"]
+jump_address = 0x82CFABE0
+
+[[midasm_hook]]
+address = 0x82CFACD4
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CFACD8
+
+[[midasm_hook]]
+address = 0x82CFACF8
+name = "SkateUnpackShort2"
+registers = ["v22", "v0"]
+jump_address = 0x82CFACFC
+
+[[midasm_hook]]
+address = 0x82CFAE50
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82CFAE54
+
+[[midasm_hook]]
+address = 0x82CFB258
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFB25C
+
+[[midasm_hook]]
+address = 0x82CFB298
+name = "SkateUnpackShort2"
+registers = ["v31", "v0"]
+jump_address = 0x82CFB29C
+
+[[midasm_hook]]
+address = 0x82CFB2A0
+name = "SkateUnpackShort2"
+registers = ["v10", "v0"]
+jump_address = 0x82CFB2A4
+
+[[midasm_hook]]
+address = 0x82CFB4F8
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CFB4FC
+
+[[midasm_hook]]
+address = 0x82CFB514
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CFB518
+
+[[midasm_hook]]
+address = 0x82CFB630
+name = "SkateUnpackShort2"
+registers = ["v7", "v0"]
+jump_address = 0x82CFB634
+
+[[midasm_hook]]
+address = 0x82CFB894
+name = "SkateUnpackShort2"
+registers = ["v12", "v6"]
+jump_address = 0x82CFB898
+
+[[midasm_hook]]
+address = 0x82CFBA2C
+name = "SkateUnpackShort2"
+registers = ["v12", "v6"]
+jump_address = 0x82CFBA30
+
+[[midasm_hook]]
+address = 0x82CFBC64
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFBC68
+
+[[midasm_hook]]
+address = 0x82CFBFB0
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CFBFB4
+
+[[midasm_hook]]
+address = 0x82CFC4B0
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CFC4B4
+
+[[midasm_hook]]
+address = 0x82CFC5C4
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFC5C8
+
+[[midasm_hook]]
+address = 0x82CFCA64
+name = "SkateUnpackShort2InPlace"
+registers = ["v13"]
+jump_address = 0x82CFCA68
+
+[[midasm_hook]]
+address = 0x82CFCE80
+name = "SkateUnpackShort2"
+registers = ["v12", "v9"]
+jump_address = 0x82CFCE84
+
+[[midasm_hook]]
+address = 0x82CFCF9C
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82CFCFA0
+
+[[midasm_hook]]
+address = 0x82CFD31C
+name = "SkateUnpackShort2"
+registers = ["v13", "v12"]
+jump_address = 0x82CFD320
+
+[[midasm_hook]]
+address = 0x82CFD558
+name = "SkateUnpackShort2"
+registers = ["v9", "v11"]
+jump_address = 0x82CFD55C
+
+[[midasm_hook]]
+address = 0x82CFD5E0
+name = "SkateUnpackShort2"
+registers = ["v11", "v7"]
+jump_address = 0x82CFD5E4
+
+[[midasm_hook]]
+address = 0x82CFD7A0
+name = "SkateUnpackShort2"
+registers = ["v13", "v7"]
+jump_address = 0x82CFD7A4
+
+[[midasm_hook]]
+address = 0x82CFD830
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CFD834
+
+[[midasm_hook]]
+address = 0x82CFD844
+name = "SkateUnpackShort2"
+registers = ["v10", "v0"]
+jump_address = 0x82CFD848
+
+[[midasm_hook]]
+address = 0x82CFD9A8
+name = "SkateUnpackShort2"
+registers = ["v10", "v0"]
+jump_address = 0x82CFD9AC
+
+[[midasm_hook]]
+address = 0x82CFDB54
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82CFDB58
+
+[[midasm_hook]]
+address = 0x82CFDCF0
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CFDCF4
+
+[[midasm_hook]]
+address = 0x82CFDD30
+name = "SkateUnpackShort2"
+registers = ["v3", "v0"]
+jump_address = 0x82CFDD34
+
+[[midasm_hook]]
+address = 0x82CFDE54
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFDE58
+
+[[midasm_hook]]
+address = 0x82CFE070
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFE074
+
+[[midasm_hook]]
+address = 0x82CFE1B8
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFE1BC
+
+[[midasm_hook]]
+address = 0x82CFE25C
+name = "SkateUnpackShort2"
+registers = ["v31", "v0"]
+jump_address = 0x82CFE260
+
+[[midasm_hook]]
+address = 0x82CFE328
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFE32C
+
+[[midasm_hook]]
+address = 0x82CFE4B4
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFE4B8
+
+[[midasm_hook]]
+address = 0x82CFE5B8
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFE5BC
+
+[[midasm_hook]]
+address = 0x82CFE608
+name = "SkateUnpackShort2"
+registers = ["v45", "v0"]
+jump_address = 0x82CFE60C
+
+[[midasm_hook]]
+address = 0x82CFE738
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CFE73C
+
+[[midasm_hook]]
+address = 0x82CFE85C
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82CFE860
+
+[[midasm_hook]]
+address = 0x82CFEA30
+name = "SkateUnpackShort2"
+registers = ["v10", "v13"]
+jump_address = 0x82CFEA34
+
+[[midasm_hook]]
+address = 0x82CFEA88
+name = "SkateUnpackShort2"
+registers = ["v9", "v13"]
+jump_address = 0x82CFEA8C
+
+[[midasm_hook]]
+address = 0x82CFEC20
+name = "SkateUnpackShort2"
+registers = ["v51", "v13"]
+jump_address = 0x82CFEC24
+
+[[midasm_hook]]
+address = 0x82CFEE2C
+name = "SkateUnpackShort2"
+registers = ["v50", "v13"]
+jump_address = 0x82CFEE30
+
+[[midasm_hook]]
+address = 0x82CFEFE0
+name = "SkateUnpackShort2"
+registers = ["v44", "v13"]
+jump_address = 0x82CFEFE4
+
+[[midasm_hook]]
+address = 0x82CFF18C
+name = "SkateUnpackShort2"
+registers = ["v17", "v13"]
+jump_address = 0x82CFF190
+
+[[midasm_hook]]
+address = 0x82CFF304
+name = "SkateUnpackShort2"
+registers = ["v7", "v13"]
+jump_address = 0x82CFF308
+
+[[midasm_hook]]
+address = 0x82CFF424
+name = "SkateUnpackShort2"
+registers = ["v21", "v13"]
+jump_address = 0x82CFF428
+
+[[midasm_hook]]
+address = 0x82CFF4A0
+name = "SkateUnpackShort2"
+registers = ["v7", "v13"]
+jump_address = 0x82CFF4A4
+
+[[midasm_hook]]
+address = 0x82CFF570
+name = "SkateUnpackShort2"
+registers = ["v5", "v13"]
+jump_address = 0x82CFF574
+
+[[midasm_hook]]
+address = 0x82CFF780
+name = "SkateUnpackShort2"
+registers = ["v9", "v0"]
+jump_address = 0x82CFF784
+
+[[midasm_hook]]
+address = 0x82CFF81C
+name = "SkateUnpackShort2"
+registers = ["v2", "v0"]
+jump_address = 0x82CFF820
+
+[[midasm_hook]]
+address = 0x82CFF8E4
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CFF8E8
+
+[[midasm_hook]]
+address = 0x82CFFB20
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFFB24
+
+[[midasm_hook]]
+address = 0x82CFFC38
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82CFFC3C
+
+[[midasm_hook]]
+address = 0x82CFFCB8
+name = "SkateUnpackShort2"
+registers = ["v4", "v0"]
+jump_address = 0x82CFFCBC
+
+[[midasm_hook]]
+address = 0x82CFFDAC
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFFDB0
+
+[[midasm_hook]]
+address = 0x82CFFF8C
+name = "SkateUnpackShort2"
+registers = ["v8", "v0"]
+jump_address = 0x82CFFF90
+
+[[midasm_hook]]
+address = 0x82D0005C
+name = "SkateUnpackShort2"
+registers = ["v11", "v0"]
+jump_address = 0x82D00060
+
+[[midasm_hook]]
+address = 0x82D00120
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82D00124
+
+[[midasm_hook]]
+address = 0x82D001EC
+name = "SkateUnpackShort2"
+registers = ["v6", "v0"]
+jump_address = 0x82D001F0
+
+[[midasm_hook]]
+address = 0x82D0032C
+name = "SkateUnpackShort2"
+registers = ["v13", "v0"]
+jump_address = 0x82D00330
+
+[[midasm_hook]]
+address = 0x82D00984
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82D00988
+
+[[midasm_hook]]
+address = 0x82D00B0C
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82D00B10
+
+[[midasm_hook]]
+address = 0x82D00C1C
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82D00C20
+
+[[midasm_hook]]
+address = 0x82D00D98
+name = "SkateUnpackShort2"
+registers = ["v13", "v6"]
+jump_address = 0x82D00D9C
+
+[[midasm_hook]]
+address = 0x82E7E9B8
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82E7E9BC
+
+[[midasm_hook]]
+address = 0x82E7F114
+name = "SkateUnpackShort2"
+registers = ["v0", "v11"]
+jump_address = 0x82E7F118
+
+[[midasm_hook]]
+address = 0x82E7F120
+name = "SkateUnpackShort2"
+registers = ["v13", "v11"]
+jump_address = 0x82E7F124
+
+[[midasm_hook]]
+address = 0x82E7F18C
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x82E7F190
+
+[[midasm_hook]]
+address = 0x82E7F208
+name = "SkateUnpackShort2"
+registers = ["v6", "v0"]
+jump_address = 0x82E7F20C
+
+[[midasm_hook]]
+address = 0x82E7F214
+name = "SkateUnpackShort2"
+registers = ["v5", "v0"]
+jump_address = 0x82E7F218
+
+[[midasm_hook]]
+address = 0x82E7F49C
+name = "SkateUnpackShort2"
+registers = ["v0", "v12"]
+jump_address = 0x82E7F4A0
+
+[[midasm_hook]]
+address = 0x83014790
+name = "SkateUnpackShort2InPlace"
+registers = ["v0"]
+jump_address = 0x83014794
