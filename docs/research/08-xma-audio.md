@@ -43,6 +43,8 @@ The button decoder at `0x82BBCEC0` counts samples for debounce and repeat. The P
 
 The Port build with these hooks reproduced the 120 Hz right-stick samples, menu navigation and the three scored tricks at the default 60 Hz Guest display mode. It used the stock SDK runtime and a scripted controller. The physical controller baseline still needs to cover trick feel and held menu navigation. [Controller baseline](05-m4-baseline.md)
 
+An offline executable compiled the five Host input hooks with synthetic register values. It checked the 60-to-120 Hz rate override, alternating presentation snapshots, 90 debounce comparisons, and repeat counts for the gesture reader and other callers. Two synchronized threads each retained their own alternating snapshot phase. These checks cover the Host decisions made by the hooks. Physical controller response and release timing remain on the baseline checklist. [Host hooks](../../src/skate_app.cpp) · [Hook sites](../../config/skate.toml) · [Controller baseline](05-m4-baseline.md)
+
 ## Streaming smoke test
 
 In one muted run, the controller skated at Community Center, quit Free Skate to the main menu, loaded the Library in Downtown, and skated there. The test-only Host counted 1,857 `NtReadFile` calls requesting about 202 MiB in the first load window and 1,833 calls requesting about 192 MiB in the second. XMA enable calls and audio submissions continued with device output muted. The log recorded no APU warning or error, and the skater responded after each load.
