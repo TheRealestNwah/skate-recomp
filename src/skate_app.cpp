@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <array>
 #include <atomic>
+#include <bit>
 #include <chrono>
 #include <cstdint>
 #include <cstdlib>
@@ -47,6 +48,25 @@ uint16_t PackFloat16(uint32_t bits) {
     const uint32_t shift = 0x71 - exponent;
     const uint32_t denormal = shift > 31 ? 0 : (0x400 + mantissa) >> shift;
     return static_cast<uint16_t>(sign | denormal);
+}
+
+uint32_t UnpackFloat16(uint16_t bits) {
+    const uint32_t sign = static_cast<uint32_t>(bits & 0x8000) << 16;
+    const uint32_t exponent = (bits >> 10) & 0x1F;
+    const uint32_t mantissa = bits & 0x3FF;
+    if (exponent == 0) {
+        if (mantissa == 0) {
+            return sign;
+        }
+        const uint32_t shift = std::countl_zero(mantissa) - 21;
+        return sign | ((113 - shift) << 23) | (((mantissa << shift) & 0x3FF) << 13);
+    }
+    if (exponent == 0x1F) {
+        // Match Xenia's F16C path by preserving payloads and quieting NaNs.
+        const uint32_t quiet_bit = mantissa == 0 ? 0 : 0x00400000;
+        return sign | 0x7F800000 | (mantissa << 13) | quiet_bit;
+    }
+    return sign | ((exponent + 112) << 23) | (mantissa << 13);
 }
 
 class SkateAudioSystem final : public rex::audio::sdl::SDLAudioSystem {
@@ -246,6 +266,25 @@ void SkateUnpackShort2(PPCVRegister& destination, PPCVRegister& source) {
 
 void SkateUnpackShort2InPlace(PPCVRegister& vector) {
     SkateUnpackShort2(vector, vector);
+}
+
+void SkateUnpackFloat16x2InPlace(PPCVRegister& vector) {
+    const uint32_t source = vector.u32[0];
+    vector.u32[3] = UnpackFloat16(static_cast<uint16_t>(source >> 16));
+    vector.u32[2] = UnpackFloat16(static_cast<uint16_t>(source));
+    vector.u32[1] = 0;
+    vector.u32[0] = 0x3F800000;
+}
+
+void SkateUnpackFloat16x4(PPCVRegister& destination, PPCVRegister& source) {
+    const PPCVRegister input = source;
+    for (size_t lane = 0; lane < 4; ++lane) {
+        destination.u32[lane] = UnpackFloat16(input.u16[lane]);
+    }
+}
+
+void SkateUnpackFloat16x4InPlace(PPCVRegister& vector) {
+    SkateUnpackFloat16x4(vector, vector);
 }
 
 void SkateSetFlickitRate(PPCRegister& rate) {

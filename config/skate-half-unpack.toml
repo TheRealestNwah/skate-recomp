@@ -1,0 +1,92 @@
+# Half-float unpack sites verified against the original skate. USA XEX.
+# https://github.com/TheRealestNwah/skate-recomp/issues/99
+
+[[midasm_hook]]
+address = 0x8275B374
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v0"]
+jump_address = 0x8275B378
+
+[[midasm_hook]]
+address = 0x8275C024
+name = "SkateUnpackFloat16x4"
+registers = ["v11", "v7"]
+jump_address = 0x8275C028
+
+[[midasm_hook]]
+address = 0x8275C030
+name = "SkateUnpackFloat16x4"
+registers = ["v9", "v8"]
+jump_address = 0x8275C034
+
+[[midasm_hook]]
+address = 0x8275C04C
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v11"]
+jump_address = 0x8275C050
+
+[[midasm_hook]]
+address = 0x82765678
+name = "SkateUnpackFloat16x4"
+registers = ["v9", "v6"]
+jump_address = 0x8276567C
+
+[[midasm_hook]]
+address = 0x8276568C
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v10"]
+jump_address = 0x82765690
+
+[[midasm_hook]]
+address = 0x8276569C
+name = "SkateUnpackFloat16x4"
+registers = ["v7", "v8"]
+jump_address = 0x827656A0
+
+[[midasm_hook]]
+address = 0x8276A6C0
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v11"]
+jump_address = 0x8276A6C4
+
+[[midasm_hook]]
+address = 0x8276A6CC
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v10"]
+jump_address = 0x8276A6D0
+
+[[midasm_hook]]
+address = 0x8276A6D4
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v0"]
+jump_address = 0x8276A6D8
+
+[[midasm_hook]]
+address = 0x82CECB30
+name = "SkateUnpackFloat16x2InPlace"
+registers = ["v0"]
+jump_address = 0x82CECB34
+
+[[midasm_hook]]
+address = 0x82CECB94
+name = "SkateUnpackFloat16x2InPlace"
+registers = ["v0"]
+jump_address = 0x82CECB98
+
+[[midasm_hook]]
+address = 0x82CF1810
+name = "SkateUnpackFloat16x2InPlace"
+registers = ["v0"]
+jump_address = 0x82CF1814
+
+[[midasm_hook]]
+address = 0x82E7EB20
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v0"]
+jump_address = 0x82E7EB24
+
+[[midasm_hook]]
+address = 0x82E7EBB0
+name = "SkateUnpackFloat16x4InPlace"
+registers = ["v0"]
+jump_address = 0x82E7EBB4
