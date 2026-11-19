@@ -35,19 +35,30 @@ thread_local bool scale_input_button_timing = false;
 
 uint16_t PackFloat16(uint32_t bits) {
     const uint32_t sign = (bits >> 16) & 0x8000;
-    const uint32_t magnitude = bits & 0x7FFFFFFF;
-    // Match the SDK's non-aliasing FLOAT16_4 lowering, including saturation.
-    if (magnitude > 0x477FE000) {
-        return static_cast<uint16_t>(sign | 0x7FFF);
+    const uint32_t exponent = (bits >> 23) & 0xFF;
+    const uint32_t mantissa = bits & 0x007FFFFF;
+    if (exponent == 0xFF) {
+        const uint32_t quiet_bit = mantissa == 0 ? 0 : 0x0200;
+        return static_cast<uint16_t>(sign | 0x7C00 | (mantissa >> 13) | quiet_bit);
     }
-    const uint32_t exponent = magnitude >> 23;
-    const uint32_t mantissa = (magnitude >> 13) & 0x3FF;
-    if (exponent > 0x70) {
-        return static_cast<uint16_t>(sign | ((exponent - 0x70) << 10) | mantissa);
+    // Conversion toward zero clamps finite overflow and truncates discarded bits.
+    if (exponent > 142) {
+        return static_cast<uint16_t>(sign | 0x7BFF);
     }
-    const uint32_t shift = 0x71 - exponent;
-    const uint32_t denormal = shift > 31 ? 0 : (0x400 + mantissa) >> shift;
-    return static_cast<uint16_t>(sign | denormal);
+    if (exponent < 103) {
+        return static_cast<uint16_t>(sign);
+    }
+    if (exponent < 113) {
+        return static_cast<uint16_t>(sign | ((0x00800000 | mantissa) >> (126 - exponent)));
+    }
+    return static_cast<uint16_t>(sign | ((exponent - 112) << 10) | (mantissa >> 13));
+}
+
+void PackFloat16x4(PPCVRegister& destination, const PPCVRegister& source, size_t half_offset) {
+    const PPCVRegister input = source;
+    for (size_t lane = 0; lane < 4; ++lane) {
+        destination.u16[half_offset + lane] = PackFloat16(input.u32[lane]);
+    }
 }
 
 uint32_t UnpackFloat16(uint16_t bits) {
@@ -244,12 +255,22 @@ std::unique_ptr<rex::ui::WindowedApp> CreateSkateApp(rex::ui::WindowedAppContext
 
 } // namespace
 
+void SkatePackFloat16x4Low(PPCVRegister& destination, PPCVRegister& source) {
+    PackFloat16x4(destination, source, 0);
+}
+
+void SkatePackFloat16x4High(PPCVRegister& destination, PPCVRegister& source) {
+    PackFloat16x4(destination, source, 4);
+}
+
 void SkatePackFloat16x4InPlace(PPCVRegister& vector) {
-    const PPCVRegister source = vector;
-    // Shift 2 packs into the upper two host words, preserving the lower two.
-    for (size_t lane = 0; lane < 4; ++lane) {
-        vector.u16[4 + lane] = PackFloat16(source.u32[lane]);
-    }
+    SkatePackFloat16x4High(vector, vector);
+}
+
+void SkatePackFloat16x2High(PPCVRegister& destination, PPCVRegister& source) {
+    const uint32_t first = source.u32[3];
+    const uint32_t second = source.u32[2];
+    destination.u32[3] = (static_cast<uint32_t>(PackFloat16(first)) << 16) | PackFloat16(second);
 }
 
 void SkateUnpackShort2(PPCVRegister& destination, PPCVRegister& source) {

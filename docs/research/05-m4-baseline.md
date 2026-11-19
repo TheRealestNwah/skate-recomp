@@ -28,9 +28,9 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 - [ ] Listen for menu music and UI sounds. In Free Skate, check in-game music, push/grind/bail sounds and ambience.
 - [ ] Load Community Center, skate for a few minutes, return to the menu, and load the Library in Downtown. Return to the menu and load Community Center again. After each transition, check whether music, ambience, and skate sounds return. For a crackle, dropout, desync, or hang, record the location and whether it began during loading or skating. [XMA streaming trace](08-xma-audio.md#streaming-smoke-test)
 - [ ] If audio goes silent, repeat the same steps with `-DirectSound` on the same playback device and volume settings. Record which launch lost sound. [Audio issue #60](https://github.com/TheRealestNwah/skate-recomp/issues/60)
-- [ ] Try a short D-pad tap and a held D-pad press in the main and pause menus. Check that each tap moves one item and that holding repeats steadily. Try ollies, kickflips and grabs in Free Skate.
+- [ ] Try a short D-pad tap and a held D-pad press in the main and pause menus. Check that each tap moves one item, holding repeats steadily, and releasing stops navigation. Try ollies, kickflips and grabs in Free Skate.
 - [ ] On a separate `-Keyboard` launch, check pushing, steering, menu navigation, and Shift+arrow Flickit.
-- [ ] At Community Center and the Library, look at the skater, board, and nearby geometry while turning and jumping. Record any stretched triangles, disappearing surfaces, distorted animation, or incorrectly mapped textures, including the location and last action. [SHORT2 conversion defect](https://github.com/TheRealestNwah/skate-recomp/issues/96) · [Half-float conversion defect](https://github.com/TheRealestNwah/skate-recomp/issues/99)
+- [ ] At Community Center and the Library, look at the skater, board, and nearby geometry while turning and jumping. Record any stretched triangles, disappearing surfaces, distorted animation, or incorrectly mapped textures, including the location and last action. [SHORT2 conversion defect](https://github.com/TheRealestNwah/skate-recomp/issues/96) · [Half-float unpack defect](https://github.com/TheRealestNwah/skate-recomp/issues/99) · [Half-float pack defect](https://github.com/TheRealestNwah/skate-recomp/issues/101)
 
 ### Saves
 

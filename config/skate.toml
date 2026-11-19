@@ -1,5 +1,5 @@
 # ReXGlue analysis hints for the original skate. USA disc, media ID 7D3C6C51.
-includes = ["skate-short2-unpack.toml", "skate-half-unpack.toml"]
+includes = ["skate-short2-unpack.toml", "skate-half-unpack.toml", "skate-half-pack.toml"]
 
 # The guest routines save and restore the same jmp_buf layout, including
 # nonvolatile FPRs/GPRs, SP, CR and the saved return address.
@@ -313,43 +313,6 @@ labels = [0x828B4904, 0x828B4B30, 0x828B4930, 0x828B4B30, 0x828B4B30, 0x828B49E8
 [[invalid_instructions]]
 data = 0x828B48E0
 size = 0x24
-
-# In-place FLOAT16_4 packs at shift 2 must read v0 before modifying it.
-[[midasm_hook]]
-address = 0x8277B7EC
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x8277B7F0
-
-[[midasm_hook]]
-address = 0x82CECBDC
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x82CECBE0
-
-[[midasm_hook]]
-address = 0x82CECC38
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x82CECC3C
-
-[[midasm_hook]]
-address = 0x82CF17A4
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x82CF17A8
-
-[[midasm_hook]]
-address = 0x82E7F510
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x82E7F514
-
-[[midasm_hook]]
-address = 0x82E7F5B8
-name = "SkatePackFloat16x4InPlace"
-registers = ["v0"]
-jump_address = 0x82E7F5BC
 
 # Set the input worker's rate before the constructor saves its argument.
 [[midasm_hook]]
