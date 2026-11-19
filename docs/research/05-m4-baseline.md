@@ -31,6 +31,7 @@ Record the boot log path that the launcher prints on each launch. Keep logs and 
 - [ ] Try a short D-pad tap and a held D-pad press in the main and pause menus. Check that each tap moves one item, holding repeats steadily, and releasing stops navigation. Try ollies, kickflips and grabs in Free Skate.
 - [ ] On a separate `-Keyboard` launch, check pushing, steering, menu navigation, and Shift+arrow Flickit.
 - [ ] At Community Center and the Library, look at the skater, board, and nearby geometry while turning and jumping. Record any stretched triangles, disappearing surfaces, distorted animation, incorrectly mapped textures, or unexpected color or brightness changes, including the location and last action. [SHORT2 conversion defect](https://github.com/TheRealestNwah/skate-recomp/issues/96) · [Half-float unpack defect](https://github.com/TheRealestNwah/skate-recomp/issues/99) · [Half-float pack defect](https://github.com/TheRealestNwah/skate-recomp/issues/101) · [Vector exponent defect](https://github.com/TheRealestNwah/skate-recomp/issues/103)
+- [ ] Turn the camera away from nearby surfaces and back again at both locations. Check whether the surfaces reappear consistently. Record any persistent missing surface or abrupt visibility change and the camera position. Offline vector bounds checks cover instruction behavior; their effect on gameplay remains unverified. [Bounds comparison audit](09-vector-bounds.md)
 
 ### Saves
 

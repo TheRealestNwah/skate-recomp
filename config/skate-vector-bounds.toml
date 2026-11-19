@@ -1,0 +1,273 @@
+# Vector bounds comparison sites verified against the original skate. USA XEX.
+# https://github.com/TheRealestNwah/skate-recomp/issues/105
+# https://github.com/TheRealestNwah/skate-recomp/issues/106
+
+[[midasm_hook]]
+address = 0x8225E33C
+name = "SkateCompareBounds"
+registers = ["v11", "v1", "v2", "fpscr"]
+jump_address = 0x8225E340
+
+[[midasm_hook]]
+address = 0x8226009C
+name = "SkateCompareBounds"
+registers = ["v5", "v13", "v12", "fpscr"]
+jump_address = 0x822600A0
+
+[[midasm_hook]]
+address = 0x82260F6C
+name = "SkateCompareBounds"
+registers = ["v8", "v11", "v127", "fpscr"]
+jump_address = 0x82260F70
+
+[[midasm_hook]]
+address = 0x82261334
+name = "SkateCompareBounds"
+registers = ["v7", "v13", "v127", "fpscr"]
+jump_address = 0x82261338
+
+[[midasm_hook]]
+address = 0x82261B04
+name = "SkateCompareBounds"
+registers = ["v7", "v13", "v127", "fpscr"]
+jump_address = 0x82261B08
+
+[[midasm_hook]]
+address = 0x823CE348
+name = "SkateCompareBounds"
+registers = ["v11", "v12", "v4", "fpscr"]
+jump_address = 0x823CE34C
+
+[[midasm_hook]]
+address = 0x824CD09C
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v10", "fpscr", "cr6"]
+jump_address = 0x824CD0A0
+
+[[midasm_hook]]
+address = 0x824CD0B0
+name = "SkateCompareBoundsRightRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x824CD0B4
+
+[[midasm_hook]]
+address = 0x824CD0C4
+name = "SkateCompareBoundsRightRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x824CD0C8
+
+[[midasm_hook]]
+address = 0x824CD0D8
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x824CD0DC
+
+[[midasm_hook]]
+address = 0x824CD150
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x824CD154
+
+[[midasm_hook]]
+address = 0x824CD1F8
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v12", "fpscr", "cr6"]
+jump_address = 0x824CD1FC
+
+[[midasm_hook]]
+address = 0x824CD288
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v12", "fpscr", "cr6"]
+jump_address = 0x824CD28C
+
+[[midasm_hook]]
+address = 0x824CD318
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x824CD31C
+
+[[midasm_hook]]
+address = 0x825F8DEC
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v13", "v6", "fpscr", "cr6"]
+jump_address = 0x825F8DF0
+
+[[midasm_hook]]
+address = 0x8261C278
+name = "SkateCompareBoundsRightRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x8261C27C
+
+[[midasm_hook]]
+address = 0x8261C290
+name = "SkateCompareBoundsRightRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x8261C294
+
+[[midasm_hook]]
+address = 0x827784B0
+name = "SkateCompareBounds"
+registers = ["v23", "v11", "v1", "fpscr"]
+jump_address = 0x827784B4
+
+[[midasm_hook]]
+address = 0x82778868
+name = "SkateCompareBounds"
+registers = ["v3", "v9", "v0", "fpscr"]
+jump_address = 0x8277886C
+
+[[midasm_hook]]
+address = 0x82778B68
+name = "SkateCompareBounds"
+registers = ["v6", "v9", "v0", "fpscr"]
+jump_address = 0x82778B6C
+
+[[midasm_hook]]
+address = 0x8285984C
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x82859850
+
+[[midasm_hook]]
+address = 0x828598E0
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v12", "fpscr", "cr6"]
+jump_address = 0x828598E4
+
+[[midasm_hook]]
+address = 0x8285992C
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v12", "fpscr", "cr6"]
+jump_address = 0x82859930
+
+[[midasm_hook]]
+address = 0x82859978
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v12", "fpscr", "cr6"]
+jump_address = 0x8285997C
+
+[[midasm_hook]]
+address = 0x828599C4
+name = "SkateCompareBoundsRightRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x828599C8
+
+[[midasm_hook]]
+address = 0x82859AAC
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v13", "fpscr", "cr6"]
+jump_address = 0x82859AB0
+
+[[midasm_hook]]
+address = 0x8285AB8C
+name = "SkateCompareBoundsLeftRecord"
+registers = ["v0", "v10", "fpscr", "cr6"]
+jump_address = 0x8285AB90
+
+[[midasm_hook]]
+address = 0x82CEF0AC
+name = "SkateCompareBoundsRight"
+registers = ["v10", "v13", "fpscr"]
+jump_address = 0x82CEF0B0
+
+[[midasm_hook]]
+address = 0x82CEF2BC
+name = "SkateCompareBoundsLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82CEF2C0
+
+[[midasm_hook]]
+address = 0x82CF0734
+name = "SkateCompareBounds"
+registers = ["v47", "v7", "v10", "fpscr"]
+jump_address = 0x82CF0738
+
+[[midasm_hook]]
+address = 0x82CF08AC
+name = "SkateCompareBounds"
+registers = ["v46", "v9", "v49", "fpscr"]
+jump_address = 0x82CF08B0
+
+[[midasm_hook]]
+address = 0x82CF0A70
+name = "SkateCompareBoundsRight"
+registers = ["v44", "v9", "fpscr"]
+jump_address = 0x82CF0A74
+
+[[midasm_hook]]
+address = 0x82CF0C4C
+name = "SkateCompareBoundsLeft"
+registers = ["v9", "v22", "fpscr"]
+jump_address = 0x82CF0C50
+
+[[midasm_hook]]
+address = 0x82CF0E3C
+name = "SkateCompareBoundsLeft"
+registers = ["v10", "v55", "fpscr"]
+jump_address = 0x82CF0E40
+
+[[midasm_hook]]
+address = 0x82CF1024
+name = "SkateCompareBoundsRight"
+registers = ["v8", "v11", "fpscr"]
+jump_address = 0x82CF1028
+
+[[midasm_hook]]
+address = 0x82CF14BC
+name = "SkateCompareBoundsLeft"
+registers = ["v0", "v6", "fpscr"]
+jump_address = 0x82CF14C0
+
+[[midasm_hook]]
+address = 0x82CF31B8
+name = "SkateCompareBounds"
+registers = ["v6", "v12", "v4", "fpscr"]
+jump_address = 0x82CF31BC
+
+[[midasm_hook]]
+address = 0x82CFD560
+name = "SkateCompareBoundsRight"
+registers = ["v10", "v13", "fpscr"]
+jump_address = 0x82CFD564
+
+[[midasm_hook]]
+address = 0x82CFD7B0
+name = "SkateCompareBoundsLeft"
+registers = ["v0", "v12", "fpscr"]
+jump_address = 0x82CFD7B4
+
+[[midasm_hook]]
+address = 0x82CFED64
+name = "SkateCompareBounds"
+registers = ["v48", "v6", "v9", "fpscr"]
+jump_address = 0x82CFED68
+
+[[midasm_hook]]
+address = 0x82CFEF38
+name = "SkateCompareBounds"
+registers = ["v45", "v8", "v23", "fpscr"]
+jump_address = 0x82CFEF3C
+
+[[midasm_hook]]
+address = 0x82CFF0D0
+name = "SkateCompareBounds"
+registers = ["v44", "v8", "v9", "fpscr"]
+jump_address = 0x82CFF0D4
+
+[[midasm_hook]]
+address = 0x82CFF22C
+name = "SkateCompareBounds"
+registers = ["v21", "v8", "v18", "fpscr"]
+jump_address = 0x82CFF230
+
+[[midasm_hook]]
+address = 0x82CFF414
+name = "SkateCompareBoundsLeft"
+registers = ["v9", "v51", "fpscr"]
+jump_address = 0x82CFF418
+
+[[midasm_hook]]
+address = 0x82CFF5CC
+name = "SkateCompareBoundsRight"
+registers = ["v7", "v10", "fpscr"]
+jump_address = 0x82CFF5D0
