@@ -1,6 +1,11 @@
 #include "input_timing.h"
 
 #include <atomic>
+#include <rex/cvar.h>
+
+REXCVAR_DEFINE_BOOL(skate_experimental_flickit_120hz, false, "Skate",
+                    "Run the Flickit input worker at the experimental 120 Hz rate")
+    .lifecycle(rex::cvar::Lifecycle::kInitOnly);
 
 namespace {
 
@@ -15,7 +20,7 @@ thread_local bool scale_input_button_timing = false;
 } // namespace
 
 void SkateSetFlickitRate(PPCRegister& rate) {
-    if (rate.u32 == kOriginalInputRate) {
+    if (rate.u32 == kOriginalInputRate && REXCVAR_GET(skate_experimental_flickit_120hz)) {
         rate.u64 = kFlickitInputRate;
         flickit_at_120_hz.store(true, std::memory_order_relaxed);
     }

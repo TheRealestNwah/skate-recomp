@@ -8,6 +8,7 @@ param(
     [switch]$DebugLog,
     [switch]$DirectSound,
     [switch]$Experimental90Hz,
+    [switch]$ExperimentalFlickit120Hz,
     [switch]$ExperimentalGpuWaitBackoff
 )
 
@@ -46,6 +47,9 @@ if ($RenderTargetPath -eq 'rtv') {
 }
 if ($Experimental90Hz) {
     $portArguments += '--video_mode_refresh_rate=90'
+}
+if ($ExperimentalFlickit120Hz) {
+    $portArguments += '--skate_experimental_flickit_120hz=true'
 }
 if ($ExperimentalGpuWaitBackoff) {
     $portArguments += '--skate_gpu_wait_backoff=true'
