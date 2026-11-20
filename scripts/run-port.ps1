@@ -9,10 +9,14 @@ param(
     [switch]$DirectSound,
     [switch]$Experimental90Hz,
     [switch]$ExperimentalFlickit120Hz,
-    [switch]$ExperimentalGpuWaitBackoff
+    [switch]$ExperimentalGpuWaitBackoff,
+    [switch]$Experimental30Hz
 )
 
 $ErrorActionPreference = 'Stop'
+if ($Experimental30Hz -and $Experimental90Hz) {
+    throw 'Choose one experimental refresh rate.'
+}
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $port = Join-Path $repoRoot 'build/port/skateport.exe'
 if (-not (Test-Path -LiteralPath $port)) {
@@ -45,7 +49,9 @@ if ($RenderTargetPath -eq 'rtv') {
     # the movie's color tiles during an RTV resolve.
     $portArguments += '--execute_unclipped_draw_vs_on_cpu=true'
 }
-if ($Experimental90Hz) {
+if ($Experimental30Hz) {
+    $portArguments += '--video_mode_refresh_rate=30'
+} elseif ($Experimental90Hz) {
     $portArguments += '--video_mode_refresh_rate=90'
 }
 if ($ExperimentalFlickit120Hz) {

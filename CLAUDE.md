@@ -123,6 +123,8 @@ At that marker in a 1280×720 window, ROV averaged 44.3 Guest swaps/s and 98.0% 
 
 Pass `-Experimental90Hz` to request a 90 Hz guest video mode. The default guest refresh rate is 60 Hz. With RTV, the 90 Hz test averaged 84.9 to 89.5 Guest swaps/s at Community Center. Simulation and input timing still need broader testing. [Higher refresh measurements](docs/research/04-renderer-performance.md#higher-guest-refresh-rates)
 
+Pass `-Experimental30Hz` to request a 30 Hz Guest video mode. This also changes the Guest vertical-blank rate. Scripted RTV Career runs held close to 30 Guest swaps/s, with occasional longer gaps. The timing comparison covers ollies and one Career route. Choose one experimental refresh rate per launch.
+
 The Port uses the retail game's 60 Hz input worker rate by default. Pass `-ExperimentalFlickit120Hz` to enable the 120 Hz override, which shortened scripted ollies in Career. [Career action timing](docs/research/04-renderer-performance.md#unattended-career-follow-up)
 
 Pass `-ExperimentalGpuWaitBackoff` to reduce CPU use during sustained Guest graphics command buffer polling. This setting is off by default. [CPU measurements](docs/research/04-renderer-performance.md#guest-graphics-wait)
