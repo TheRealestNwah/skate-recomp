@@ -1,5 +1,7 @@
 #include "input_timing.h"
 
+#include <rex/cvar.h>
+
 #include <array>
 #include <atomic>
 #include <barrier>
@@ -55,6 +57,21 @@ bool CheckSingleThread() {
     offset.u64 = 24;
     SkateSelectInputButtonTiming(caller, offset);
     if (!CheckButtonTiming(false)) return false;
+    rate.u64 = 60;
+    SkateSetFlickitRate(rate);
+    offset.u64 = 28;
+    if (!Expect(rate.u64 == 60 && !SkateSkipPresentationInput(offset) &&
+                !SkateSkipPresentationInput(offset),
+                "the default must keep the retail input rate and publish every snapshot")) {
+        return false;
+    }
+    offset.u64 = 24;
+    SkateSelectInputButtonTiming(caller, offset);
+    if (!CheckButtonTiming(false)) return false;
+    if (!Expect(rex::cvar::SetFlagFromCommandLine("skate_experimental_flickit_120hz", "true"),
+                "the experimental rate must accept an explicit command-line opt-in")) {
+        return false;
+    }
     for (uint32_t value : {0U, 1U, 30U, 59U, 61U, 120U, UINT32_MAX}) {
         rate.u64 = value;
         SkateSetFlickitRate(rate);
@@ -64,7 +81,9 @@ bool CheckSingleThread() {
     }
     rate.u64 = 60;
     SkateSetFlickitRate(rate);
-    if (!Expect(rate.u64 == 120, "60 Hz must become 120 Hz")) return false;
+    if (!Expect(rate.u64 == 120, "the experimental override must change 60 Hz to 120 Hz")) {
+        return false;
+    }
     for (unsigned sample = 0; sample < 240; ++sample) {
         offset.u64 = 24;
         if (!Expect(!SkateSkipPresentationInput(offset), "gesture samples must not be skipped")) {

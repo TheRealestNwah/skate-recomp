@@ -23,6 +23,8 @@ The Host now stops with exit code 1 and flushes the SDL error and a Port diagnos
 
 ## Flickit input
 
+The Port defaults to the retail game's 60 Hz input worker rate after matched Career runs tied faster ollies to the 120 Hz override. The previous override is available through `-ExperimentalFlickit120Hz`. The tests below describe the development of that override. [Career action timing](04-renderer-performance.md#unattended-career-follow-up)
+
 At the default 60 Hz Guest display mode, a test-only Host probe counted the Guest's `XamInputGetState` calls by slot. Menus and Free Skate at Community Center both ran at approximately 60 calls per second per slot across slots 0–3. The connected scripted controller also received about 60 state reads per second. Held right-stick motions scored switch ollies and switch kickflips. The right-trigger sequence did not verify a grab. [SDK input export](https://github.com/rexglue/rexglue-sdk/blob/v0.10.1/src/kernel/xam/xam_input.cpp) · [Controller baseline](05-m4-baseline.md)
 
 Executive producer Scott Blackwood described 120 Hz sampling during Flickit development. The measured Port cadence is below that target. The retail Guest reaches the import via `0x82BC3AC0` and the wrapper at `0x82DF8C60`. [Original developer interview](https://www.gamedeveloper.com/design/new-tricks-scott-blackwood-talks-i-skate-i-and-i-skate-2-i-) · [Input cadence issue #65](https://github.com/TheRealestNwah/skate-recomp/issues/65)
