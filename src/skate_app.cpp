@@ -14,6 +14,8 @@
 #include <rex/logging.h>
 #include <rex/ppc.h>
 #include <rex/rex_app.h>
+#include <rex/ui/overlay/achievement_toast.h>
+#include <rex/ui/windowed_app_context.h>
 
 #include "kernel_audit.h"
 
@@ -219,6 +221,56 @@ private:
     unsigned polls_ = 0;
 };
 
+struct AchievementToastLifetime {};
+
+class SkateAchievementToast final : public rex::ui::AchievementToastDialog {
+public:
+    SkateAchievementToast(rex::ui::ImGuiDrawer* drawer, rex::ui::ImmediateDrawer* immediate_drawer,
+                          rex::Runtime* runtime, rex::ui::WindowedAppContext& context,
+                          const std::shared_ptr<AchievementToastLifetime>& lifetime)
+        : AchievementToastDialog(drawer, immediate_drawer, runtime), context_(context),
+          lifetime_(lifetime) {
+        drawer->RemoveDialog(this);
+    }
+
+    void Push(const rex::system::AchievementEvent& event) override {
+        // The app invalidates queued callbacks before the UI drawer is destroyed.
+        context_.CallInUIThreadDeferred([this, lifetime = lifetime_, event] {
+            if (lifetime.expired()) {
+                return;
+            }
+            AchievementToastDialog::Push(event);
+            if (++pending_toasts_ == 1) {
+                imgui_drawer()->AddDialog(this);
+            }
+        });
+    }
+
+private:
+    using Clock = std::chrono::steady_clock;
+    // Match the pinned SDK's visible duration. Start timing after its first draw.
+    static constexpr auto kToastDuration = std::chrono::milliseconds(4500);
+
+    void OnDraw(ImGuiIO& io) override {
+        const auto draw_start = Clock::now();
+        AchievementToastDialog::OnDraw(io);
+        if (draw_start < visible_until_) {
+            return;
+        }
+        if (visible_until_ != Clock::time_point{} && --pending_toasts_ == 0) {
+            visible_until_ = {};
+            imgui_drawer()->RemoveDialog(this);
+            return;
+        }
+        visible_until_ = Clock::now() + kToastDuration;
+    }
+
+    rex::ui::WindowedAppContext& context_;
+    std::weak_ptr<AchievementToastLifetime> lifetime_;
+    size_t pending_toasts_ = 0;
+    Clock::time_point visible_until_{};
+};
+
 class SkateApp final : public rex::ReXApp {
 public:
     explicit SkateApp(rex::ui::WindowedAppContext& context)
@@ -238,6 +290,22 @@ private:
         SetGuestFrameStats([] { return guest_swap_timing.Read(); });
         LogKernelImportCoverage(*runtime());
     }
+
+    std::unique_ptr<rex::ui::AchievementNotificationDialog>
+    CreateAchievementNotificationDialog() override {
+        if (!runtime() || !imgui_drawer() || !immediate_drawer()) {
+            return nullptr;
+        }
+        return std::make_unique<SkateAchievementToast>(imgui_drawer(), immediate_drawer(), runtime(),
+                                                       app_context(), achievement_toast_lifetime_);
+    }
+
+    void OnShutdown() override {
+        achievement_toast_lifetime_.reset();
+    }
+
+    std::shared_ptr<AchievementToastLifetime> achievement_toast_lifetime_ =
+        std::make_shared<AchievementToastLifetime>();
 };
 
 std::unique_ptr<rex::ui::WindowedApp> CreateSkateApp(rex::ui::WindowedAppContext& context) {
