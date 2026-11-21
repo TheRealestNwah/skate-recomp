@@ -7,7 +7,6 @@ param(
     [string]$RenderTargetPath = 'rtv',
     [switch]$DebugLog,
     [switch]$DirectSound,
-    [switch]$Experimental90Hz,
     [switch]$ExperimentalFlickit120Hz,
     [switch]$ExperimentalGpuWaitBackoff,
     [switch]$Experimental30Hz,
@@ -16,9 +15,6 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-if ($Experimental30Hz -and $Experimental90Hz) {
-    throw 'Choose one experimental refresh rate.'
-}
 if ($ExperimentalTextureHeaps -and -not $ExperimentalFramePacing) {
     throw 'Experimental texture heaps require the -ExperimentalFramePacing build.'
 }
@@ -60,8 +56,9 @@ if ($RenderTargetPath -eq 'rtv') {
 }
 if ($Experimental30Hz) {
     $portArguments += '--video_mode_refresh_rate=30'
-} elseif ($Experimental90Hz) {
-    $portArguments += '--video_mode_refresh_rate=90'
+} else {
+    # M4 is capped at the retail refresh rate. Higher refresh testing belongs to M6.
+    $portArguments += '--video_mode_refresh_rate=60'
 }
 if ($ExperimentalFlickit120Hz) {
     $portArguments += '--skate_experimental_flickit_120hz=true'
