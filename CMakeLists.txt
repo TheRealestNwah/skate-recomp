@@ -44,6 +44,7 @@ if(BUILD_TESTING)
 endif()
 
 set(SKATE_GENERATED_DIR "" CACHE PATH "Directory containing locally recompiled skate. code")
+option(SKATE_EXPERIMENTAL_FRAME_PACING "Build the experimental D3D12 frame-pacing Port" OFF)
 if(SKATE_GENERATED_DIR)
     include("${SKATE_GENERATED_DIR}/sources.cmake")
     add_library(skate_guest OBJECT ${GENERATED_SOURCES})
@@ -58,5 +59,17 @@ if(SKATE_GENERATED_DIR)
     target_compile_features(skateport PRIVATE cxx_std_23)
     target_include_directories(skateport PRIVATE "${SKATE_GENERATED_DIR}")
     target_link_libraries(skateport PRIVATE skate_host skate_guest rex::runtime)
-    rexglue_configure_target(skateport GPU_PLUGINS xenos)
+    if(SKATE_EXPERIMENTAL_FRAME_PACING)
+        target_sources(skate_host PRIVATE src/frame_pacing.cpp)
+        add_subdirectory(tools/frame-pacing)
+        rexglue_configure_target(skateport)
+        add_custom_target(skateport_pacing_plugin
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                $<TARGET_FILE:rexgpu-xenos> $<TARGET_FILE_DIR:skateport>
+            DEPENDS rexgpu-xenos
+            VERBATIM)
+        add_dependencies(skateport skateport_pacing_plugin)
+    else()
+        rexglue_configure_target(skateport GPU_PLUGINS xenos)
+    endif()
 endif()

@@ -2,10 +2,14 @@
 param(
     [switch]$HostOnly,
     [ValidateRange(1, 64)][int]$Jobs = 6,
-    [switch]$FastCodegen
+    [switch]$FastCodegen,
+    [switch]$ExperimentalFramePacing
 )
 
 $ErrorActionPreference = 'Stop'
+if ($HostOnly -and $ExperimentalFramePacing) {
+    throw 'Experimental frame pacing requires a complete Port build.'
+}
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $sdk = & (Join-Path $PSScriptRoot 'setup-sdk.ps1')
 & (Join-Path $PSScriptRoot 'enter-toolchain.ps1')
@@ -14,6 +18,9 @@ $generated = ''
 
 if (-not $HostOnly) {
     $buildDirectory = Join-Path $repoRoot 'build/port'
+    if ($ExperimentalFramePacing) {
+        $buildDirectory = Join-Path $repoRoot 'build/port-frame-pacing'
+    }
     $configPath = Join-Path $repoRoot 'local.json'
     $config = Get-Content -Raw -LiteralPath $configPath | ConvertFrom-Json
     if (-not [IO.Path]::IsPathRooted($config.skate.extracted)) {
@@ -51,11 +58,17 @@ if (-not $HostOnly) {
         $codegen = Join-Path $codegenBuild 'bin/rexglue.exe'
         $codegenDirectory = Join-Path $repoRoot 'build/recomp-fast'
     }
+    if ($ExperimentalFramePacing) {
+        $codegenDirectory += '-frame-pacing'
+    }
     New-Item -ItemType Directory -Path $codegenDirectory -Force | Out-Null
     $manifest = Join-Path $codegenDirectory 'skateport_manifest.toml'
     $gamePath = ConvertTo-Json -InputObject ($gameRoot.Replace('\', '/')) -Compress
     $xexPath = ConvertTo-Json -InputObject ($xex.Replace('\', '/')) -Compress
-    $hints = ConvertTo-Json -InputObject ((Join-Path $repoRoot 'config/skate.toml').Replace('\', '/')) -Compress
+    $hints = @(ConvertTo-Json -InputObject ((Join-Path $repoRoot 'config/skate.toml').Replace('\', '/')) -Compress)
+    if ($ExperimentalFramePacing) {
+        $hints += ConvertTo-Json -InputObject ((Join-Path $repoRoot 'config/skate-frame-pacing.toml').Replace('\', '/')) -Compress
+    }
     $manifestContents = @"
 [project]
 name = "skateport"
@@ -65,7 +78,7 @@ game_root = $gamePath
 [entrypoint]
 file_path = $xexPath
 out_directory_path = "default"
-includes = [$hints]
+includes = [$($hints -join ', ')]
 "@
     [IO.File]::WriteAllText($manifest, $manifestContents)
     & $codegen --log-file (Join-Path $codegenDirectory 'codegen.log') codegen $manifest
@@ -75,8 +88,10 @@ includes = [$hints]
     $generated = Join-Path $codegenDirectory 'default'
 }
 
+$pacing = if ($ExperimentalFramePacing) { 'ON' } else { 'OFF' }
 & cmake -S $repoRoot -B $buildDirectory -G Ninja -DCMAKE_BUILD_TYPE=Release `
-    -DCMAKE_CXX_COMPILER=clang++ "-DCMAKE_PREFIX_PATH=$sdk" "-DSKATE_GENERATED_DIR=$generated"
+    -DCMAKE_CXX_COMPILER=clang++ "-DCMAKE_PREFIX_PATH=$sdk" "-DSKATE_GENERATED_DIR=$generated" `
+    "-DSKATE_EXPERIMENTAL_FRAME_PACING=$pacing"
 if ($LASTEXITCODE -ne 0) {
     throw "CMake configuration failed (exit $LASTEXITCODE)."
 }

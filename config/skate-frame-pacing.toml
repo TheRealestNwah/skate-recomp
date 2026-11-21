@@ -1,0 +1,17 @@
+# Notify the graphics worker after the Guest vertical-blank handler clears the flag.
+[[midasm_hook]]
+address = 0x82CCB7D8
+name = "SkateNotifyVBlankGateClear"
+registers = ["r11", "r9"]
+after_instruction = true
+
+# Start counting polls on the slow path of the Guest graphics ring-space check.
+[[midasm_hook]]
+address = 0x82CB1240
+name = "SkateBeginGuestRingPoll"
+
+# Wait for GPU progress before the original slow poll and condition recheck.
+[[midasm_hook]]
+address = 0x82CB124C
+name = "SkateWaitForGuestRingProgress"
+registers = ["r31", "r10"]
