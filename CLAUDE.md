@@ -121,7 +121,7 @@ Press F3 for the Guest swap submission rate and average interval. Pass `-FrameTi
 
 At that marker in a 1280×720 window, ROV averaged 44.3 Guest swaps/s and 98.0% 3D-engine use. RTV averaged 58.2 Guest swaps/s and 26.8% 3D-engine use. The test used the same build, skater, location, and Free Skate settings. [Renderer measurements](docs/research/04-renderer-performance.md)
 
-Pass `-Experimental90Hz` to request a 90 Hz guest video mode. The default guest refresh rate is 60 Hz. With RTV, the 90 Hz test averaged 84.9 to 89.5 Guest swaps/s at Community Center. Simulation and input timing still need broader testing. [Higher refresh measurements](docs/research/04-renderer-performance.md#higher-guest-refresh-rates)
+The launcher explicitly requests a 60 Hz Guest video mode for M4. Refresh rates above 60 Hz are deferred to M6. The historical 90 Hz measurements and their open simulation/input questions are in [higher refresh measurements](docs/research/04-renderer-performance.md#higher-guest-refresh-rates).
 
 Pass `-Experimental30Hz` to request a 30 Hz Guest video mode. This also changes the Guest vertical-blank rate. Scripted RTV Career runs held close to 30 Guest swaps/s, with occasional longer gaps. The timing comparison covers ollies and one Career route. Choose one experimental refresh rate per launch.
 
