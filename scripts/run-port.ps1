@@ -10,16 +10,25 @@ param(
     [switch]$Experimental90Hz,
     [switch]$ExperimentalFlickit120Hz,
     [switch]$ExperimentalGpuWaitBackoff,
-    [switch]$Experimental30Hz
+    [switch]$Experimental30Hz,
+    [switch]$ExperimentalFramePacing,
+    [switch]$ExperimentalTextureHeaps
 )
 
 $ErrorActionPreference = 'Stop'
 if ($Experimental30Hz -and $Experimental90Hz) {
     throw 'Choose one experimental refresh rate.'
 }
+if ($ExperimentalTextureHeaps -and -not $ExperimentalFramePacing) {
+    throw 'Experimental texture heaps require the -ExperimentalFramePacing build.'
+}
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$port = Join-Path $repoRoot 'build/port/skateport.exe'
+$portDirectory = if ($ExperimentalFramePacing) { 'build/port-frame-pacing' } else { 'build/port' }
+$port = Join-Path $repoRoot "$portDirectory/skateport.exe"
 if (-not (Test-Path -LiteralPath $port)) {
+    if ($ExperimentalFramePacing) {
+        throw 'Build the experimental Port with scripts/build-port.ps1 -ExperimentalFramePacing first.'
+    }
     throw 'Build the Port with scripts/build-port.ps1 first.'
 }
 $config = Get-Content -Raw -LiteralPath (Join-Path $repoRoot 'local.json') | ConvertFrom-Json
@@ -59,6 +68,9 @@ if ($ExperimentalFlickit120Hz) {
 }
 if ($ExperimentalGpuWaitBackoff) {
     $portArguments += '--skate_gpu_wait_backoff=true'
+}
+if ($ExperimentalTextureHeaps) {
+    $portArguments += '--skate_experimental_texture_heap=true'
 }
 if ($FrameTiming) {
     $portArguments += '--skate_frame_timing=true'

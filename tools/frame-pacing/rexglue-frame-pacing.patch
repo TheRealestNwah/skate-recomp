@@ -1,0 +1,560 @@
+--- a/src/graphics/CMakeLists.txt
++++ b/src/graphics/CMakeLists.txt
+@@ -94,7 +94,9 @@ if(REXGLUE_USE_D3D12)
+ endif()
+ 
+ add_library(rexgpu-xenos SHARED ${REXGPU_XENOS_SOURCES})
+-add_library(rex::gpu-xenos ALIAS rexgpu-xenos)
++if(NOT TARGET rex::gpu-xenos)
++    add_library(rex::gpu-xenos ALIAS rexgpu-xenos)
++endif()
+ 
+ set_target_properties(rexgpu-xenos PROPERTIES
+     EXPORT_NAME gpu-xenos
+--- a/src/graphics/command_processor.cpp
++++ b/src/graphics/command_processor.cpp
+@@ -10,9 +10,17 @@
+  */
+ 
+ #include <algorithm>
++#include <bit>
+ #include <cinttypes>
+ #include <cmath>
+ #include <cstring>
++#include <atomic>
++
++#include <rex/platform.h>
++#if REX_PLATFORM_WIN32
++#include <Windows.h>
++#endif
++
+ #include <string_view>
+ 
+ #include <fmt/format.h>
+@@ -36,6 +44,74 @@
+ #include <rex/system/user_module.h>
+ 
+ REXCVAR_DEFINE_BOOL(vsync, true, "GPU", "Enable vertical sync");
++
++#if REX_PLATFORM_WIN32
++namespace {
++constexpr uint32_t kNoVblankGate = UINT32_MAX;
++std::atomic<uint32_t> vblank_gate_address{kNoVblankGate};
++std::atomic<uint32_t> guest_ring_address{UINT32_MAX};
++std::atomic<uint32_t> guest_ring_value{};
++volatile LONG guest_ring_sequence{};
++
++
++HANDLE VblankGateEvent() {
++  struct Event {
++    HANDLE handle = CreateEventW(nullptr, FALSE, FALSE, nullptr);
++    ~Event() {
++      if (handle) CloseHandle(handle);
++    }
++  };
++  static const Event event;
++  return event.handle;
++}
++
++bool WaitForVblankGate(uint32_t address, uint32_t info, uint32_t ref,
++                       uint32_t mask, uint32_t timeout_ms) {
++  if (info != 0x13 || ref != 0 || mask != 0xffffffffu) {
++    return false;
++  }
++  const auto gate = vblank_gate_address.load(std::memory_order_relaxed);
++  if (gate == kNoVblankGate || address != (gate | 2u)) return false;
++  if (HANDLE event = VblankGateEvent()) {
++    const DWORD result = WaitForSingleObject(event, timeout_ms);
++    return result == WAIT_OBJECT_0 || result == WAIT_TIMEOUT;
++  }
++  return false;
++}
++}  // namespace
++
++extern "C" __declspec(dllexport) void RexWaitForSkateGuestRingProgress(
++    uint32_t address, uint32_t held_value) {
++  if (address >= 0x20000000u || (address & 3u)) return;
++  uint32_t expected = UINT32_MAX;
++  if (!guest_ring_address.compare_exchange_strong(expected, address, std::memory_order_relaxed) &&
++      expected != address) {
++    return;
++  }
++  LONG sequence = InterlockedCompareExchange(&guest_ring_sequence, 0, 0);
++  if (sequence != 0 && guest_ring_value.load(std::memory_order_acquire) == held_value) {
++    WaitOnAddress(&guest_ring_sequence, &sequence, sizeof(sequence), 1);
++    static const bool verified = [] {
++      REXGPU_INFO("Guest ring wait used the Windows wake-up path");
++      return true;
++    }();
++    (void)verified;
++  }
++}
++
++extern "C" __declspec(dllexport) void RexNotifySkateVBlankGateClear(uint32_t physical_address) {
++  if (physical_address >= 0x20000000u || (physical_address & 3u)) {
++    return;
++  }
++  uint32_t expected = kNoVblankGate;
++  if (!vblank_gate_address.compare_exchange_strong(expected, physical_address,
++                                                   std::memory_order_relaxed) &&
++      expected != physical_address) {
++    return;
++  }
++  if (HANDLE event = VblankGateEvent()) SetEvent(event);
++}
++#endif
+ 
+ REXCVAR_DEFINE_BOOL(clear_memory_page_state, true, "GPU",
+                     "Refresh page-valid state from GPU-written memory at frame end. "
+@@ -1037,7 +1113,13 @@
+           // User wants it fast and dangerous.
+           rex::thread::MaybeYield();
+         } else {
+-          rex::thread::Sleep(std::chrono::milliseconds(wait / 0x100));
++#if REX_PLATFORM_WIN32
++          if (!WaitForVblankGate(poll_reg_addr, wait_info, ref, mask, wait / 0x100)) {
++#endif
++            rex::thread::Sleep(std::chrono::milliseconds(wait / 0x100));
++#if REX_PLATFORM_WIN32
++          }
++#endif
+         }
+         rex::thread::SyncMemory();
+         ReturnFromWait();
+@@ -1215,6 +1297,13 @@
+   address &= ~0x3;
+   data_value = GpuSwap(data_value, endianness);
+   memory::store(memory_->TranslatePhysical(address), data_value);
++#if REX_PLATFORM_WIN32
++  if (guest_ring_address.load(std::memory_order_relaxed) == (address & 0x1FFFFFFFu)) {
++    guest_ring_value.store(std::byteswap(data_value), std::memory_order_release);
++    InterlockedIncrement(&guest_ring_sequence);
++    WakeByAddressAll(const_cast<LONG*>(&guest_ring_sequence));
++  }
++#endif
+   return true;
+ }
+ 
+--- a/src/graphics/graphics_system.cpp
++++ b/src/graphics/graphics_system.cpp
+@@ -19,7 +19,13 @@
+ #include <mutex>
+ #include <utility>
+ 
++#include <rex/chrono/clock.h>
+ #include <rex/cvar.h>
++#include <rex/platform.h>
++
++#if REX_PLATFORM_WIN32
++#include <Windows.h>
++#endif
+ #include <rex/graphics/command_processor.h>
+ #include <rex/graphics/flags.h>
+ #include <rex/kernel/xboxkrnl/video.h>
+@@ -158,6 +164,17 @@
+             std::max(uint64_t(1), uint64_t(double(guest_tick_frequency) / refresh_rate_hz));
+         uint64_t no_vsync_interval_ticks = std::max(uint64_t(1), guest_tick_frequency / 1000);
+         uint64_t last_frame_time = chrono::Clock::QueryGuestTickCount();
++#if REX_PLATFORM_WIN32
++        struct VblankTimer {
++          HANDLE handle = CreateWaitableTimerExW(nullptr, nullptr, CREATE_WAITABLE_TIMER_HIGH_RESOLUTION,
++                                                 TIMER_MODIFY_STATE | SYNCHRONIZE);
++          ~VblankTimer() {
++            if (handle) {
++              CloseHandle(handle);
++            }
++          }
++        } timer;
++#endif
+         while (vsync_worker_running_) {
+           uint64_t current_time = chrono::Clock::QueryGuestTickCount();
+           uint64_t interval_ticks =
+@@ -166,6 +183,31 @@
+             MarkVblank();
+             last_frame_time += interval_ticks;
+           }
++#if REX_PLATFORM_WIN32
++          if (timer.handle && REXCVAR_GET(vsync)) {
++            const auto next_tick = last_frame_time + interval_ticks;
++            const auto guest_now = chrono::Clock::QueryGuestTickCount();
++            if (guest_now >= next_tick) {
++              continue;
++            }
++
++            // Convert the Guest deadline to a relative Host wait, including time scaling.
++            const auto [guest_ticks, host_ticks] = chrono::Clock::guest_tick_ratio();
++            const auto host_frequency = chrono::Clock::QueryHostTickFrequency();
++            if (guest_ticks && host_ticks && host_frequency) {
++              const double remaining_100ns = double(next_tick - guest_now) * 10000000.0 *
++                                            double(host_ticks) / double(guest_ticks) /
++                                            double(host_frequency);
++              // Keep the maximum wait short so shutdown remains responsive.
++              LARGE_INTEGER due;
++              due.QuadPart = -static_cast<int64_t>(std::clamp(remaining_100ns, 1.0, 500000.0));
++              if (SetWaitableTimer(timer.handle, &due, 0, nullptr, nullptr, FALSE) &&
++                  WaitForSingleObject(timer.handle, 55) == WAIT_OBJECT_0) {
++                continue;
++              }
++            }
++          }
++#endif
+           rex::thread::Sleep(std::chrono::milliseconds(1));
+         }
+         return 0;
+diff --git a/include/rex/graphics/d3d12/texture_cache.h b/include/rex/graphics/d3d12/texture_cache.h
+index 4d845c79..178062f3 100644
+--- a/include/rex/graphics/d3d12/texture_cache.h
++++ b/include/rex/graphics/d3d12/texture_cache.h
+@@ -86,6 +86,7 @@ class D3D12TextureCache final : public TextureCache {
+ 
+   void ClearCache() override;
+ 
++  void CompletedSubmissionUpdated(uint64_t completed_submission_index) override;
+   void BeginSubmission(uint64_t new_submission_index) override;
+   void BeginFrame() override;
+   void EndFrame();
+@@ -223,6 +224,13 @@ class D3D12TextureCache final : public TextureCache {
+     uint32_t swizzle;
+   };
+ 
++  struct TextureHeapAllocation {
++    uint32_t heap_index{};
++    uint64_t offset{};
++    uint64_t size{};
++  };
++  class TextureHeapPool;
++
+   class D3D12Texture final : public Texture {
+    public:
+     union SRVDescriptorKey {
+@@ -249,6 +257,8 @@ class D3D12TextureCache final : public TextureCache {
+     explicit D3D12Texture(D3D12TextureCache& texture_cache, const TextureKey& key,
+                           ID3D12Resource* resource, D3D12_RESOURCE_STATES resource_state,
+                           bool track_usage = true);
++    D3D12Texture(D3D12TextureCache& texture_cache, const TextureKey& key, ID3D12Resource* resource,
++                 D3D12_RESOURCE_STATES resource_state, TextureHeapAllocation allocation);
+     ~D3D12Texture();
+ 
+     ID3D12Resource* resource() const { return resource_.Get(); }
+@@ -270,6 +280,7 @@ class D3D12TextureCache final : public TextureCache {
+ 
+    private:
+     Microsoft::WRL::ComPtr<ID3D12Resource> resource_;
++    TextureHeapAllocation heap_allocation_;
+     D3D12_RESOURCE_STATES resource_state_;
+     std::unique_ptr<D3D12Texture> texture_3d_as_2d_;
+ 
+@@ -282,6 +293,8 @@ class D3D12TextureCache final : public TextureCache {
+ 
+   static constexpr uint32_t kSRVDescriptorCachePageSize = 65536;
+ 
++  std::unique_ptr<TextureHeapPool> texture_heap_pool_;
++
+   struct SRVDescriptorCachePage {
+    public:
+     explicit SRVDescriptorCachePage(ID3D12DescriptorHeap* heap)
+diff --git a/src/graphics/d3d12/texture_cache.cpp b/src/graphics/d3d12/texture_cache.cpp
+index 2be0e8ee..38e3b69b 100644
+--- a/src/graphics/d3d12/texture_cache.cpp
++++ b/src/graphics/d3d12/texture_cache.cpp
+@@ -22,6 +22,8 @@
+ #include <rex/graphics/d3d12/command_processor.h>
+ #include <rex/graphics/d3d12/shared_memory.h>
+ #include <rex/graphics/d3d12/texture_cache.h>
++
++#include "texture_heap_ranges.h"
+ #include <rex/graphics/flags.h>
+ #include <rex/graphics/pipeline/texture/info.h>
+ #include <rex/graphics/pipeline/texture/util.h>
+@@ -32,6 +34,9 @@
+ #include <rex/ui/d3d12/d3d12_upload_buffer_pool.h>
+ #include <rex/ui/d3d12/d3d12_util.h>
+ 
++REXCVAR_DEFINE_BOOL(skate_experimental_texture_heap, false, "GPU/D3D12",
++                    "Use shared heaps for eligible D3D12 textures");
++
+ namespace rex::graphics::d3d12 {
+ 
+ // Generated with `xb buildshaders`.
+@@ -363,6 +368,118 @@ const D3D12TextureCache::HostFormat D3D12TextureCache::host_formats_[64] = {
+      xenos::XE_GPU_TEXTURE_SWIZZLE_RGBA},
+ };
+ 
++class D3D12TextureCache::TextureHeapPool {
++ public:
++  std::optional<TextureHeapAllocation> Create(ID3D12Device& device, D3D12_HEAP_FLAGS flags,
++                                               const D3D12_RESOURCE_DESC& desc,
++                                               ID3D12Resource** resource) {
++    const auto info = device.GetResourceAllocationInfo(0, 1, &desc);
++    if (!info.SizeInBytes || info.SizeInBytes > kHeapSize ||
++        info.Alignment > D3D12_DEFAULT_RESOURCE_PLACEMENT_ALIGNMENT) {
++      return std::nullopt;
++    }
++    auto allocation = Reserve(device, flags, info);
++    if (!allocation) {
++      return std::nullopt;
++    }
++    auto& heap = heaps_[allocation->heap_index].value();
++    if (FAILED(device.CreatePlacedResource(heap.resource.Get(), allocation->offset, &desc,
++        D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(resource)))) {
++      heap.ranges.Free(allocation->offset, allocation->size);
++      return std::nullopt;
++    }
++    if (!reported_placement_) {
++      REXGPU_INFO("D3D12 texture cache placed its first texture in a shared heap");
++      reported_placement_ = true;
++    }
++    if (allocation->offset < heap.high_water && !reported_reuse_) {
++      REXGPU_INFO("D3D12 texture heap reused space below its previous maximum offset");
++      reported_reuse_ = true;
++    }
++    heap.high_water = std::max(heap.high_water, allocation->offset + allocation->size);
++    return allocation;
++  }
++
++  void Retire(TextureHeapAllocation allocation, Microsoft::WRL::ComPtr<ID3D12Resource> resource,
++              uint64_t last_submission, uint64_t completed_submission) {
++    if (last_submission <= completed_submission) {
++      resource.Reset();
++      heaps_[allocation.heap_index]->ranges.Free(allocation.offset, allocation.size);
++      return;
++    }
++    pending_.push_back({allocation, std::move(resource), last_submission});
++  }
++
++  void Reclaim(uint64_t completed_submission) {
++    std::erase_if(pending_, [&](Retired& retired) {
++      if (retired.last_submission > completed_submission) {
++        return false;
++      }
++      retired.resource.Reset();
++      const auto& allocation = retired.allocation;
++      heaps_[allocation.heap_index]->ranges.Free(allocation.offset, allocation.size);
++      return true;
++    });
++    bool have_empty_heap = false;
++    for (auto& heap : heaps_) {
++      if (heap && heap->ranges.empty()) {
++        if (have_empty_heap) {
++          heap.reset();
++        }
++        have_empty_heap = true;
++      }
++    }
++  }
++
++ private:
++  static constexpr uint64_t kHeapSize = 64ull << 20;
++  static constexpr uint32_t kHeapCount = 8;
++  struct Heap {
++    Microsoft::WRL::ComPtr<ID3D12Heap> resource;
++    TextureHeapRanges ranges{kHeapSize};
++    uint64_t high_water{};
++  };
++  struct Retired {
++    TextureHeapAllocation allocation;
++    Microsoft::WRL::ComPtr<ID3D12Resource> resource;
++    uint64_t last_submission;
++  };
++
++  std::optional<TextureHeapAllocation> Reserve(ID3D12Device& device, D3D12_HEAP_FLAGS flags,
++                                                const D3D12_RESOURCE_ALLOCATION_INFO& info) {
++    uint32_t empty_slot = kHeapCount;
++    for (uint32_t index = 0; index != kHeapCount; ++index) {
++      auto& heap = heaps_[index];
++      if (!heap) {
++        empty_slot = std::min(empty_slot, index);
++      } else if (auto offset = heap->ranges.Allocate(info.SizeInBytes, info.Alignment)) {
++        return TextureHeapAllocation{index, *offset, info.SizeInBytes};
++      }
++    }
++    if (empty_slot == kHeapCount) {
++      return std::nullopt;
++    }
++    Heap heap;
++    const D3D12_HEAP_DESC desc{kHeapSize, ui::d3d12::util::kHeapPropertiesDefault,
++                               D3D12_DEFAULT_RESOURCE_PLACEMENT_ALIGNMENT,
++                               flags | D3D12_HEAP_FLAG_ALLOW_ONLY_NON_RT_DS_TEXTURES};
++    if (FAILED(device.CreateHeap(&desc, IID_PPV_ARGS(&heap.resource)))) {
++      return std::nullopt;
++    }
++    auto offset = heap.ranges.Allocate(info.SizeInBytes, info.Alignment);
++    if (!offset) {
++      return std::nullopt;
++    }
++    heaps_[empty_slot].emplace(std::move(heap));
++    return TextureHeapAllocation{empty_slot, *offset, info.SizeInBytes};
++  }
++
++  std::array<std::optional<Heap>, kHeapCount> heaps_;
++  std::vector<Retired> pending_;
++  bool reported_placement_{};
++  bool reported_reuse_{};
++};
++
+ D3D12TextureCache::D3D12TextureCache(const RegisterFile& register_file,
+                                      D3D12SharedMemory& shared_memory,
+                                      uint32_t draw_resolution_scale_x,
+@@ -371,7 +488,11 @@ D3D12TextureCache::D3D12TextureCache(const RegisterFile& register_file,
+                                      bool bindless_resources_used)
+     : TextureCache(register_file, shared_memory, draw_resolution_scale_x, draw_resolution_scale_y),
+       command_processor_(command_processor),
+-      bindless_resources_used_(bindless_resources_used) {}
++      bindless_resources_used_(bindless_resources_used) {
++  if (REXCVAR_GET(skate_experimental_texture_heap)) {
++    texture_heap_pool_ = std::make_unique<TextureHeapPool>();
++  }
++}
+ 
+ D3D12TextureCache::~D3D12TextureCache() {
+   // While the texture descriptor cache still exists (referenced by
+@@ -647,6 +768,10 @@ bool D3D12TextureCache::Initialize() {
+ 
+ void D3D12TextureCache::ClearCache() {
+   TextureCache::ClearCache();
++  if (texture_heap_pool_) {
++    // The command processor waits for the queue before clearing its caches.
++    texture_heap_pool_ = std::make_unique<TextureHeapPool>();
++  }
+ 
+   // Clear texture descriptor cache.
+   srv_descriptor_cache_free_.clear();
+@@ -654,6 +779,13 @@ void D3D12TextureCache::ClearCache() {
+   srv_descriptor_cache_.clear();
+ }
+ 
++void D3D12TextureCache::CompletedSubmissionUpdated(uint64_t completed_submission_index) {
++  TextureCache::CompletedSubmissionUpdated(completed_submission_index);
++  if (texture_heap_pool_) {
++    texture_heap_pool_->Reclaim(completed_submission_index);
++  }
++}
++
+ void D3D12TextureCache::BeginSubmission(uint64_t new_submission_index) {
+   TextureCache::BeginSubmission(new_submission_index);
+ 
+@@ -1427,6 +1559,20 @@ D3D12TextureCache::D3D12Texture::~D3D12Texture() {
+   for (const auto& descriptor_pair : srv_descriptors_) {
+     d3d12_texture_cache.ReleaseTextureDescriptor(descriptor_pair.second);
+   }
++  if (heap_allocation_.size) {
++    d3d12_texture_cache.texture_heap_pool_->Retire(
++        heap_allocation_, std::move(resource_), last_usage_submission_index(),
++        d3d12_texture_cache.command_processor_.GetCompletedSubmission());
++  }
++}
++
++D3D12TextureCache::D3D12Texture::D3D12Texture(D3D12TextureCache& texture_cache,
++                                              const TextureKey& key, ID3D12Resource* resource,
++                                              D3D12_RESOURCE_STATES resource_state,
++                                              TextureHeapAllocation allocation)
++    : Texture(texture_cache, key), resource_(resource), heap_allocation_(allocation),
++      resource_state_(resource_state) {
++  SetHostMemoryUsage(allocation.size);
+ }
+ 
+ bool D3D12TextureCache::IsDecompressionNeeded(xenos::TextureFormat format, uint32_t width,
+@@ -1549,6 +1695,14 @@ std::unique_ptr<TextureCache::Texture> D3D12TextureCache::CreateTexture(TextureK
+   // Assuming untiling will be the next operation.
+   D3D12_RESOURCE_STATES resource_state = D3D12_RESOURCE_STATE_COPY_DEST;
+   Microsoft::WRL::ComPtr<ID3D12Resource> resource;
++  if (texture_heap_pool_ && desc.Dimension == D3D12_RESOURCE_DIMENSION_TEXTURE2D &&
++      desc.DepthOrArraySize == 1 && !key.scaled_resolve) {
++    if (auto allocation = texture_heap_pool_->Create(*device, provider.GetHeapFlagCreateNotZeroed(),
++                                                     desc, resource.GetAddressOf())) {
++      command_processor_.PushAliasingBarrier(nullptr, resource.Get());
++      return std::make_unique<D3D12Texture>(*this, key, resource.Get(), resource_state, *allocation);
++    }
++  }
+   if (FAILED(device->CreateCommittedResource(&ui::d3d12::util::kHeapPropertiesDefault,
+                                              provider.GetHeapFlagCreateNotZeroed(), &desc,
+                                              resource_state, nullptr, IID_PPV_ARGS(&resource)))) {
+diff --git a/src/graphics/d3d12/texture_heap_ranges.h b/src/graphics/d3d12/texture_heap_ranges.h
+new file mode 100644
+index 00000000..a3ab2f40
+--- /dev/null
++++ b/src/graphics/d3d12/texture_heap_ranges.h
+@@ -0,0 +1,68 @@
++#pragma once
++
++#include <cassert>
++#include <cstdint>
++#include <iterator>
++#include <map>
++#include <optional>
++
++namespace rex::graphics::d3d12 {
++
++class TextureHeapRanges {
++ public:
++  explicit TextureHeapRanges(uint64_t size) : capacity_(size), ranges_{{0, size}} {}
++
++  std::optional<uint64_t> Allocate(uint64_t size, uint64_t alignment) {
++    if (!size || !alignment || alignment > capacity_ || (alignment & (alignment - 1))) {
++      return std::nullopt;
++    }
++    for (auto range = ranges_.begin(); range != ranges_.end(); ++range) {
++      const auto [start, length] = *range;
++      const uint64_t offset = (start + alignment - 1) & ~(alignment - 1);
++      const uint64_t padding = offset - start;
++      if (padding > length || size > length - padding) {
++        continue;
++      }
++      ranges_.erase(range);
++      if (padding) {
++        ranges_.emplace(start, padding);
++      }
++      const uint64_t remaining = length - padding - size;
++      if (remaining) {
++        ranges_.emplace(offset + size, remaining);
++      }
++      return offset;
++    }
++    return std::nullopt;
++  }
++
++  void Free(uint64_t offset, uint64_t size) {
++    assert(size && offset <= capacity_ && size <= capacity_ - offset);
++    auto next = ranges_.lower_bound(offset);
++    assert(next == ranges_.end() || offset + size <= next->first);
++    if (next != ranges_.begin()) {
++      auto previous = std::prev(next);
++      assert(previous->first + previous->second <= offset);
++      if (previous->first + previous->second == offset) {
++        offset = previous->first;
++        size += previous->second;
++        ranges_.erase(previous);
++      }
++    }
++    if (next != ranges_.end() && offset + size == next->first) {
++      size += next->second;
++      ranges_.erase(next);
++    }
++    ranges_.emplace(offset, size);
++  }
++
++  bool empty() const {
++    return ranges_.size() == 1 && ranges_.begin()->second == capacity_;
++  }
++
++ private:
++  uint64_t capacity_;
++  std::map<uint64_t, uint64_t> ranges_;
++};
++
++}  // namespace rex::graphics::d3d12
+--- a/src/graphics/d3d12/command_processor.cpp
++++ b/src/graphics/d3d12/command_processor.cpp
+@@ -3114,9 +3114,9 @@
+     if (queue_operations_done_since_submission_signal_) {
+       UINT64 fence_value = ++queue_operations_since_submission_fence_last_;
+       ID3D12CommandQueue* direct_queue = GetD3D12Provider().GetDirectQueue();
+-      if (SUCCEEDED(direct_queue->Signal(queue_operations_since_submission_fence_, fence_value) &&
+-                    SUCCEEDED(queue_operations_since_submission_fence_->SetEventOnCompletion(
+-                        fence_value, fence_completion_event_)))) {
++      if (SUCCEEDED(direct_queue->Signal(queue_operations_since_submission_fence_, fence_value)) &&
++          SUCCEEDED(queue_operations_since_submission_fence_->SetEventOnCompletion(
++              fence_value, fence_completion_event_))) {
+         PROFILE_CMD_BUFFER_STALL();
+         WaitForSingleObject(fence_completion_event_, INFINITE);
+         queue_operations_done_since_submission_signal_ = false;
