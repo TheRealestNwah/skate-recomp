@@ -271,7 +271,7 @@ index 2be0e8ee..38e3b69b 100644
  #include <rex/ui/d3d12/d3d12_util.h>
  
 +REXCVAR_DEFINE_BOOL(skate_experimental_texture_heap, false, "GPU/D3D12",
-+                    "Use shared heaps for eligible D3D12 textures");
++                    "Use shared texture heaps and larger shared-memory upload pages");
 +
  namespace rex::graphics::d3d12 {
  
@@ -558,3 +558,33 @@ index 00000000..a3ab2f40
          PROFILE_CMD_BUFFER_STALL();
          WaitForSingleObject(fence_completion_event_, INFINITE);
          queue_operations_done_since_submission_signal_ = false;
+diff --git a/src/graphics/d3d12/shared_memory.cpp b/src/graphics/d3d12/shared_memory.cpp
+--- a/src/graphics/d3d12/shared_memory.cpp
++++ b/src/graphics/d3d12/shared_memory.cpp
+@@ -24,6 +24,8 @@
+ REXCVAR_DEFINE_BOOL(d3d12_tiled_shared_memory, true, "GPU/D3D12",
+                     "Use tiled shared memory on D3D12")
+     .lifecycle(rex::cvar::Lifecycle::kRequiresRestart);
++
++REXCVAR_DECLARE(bool, skate_experimental_texture_heap);
+
+ namespace rex::graphics::d3d12 {
+
+@@ -134,9 +136,15 @@
+                                     uint32_t(BufferDescriptorIndex::kR32G32B32A32UintUAV)),
+       buffer_, DXGI_FORMAT_R32G32B32A32_UINT, kBufferSize >> 4);
+
++  const bool use_texture_heaps = REXCVAR_GET(skate_experimental_texture_heap);
++  // Larger pages reduce committed upload-buffer allocations during texture streaming.
++  const size_t upload_page_size =
++      use_texture_heaps ? 16_MiB : ui::d3d12::D3D12UploadBufferPool::kDefaultPageSize;
+   upload_buffer_pool_ = std::make_unique<ui::d3d12::D3D12UploadBufferPool>(
+-      provider, rex::align(ui::d3d12::D3D12UploadBufferPool::kDefaultPageSize,
+-                           size_t(1) << page_size_log2()));
++      provider, rex::align(upload_page_size, size_t(1) << page_size_log2()));
++  if (use_texture_heaps) {
++    REXGPU_INFO("D3D12 shared memory uses 16 MiB upload pages");
++  }
+
+   return true;
+ }

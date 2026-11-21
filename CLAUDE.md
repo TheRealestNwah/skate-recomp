@@ -131,7 +131,7 @@ Pass `-ExperimentalGpuWaitBackoff` to reduce CPU use during sustained Guest grap
 
 Pass `-ExperimentalFramePacing` to both `scripts/build-port.ps1` and `scripts/run-port.ps1` to use the experimental D3D12 pacing build in `build/port-frame-pacing`. The build compiles a patched Xenos plugin from the pinned ReXGlue source. It includes timed vertical blanks and wake-ups for the graphics worker and the Guest render thread. [Career measurements](docs/research/04-renderer-performance.md#combined-frame-pacing)
 
-Pass `-ExperimentalTextureHeaps` alongside `-ExperimentalFramePacing` to `scripts/run-port.ps1` to try shared D3D12 texture heaps. This is a separate opt-in for reducing texture allocation stalls. [Loading and skating measurements](docs/research/04-renderer-performance.md#long-frames-and-pipeline-creation)
+Pass `-ExperimentalTextureHeaps` alongside `-ExperimentalFramePacing` to `scripts/run-port.ps1` to try shared D3D12 texture heaps and 16 MiB shared-memory upload pages. In the matched Career loading tests, the larger pages used 20 MiB more upload-buffer memory and reduced the longest loading frame. [Loading and skating measurements](docs/research/04-renderer-performance.md#long-frames-and-pipeline-creation)
 
 Pass `-Keyboard` to `run-port.ps1` to enable the keyboard preset. W pushes with the right foot, S pushes with the left foot, and A and D steer. T and G provide left-stick up and down. Enter maps to START, Space maps to A for menu selection, and Backspace maps to B for braking and backing out of menus. The arrow keys control the D-pad. Hold Shift with an arrow key to move the right stick for Flick-It.
 
