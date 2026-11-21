@@ -387,3 +387,16 @@ ReXGlue v0.11.0 still samples the Host counter before obtaining the mutex in `Lo
 #### Reported Guest resolution
 
 The 60 Hz control and a muted run that requested a 960×540 Guest video mode both produced 1,280×720 Career frontbuffer captures. The SDK launch arguments were verified. The title retained its frontbuffer dimensions, so this setting comparison provides no measurement of rendering the scene at a lower internal resolution.
+
+#### November 21 M4 Career performance gate recheck
+
+A bounded synthetic-controller route resumed a copied Career save on the same Windows machine, used RTV at a requested 60 Hz, muted audio, waited for the Suburbs HUD, sampled a stationary spawn, and then ran eight scripted skating segments. Each launch used a fresh copy of the test save. The control used the stock Xenos plugin. The candidate used the packaged experimental frame-pacing plugin with the vertical-blank deadline, graphics-worker wake, and Guest ring wake enabled. Plugin hashes were checked before candidate route measurements. Guest swaps came from the Port's five-second `-FrameTiming` windows; the captures did not use a physical controller.
+
+| Build | Stationary Guest swaps/s | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Stock control | 52.5 | 54.7 | 41.3 | 49 ms | 52 ms |
+| Experimental pacing, run 1 | 58.4 | 58.4 | 45.6 | 35 ms | 36 ms |
+| Experimental pacing, run 2 | 58.3 | 59.6 | 58.6 | 20 ms | 36 ms |
+| Experimental pacing, run 3 | 59.8 | 58.9 | 50.4 | 35 ms | 38 ms |
+
+The pacing candidate improved the route mean and reduced the control's low-output windows. Its movement route met the 50 swaps/s mean threshold in all three runs, but only one run kept every five-second p95 at or below the provisional 25 ms threshold. The other two each had one window at 35 ms; the first also had one 45.6 swaps/s window. No sampled movement window had a gap above 100 ms. This is promising enough to test the candidate further, but it does not pass the current repeatability gate. The 60 Hz stock control also fell below the gate. These are short synthetic routes, not Career playthrough results; physical controller response and input-to-action timing remain unverified.

@@ -39,6 +39,8 @@ This is the current focus. A [baseline playtest](docs/research/05-m4-baseline.md
 
 The thresholds gate when the maintainer should begin the long career playthrough; they do not claim the game is already stable or that every route will hold 60 FPS.
 
+The November 21 synthetic Career recheck found the experimental frame-pacing build averaged 58.4–59.6 Guest swaps/s over three movement routes, but two routes had a five-second window above the p95 threshold. The performance gate remains open pending repeatable pacing; see the [recheck results](docs/research/04-renderer-performance.md#november-21-m4-career-performance-gate-recheck).
+
 - [x] Menus, skater select, and free skate in San Vanelona.
 - [x] Saves. A new Career save survived quit and relaunch in the [unattended save check](docs/research/07-saves.md).
 - [ ] XMA audio and its threading and streaming memory lifetimes. See the [Windows audio investigation](docs/research/08-xma-audio.md).
