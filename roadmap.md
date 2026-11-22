@@ -45,7 +45,7 @@ The November 21 synthetic Career recheck found the experimental frame-pacing bui
 - [x] Saves. A new Career save survived quit and relaunch in the [unattended save check](docs/research/07-saves.md).
 - [ ] XMA audio and its threading and streaming memory lifetimes. See the [Windows audio investigation](docs/research/08-xma-audio.md).
 - [ ] Verify physical 120 Hz input for Flick-It at the capped 60 Hz display rate. The opt-in setting remains experimental until checked on a controller. See the [Windows audio investigation](docs/research/08-xma-audio.md).
-- [ ] Career scene performance gate passes on the normal RTV path before the full manual playthrough; document results in the [Career progress log](docs/research/06-career-progress.md).
+- [ ] Formal Career performance gate passes with the normal SDL audio backend; provisional silent-audio routes passed and the maintainer can begin the playthrough. Record the final normal-backend result in the [Career progress log](docs/research/06-career-progress.md).
 - [ ] Career playable start to finish. One unmodified save reaches the credits, tracked in the [Career progress log](docs/research/06-career-progress.md).
 - [ ] Photo and Skate Reel features (render-target resolve/readback).
 
