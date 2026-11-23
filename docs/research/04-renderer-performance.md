@@ -420,6 +420,17 @@ The ignored low-rate D3D12 draw probe was extended with nested timers around sam
 
 The profiling environment had no default SDL playback endpoint. A temporary, uncommitted diagnostic audio driver discarded samples and paced Guest callbacks at the SDK's 256-sample / 48 kHz cadence, allowing three independent synthetic Career routes to complete with the packaged 60 Hz RTV pacing plugin. The three movement routes averaged 59.64â€“59.93 Guest swaps/s; every measured five-second window stayed at or above 58.2 swaps/s, p95 was at most 19 ms, and the longest recorded gap was at most 35.4 ms. The stationary windows also stayed above 58 swaps/s. This is strong provisional evidence that the 60 Hz build is ready for the maintainer's manual Career playthrough. These routes do not count toward the formal gate: the prior normal-SDL recheck had two passing runs out of six, and the paced silent driver does not reproduce an actual Windows audio device or its scheduling interactions.
 
+#### November 22 forced DirectSound Career route recheck
+
+To test the SDL-backed path despite the unavailable default playback endpoint, two additional synthetic Career routes forced SDL to use DirectSound on the connected playback device. Both used the packaged 60 Hz pacing plugin, RTV at 1280×720, the same copied Career save, and the scripted eight-segment route. Game audio was muted. The route harness also sampled GPU, render-thread, and PresentMon counters, so these runs are diagnostic and are not formal acceptance measurements.
+
+| Run | Stationary Guest swaps/s | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DirectSound 1 | 39.5–44.5 | 32.6 | 25.2 | 88 ms | 226 ms |
+| DirectSound 2 | 29.4–30.3 | 37.6 | 24.3 | 84 ms | 229 ms |
+
+Neither run approached the provisional movement threshold, and both had repeated movement windows with p95 intervals above 25 ms. These results do not invalidate the three paced-silent diagnostic routes, but they show those routes do not establish performance with an SDL playback backend. The DirectSound route also does not establish whether audible output or backend scheduling caused the regression: audio was muted, the capture used auxiliary samplers, and only two runs were made. The formal performance gate remains open. The explicit-device SDL callback prototype was discarded after it crashed before Career and contributes no performance evidence.
+
 #### Sampled CPU stacks from the packaged candidate
 
 A focused PerfView ETW capture sampled the packaged frame-pacing candidate during the eight-phase synthetic Career route. The trace contains 82,991 CPU sample events, reports zero lost events, and attributes 5,819 samples to `skateport.exe` (PID 27988). Of those process samples, 2,693 (46.3%) were on the Guest main XThread, 2,559 (44.0%) on `render_thread`, and 558 (9.6%) on a Job Manager worker. The remaining threads account for nine samples. Most sampled stacks include recompiled Guest code; the most common individual Guest entry accounts for 139 samples (2.4%), followed by 128 (2.2%). This does not point to one isolated Guest function dominating CPU time. Kernel wait code appears as the sampled leaf in a minority of stacks.
