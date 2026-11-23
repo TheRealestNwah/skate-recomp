@@ -464,13 +464,14 @@ The default SDL backend opened `Headphones (BTD 600)` through WASAPI at two chan
 
 All three stationary samples averaged below the required 55 swaps/s. All three movement routes missed the provisional p95 and gap limits; two also averaged below 50 swaps/s. The two additional fullscreen WASAPI captures also missed the p95 and gap limits, with means of 51.8 and 47.4 swaps/s. This resolves the earlier lack of an available default endpoint for measurement, and confirms the formal Career performance gate fails on the real SDL playback path at the M4 target resolution. Audio was muted during measurement, so audible playback behavior still needs the manual check. Keep the full Career playthrough on hold until repeatable default-backend routes meet the M4 thresholds. Two default-WASAPI `Clock1` controls used the same windowed target and pacing plugin but disabled the experimental Host wake overrides. Their stationary means were 51.7 and 50.2 swaps/s. Their movement means were 49.5 and 51.0 swaps/s, worst p95s were 57 and 43 ms, and longest gaps were 292 and 212 ms. Both missed the stationary threshold and the p95 and gap limits. Disabling the `Clock2` wake changes did not restore passing performance, but these two runs do not establish the cause of the drop.
 
-#### Additional default WASAPI Clock2 route repeats
+#### Additional default WASAPI route repeats
 
-Two further windowed WASAPI routes repeated the `Clock2` candidate with the same packaged plugin, copied save, 1280x720 target, and eight-segment script. The test process explicitly passed the harness environment to the Port, and both runs completed without auxiliary samplers.
+Two further windowed WASAPI routes repeated the `Clock2` candidate with the same packaged plugin, copied save, 1280x720 target, and eight-segment script. A matched `Clock1` control disabled all three experimental wake changes. The test process explicitly passed the harness environment to the Port, and all three runs completed without auxiliary samplers.
 
 | Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Clock2 repeat 1 | 35.7 | 50.7 | 32.8 | 43 ms | 145 ms |
 | Clock2 repeat 2 | 51.6 | 48.7 | 30.6 | 46 ms | 220 ms |
+| Clock1 control | 50.9 | 46.9 | 35.3 | 46 ms | 172 ms |
 
-Both routes failed the per-window pacing limits. The second also fell below the 50 swaps/s movement-average threshold. These additional runs confirm that the candidate's output varies substantially between otherwise similar routes; they do not isolate the cause or change the M4 readiness decision.
+All three routes failed at least one pacing limit, and the second `Clock2` repeat and `Clock1` control also fell below the 50 swaps/s movement-average threshold. The control was close to the candidate repeats in movement rate, p95, and longest gap. This comparison shows no repeatable route-level benefit from the wake changes; route-to-route variation remains substantial, so it does not isolate the cause or change the M4 readiness decision.
