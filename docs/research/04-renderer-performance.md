@@ -428,9 +428,10 @@ To test the SDL-backed path despite the unavailable default playback endpoint, t
 | --- | ---: | ---: | ---: | ---: | ---: |
 | DirectSound 1 | 39.5–44.5 | 32.6 | 25.2 | 88 ms | 226 ms |
 | DirectSound 2 | 29.4–30.3 | 37.6 | 24.3 | 84 ms | 229 ms |
-| DirectSound 3, no auxiliary samplers | 33.5–45.4 | 49.1 | 41.0 | 41 ms | 313 ms |
+| DirectSound 3, paced plugin, no auxiliary samplers | 33.5–45.4 | 49.1 | 41.0 | 41 ms | 313 ms |
+| DirectSound 4, stock plugin, no auxiliary samplers | 30.6–30.7 | 33.8 | 29.8 | 58 ms | 122 ms |
 
-All three runs missed the provisional movement thresholds, and the first two had repeated movement windows with p95 intervals above 25 ms. The third repeated the same route without GPU, CPU, or PresentMon sampling; it still missed the 50 swaps/s route mean and 25 ms p95 thresholds. These results do not invalidate the three paced-silent diagnostic routes, but they show those routes do not establish performance with the forced DirectSound backend. The captures do not isolate the cause: game audio was muted, two runs used auxiliary samplers, and the sample is small. The formal performance gate remains open. The explicit-device SDL callback prototype was discarded after it crashed before Career and contributes no performance evidence.
+All three runs missed the provisional movement thresholds, and the first two had repeated movement windows with p95 intervals above 25 ms. The third repeated the same route without GPU, CPU, or PresentMon sampling; it still missed the 50 swaps/s route mean and 25 ms p95 thresholds. A fourth no-sampler control used the stock Xenos plugin: in this single matched comparison the packaged pacing plugin averaged 49.1 swaps/s versus 33.8 for stock, though both missed the gate. The results do not invalidate the three paced-silent diagnostic routes, but show they do not establish performance with the forced DirectSound backend. The captures do not isolate the cause: game audio was muted, two runs used auxiliary samplers, and the sample is small. The formal performance gate remains open. The explicit-device SDL callback prototype was discarded after it crashed before Career and contributes no performance evidence.
 
 #### Sampled CPU stacks from the packaged candidate
 
