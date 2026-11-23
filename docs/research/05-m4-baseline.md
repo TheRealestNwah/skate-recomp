@@ -5,12 +5,12 @@ The maintainer runs this checklist on an Xbox controller. Start with Movies thro
 ## Setup
 
 - Build current `main` with stock ReXGlue SDK 0.10.1 and the original USA disc. Record the build commit from `git rev-parse --short HEAD`.
-- Use an Xbox controller and the RTV path at 60 Hz. Leave `-ExperimentalFlickit120Hz` and `-ExperimentalGpuWaitBackoff` off. For Career performance checks and continued Career play, build and launch with `-ExperimentalFramePacing`; it was the better of the two DirectSound route variants, though real-backend performance still misses the provisional gate.
+- Use an Xbox controller and the RTV path at 60 Hz. Leave `-ExperimentalFlickit120Hz` and `-ExperimentalGpuWaitBackoff` off. Build and launch with `-ExperimentalFramePacing` for performance rechecks. The current candidate is not cleared for the full Career playthrough: three default-WASAPI 1280x720 routes missed the stationary and movement smoothness thresholds. Resume the full playthrough after repeatable performance passes; gameplay may expose additional scene-specific drops.
 - Set `port.muteAudio` to `false` in `local.json` for the movie and audio checks. Verify the Port is audible in Windows Volume Mixer and record the playback device. Restore your preferred mute setting after the audio checks.
 - Use the default audio backend for the first pass. Use `-DebugLog` when repeating a defect.
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1 -FrameTiming
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-port.ps1 -ExperimentalFramePacing -FrameTiming
 ```
 
 Record the boot log path that the launcher prints on each launch. Keep logs and screenshots local. For a failure, record the menu, lesson, or location, the last action, what happened, and the local time. If the Port exits, record the last error line. Each confirmed defect gets its own labeled GitHub issue.
