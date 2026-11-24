@@ -486,7 +486,7 @@ Two further windowed WASAPI routes repeated the `Clock2` candidate with the same
 
 All three routes failed at least one pacing limit, and the second `Clock2` repeat and `Clock1` control also fell below the 50 swaps/s movement-average threshold. The control was close to the candidate repeats in movement rate, p95, and longest gap. This comparison shows no repeatable route-level benefit from the wake changes; route-to-route variation remains substantial, so it does not isolate the cause or change the M4 readiness decision.
 
-#### November 23 experimental pacing candidate and stock-plugin control
+#### November 23-24 experimental candidate and stock-plugin controls
 
 Three independent muted synthetic Career routes repeated the packaged experimental 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. A fourth matched candidate route (`recheck57`) followed the later stock-plugin repeats. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all four candidate launches; recheck57 loaded plugin SHA-256 `76CD5BF2B3D6286365BC10F5D153642F091F5028A028E70B2A0C8C059A3D3DF7` and runtime SHA-256 `BD8E1F6782B19151D09B3638ECA53D9C8C1F268D32AF7A57DCF64D1B6307A982`. Each route produced two complete stationary timing windows and 19 movement windows.
 
@@ -497,7 +497,7 @@ Three independent muted synthetic Career routes repeated the packaged experiment
 | WASAPI candidate repeat 3 | 60.0 | 59.96 | 59.8 | 18 ms | 33.63 ms |
 | WASAPI candidate recheck57 | 59.9 | 59.93 | 59.2 | 19 ms | 50.34 ms |
 
-All four experimental candidate routes meet the provisional M4 thresholds. Three matched stock-plugin routes (`recheck50`, `recheck54`, and `recheck55`) used the same scripted harness, windowed 1280x720 RTV target, default WASAPI endpoint, copied Career save, and eight-segment route. Each loaded the stock Xenos plugin with SHA-256 `359BCA690BEA07C5CF9BA2F045132B394A1ACC7B10901BDBCA3F3389A052DA43`, matching the current `build/port/rexgpu-xenos.dll`.
+All four routes in this earlier candidate set met the provisional M4 thresholds. Four matched stock-plugin routes (`recheck50`, `recheck54`, `recheck55`, and `recheck56`) used the same scripted harness, windowed 1280x720 RTV target, default WASAPI endpoint, copied Career save, and eight-segment route. Each loaded the stock Xenos plugin with SHA-256 `359BCA690BEA07C5CF9BA2F045132B394A1ACC7B10901BDBCA3F3389A052DA43`, matching the current `build/port/rexgpu-xenos.dll`.
 
 | Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -506,4 +506,31 @@ All four experimental candidate routes meet the provisional M4 thresholds. Three
 | Stock WASAPI recheck55 | 58.3 | 56.79 | 42.3 | 36 ms | 169.06 ms |
 | Stock WASAPI recheck56 | 59.5 | 59.47 | 56.8 | 31 ms | 49.7 ms |
 
-Only one of the four stock runs met every threshold, while all four matched candidate routes passed. The default-build performance gate therefore fails this control set, despite all four candidate routes passing; stock performance varied substantially across otherwise matched routes. The candidate-stock-candidate sequence from recheck50/51 still shows the candidate passing on both sides of the first stock miss, but neither it nor the later stock runs explains the large session-to-session variation. The November 22 low routes also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
+Only one of the four stock runs met every threshold in this earlier comparison, while all four candidate routes in that set passed. The default-build performance gate therefore fails this control set; stock performance varied substantially across otherwise matched routes. The candidate-stock-candidate sequence from recheck50/51 still shows the candidate passing on both sides of the first stock miss, but neither it nor the later stock runs explains the large session-to-session variation. The November 22 low routes also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
+
+
+#### November 24 frame-pacing wake-flag ablation
+
+The experimental pacing executable was measured with each wake flag enabled alone and in pairs. All routes used the same muted synthetic Career harness, the default WASAPI endpoint, windowed RTV at 1280x720, a copied save, and the eight-segment input script. Each run had three stationary windows and 19 movement windows. `Graphics-worker wake` is `SKATE_LOCAL_VBLANK_EVENT`; `VBlank deadline` is `SKATE_LOCAL_VBLANK_DEADLINE`; `Guest ring wake` is `SKATE_LOCAL_GUEST_RING_WAKE`. Unlisted flags were set to zero. No auxiliary samplers ran.
+
+| Enabled flags | Stationary mean | Movement mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Graphics-worker wake | 56.47 | 57.16 | 41.9 | 35 ms | 66.91 ms |
+| VBlank deadline | 60.0 | 58.48 | 34.8 | 36 ms | 51.23 ms |
+| Guest ring wake | 56.2 | 59.64 | 57.8 | 19 ms | 48.83 ms |
+| Graphics-worker wake + deadline | 53.47 | 57.55 | 46.9 | 34 ms | 249.84 ms |
+| Graphics-worker wake + Guest ring wake | 56.2 | 52.75 | 32.7 | 35 ms | 66.81 ms |
+| VBlank deadline + Guest ring wake | 52.23 | 58.48 | 46.6 | 35 ms | 66.12 ms |
+
+None of the single-change or two-change variants met every M4 threshold. These runs alone do not establish whether the full set depends on an interaction, because full-candidate performance also changed during the same test period.
+
+A full-candidate route immediately before the ablation (`recheck57`) passed: 59.9 stationary, 59.93 movement, lowest window 59.2, worst p95 19 ms, longest gap 50.34 ms. Three later full-candidate routes did not repeat it. A stock-plugin control (`recheck59`) ran between the first and second of these later candidate captures:
+
+| Run | Stationary mean | Movement mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Full candidate recheck58 | 59.6 | 58.08 | 43.6 | 35 ms | 66.06 ms |
+| Full candidate recheck60 | 57.13 | 52.19 | 32.3 | 35 ms | 36.3 ms |
+| Full candidate recheck61 | 57.2 | 44.47 | 30.8 | 36 ms | 83.37 ms |
+| Stock plugin recheck59 | 32.5 | 51.4 | 31.2 | 35 ms | 50.16 ms |
+
+The later stock run was substantially slower, but full-candidate routes in the same period also missed. Performance declined across this sequence of captures; no GPU clock, temperature, or system scheduling telemetry was recorded, so thermal or background-load explanations remain hypotheses. This ablation does not identify a winning flag combination. Both candidate and stock routes remain inconsistent, and the Career performance gate is not met. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
