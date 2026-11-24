@@ -5,7 +5,7 @@ The maintainer runs this checklist on an Xbox controller. Start with Movies thro
 ## Setup
 
 - Build current `main` with stock ReXGlue SDK 0.10.1 and the original USA disc. Record the build commit from `git rev-parse --short HEAD`.
-- Use an Xbox controller and the RTV path at 60 Hz. Leave `-ExperimentalFlickit120Hz` and `-ExperimentalGpuWaitBackoff` off. Build and launch with `-ExperimentalFramePacing` for performance rechecks. Three synthetic default-WASAPI 1280x720 routes on November 23 passed with the experimental pacing candidate. Of three matched routes using the default stock plugin, only one passed all thresholds; the other two missed at least one limit. Keep the full Career playthrough on hold until the default build passes repeatably; gameplay may expose additional scene-specific drops.
+- Use an Xbox controller and the RTV path at 60 Hz. Leave `-ExperimentalFlickit120Hz` and `-ExperimentalGpuWaitBackoff` off. Build and launch with `-ExperimentalFramePacing` for performance rechecks. Three synthetic default-WASAPI 1280x720 routes on November 23 passed with the experimental pacing candidate. Of four matched routes using the default stock plugin, only one passed all thresholds; the other three missed at least one limit. Keep the full Career playthrough on hold until the default build passes repeatably; gameplay may expose additional scene-specific drops.
 - Set `port.muteAudio` to `false` in `local.json` for the movie and audio checks. Verify the Port is audible in Windows Volume Mixer and record the playback device. Restore your preferred mute setting after the audio checks.
 - Use the default audio backend for the first pass. Use `-DebugLog` when repeating a defect.
 
