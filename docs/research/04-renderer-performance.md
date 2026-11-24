@@ -524,13 +524,15 @@ The experimental pacing executable was measured with each wake flag enabled alon
 
 None of the single-change or two-change variants met every M4 threshold. These runs alone do not establish whether the full set depends on an interaction, because full-candidate performance also changed during the same test period.
 
-A full-candidate route immediately before the ablation (`recheck57`) passed: 59.9 stationary, 59.93 movement, lowest window 59.2, worst p95 19 ms, longest gap 50.34 ms. Three later full-candidate routes did not repeat it. A stock-plugin control (`recheck59`) ran between the first and second of these later candidate captures:
+A full-candidate route immediately before the ablation (`recheck57`) passed: 59.9 stationary, 59.93 movement, lowest window 59.2, worst p95 19 ms, longest gap 50.34 ms. Five later full-candidate routes did not repeat it. A stock-plugin control (`recheck59`) ran between the first and second of these later candidate captures:
 
 | Run | Stationary mean | Movement mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Full candidate recheck58 | 59.6 | 58.08 | 43.6 | 35 ms | 66.06 ms |
+| Stock plugin recheck59 | 32.5 | 51.4 | 31.2 | 35 ms | 50.16 ms |
 | Full candidate recheck60 | 57.13 | 52.19 | 32.3 | 35 ms | 36.3 ms |
 | Full candidate recheck61 | 57.2 | 44.47 | 30.8 | 36 ms | 83.37 ms |
-| Stock plugin recheck59 | 32.5 | 51.4 | 31.2 | 35 ms | 50.16 ms |
+| Full candidate recheck62 | 59.07 | 52.03 | 30.0 | 35 ms | 67.41 ms |
+| Full candidate recheck63 | 52.93 | 52.40 | 31.1 | 35 ms | 66.62 ms |
 
-The later stock run was substantially slower, but full-candidate routes in the same period also missed. Performance declined across this sequence of captures; no GPU clock, temperature, or system scheduling telemetry was recorded, so thermal or background-load explanations remain hypotheses. This ablation does not identify a winning flag combination. Both candidate and stock routes remain inconsistent, and the Career performance gate is not met. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
+Recheck63 included Windows CPU and GPU-engine counters. Total CPU usage averaged 94.04% during its stationary phase and 86.73% during movement; processor performance stayed near 115.9% of base, while the Port GPU 3D engine averaged 35.87% stationary and 33.19% during movement. A simultaneous process-counter snapshot showed MsMpEng using 241%, vmmemWSL 163%, and skateport 178% of one logical CPU; these process loads sum across cores, so they can exceed 100%. After the game exited, total CPU usage remained 96.4%, with MsMpEng at 206% and vmmemWSL at 164%. The measurements support heavy CPU contention as a plausible source of route instability; they do not prove causality. No GPU clock or temperature was recorded. This ablation does not identify a winning flag combination. All five later full-candidate routes missed at least one threshold, the five stock routes remain inconsistent, and the Career performance gate is not met. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
