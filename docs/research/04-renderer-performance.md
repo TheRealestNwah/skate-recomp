@@ -486,14 +486,14 @@ Two further windowed WASAPI routes repeated the `Clock2` candidate with the same
 
 All three routes failed at least one pacing limit, and the second `Clock2` repeat and `Clock1` control also fell below the 50 swaps/s movement-average threshold. The control was close to the candidate repeats in movement rate, p95, and longest gap. This comparison shows no repeatable route-level benefit from the wake changes; route-to-route variation remains substantial, so it does not isolate the cause or change the M4 readiness decision.
 
-#### November 23 default WASAPI Career performance gate pass
+#### November 23 experimental pacing candidate and stock-plugin control
 
-Three independent muted synthetic Career routes repeated the packaged 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all three launches. Each route produced two complete stationary timing windows and 19 movement windows.
+Three independent muted synthetic Career routes repeated the packaged experimental 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all three launches. Each route produced two complete stationary timing windows and 19 movement windows.
 
 | Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| WASAPI repeat 1 | 60.0 | 59.99 | 59.8 | 18 ms | 33.20 ms |
-| WASAPI repeat 2 | 60.0 | 59.98 | 59.8 | 18 ms | 33.86 ms |
-| WASAPI repeat 3 | 60.0 | 59.96 | 59.8 | 18 ms | 33.63 ms |
+| WASAPI candidate repeat 1 | 60.0 | 59.99 | 59.8 | 18 ms | 33.20 ms |
+| WASAPI candidate repeat 2 | 60.0 | 59.98 | 59.8 | 18 ms | 33.86 ms |
+| WASAPI candidate repeat 3 | 60.0 | 59.96 | 59.8 | 18 ms | 33.63 ms |
 
-All three routes meet the provisional M4 thresholds, so the formal performance gate currently passes under this setup. A matched DirectSound route immediately before this set also averaged 59.97 swaps/s during movement, so the audio backend alone does not explain the low WASAPI results from November 22. The cause of the large session-to-session difference remains unknown. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
+All three experimental candidate routes meet the provisional M4 thresholds. A subsequent same-session stock-plugin run (`recheck50`) used the same harness and default WASAPI route, but the stock DLL matching the current `build/port/rexgpu-xenos.dll` averaged 52.9 swaps/s stationary and 55.42 on the movement route; its lowest movement window was 38.8 swaps/s, worst p95 was 35 ms, and longest gap was 49.38 ms. It therefore missed the stationary and p95 limits. The candidate run immediately afterward (`recheck51`) returned to 60.0 stationary and 59.82 movement, with a 19 ms worst p95 and 34.28 ms longest gap. This candidate-stock-candidate sequence supports a current-session difference between the experimental pacing plugin and the default stock plugin, but only one stock route was measured. The formal default-build performance gate remains open. The November 22 low routes and their session-to-session variation also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
