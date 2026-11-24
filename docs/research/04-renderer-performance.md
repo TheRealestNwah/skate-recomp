@@ -485,3 +485,15 @@ Two further windowed WASAPI routes repeated the `Clock2` candidate with the same
 | Clock1 control | 50.9 | 46.9 | 35.3 | 46 ms | 172 ms |
 
 All three routes failed at least one pacing limit, and the second `Clock2` repeat and `Clock1` control also fell below the 50 swaps/s movement-average threshold. The control was close to the candidate repeats in movement rate, p95, and longest gap. This comparison shows no repeatable route-level benefit from the wake changes; route-to-route variation remains substantial, so it does not isolate the cause or change the M4 readiness decision.
+
+#### November 23 default WASAPI Career performance gate pass
+
+Three independent muted synthetic Career routes repeated the packaged 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all three launches. Each route produced two complete stationary timing windows and 19 movement windows.
+
+| Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| WASAPI repeat 1 | 60.0 | 59.99 | 59.8 | 18 ms | 33.20 ms |
+| WASAPI repeat 2 | 60.0 | 59.98 | 59.8 | 18 ms | 33.86 ms |
+| WASAPI repeat 3 | 60.0 | 59.96 | 59.8 | 18 ms | 33.63 ms |
+
+All three routes meet the provisional M4 thresholds, so the formal performance gate currently passes under this setup. A matched DirectSound route immediately before this set also averaged 59.97 swaps/s during movement, so the audio backend alone does not explain the low WASAPI results from November 22. The cause of the large session-to-session difference remains unknown. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
