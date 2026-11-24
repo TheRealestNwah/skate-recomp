@@ -488,15 +488,16 @@ All three routes failed at least one pacing limit, and the second `Clock2` repea
 
 #### November 23 experimental pacing candidate and stock-plugin control
 
-Three independent muted synthetic Career routes repeated the packaged experimental 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all three launches. Each route produced two complete stationary timing windows and 19 movement windows.
+Three independent muted synthetic Career routes repeated the packaged experimental 60 Hz pacing build on the default two-channel WASAPI endpoint at 48 kHz. A fourth matched candidate route (`recheck57`) followed the later stock-plugin repeats. Each used RTV at 1280x720 windowed, a fresh copy of the same save, the `Clock2` settings, and the eight-segment input script. No auxiliary samplers ran. The plugin and runtime SHA-256 hashes matched across all three launches. Each route produced two complete stationary timing windows and 19 movement windows.
 
 | Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | WASAPI candidate repeat 1 | 60.0 | 59.99 | 59.8 | 18 ms | 33.20 ms |
 | WASAPI candidate repeat 2 | 60.0 | 59.98 | 59.8 | 18 ms | 33.86 ms |
 | WASAPI candidate repeat 3 | 60.0 | 59.96 | 59.8 | 18 ms | 33.63 ms |
+| WASAPI candidate recheck57 | 59.9 | 59.93 | 59.2 | 19 ms | 50.34 ms |
 
-All three experimental candidate routes meet the provisional M4 thresholds. Three matched stock-plugin routes (`recheck50`, `recheck54`, and `recheck55`) used the same scripted harness, windowed 1280x720 RTV target, default WASAPI endpoint, copied Career save, and eight-segment route. Each loaded the stock Xenos plugin with SHA-256 `359BCA690BEA07C5CF9BA2F045132B394A1ACC7B10901BDBCA3F3389A052DA43`, matching the current `build/port/rexgpu-xenos.dll`.
+All four experimental candidate routes meet the provisional M4 thresholds. Three matched stock-plugin routes (`recheck50`, `recheck54`, and `recheck55`) used the same scripted harness, windowed 1280x720 RTV target, default WASAPI endpoint, copied Career save, and eight-segment route. Each loaded the stock Xenos plugin with SHA-256 `359BCA690BEA07C5CF9BA2F045132B394A1ACC7B10901BDBCA3F3389A052DA43`, matching the current `build/port/rexgpu-xenos.dll`.
 
 | Run | Stationary mean | Movement route mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -505,4 +506,4 @@ All three experimental candidate routes meet the provisional M4 thresholds. Thre
 | Stock WASAPI recheck55 | 58.3 | 56.79 | 42.3 | 36 ms | 169.06 ms |
 | Stock WASAPI recheck56 | 59.5 | 59.47 | 56.8 | 31 ms | 49.7 ms |
 
-Only one of the four stock runs met every threshold. The default-build performance gate therefore fails this control set, despite the passing candidate triad; stock performance varied substantially across otherwise matched routes. The candidate-stock-candidate sequence from recheck50/51 still shows the candidate passing on both sides of the first stock miss, but neither it nor the later stock runs explains the large session-to-session variation. The November 22 low routes also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
+Only one of the four stock runs met every threshold, while all four matched candidate routes passed. The default-build performance gate therefore fails this control set, despite the passing candidate triad; stock performance varied substantially across otherwise matched routes. The candidate-stock-candidate sequence from recheck50/51 still shows the candidate passing on both sides of the first stock miss, but neither it nor the later stock runs explains the large session-to-session variation. The November 22 low routes also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
