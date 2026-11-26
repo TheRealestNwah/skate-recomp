@@ -508,7 +508,6 @@ All four routes in this earlier candidate set met the provisional M4 thresholds.
 
 Only one of the four stock runs met every threshold in this earlier comparison, while all four candidate routes in that set passed. The default-build performance gate therefore fails this control set; stock performance varied substantially across otherwise matched routes. The candidate-stock-candidate sequence from recheck50/51 still shows the candidate passing on both sides of the first stock miss, but neither it nor the later stock runs explains the large session-to-session variation. The November 22 low routes also remain unexplained. Audio was muted and input was synthetic; audible playback and physical controller checks remain separate M4 items.
 
-
 #### November 24 frame-pacing wake-flag ablation
 
 The experimental pacing executable was measured with each wake flag enabled alone and in pairs. All routes used the same muted synthetic Career harness, the default WASAPI endpoint, windowed RTV at 1280x720, a copied save, and the eight-segment input script. Each run had three stationary windows and 19 movement windows. `Graphics-worker wake` is `SKATE_LOCAL_VBLANK_EVENT`; `VBlank deadline` is `SKATE_LOCAL_VBLANK_DEADLINE`; `Guest ring wake` is `SKATE_LOCAL_GUEST_RING_WAKE`. Unlisted flags were set to zero. No auxiliary samplers ran.
