@@ -536,3 +536,20 @@ A full-candidate route immediately before the ablation (`recheck57`) passed: 59.
 | Full candidate recheck63 | 52.93 | 52.40 | 31.1 | 35 ms | 66.62 ms |
 
 Recheck63 included Windows CPU and GPU-engine counters. The aggregate `Processor(_Total)\% Processor Time` counter averaged 94.04% during its stationary phase and 86.73% during movement; processor performance stayed near 115.9% of base, while the Port GPU 3D engine averaged 35.87% stationary and 33.19% during movement. A simultaneous process-counter snapshot showed MsMpEng at 241%, vmmemWSL at 163%, and skateport at 178% of one logical CPU; process loads sum across cores and can exceed 100%. After the game exited, the aggregate CPU counter read 96.4%, but subsequent per-core samples averaged 72-82%, and per-process counters showed about 10-12 logical-CPU equivalents of activity. These Windows counters do not reconcile exactly. They indicate substantial background CPU activity, but do not prove saturation or causality. No GPU clock or temperature was recorded. The Guest-ring-wake-only route passed once but failed its telemetry-enabled repeat under high aggregate CPU load, so it is not a validated configuration. All five later full-candidate routes missed at least one threshold, the five stock routes remain inconsistent, and the Career performance gate is not met. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
+
+#### November 25 candidate/control rechecks
+
+Four additional 60 Hz routes used the same copied Career save, synthetic eight-segment input, muted default WASAPI playback, windowed RTV at 1280x720, and packaged binaries. Three loaded the experimental pacing candidate; one loaded the stock Xenos plugin. Each route recorded three stationary windows and 19 movement windows. The candidate enabled all three experimental wake flags (`Clock2`).
+
+| Run | Sampling and host condition | Stationary mean | Movement mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Candidate recheck66 | No auxiliary sampler | 59.87 | 59.87 | 59.2 | 19 ms | 49.95 ms |
+| Stock recheck67 | No auxiliary sampler | 59.73 | 59.54 | 54.6 | 33 ms | 35.20 ms |
+| Candidate recheck70 | CPU/GPU counters sampled every 2 s | 60.00 | 59.52 | 55.6 | 34 ms | 66.17 ms |
+| Candidate recheck71 | Concurrent `ninja check` with 15-18 compiler workers | 39.80 | 34.81 | 23.5 | 82 ms | 128.69 ms |
+
+Recheck66 met the per-route pacing thresholds, while the single stock control and the counter-sampled candidate each missed the movement p95 limit. During recheck70, aggregate CPU averaged 38.27% over movement and peaked at 74.38%; Port CPU averaged 9.20% of total processor capacity and GPU 3D averaged 39.63%. The counter-sampled route does not show the near-total aggregate load seen on November 24, but it cannot distinguish sampler overhead from normal route variation.
+
+Recheck71's first stationary phase began at 21:39:42, three seconds after another checkout started `ninja check`. That build had 15-18 Python compiler workers during the route. The Windows aggregate CPU counter remained at 100% on 16 logical processors during and after the route. A process CPU sample did not reconcile with that counter. **[Inference]** The external compile load likely contributed to the very low swap rates and large gaps in recheck71; the route is not a valid candidate comparison.
+
+These four routes do not establish repeatable candidate performance: one unsampled candidate route passed, the stock route missed p95, the sampled candidate also missed p95, and the candidate run during a concurrent compile failed substantially. The M4 performance gate remains unmet. Repeat matched routes after the external compile has finished, with no auxiliary samplers on acceptance runs. The local captures and scripts are under ignored `build/perf-baseline/` in folders named for rechecks 66, 67, 70, and 71. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
