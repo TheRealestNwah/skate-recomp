@@ -553,3 +553,14 @@ Recheck66 met the per-route pacing thresholds, while the single stock control an
 Recheck71's first stationary phase began at 21:39:42, three seconds after another checkout started `ninja check`. That build had 15-18 Python compiler workers during the route. The Windows aggregate CPU counter remained at 100% on 16 logical processors during and after the route. A process CPU sample did not reconcile with that counter. **[Inference]** The external compile load likely contributed to the very low swap rates and large gaps in recheck71; the route is not a valid candidate comparison.
 
 These four routes do not establish repeatable candidate performance: one unsampled candidate route passed, the stock route missed p95, the sampled candidate also missed p95, and the candidate run during a concurrent compile failed substantially. The M4 performance gate remains unmet. Repeat matched routes after the external compile has finished, with no auxiliary samplers on acceptance runs. The local captures and scripts are under ignored `build/perf-baseline/` in folders named for rechecks 66, 67, 70, and 71. Audio was muted and input synthetic; audible playback and physical controller checks remain separate.
+
+#### November 25 loaded-host candidate/control pair
+
+Rechecks 72 and 73 used the same muted 1280x720 synthetic Career route without auxiliary samplers. They ran while another checkout's `ninja check` and Python permutation workers were active; Windows reported 0% aggregate processor idle during both measurements. Candidate recheck72 loaded the experimental `Clock2` Xenos plugin, while stock recheck73 loaded the normal plugin.
+
+| Run | Stationary mean | Movement mean | Lowest five-second movement window | Worst movement-window p95 | Longest movement-window gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Candidate recheck72 | 37.35 | 44.73 | 36.7 | 51 ms | 150.37 ms |
+| Stock recheck73 | 25.95 | 29.56 | 22.8 | 75 ms | 174.25 ms |
+
+The candidate was faster in this loaded-host pair, but both routes missed the stationary, movement, p95, and gap thresholds. The background task and inconsistent Windows CPU counters prevent attributing the difference to the pacing changes. Treat these as diagnostic captures only. Local output is under ignored `build/perf-baseline/` folders named for rechecks 72 and 73.
